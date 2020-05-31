@@ -4,7 +4,7 @@
 
 From Github Actions samples.
 
-[Github Action for Yaraction](https://github.com/marketplace/actions/github-action-for-yarn) action.
+[Github Action for Yarn action](https://github.com/marketplace/actions/github-action-for-yarn) action.
 
 ```yaml
 name: CI
@@ -80,7 +80,7 @@ jobs:
 
 From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app.
 
-```
+```yaml
 jobs:
   install-and-test:
     runs-on: ubuntu-latest
