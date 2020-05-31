@@ -1,5 +1,13 @@
 # Access token cheatsheet
 
+
+## Warning
+
+- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin, someone has access to read or write to _all_ your repos.
+- Unfortunately a lot of actions like to use this in their recommendations, but you can swap this out in your workflow.
+- And if you regenerate the token, you have to go and update all the secrets of repos that use the token.
+
+
 ## Access token naming
 
 aka "PAT" or "authentication token".
@@ -14,13 +22,13 @@ Depending on the workflow, the token should be named something like one of these
 
 - Create manually this at the Github **account** level, then and use for one or more repos.
 - Uses
-     - Can be used in actions
-     - For other cases such as manual or automated REST requests, if you put it in your URL or enter as your password. The PAT is actually _necessary_ if you use two-factor authenticator or single sign-on (otherwise you have to enter those a number on the command-line).
+    - Can be used in actions
+    - For other cases such as manual or automated REST requests, if you put it in your URL or enter as your password. The PAT is actually _necessary_ if you use two-factor authenticator or single sign-on (otherwise you have to enter those a number on the command-line).
 - Permissions are granted per token based on your choices.
 - Read it in action with this, or whatever name action uses:
-     ```yaml
-     ${{ secrets.ACCESS_TOKEN }}
-     ```
+    ```yaml
+    ${{ secrets.ACCESS_TOKEN }}
+    ```
 - Docs - [Creating a Personal Access Token for the Command-line](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
 
 See [Access Token](access_token.md) cheatsheet for more info.
@@ -81,7 +89,6 @@ env:
 
 - Push to the repo, or
 - Go to your action and click rerun.
-
 
 
 ## Using an access token directly

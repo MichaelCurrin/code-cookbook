@@ -2,7 +2,7 @@
 
 From Github Action samples.
 
-[action](https://github.com/marketplace/actions/setup-node-js-environment)
+This used the [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`.
 
 ```yaml
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node

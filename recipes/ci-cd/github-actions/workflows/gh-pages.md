@@ -3,10 +3,12 @@
 
 This skips the standard GH Pages build so you don't have to use Jekyll.
 
+
 ## Basic example
 
 Here we build an NPM project. Such as React or Vue or Gatsby.
 
+Uses NPM.
 
 Using [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) and based on the sample there.
 
@@ -25,7 +27,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install 🔧 
+      - name: Install 🔧
         run: |
           npm install
 
@@ -44,13 +46,15 @@ Notes:
 
 - More emojis: ⚙️🧱
 - If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-- See [Tokens](tokens/) guide on Access Tokens.
-- The branch is required.
+- See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide.
+- The branch is _required_.
 
 
 ## Full example
 
-Here we use Yarn and several versions of Node to deploy a React app. From [explooosion/react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions).
+Here we use Yarn and several versions of Node test the app and then one version of Node to deploy the React app. From [explooosion/react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions).
+
+Uses Yarn.
 
 ```yaml
 name: Build and Deploy

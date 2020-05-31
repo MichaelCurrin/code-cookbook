@@ -4,7 +4,7 @@
 
 From Github Actions samples.
 
-[Github Action for Yarn action](https://github.com/marketplace/actions/github-action-for-yarn) action.
+Uses the [Github Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
 ```yaml
 name: CI
@@ -30,11 +30,11 @@ jobs:
 
 From this [post](https://spin.atomicobject.com/2020/01/20/github-actions-react-node/) about deploying React/Node to Heroku.
 
-Using
+Use caches:
 
-- `checkout`
-- `cache`
-- `setup-node`.
+- `actions/checkout`
+- `actions/cache`
+- `actions/setup-node`
 
 ```yaml
 jobs:
@@ -78,7 +78,7 @@ jobs:
 
 ## Example 3
 
-From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app.
+From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app - just the install/test portion.
 
 ```yaml
 jobs:
