@@ -1,6 +1,6 @@
 # Serve from CGI bin
 
-Based on [StackOverflow](http://stackoverflow.com/questions/10396330/how-to-host-python-cgi-script-with-python-m-simplehttpserver-8000-or-python).
+See [cgi](https://docs.python.org/3.8/library/cgi.html?highlight=cgi#module-cgi) in the Python 3 docs.
 
 Place `.py` file in `cgi-bin` or `htbin` folder.
 
@@ -13,7 +13,7 @@ $ chmod +x filename.py
 Run CGI server
 
 ```sh
-$ python -m CGIHTTPServer 
+$ python3 -m http.server 
 ```
 
 Open in the browser:
@@ -23,5 +23,5 @@ Open in the browser:
 Or use:
 
 ```sh
-$ python -m webbrowser -t "http://localhost:8000/cgi-bin/test.py"
+$ python3 -m webbrowser -t "http://localhost:8000/cgi-bin/test.py"
 ```
