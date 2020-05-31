@@ -6,7 +6,7 @@
 
 A collection of answers to coding problems I come across, so I can refer back here to see what a few good approaches are.
 
-Like a cheatsheet, but rather than one-line commands or code blocks, the answer is a longer file or a combination of files. 
+Like a cheatsheet, but rather than one-line commands or code blocks, the answer is a longer file, a combination of files, or series of steps to follow.
 
 Some answers will be boilerplate that you can copy to your project as is, with a few values possibly to configure.
 
