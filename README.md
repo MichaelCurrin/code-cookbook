@@ -4,7 +4,9 @@
 
 ## About
 
-A reference like a cheatsheet, but rather than one-line commands or code blocks, the answer is a longer file or a combination of files. 
+A collection of answers to coding problems I come across, so I can refer back here to see what a few good approaches are.
+
+Like a cheatsheet, but rather than one-line commands or code blocks, the answer is a longer file or a combination of files. 
 
 Some answers will be boilerplate that you can copy to your project as is, with a few values possibly to configure.
 
@@ -16,4 +18,4 @@ The solutions are based on my experienced or copied from other projects that I f
 
 - `robots.txt` file
 - `sitemap.xml`
-- Github Actions
+- Github Actions - choosing actions
