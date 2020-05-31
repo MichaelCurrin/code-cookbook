@@ -17,3 +17,12 @@ Here are the approaches, from simplest to most complex to manage, with summary n
 	- Repo-specific API key.
 	- Needs to be generated locally using SSH tool and your email address then pasted in.
 	- Secure.
+
+
+Three tokens are supported by Github Actions.
+
+| Token            | Private repo | Public repo | Protocol | Setup       |
+| ---------------- | :----------: | :---------: | -------- | ----------- |
+| `github_token`   |      ✅️       |      ✅️      | HTTPS    | Unnecessary |
+| `deploy_key`     |      ✅️       |      ✅️      | SSH      | Necessary   |
+| `personal_token` |      ✅️       |      ✅️      | HTTPS    | Necessary   |

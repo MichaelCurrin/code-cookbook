@@ -1,10 +1,12 @@
-
 # Github Token
+
 
 ## About
 
 - Generated **automatically** - Github creates this for you on an action run.
 - You can use it in actions only.
+- Setup the first deploy
+    - You'll see the repo settings get setup as `gh-pages` branch but the site is not live. So you need to choose another option then switch back. Then you'll see the live URL and environment tab.
 - Read it in an action:
      ```yaml
      ${{ secrets.GITHUB_TOKEN }}

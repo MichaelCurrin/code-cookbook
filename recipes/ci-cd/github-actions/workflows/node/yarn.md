@@ -100,3 +100,45 @@ jobs:
         env:
           CI: true
 ```
+
+
+## Tips
+
+Generate by `yarn` when doing a build that uses Github Pages in `PUBLIC_URL`.
+
+```
+The project was built assuming it is hosted at /react-create-app-quickstart/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+To publish it at https://michaelcurrin.github.io/react-create-app-quickstart/ , run:
+
+  yarn add --dev gh-pages
+
+Add the following script in your package.json.
+
+    // ...
+    "scripts": {
+      // ...
+      "predeploy": "yarn build",
+      "deploy": "gh-pages -d build"
+    }
+
+Then run:
+
+  yarn run deploy
+
+Find out more about deployment here:
+
+  bit.ly/CRA-deploy
+
+```
+
+
+Example of homepage set in `package.json`.
+
+```json
+{
+  "homepage" : "http://myname.github.io/myapp"
+}
+```

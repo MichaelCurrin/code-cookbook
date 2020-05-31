@@ -1,8 +1,11 @@
-# Node
+# NPM actions
+
+
+## Setup Node action
 
 From Github Action samples.
 
-This used the [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`.
+- [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
 
 ```yaml
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node

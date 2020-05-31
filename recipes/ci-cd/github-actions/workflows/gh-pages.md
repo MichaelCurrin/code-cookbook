@@ -3,15 +3,48 @@
 
 This skips the standard GH Pages build so you don't have to use Jekyll.
 
+See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide on use of tokens.
 
-## Basic example
 
-Here we build an NPM project. Such as React or Vue or Gatsby.
+## Using Github Pages Action
 
-Uses NPM.
+This is a popular action I found.
 
-Using [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) and based on the sample there.
+- [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages@`
 
+Works with static site generators like Hugo, MkDocs, Gatsby, GitBook and mdBook.
+
+Sample:
+
+```yaml
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./public
+```
+
+This supports all 3 token types.
+
+
+## Using the Github Pages Deploy Action
+
+### Sample
+
+Here we deploy a project using NPM command. Such as React or Vue or Gatsby.
+
+- [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages)
+- `JamesIves/github-pages-deploy-action`
+
+This is based on that action's sample.
+
+Uses:
+
+- `actions/checkout`
+- `JamesIves/github-pages-deploy-action`
+- `npm`
+
+Note that `actions/setup-node` is not used.
 
 ```yaml
 name: Build and Deploy
@@ -44,17 +77,30 @@ jobs:
 
 Notes:
 
-- More emojis: ⚙️🧱
+- Some emojis to use: `⚙️ 🧱`
 - If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-- See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide.
 - The branch is _required_.
+- Tests are missing. See example below.
 
 
-## Full example
+### Two-job example
 
-Here we use Yarn and several versions of Node test the app and then one version of Node to deploy the React app. From [explooosion/react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions).
+Install, test and deploy.
 
-Uses Yarn.
+Here we use Yarn and several versions of Node test the app and then one version of Node to deploy the React app.
+
+From [explooosion/react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions).
+
+Uses:
+
+- `actions/checkout`
+- `actions/setup-node` (tests only)
+- `JamesIves/github-pages-deploy-action`
+- `yarn`
+
+Perhaps this can be setup to only run the deploy after tests pass.
+
+Perhaps test can run on any branch but deploy only on master.
 
 ```yaml
 name: Build and Deploy
