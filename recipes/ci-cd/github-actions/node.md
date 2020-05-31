@@ -35,6 +35,3 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5ODYwMTg5Ml19
--->

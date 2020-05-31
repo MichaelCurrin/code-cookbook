@@ -30,7 +30,7 @@ jobs:
 
 From this [post](https://spin.atomicobject.com/2020/01/20/github-actions-react-node/) about deploying React/Node to Heroku.
 
-Using 
+Using
 
 - `checkout`
 - `cache`
@@ -64,11 +64,11 @@ jobs:
         node-version: '10.x'
 
     - run: yarn install
-    
+
     - run: yarn lint
     - run: knex migrate:latest
     - run: yarn test:server
-    
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -99,7 +99,4 @@ jobs:
           yarn test
         env:
           CI: true
-```   
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMzQ4NzA4XX0=
--->
+```

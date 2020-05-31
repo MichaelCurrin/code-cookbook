@@ -58,6 +58,3 @@ Allow one or more specific domains:
 ```toml
     Access-Control-Allow-Origin = ["www.example.com", "test.com"]
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzYwNjE1MF19
--->

@@ -17,7 +17,7 @@
 
 ## How to generate and SSH key
 
-- If the machine doesn't have an SSH key set, you'll have to generate one. 
+- If the machine doesn't have an SSH key set, you'll have to generate one.
 - Even if it has one, you might choose to create a new one that is used specifically for Github, so you could delete if you want and leave behind one that you use for other SSH purposes.
 
 Generate:
@@ -50,7 +50,3 @@ $ cat ~/.ssh/id_rsa.pub
     - Set **title** with convenient.
     - Paste into **key** as an SSH public key (so only that a certain machine can deploy).
     - Optionally tick **Allow write access**.
-    
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NDM3NTIwN119
--->

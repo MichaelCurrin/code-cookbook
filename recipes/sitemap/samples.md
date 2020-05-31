@@ -4,7 +4,7 @@ From Google help:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://www.example.com/foo.html</loc>
     <lastmod>2018-06-04</lastmod>
@@ -25,7 +25,7 @@ From sitemaps.org:
 
       <changefreq>monthly</changefreq>
    </url>
-</urlset> 
+</urlset>
 ```
 
 Longer example:
@@ -80,6 +80,3 @@ Longer example:
 
 </urlset>
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzUzMDIzNjldfQ==
--->

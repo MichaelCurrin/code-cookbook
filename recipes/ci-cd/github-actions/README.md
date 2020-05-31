@@ -58,7 +58,7 @@ This comes from the docs but doesn't seem to add much from above.
 on: [push, pull_request]
 ```
 
-Or trigger on Pull Request only. 
+Or trigger on Pull Request only.
 
 ```yaml
 on: pull_request
@@ -74,7 +74,7 @@ You may want to restrict your action to only build on  pushes `master` and not f
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - master
 ```
 
@@ -99,6 +99,3 @@ on:
 [Intro to Github Actions blog post](https://gabrieltanner.org/blog/an-introduction-to-github-actions)
 
 > Actions are completely free for every open-source repository and include **2000 free build minutes per month** for all your private repositories which is comparable with most CI/CD free plans. If that is not enough for your needs you can pick another plan or go the self-hosted route.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0OTQzOTE3XX0=
--->

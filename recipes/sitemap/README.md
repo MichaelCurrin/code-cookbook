@@ -25,7 +25,7 @@ https://support.google.com/webmasters/answer/183668?hl=en
 
 Build and submit a sitemap:
 
-1. Decide which pages on your site should be crawled by Google, and determine the canonical version of each page. 
+1. Decide which pages on your site should be crawled by Google, and determine the canonical version of each page.
 1. Decide which sitemap format you want to use. You can create your sitemap manually or choose from a number of third-party tools to generate your sitemap for you.
 1. Make your sitemap available to Google by adding it to your robots.txt file or directly submitting it to Search Console.
 
@@ -60,7 +60,3 @@ https://www.sitemaps.org/protocol.html
 Priority is dropped from the examples.
 
 > Google does not currently consume the `<priority>` attribute in sitemaps. [source](https://support.google.com/webmasters/answer/183668?hl=en)
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjgzMTc3NzJdfQ==
--->

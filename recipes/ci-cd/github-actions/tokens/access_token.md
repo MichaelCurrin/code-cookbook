@@ -118,6 +118,3 @@ https://<token>:x-oauth-basic@github.com/USERNAME/REPO_NAME.git
 From [blog post](https://github.blog/2012-09-21-easier-builds-and-deployments-using-git-over-https-and-oauth/)
 
 > Tokens should be treated as passwords. Putting the token in the clone URL will result in Git writing it to the .git/config file in plain text. Unfortunately, this happens for HTTP passwords, too.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NTcwMzU2XX0=
--->
