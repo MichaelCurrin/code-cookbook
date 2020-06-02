@@ -16,6 +16,8 @@ The explanations are steps are more thorough than would fit in a cheatsheet. Tho
 
 The solutions are based on my experienced or copied from other projects that I find, as a reference for how to something.
 
+This project does not cover steps on install tools but rather how to use them.
+
 ### Examples
 
 - `robots.txt` file
