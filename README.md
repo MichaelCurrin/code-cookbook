@@ -14,7 +14,7 @@ Some content will be steps to follow in the command-line and not so much code to
 
 The explanations are steps are more thorough than would fit in a cheatsheet. Though the emphasis is more on the content rather than steps to follow.
 
-The solutions are based on my experienced or copied from other projects that I find.
+The solutions are based on my experienced or copied from other projects that I find, as a reference for how to something.
 
 ### Examples
 
