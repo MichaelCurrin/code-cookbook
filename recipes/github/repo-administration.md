@@ -2,6 +2,9 @@
 
 `.github/workflows/`
 
+Note - you might have install an app from the marketplace in order to get these to work for your repo.
+
+
 ## Labeler
 
 `labeler.yml`
@@ -19,6 +22,7 @@ jobs:
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
+
 
 ## Stale
 
