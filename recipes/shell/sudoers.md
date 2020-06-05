@@ -1,6 +1,5 @@
 # Sudoers
-
-Guide for Linux
+> How to act as the root user - guide for Linux
 
 
 ## Manpage
@@ -68,3 +67,5 @@ Set a default.
 ```
 Defaults        timestamp_timeout=300
 ```
+
+[source](https://unix.stackexchange.com/questions/216891/how-do-i-make-sudo-remember-my-password-for-longer)
