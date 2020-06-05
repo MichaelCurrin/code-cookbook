@@ -62,11 +62,11 @@ $ sudo dd if=linux-lite-5.0-64bit.iso of=/dev/sdb bs=4M
 ### Write to DVD
 
 1. Download free disk burning software.
-    - K3b 
+    - K3B - KDE Burning tool
         - [On KDE site](https://kde.org/applications/en/multimedia/org.kde.k3b)
         - [Wiki page](https://userbase.kde.org/K3b)
         - It tells you the max storage of the disk and whether its empty.
-        >  K3b is a simple, yet powerful and highly-configurable graphical optical disk burning application for audio, video, data projects and more!
+        >  K3B is a simple, yet powerful and highly-configurable graphical optical disk burning application for audio, video, data projects and more!
     - BurnAware Free - http://www.burnaware.com
     - CDBurnerXP - http://cdburnerxp.se/
     - ImgBurn - http://www.imgburn.com/
