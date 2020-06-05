@@ -5,11 +5,16 @@ Steps to follow to install a Linux operating system on a machine.
 Instructions are based on the Linux Lite [Install](https://www.linuxliteos.com/manual/install.html) guide.
 
 
-## Download image
+## 1. Choose an OS
 
-For example, to download Linux Lite (based on Ubuntu).
+Go through the popular flavors of Linux - [gist](https://gist.github.com/MichaelCurrin/eeb0ba4943291aa3ed3a14c8ebece891).
 
-Go to the download page:
+We use Linux Lite in this guide.
+
+
+## 2. Download image
+
+For example, to download Linux Lite - go to the download page:
 
 - https://www.linuxliteos.com/download.php
 
@@ -18,7 +23,7 @@ And click the download ISO button.
 The file is about 1 GB.
 
 
-## Write
+## 3. Write to storage media
 
 Follow the USB or DVD instructions below.
 
@@ -65,3 +70,16 @@ $ sudo dd if=linux-lite-5.0-64bit.iso of=/dev/sdb bs=4M
 1. Open the program
 1. Select the ISO file.
 1. Choose the lowest burn speed - this reduces the chance of corruption.
+
+
+## 4. Boot up and install
+
+Insert your DVD or USB drive into the target machine and start it.
+
+Follow the prompts.
+
+You may choose to boot in the OS without actually persisting any changes. This is convenient for trying out without committing.
+
+If you want, follow the prompts to install the OS to the machine. You'll be asked if you want to use a partition (keeping the existing OS and allowing dual-boot) or to overwrite the entire machine with the new OS.
+
+At some point you'll be asked to reboot your machine to complete the installation. You might want to remove your storage media just before doing this, as you don't need it anymore.
