@@ -3,7 +3,7 @@
 If you want to communicate between two machines on a network.
 
 
-## Find current IP
+## Find current IP address
 
 If you need to find your current IP, run:
 
@@ -55,7 +55,7 @@ If you have a static IP on the network, then you can add an alias to it for conv
 Edit the hosts file/
 
 ```sh
-$ edit /etc/hosts
+$ sudo nano /etc/hosts
 ```
 
 Add the target machine's IP and an alias. Note a **tab** and not spaces between.
