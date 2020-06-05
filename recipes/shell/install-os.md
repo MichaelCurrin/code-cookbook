@@ -37,7 +37,7 @@ Etcher is a GUI application allows you to create a bootable Live USB drive. You 
 
 - https://www.balena.io/etcher/
 
-#### Using command-line
+#### Using the command-line
 
 Use the terminal on macOS or Linux.
 
