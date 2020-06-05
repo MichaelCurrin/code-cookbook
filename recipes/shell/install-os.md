@@ -18,9 +18,9 @@ For example, to download Linux Lite - go to the download page:
 
 - https://www.linuxliteos.com/download.php
 
-And click the download ISO button.
+And click the download ISO button to save it to your Downloads directory.
 
-The file is about 1 GB.
+The file for Linux Lite v5 is about 1.3 GB.
 
 
 ## 3. Write to storage media
@@ -62,19 +62,26 @@ $ sudo dd if=linux-lite-5.0-64bit.iso of=/dev/sdb bs=4M
 ### Write to DVD
 
 1. Download free disk burning software.
-    - K3b (from KDE i.e. for Debian) - https://kde.org/applications/en/multimedia/org.kde.k3b
+    - K3b 
+        - [On KDE site](https://kde.org/applications/en/multimedia/org.kde.k3b)
+        - [Wiki page](https://userbase.kde.org/K3b)
+        - It tells you the max storage of the disk and whether its empty.
+        >  K3b is a simple, yet powerful and highly-configurable graphical optical disk burning application for audio, video, data projects and more!
     - BurnAware Free - http://www.burnaware.com
     - CDBurnerXP - http://cdburnerxp.se/
     - ImgBurn - http://www.imgburn.com/
 1. Place a blank writable DVD in your DVD drive.
-1. Open the program
-1. Select the ISO file.
-1. Choose the lowest burn speed - this reduces the chance of corruption.
+1. Open the program.
+1. Choose to burn image
+    - In K3b: _Tools_, then _Burn Image_
+1. Select the ISO file (such as from your Downloads directory).
+1. Choose the _slowest_ burn speed - this reduces the chance of corruption.
+1. Click Start.
 
 
 ## 4. Boot up and install
 
-Insert your DVD or USB drive into the target machine and start it.
+Insert your finished DVD or USB drive into the target machine and start it.
 
 Follow the prompts.
 
