@@ -32,7 +32,7 @@ As recommended by [Github doc](https://help.github.com/en/github/authenticating-
 
 
 ```sh
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+$ ssh-keygen -t rsa -b 4096 -C COMMENT
 ```
 
 Flags:
@@ -40,7 +40,7 @@ Flags:
 - `-t rsa`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
 - `-b 4096`: Specifies the number of bits in the key to create
 - `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
-- `-C "My web-server key"` : Set a new comment.
+- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by Github docs or rather use `"$USER@$HOSTNAME"` as it is specific to your machine.
 
 See also [page](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) in the `git` docs but this doesn't add much to what is covered above.
 
