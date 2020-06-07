@@ -1,5 +1,6 @@
 # Deploy key
 
+
 ## About
 
 - Generated manually.
@@ -15,7 +16,7 @@
 - Optionally it can have **write** access - such as for writing to a deploy branch.
 
 
-## How to generate and SSH key
+## How to generate a SSH key
 
 - If the machine doesn't have an SSH key set, you'll have to generate one.
 - Even if it has one, you might choose to create a new one that is used specifically for Github, so you could delete if you want and leave behind one that you use for other SSH purposes.
