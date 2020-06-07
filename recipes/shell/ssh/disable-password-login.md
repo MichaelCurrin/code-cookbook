@@ -47,3 +47,9 @@ Add:
 # Allow members of group sudo to execute any command
 %sudo	ALL=(ALL:ALL) ALL
 ```
+
+Restart the service.
+
+```sh
+sudo systemctl reload ssh
+```
