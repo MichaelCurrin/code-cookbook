@@ -42,6 +42,8 @@ Flags:
 - `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
 - `-C "My web-server key"` : Set a new comment.
 
+See also [page](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) in the `git` docs but this doesn't add much to what is covered above.
+
 
 ## Passphrase
 
