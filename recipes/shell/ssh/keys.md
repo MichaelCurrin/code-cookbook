@@ -1,5 +1,21 @@
 # SSH keys
 
+SSH is about identity verification - proving who you are when starting a shell tunnel that needs to be secure.
+
+
+## About keys
+
+SSH works using a combination of public and private keys.
+
+Files:
+
+- `id_rsa` - private key.
+- `id_rsa.pub` - public key.
+
+Both exist on your machine.
+
+The public and private keys work together with encryption algorithms. Your public key can be added to authorized keys on another machine or on Github account. So that host will allow a machine to connect if its public key matches what is has stored, but the connecting machine must also have the appropriate private key which is used in the connection but not sent directly.
+
 
 ## View SSH keys
 
