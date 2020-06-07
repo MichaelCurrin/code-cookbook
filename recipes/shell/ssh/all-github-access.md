@@ -1,5 +1,7 @@
 # Allow Github SSH access
 
+Add your SSH key to Github so you can push with an SSH repo URL. This avoids having to enter your password each time your push or if you pull a private repo. And this is especially useful if 2FA is setup.
+
 
 ## Generate
 
