@@ -1,5 +1,6 @@
 # SSH keys
 
+
 ## View SSH keys
 
 Check for SSH keys - you'll get an error if the directory doesn't exist.
@@ -15,11 +16,18 @@ $ view ~/.ssh/id_rsa.pub
 If the machine doesn't have an SSH key set, you'll have to generate one - see below.
 
 
-## Generate
-
-As recommended by [Github doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+## Generate keys
 
 Generate a new SSH key. Press enter when prompted to use the default location.
+
+Simple:
+
+```sh
+$ ssh-keygen -t rsa
+```
+
+As recommended by [Github doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to Github repos via SSH.
+
 
 ```sh
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
