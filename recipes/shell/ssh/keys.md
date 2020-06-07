@@ -74,13 +74,14 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 
 Note that may not be necessary if the agent is already running and if you are using the default SSH key name.
 
-Start the ssh-agent in the background.
+Start the `ssh-agent` in the background.
 
 ```sh
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
-``
-Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+```
+
+Add your SSH private key to the `ssh-agent`. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
 
 ```sh
 $ ssh-add ~/.ssh/id_rsa
