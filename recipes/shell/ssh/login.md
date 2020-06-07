@@ -12,6 +12,13 @@ $ ssh user@hostname
 Enter the password.
 
 
+## Copy
+
+```sh
+$ scp foo.txt use@hostname:~/Downloads
+```
+
+
 ## Add your machine the remote
 
 Allow SSH access without the password. 
