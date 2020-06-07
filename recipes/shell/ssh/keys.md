@@ -3,6 +3,8 @@
 
 ## View SSH keys
 
+Even if SSH is installed, you don't necessarily have keys setup.
+
 Check for SSH keys - you'll get an error if the directory doesn't exist.
 
 ```sh
@@ -32,6 +34,13 @@ As recommended by [Github doc](https://help.github.com/en/github/authenticating-
 ```sh
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
+
+Flags:
+
+- `-t rsa`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
+- `-b 4096`: Specifies the number of bits in the key to create
+- `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
+- `-C "My web-server key"` : Set a new comment.
 
 
 ## Passphrase
