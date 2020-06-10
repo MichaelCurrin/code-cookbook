@@ -108,7 +108,11 @@ e.g.
 8.8.8.8, 192.168.1.10
 ```
 
-Save.
+Sample:
+
+![Manual settings](/recipes/_media/manual.png)
+
+Press _Save_ and then exit.
 
 
 ## Disconnect
@@ -119,6 +123,7 @@ Turn off your WiFi settings - open the network bar and untick "Enable Wi-Fi".
 ## Connect
 
 Turn on your WiFi settings.
+
 
 ## Test your connection
 
@@ -142,6 +147,7 @@ ping google.com
 PING google.com (172.217.170.78) 56(84) bytes of data.
 64 bytes from jnb02s04-in-f14.1e100.net (172.217.170.78): icmp_seq=1 ttl=52 time=25.9 ms
 ```
+
 
 ## Conclusion
 
