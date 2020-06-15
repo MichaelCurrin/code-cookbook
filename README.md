@@ -1,6 +1,8 @@
 # Code Cookbook
 > Recipes to follow to achieve small or large goals using scripts or configs
 
+A collection of reusable code I have written or copied from other sources.
+
 
 ## About
 
