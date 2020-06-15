@@ -1,0 +1,8 @@
+{
+  "title": "test",
+  "main": "index.js",
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}
