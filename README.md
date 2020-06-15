@@ -1,7 +1,11 @@
 # Code Cookbook
 > Recipes to follow to achieve small or large goals using scripts or configs
 
-A collection of reusable code I have written or copied from other sources.
+A collection of reusable code I have written or copied from other sources like tutorials or repos. I give credit as much as possible.
+
+Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together. 
+
+Sometimes there is just a collection of ingredients which are similar and can be used in a larger recipe. For example, a collection of ESLint config files from various sources.
 
 
 ## About
