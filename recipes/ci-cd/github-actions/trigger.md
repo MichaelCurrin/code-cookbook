@@ -21,6 +21,22 @@ on: push
 on: [push, pull_request]
 ```
 
+The same as:
+
+```yaml
+on:
+  push:
+  pull_request:
+```
+
+And maybe:
+
+```yaml
+on:
+  - push:
+  - pull_request:
+```
+
 ### On push or master or Pull Request to any branch
 
 ```yaml
