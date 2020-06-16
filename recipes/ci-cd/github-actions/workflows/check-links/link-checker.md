@@ -4,6 +4,8 @@
 
 A GitHub action for link checking repository Markdown and HTML files.
 
+_Note: I am not going to use this since the default gives an error as nothing on `*` and the expected subdirectory is not recognized. Perhaps this only works on a built site as that is an example where I saw this used._
+
 
 ## Usage
 
@@ -29,7 +31,10 @@ steps:
   uses: peter-evans/link-checker@v1
   with:
     args: -v -r *
- ```
+```
+
+Note that even on verbose mode, nothing is outputted on a success so you can't see that any URLs were checked.
+
  
 ### Create issues on error
  
