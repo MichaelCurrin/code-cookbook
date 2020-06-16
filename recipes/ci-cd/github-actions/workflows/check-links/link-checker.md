@@ -86,6 +86,6 @@ steps:
   with:
     args: -d ./site -r ./site -x man7.org
     
-- name: Fail if there were link errors
+- name: Fail on link errors
   run: exit ${{ steps.lc.outputs.exit_code }
 ```
