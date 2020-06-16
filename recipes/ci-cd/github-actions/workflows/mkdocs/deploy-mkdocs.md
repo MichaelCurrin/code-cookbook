@@ -2,12 +2,19 @@
 
 [deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs)
 
+This will publish docs via GitHub Pages.
+
+Note that `requirements.txt` is not specified in the example - still need to check how this handles `mkdocs` version and themes.
+
+
 ## Usage
 
-Example from the action:
+Example based on the one in the action docs:
+
 
 ```yaml
-name: Publish docs via GitHub Pages
+name: Deploy docs
+
 on:
   push:
     branches:
@@ -15,17 +22,26 @@ on:
 
 jobs:
   build:
-    name: Deploy docs
+    name: Build
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout master
         uses: actions/checkout@v1
 
-      - name: Deploy docs
+      - name: Deploy to GH Pages
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+The trigger section can be stricted to `docs` only. A good reason to move `requirments.txt` to the `docs` directory.
+
+```yaml
+on:
+  push:
+    paths:
+    - 'docs/**'
 ```
 
 The `env` section also allows:
