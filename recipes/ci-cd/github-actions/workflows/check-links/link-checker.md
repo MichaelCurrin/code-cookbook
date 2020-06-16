@@ -4,8 +4,6 @@
 
 A GitHub action for link checking repository Markdown and HTML files.
 
-When used in conjunction with [Create Issue From File](https://github.com/peter-evans/create-issue-from-file), issues will be created when Link Checker finds connectivity problems with links.
-
 
 ## Usage
 
@@ -31,7 +29,11 @@ Step:
     args: -v -r *
  ```
  
- ### Schedule and create issues
+### Create issues on error
+ 
+When used in conjunction with [Create Issue From File](https://github.com/peter-evans/create-issue-from-file), issues will be created when Link Checker finds connectivity problems with links.
+
+Example copied from Check Links docs.
  
  ```yaml
  on:
