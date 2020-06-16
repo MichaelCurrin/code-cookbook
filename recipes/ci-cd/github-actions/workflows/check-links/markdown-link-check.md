@@ -68,9 +68,11 @@ jobs:
 
 Check the marketplace page for full details.
 
-- `use-quiet-mode` - Specify yes to only show errors in output.
-- `use-verbose-mode` - Specify yes to show detailed HTTP status for checked links.
+Here are few:
 
+- `use-quiet-mode` - Specify `yes` to only show errors in output.
+- `use-verbose-mode` - Specify `yes` to show detailed HTTP status for checked links.
+- `folder-path` - Target folder e.g. `"docs"`.
 
 ## Disable
 
