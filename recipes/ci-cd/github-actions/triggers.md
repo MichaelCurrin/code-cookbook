@@ -1,6 +1,7 @@
-# Trigger cheatsheet
+# Triggers cheatsheet
 
 Options for the `on` field to trigger deploys.
+
 
 ## Resources
 
@@ -83,6 +84,23 @@ on:
   release:
     # Only use the types keyword to narrow down the activity types that will trigger your workflow.
     types: [published, created, edited]
+```
+
+Or tags.
+
+```yaml
+on:
+  tags:
+```
+
+
+## Ignore directory
+
+```
+on:
+  push:
+    paths-ignore:
+    - 'docs/**'
 ```
 
 
