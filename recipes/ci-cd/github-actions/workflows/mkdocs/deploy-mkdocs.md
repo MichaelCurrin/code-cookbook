@@ -40,8 +40,10 @@ The trigger section can be stricted to `docs` only. A good reason to move `requi
 ```yaml
 on:
   push:
-    paths:
-    - 'docs/**'
+    branches:
+      - master
+    paths: 
+      - 'docs/**'
 ```
 
 The `env` section also allows:
