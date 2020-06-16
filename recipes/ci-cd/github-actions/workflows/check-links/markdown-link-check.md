@@ -76,14 +76,20 @@ Here are few:
 
 ## Disable
 
+### Next line
+
 ```markdown
 <!-- markdown-link-check-disable-next-line -->
 [Text](target)
 ```
 
+### Current line
+
 ```markdown
 [Text](target) <!-- markdown-link-check-disable-line -->
 ```
+
+### Between lines
 
 ```markdown
 <!-- markdown-link-check-disable -->
