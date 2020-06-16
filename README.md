@@ -1,6 +1,8 @@
 # Code Cookbook
 > Recipes to follow to achieve small or large goals using scripts or configs
 
+![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
+
 A collection of reusable code I have written or copied from other sources like tutorials or repos. I give credit as much as possible.
 
 Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together. 
