@@ -12,6 +12,7 @@ A GitHub action for link checking repository Markdown and HTML files.
 Step:
 
 ```yaml
+steps:
 - name: Link Checker
   uses: peter-evans/link-checker@v1
 ```
@@ -23,6 +24,7 @@ Optionally pass arguments to [Liche](https://github.com/raviqqe/liche). Defaults
 Step:
 
 ```yaml
+steps:
 - name: Link Checker
   uses: peter-evans/link-checker@v1
   with:
@@ -33,17 +35,19 @@ Step:
  
 When used in conjunction with [Create Issue From File](https://github.com/peter-evans/create-issue-from-file), issues will be created when Link Checker finds connectivity problems with links.
 
-Example copied from Check Links docs.
+Based on the example from the Check Links docs.
  
  ```yaml
+name: Check markdown links
+ 
  on:
   schedule:
   - cron: '0 0 1 * *'
-  
-name: Check markdown links
+
 jobs:
   link-checker:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
       
@@ -74,6 +78,7 @@ This runs against HTML files but it will still work.
 [source](https://github.com/fluxcd/flux/blob/master/.github/workflows/docs.yaml)
 
 ```yaml
+steps:
 # Use liche action to check generated HTML site
 - name: Link Checker (generated site)
   id: lc
