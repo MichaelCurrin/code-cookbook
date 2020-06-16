@@ -6,7 +6,7 @@
 - [Syntax](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - [Github Actions Documentation](https://help.github.com/en/actions)
 - [Github Actions](https://github.com/actions) org on Github
-- [Github Actions](https://github.community/t5/GitHub-Actions/bd-p/actions) community forums
+- The [Github Actions](https://github.community/c/github-actions) community forums
 
 
 ## Limitations
