@@ -17,6 +17,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
+    
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
 ```
 
