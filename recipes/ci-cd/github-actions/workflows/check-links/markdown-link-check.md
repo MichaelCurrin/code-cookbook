@@ -14,6 +14,7 @@ on: push
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@master
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
@@ -28,12 +29,14 @@ on:
   push:
     branches:
     - master
+    
   schedule:
   - cron: "0 9 * * *"
 
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@master
     
@@ -55,8 +58,10 @@ name: Check links for modified files
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@master
+    
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         use-quiet-mode: 'yes'
