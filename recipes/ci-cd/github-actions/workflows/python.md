@@ -7,6 +7,8 @@ Based on [Using Python with Github Actions](https://help.github.com/en/actions/l
 
 ## Usage
 
+### Setup
+
 ### Use a single Python version
 
 Specify `3.x` for latest version, or `3.8` for example to target a version.
@@ -36,12 +38,17 @@ jobs:
 ### Use a matrix
 
 ```yaml
+name: Python package
+
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
     strategy:
       matrix:
+        max-parallel: 4
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
@@ -54,6 +61,15 @@ jobs:
         
       # more steps...
 ```
+
+Alternate strategy:
+
+```yaml
+strategy:
+  matrix:
+    python-version: [3.6, 3.X]
+```
+
 
 ### Install dependencies
 
