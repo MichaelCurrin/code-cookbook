@@ -42,7 +42,7 @@ Example copied from Check Links docs.
   
 name: Check markdown links
 jobs:
-  linkChecker:
+  link-checker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
