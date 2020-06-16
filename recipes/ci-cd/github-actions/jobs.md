@@ -12,7 +12,7 @@ See [Workflow syntax for Github Actions](https://help.github.com/en/actions/refe
 
 ## Job IDs
 
-Each job must have a unique ID as below.
+Each job must have a unique ID as below. This must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ```yaml
 jobs:
