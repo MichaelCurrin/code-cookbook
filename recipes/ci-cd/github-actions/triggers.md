@@ -62,7 +62,7 @@ on:
 ```
 
 
-## On schedule
+## On a schedule
 
 Using [on.schedule](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule) parameter.
 
