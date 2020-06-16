@@ -65,7 +65,9 @@ Add a step at the end.
   run: exit ${{ steps.lc.outputs.exit_code }}
 ```
 
-### Real world example
+### Run checks out output directory
+
+This runs against HTML files but it will still work.
 
 [source](https://github.com/fluxcd/flux/blob/master/.github/workflows/docs.yaml)
 
@@ -78,5 +80,5 @@ Add a step at the end.
     args: -d ./site -r ./site -x man7.org
     
 - name: Fail if there were link errors
-  run: exit ${{ steps.lc.outputs.exit_code }}
+  run: exit ${{ steps.lc.outputs.exit_code }
 ```
