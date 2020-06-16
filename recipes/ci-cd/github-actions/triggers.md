@@ -93,14 +93,24 @@ on:
   tags:
 ```
 
+## Ignore and include
 
-## Ignore directory
+### Ignore path
 
-```
+```yaml
 on:
   push:
     paths-ignore:
     - 'docs/**'
+```
+
+### Include path
+
+```yaml
+on:
+  push:
+    paths:
+    - '**.js'
 ```
 
 
