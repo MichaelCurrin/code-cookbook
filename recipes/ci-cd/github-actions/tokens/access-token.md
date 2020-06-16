@@ -31,8 +31,6 @@ Depending on the workflow, the token should be named something like one of these
     ```
 - Docs - [Creating a Personal Access Token for the Command-line](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
 
-See [Access Token](access_token.md) cheatsheet for more info.
-
 _**Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs._
 
 Github will also scan to find accidentally committed secrets - [doc](https://help.github.com/en/github/administering-a-repository/about-secret-scanning).
