@@ -64,3 +64,19 @@ Add a step at the end.
 - name: Fail if there were link errors
   run: exit ${{ steps.lc.outputs.exit_code }}
 ```
+
+### Real world example
+
+[source](https://github.com/fluxcd/flux/blob/master/.github/workflows/docs.yaml)
+
+```yaml
+# Use liche action to check generated HTML site
+- name: Link Checker (generated site)
+  id: lc
+  uses: peter-evans/link-checker@v1
+  with:
+    args: -d ./site -r ./site -x man7.org
+    
+- name: Fail if there were link errors
+  run: exit ${{ steps.lc.outputs.exit_code }}
+```
