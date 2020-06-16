@@ -2,12 +2,13 @@
 
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Markdown_Link_Check-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/markdown-link-check)
 
+
 ## Usage
 
 ### Basic
 
 ```yaml
-name: Check Markdown links
+name: Check mrkdown links
 
 on: push
 
