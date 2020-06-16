@@ -15,14 +15,23 @@ See [Workflow syntax for Github Actions](https://help.github.com/en/actions/refe
 on: push
 ```
 
-### Push or pull request to any branch
+### On push or pull request to any branch
 
 ```yaml
 on: [push, pull_request]
 ```
 
+### On push or master or Pull Request to any branch
 
-### Push or PR on target branch
+```yaml
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+```
+
+### On push or Pull Request to master
 
 ```yaml
 on:
@@ -51,7 +60,7 @@ on:
 ```
 
 
-## On releases
+## On a release
 
 ```yaml
 on:
