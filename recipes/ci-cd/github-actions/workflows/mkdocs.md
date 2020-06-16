@@ -2,12 +2,9 @@
 
 Use Python `mkdocs` to build a docs site and automate using GH Actions.
 
+## Build and check links
 
-## Example
-
-Includes link checker.
-
-```
+```yaml
 name: Build docs
 
 on:
@@ -41,3 +38,8 @@ jobs:
       - name: Fail on errors
         run: exit ${{ steps.lc.outputs.exit_code }}
 ```
+
+
+## Publish
+
+See the [Deploy Github Pages](../deploy-gh-pages.md) folder in this guide.
