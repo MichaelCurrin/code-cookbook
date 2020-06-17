@@ -8,7 +8,7 @@
 ### Basic
 
 ```yaml
-name: Check mrkdown links
+name: Check markdown links
 
 on: push
 
