@@ -1,10 +1,13 @@
 # Super linter
 
+Marketplace - [super-linter](https://github.com/marketplace/actions/super-linter?version=v2.0.0).
 
 Lint multiple languages at once without configuring or installing- just add a Github Action and push.
 
-## Sample
+Just add `github/super-linter` as a step.
 
+
+## Usage
 
 ```yaml
 name: Lint
