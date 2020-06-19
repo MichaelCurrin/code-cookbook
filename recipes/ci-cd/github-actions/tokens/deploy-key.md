@@ -1,14 +1,13 @@
 # Deploy key
+> A repo-scoped Github tokens useful for automated deploys
 
 
 ## About
 
-- Generated manually.
-- It is tied to a machine.
 - A deploy key is an SSH public key.
+- The token must be be generated **manually** using the local command-line.
 - It takes more effort to setup than the other steps.
-- To be researched if it is a good fit for actions (if the remote machine is note known).
-- Read it in an action with:
+- Use it in an action using this:
     ```yaml
     ${{ secrets.DEPLOY_KEY }}
     ```
@@ -21,20 +20,24 @@
 - If the machine doesn't have an SSH key set, you'll have to generate one.
 - Even if it has one, you might choose to create a new one that is used specifically for Github, so you could delete if you want and leave behind one that you use for other SSH purposes.
 
-Generate:
+### Generate
+
+Run this locally:
 
 ```sh
 $ ssh-keygen
 ```
 
-Or, according to [gist](https://gist.github.com/zhujunsan/a0becf82ade50ed06115) on using it on a Linux server - not in the GH Actions context.
-
+Or, according to [gist](https://gist.github.com/zhujunsan/a0becf82ade50ed06115) on using it on a Linux server - not in the GH Actions context. 
 
 ```sh
-$ ssh-keygen -t rsa -b 4096 -C "{email}"
+$ ssh-keygen -t rsa -b 4096 -C "foo@bar.com"
 ```
 
-View:
+The comment can be an email address, or a machine identifier based on your username and hostname e.g. `my-user@dell` where you generated. For Github Actions the email makes more sense as you won't actually use the local machine to do a deploy so the machine identifier does not make sense.
+
+
+### View
 
 ```sh
 $ cat ~/.ssh/id_rsa.pub
@@ -48,6 +51,6 @@ $ cat ~/.ssh/id_rsa.pub
 1. Go to repo Settings.
 1. Go to Deploy Keys.
 1. Create key.
-    - Set **title** with convenient.
+    - Set **title** with a convenient value to later reference. This can have spaces in it.
     - Paste into **key** as an SSH public key (so only that a certain machine can deploy).
     - Optionally tick **Allow write access**.
