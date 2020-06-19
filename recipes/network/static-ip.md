@@ -8,7 +8,7 @@ Setup a predictable IP address for your machine so you can connect to it reliabl
 For example, setup as a fixed `192.168.1.10` IP. So you can connect with:
 
 ```sh
-ssh michael@192.168.1.10`
+ssh michael@192.168.1.10
 ```
 
 ### Supported
@@ -110,7 +110,7 @@ e.g.
 
 Sample:
 
-![Manual settings](/recipes/_media/manual.png)
+![Manual settings](/recipes/_media/manual.png "Manual settings")
 
 Press _Save_ and then exit.
 
