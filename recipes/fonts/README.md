@@ -57,26 +57,29 @@ fc-list | grep Menlo
 
 When using Powerline prompt such as for Linux Lite or for ZSH, you may have issues in VS Code terminal. This can be solved with steps below.
 
-Copy binary font downloaded from [repo](https://github.com/abertsch/Menlo-for-Powerline).
+1. Copy binary font downloaded from [repo](https://github.com/abertsch/Menlo-for-Powerline).
+       ```sh
+       mkdir -p ~/.local/share/fonts
+       cp "Menlo for Powerline.ttf" ~/.local/share/fonts
+       ```
+1. Update font cache.
+       ```sh
+       fc-cache -vf ~/.local/share/fonts
+       ```
+1. The update VS Code user settings to actually apply the font.
+       ```json
+       {
+           "terminal.integrated.fontFamily": "Menlo for Powerline",
+       }
+       ```
 
-```sh
-mkdir -p ~/.local/share/fonts
-cp "Menlo for Powerline.ttf" ~/.local/share/fonts
-```
+To uninstall:
 
-Update font cache.
-
-```sh
-fc-cache -vf ~/.local/share/fonts
-```
-
-The update VS Code user settings to actually apply the font.
-
-```json
-{
-    "terminal.integrated.fontFamily": "Menlo for Powerline",
-}
-```
+1. Remove the file from the fonts directory.
+1. Run:
+       ```sh
+       fs-cache
+       ```
 
 
 ## Yakuake
