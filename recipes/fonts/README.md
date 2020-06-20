@@ -44,6 +44,7 @@ List fonts.
 ```sh
 fc-list
 ```
+
 Or
 
 ```sh
@@ -54,25 +55,22 @@ fc-list | grep Menlo
 
 ## VS Code
 
-The Menlo for Powerline font was identified as a font to help VS Code show properly in the terminal in Linux Lite.
+When using Powerline prompt such as for Linux Lite or for ZSH, you may have issues in VS Code terminal. This can be solved with steps below.
 
-Copy font downloaded from [repo](https://github.com/abertsch/Menlo-for-Powerline).
+Copy binary font downloaded from [repo](https://github.com/abertsch/Menlo-for-Powerline).
 
 ```sh
-cp "Menlo for Powerline.ttf" ~/.fonts
+mkdir -p ~/.local/share/fonts
+cp "Menlo for Powerline.ttf" ~/.local/share/fonts
 ```
 
 Update font cache.
 
 ```sh
-fc-cache -vf ~/.fonts
+fc-cache -vf ~/.local/share/fonts
 ```
 
-This may have been a bad idea as on a system restart the font still looks bad after it was working.
-
-The config approach below solved the terminal issue immediately without even restarting VS Code.
-
-Add to user settings:
+The update VS Code user settings to actually apply the font.
 
 ```json
 {
