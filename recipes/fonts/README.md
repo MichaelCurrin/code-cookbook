@@ -4,7 +4,7 @@ Guide for Linux.
 
 ## VS Code
 
-The Menlo for Powerline font was identified as a font to help VS Code show properly in the terminal in Linux Lite. Though the issue is similar when using the standard prompt.
+The Menlo for Powerline font was identified as a font to help VS Code show properly in the terminal in Linux Lite.
 
 Copy font downloaded from [repo](https://github.com/abertsch/Menlo-for-Powerline).
 
@@ -48,7 +48,7 @@ Add to user settings:
 
 ## Yakuake
 
-The shell looks broken on Linux Lite.
+The shell looks broken on Linux Lite. Regardless of whether using the Powerline prompt.
 
 Edit profiles and make sure to edit current profile and reselect a mono font.
 
