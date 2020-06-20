@@ -1,6 +1,7 @@
 name: Check markdown links
 
-on: push
+# Disabled on master push
+on: pull_request
 
 # See
 # https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows/check-links
