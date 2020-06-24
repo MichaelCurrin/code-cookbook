@@ -1,7 +1,7 @@
 # Install application via curl
 
 
-Install an application by running a remote script in the terminal. Download the script with `curl` and pass it to the shell to run.
+Install an application by running a remote script in the terminal. Download the script with `curl` and pass it to a shell to run.
 
 
 ## Syntax
@@ -29,6 +29,10 @@ Flag | Description
 
 
 ## Examples
+
+These are copied from installation instructions of various tools. They use different approaches and some of them show similarities.
+
+A combination of the best of each approach should be used for new projects.
 
 ### Install by Bash
 
@@ -78,6 +82,12 @@ $ curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version [version]
 
 ```sh
 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+```
+
+#### Github actions
+
+```sh
+curl -O -L https://github.com/actions/runner/releases/download/v2.168.0/actions-runner-linux-x64-2.168.0.tar.gz
 ```
 
 ### Install by Python
