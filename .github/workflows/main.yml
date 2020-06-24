@@ -1,6 +1,6 @@
 name: Check markdown links
 
-# Disabled on master push
+# Disabled on master push as this has false positives which is noisy. Plus there is the cost of running.
 on: pull_request
 
 # See
