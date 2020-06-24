@@ -1,4 +1,4 @@
-# Code Cookbook
+# Code Cookbook :computer: :cook: :book:
 > Recipes to follow to achieve small or large goals using scripts or configs
 
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
