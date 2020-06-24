@@ -31,3 +31,8 @@ This project does not cover steps on install tools but rather how to use them.
 - `robots.txt` file
 - `sitemap.xml`
 - Github Actions - choosing actions
+
+
+## License
+
+Released under [MIT](/LICENSE).
