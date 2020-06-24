@@ -1,7 +1,9 @@
 # Code Cookbook :computer: :cook: :book:
 > Recipes to follow to achieve small or large goals using scripts or configs
 
+<!--
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
+-->
 
 A collection of reusable code I have written or copied from other sources like tutorials or repos. I give credit as much as possible.
 
@@ -20,7 +22,7 @@ Some answers will be boilerplate that you can copy to your project as is, with a
 
 Some content will be steps to follow in the command-line and not so much code to write.
 
-The explanations are steps are more thorough than would fit in a cheatsheet. Though the emphasis is more on the content rather than steps to follow.
+The explanations are steps are more thorough than would fit in a cheatsheet and a cheatsheet would be more low-level pieces than a set of instructions. Though the emphasis is more on the content rather than steps to follow.
 
 The solutions are based on my experienced or copied from other projects that I find, as a reference for how to something.
 
@@ -31,6 +33,7 @@ This project does not cover steps on install tools but rather how to use them.
 - `robots.txt` file
 - `sitemap.xml`
 - Github Actions - choosing actions
+- shell command patterns
 
 
 ## License
