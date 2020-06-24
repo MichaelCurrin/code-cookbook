@@ -1,12 +1,12 @@
-# Install package
-> Using a curl and bash
+# Install application via curl
 
-Install an application by running a remote script in the terminal
+
+Install an application by running a remote script in the terminal. Download the script with `curl` and pass it to the shell to run.
 
 
 ## Syntax
 
-## curl
+### curl
 
 Arguments:
 
@@ -74,6 +74,11 @@ $ curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version [version]
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
+#### DataDog
+
+```sh
+bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+```
 
 ### Install by Python
 
