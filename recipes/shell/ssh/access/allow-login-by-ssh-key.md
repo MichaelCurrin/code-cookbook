@@ -11,11 +11,15 @@ Based on:
 - [source](https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/)
 - [source](https://www.cyberciti.biz/faq/how-to-create-a-sudo-user-on-ubuntu-linux-server/)
 
-On your target server, add your host machine as an identity.
+On your target server, add your host machine as an identity:
 
 ```sh
 $ eval $(ssh-agent)
+$ # Add user to a list maintained by ssh agent.
 $ ssh-add
+$ # List
+$ ssh-add -L
+$ # Access the machine. You'll get prompted to add the identity.
 $ ssh foo@bar
 ```
 
@@ -35,6 +39,7 @@ Add user (e.g. `foo`) to sudoers group.
 
 ```sh
 $ sudo adduser foo
+$ # Or
 $ sudo adduser foo sudo
 ```
 
