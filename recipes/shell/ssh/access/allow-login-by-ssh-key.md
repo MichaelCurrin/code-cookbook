@@ -1,8 +1,10 @@
 # Allow login by SSH key
 
-This is secure as it uses your public key rather than a password to login into a target machine.
+This is secure as it a machine is configured to accept SSH access from known public keys (which have the appropriate private key too) so that a password prompt is not given.
 
-Note I copied these instructions and have not tested. Also using `%username` or `%admin` might be better in the SSHD config than %sudo`.
+This approach works best when login by password is also disabled - see another guide in this folder.
+
+Note I copied these instructions and have not tested. Also using `%username` or `%admin` might be better in the SSHD config than `%sudo`.
 
 Based on:
 
