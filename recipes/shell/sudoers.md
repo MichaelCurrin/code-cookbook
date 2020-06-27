@@ -47,7 +47,7 @@ $ ls /etc/sudoers.d/
 ```
 
 
-### sudo without password
+### Do admin actions without entering password
 
 Configure your system to avoid entering your password every time your run sudo.
 
@@ -59,7 +59,15 @@ Add this as a row to sudoers config under this section `# Allow members of group
 
 [source](https://askubuntu.com/questions/21343/how-to-make-sudo-remember-my-password-and-how-to-add-an-application-to-startup)
 
-You can add a specific name:
+Another source says to edit the `admin` line:
+
+```
+%admin ALL=(ALL) NOPASSWD: ALL
+```
+
+[source](https://www.ubuntugeek.com/how-to-disable-password-prompts-in-ubuntu.html)
+
+Or you can add a specific name:
 
 ```
 foo ALL=(ALL) NOPASSWD:ALL 
