@@ -1,55 +1,49 @@
 # Disable password login
 
-[source](https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/) [source](https://www.cyberciti.biz/faq/how-to-create-a-sudo-user-on-ubuntu-linux-server/)
+Prevent SSH login by password so only login by SSH key is allowed, for security. Set this up on a remote machine that you plan to SSH to.
 
-_Note that these tests have not been tested and some may be incorrect or unncessary. Consult more sources._
+Only allow SSH login using known public keys rather than password-based. This is more secure especially on a public network or public server.
 
-Only allow SSH login using known public keys rather than password-based.
+[source](https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/)
 
-This is more secure esspecially on a public network or public server.
-
-On your client server, add your host machine as an identity.
+Edit the config file:
 
 ```sh
-eval $(ssh-agent)
-ssh-add
-ssh user@hostname
+$ sudo vi /etc/ssh/sshd_config
 ```
 
-_Warning: Make sure you add yourself to sudoers files. Otherwise you will not able to login as root later on._
-
-```sh
-$ sudo vim /etc/ssh/sshd_config
-```
-
-Set
+Set these all to `no`:
 
 ```
+ChallengeResponseAuthentication no
+
+PasswordAuthentication no
+
+UsePAM no
+
 PermitRootLogin no
 ```
 
-Add user to sudoers groups.
+Then reload:
 
 ```sh
-$ sudo adduser USER
-$ sudo adduser USER sudo
+$ /etc/init.d/ssh reload
 ```
-
-Allow the group to do sudo.
+Or
 
 ```sh
-$ sudo visudo
+$ sudo systemctl reload ssh
 ```
 
-Add:
-
-```
-# Allow members of group sudo to execute any command
-%sudo	ALL=(ALL:ALL) ALL
-```
-
-Restart the service.
+Then try to access the machine. Note even if you only have one machine, you can SSH from a machine to itself.
 
 ```sh
-sudo systemctl reload ssh
+$ ssh foo@bar
 ```
+
+Force password login - expect an error.
+
+```sh
+$ ssh foo@bar -o PubkeyAuthentication=no
+```
+
