@@ -4,7 +4,7 @@ This is secure as it a machine is configured to accept SSH access from known pub
 
 This approach works best when login by password is also disabled - see another guide in this folder.
 
-Note I copied these instructions and have not tested. Also using `%username` or `%admin` might be better in the SSHD config than `%sudo`.
+Note I copied these instructions and have not tested.
 
 Based on:
 
@@ -49,7 +49,7 @@ Allow the group to run sudo.
 $ sudo visudo
 ```
 
-Then add:
+Then add this if it doesn't exist.
 
 ```
 # Allow members of group sudo to execute any command
