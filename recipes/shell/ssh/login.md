@@ -9,7 +9,7 @@ Set hostname from `/etc/hosts` or the IP address. Use is optional if you've setu
 $ ssh user@hostname
 ```
 
-Enter the password.
+Enter the password if prompted.
 
 
 ## Copy
@@ -19,11 +19,11 @@ $ scp foo.txt use@hostname:~/Downloads
 ```
 
 
-## Add your machine the remote
+## Allow SSH access without password
 
-Allow SSH access without the password. 
+Here we copy your public key to the other machine's allowed public keys, so that can run SSH commands as usual but your machine with authenticate using keys and it won't prompt you for a password. This approach is a lot harder to crack than a password.
 
-Copy your public key to the other machine's allowed public keys.
+Two approaches are covered below.
 
 [source](https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/)
 
@@ -43,10 +43,9 @@ Optionally set an identify file.
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub user@hostname
 ```
 
-
 ### Secure Copy
 
-Equivalent, using `scp`.
+Alternative, using `scp` command.
 
 ```sh
 $ scp $HOME/.ssh/id_rsa.pub foo@bar:~/.ssh/authorized_keys
