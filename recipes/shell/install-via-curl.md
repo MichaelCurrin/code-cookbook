@@ -34,7 +34,7 @@ These are copied from installation instructions of various tools. They use diffe
 
 A combination of the best of each approach should be used for new projects.
 
-### Install by Bash
+### Install using Bash
 
 #### Deno
 
@@ -90,7 +90,14 @@ bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/maste
 curl -O -L https://github.com/actions/runner/releases/download/v2.168.0/actions-runner-linux-x64-2.168.0.tar.gz
 ```
 
-### Install by Python
+#### Rust
+
+```sh
+curl https://sh.rustup.rs -sSf | sh
+```
+
+
+### Install using Python
 
 #### Poetry
 
