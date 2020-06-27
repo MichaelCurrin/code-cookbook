@@ -1,8 +1,10 @@
 # Sudoers
-> How to act as the root user - guide for Linux
+> How to act as the root user
+
+Guide for Linux
 
 
-## Manpage
+## View manpage
 
 ```sh
 $ man sudoers
@@ -26,10 +28,10 @@ $ sudo su
 
 ### Configs
 
-A text file. Do not edit this directly.
+Read the config file. Do not edit this directly.
 
-```
-/etc/sudoers
+```sh
+$ view /etc/sudoers
 ```
 
 Edit using:
@@ -38,16 +40,18 @@ Edit using:
 $ sudo visudo
 ```
 
-See also
+See also a directory for adding local content.
 
 ```sh
 $ ls /etc/sudoers.d/
 ```
 
 
-### Avoid entering your password every time your run sudo
+### sudo without password
 
-Set no password in sudoers.
+Configure your system to avoid entering your password every time your run sudo.
+
+Add this as a row to sudoers config under this section `# Allow members of group sudo to execute any command`.
 
 ```
 %username ALL=(ALL) NOPASSWD:ALL 
@@ -55,8 +59,16 @@ Set no password in sudoers.
 
 [source](https://askubuntu.com/questions/21343/how-to-make-sudo-remember-my-password-and-how-to-add-an-application-to-startup)
 
+You can add a specific name:
 
-## Keep sudo password for a set time
+```
+foo ALL=(ALL) NOPASSWD:ALL 
+```
+
+[source](https://askubuntu.com/questions/147241/execute-sudo-without-password)
+
+
+## Remember sudo password for a set time
 
 The machine will not prompt you again for your password for a time. More secure than the above.
 
