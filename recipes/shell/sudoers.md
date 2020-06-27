@@ -51,13 +51,16 @@ $ ls /etc/sudoers.d/
 
 Configure your system to avoid entering your password every time your run sudo.
 
-Add this as a row to sudoers config under this section `# Allow members of group sudo to execute any command`.
+Add this as a row to sudoers config under this section. Replace `foo` with username.
 
 ```
-%username ALL=(ALL) NOPASSWD:ALL 
+foo ALL=(ALL) NOPASSWD:ALL 
 ```
 
-[source](https://askubuntu.com/questions/21343/how-to-make-sudo-remember-my-password-and-how-to-add-an-application-to-startup)
+It might even work do to `%foo` if that references a group.
+
+- [source](https://askubuntu.com/questions/21343/how-to-make-sudo-remember-my-password-and-how-to-add-an-application-to-startup)
+- [source](https://askubuntu.com/questions/147241/execute-sudo-without-password)
 
 Another source says to edit the `admin` line:
 
@@ -66,14 +69,6 @@ Another source says to edit the `admin` line:
 ```
 
 [source](https://www.ubuntugeek.com/how-to-disable-password-prompts-in-ubuntu.html)
-
-Or you can add a specific name:
-
-```
-foo ALL=(ALL) NOPASSWD:ALL 
-```
-
-[source](https://askubuntu.com/questions/147241/execute-sudo-without-password)
 
 
 ## Remember sudo password for a set time
