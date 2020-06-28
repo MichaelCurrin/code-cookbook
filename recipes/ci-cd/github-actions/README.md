@@ -1,4 +1,5 @@
-# Github actions cheatsheet
+# Github actions cookbook
+
 
 ## Resources
 
