@@ -1,10 +1,14 @@
 # Deploy MkDocs action
 
-[deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs)
+- [deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs)
 
-This will publish docs via GitHub Pages.
+This will build and publish docs via GitHub Pages.
 
 Note that `requirements.txt` is not specified in the example - still need to check how this handles `mkdocs` version and themes.
+
+I use that action here:
+
+- [MichaelCurrin/mkdocs-quickstart](https://github.com/MichaelCurrin/mkdocs-quickstart)
 
 
 ## Usage
