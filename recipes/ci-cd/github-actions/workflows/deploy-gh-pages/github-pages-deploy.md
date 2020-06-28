@@ -17,8 +17,18 @@ Add this to steps:
     BRANCH: gh-pages
 ```
 
+To build your project, add steps before, as in the one job sample below.
 
-## Sample
+Or add this after `BRANCH`, as in the second sample below.
+
+```yaml
+BUILD_SCRIPT: yarn install && yarn build
+```
+
+
+## Samples
+
+### One job
 
 Here we deploy a Node project with NPM - this sample is based on that action's sample.
 
@@ -60,6 +70,7 @@ jobs:
 
 Notes:
 
+- `with` is used here but `env` in the example below - does that matter?
 - `actions/setup-node` is not used.
 - Some more emojis to use: `⚙️ 🧱`
 - If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -67,7 +78,7 @@ Notes:
 - Tests are missing. See example below.
 
 
-## Two-job example
+### Two jobs
 
 Install, test and deploy using two jobs.
 
