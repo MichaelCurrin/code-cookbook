@@ -1,20 +1,21 @@
 # Github Pages Deploy action
 
-## Sample
-
-Here we deploy a project using NPM command. Such as React, Hexo, Vue or Gatsby.
+Action:
 
 - [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
 
-This is based on that action's sample.
 
-This uses:
+## Sample
+
+Here we deploy a Node project - the build command could use React, Hexo, Vue or Gatsby for example,
+
+This sample is based on that action's sample.
+
+It uses:
 
 - `actions/checkout`
 - `JamesIves/github-pages-deploy-action`
 - `npm`
-
-Note that `actions/setup-node` is not used.
 
 ```yaml
 name: Build and Deploy
@@ -45,6 +46,7 @@ jobs:
 
 Notes:
 
+- `actions/setup-node` is not used.
 - Some more emojis to use: `⚙️ 🧱`
 - If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 - The branch is _required_.
@@ -53,9 +55,9 @@ Notes:
 
 ## Two-job example
 
-Install, test and deploy.
+Install, test and deploy using two jobs.
 
-Here we use Yarn and several versions of Node test the app and then one version of Node to deploy the React app.
+Here we use Yarn and several versions of Node test the app and then one version of Node to deploy a React app.
 
 From [explooosion/react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions).
 
