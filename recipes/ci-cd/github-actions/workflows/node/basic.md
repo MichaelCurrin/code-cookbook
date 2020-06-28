@@ -1,13 +1,14 @@
 # Basic
 
-This works using `actions/checkout` and **no** specific Node or Yarn action is used.
+A simple flow to build a Node app with Github Actions.
 
-We use `npm` here but this works with `yarn` too.
+This works using `actions/checkout`. Note that **no** specific Node or Yarn action is used.
 
 ```yaml
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -15,10 +16,10 @@ jobs:
           persist-credentials: false
 
       - name: Install 🔧
-        run: |
-          npm install
+        run: npm install
 
       - name: Build 🏗️
-        run: |
-          npm run build
+        run: npm run build
 ```
+
+We use `npm` here but this can work with `yarn` too.
