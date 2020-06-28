@@ -1,10 +1,10 @@
 # Github Pages action
 
-This is a popular action I found.
+Action:
 
 - [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages`
 
-Works with static site generators like Hugo, MkDocs, Gatsby, GitBook and mdBook.
+This works with static site generators like Hugo, MkDocs, Gatsby, GitBook and mdBook. It has many stars.
 
 
 ## Usage
@@ -13,7 +13,7 @@ This supports all 3 token types but `GITHUB_TOKEN` works great.
 
 ### Basic
 
-Deploy to `gh-pages`.
+Deploy to `gh-pages` branch by default. Add this as a step in your workflow.
 
 ```yaml
 - name: Deploy
@@ -23,13 +23,17 @@ Deploy to `gh-pages`.
     publish_dir: ./public
 ```
 
-### Publish to `master`
+### Publish to custom branch
+
+Choose a different branch.
 
 ```yaml
     publish_branch: master
 ```
 
-### Publish to alternate repo
+### Publish to alternative repo
+
+Choose a repo for `external_repository`. Note use of `deploy_key` from that target repo, as `github_token` will probably not work.
 
 ```yaml
 - name: Deploy
