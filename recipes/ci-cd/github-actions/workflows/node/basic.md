@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout
+        uses: actions/checkout@master
         with:
           persist-credentials: false
 
