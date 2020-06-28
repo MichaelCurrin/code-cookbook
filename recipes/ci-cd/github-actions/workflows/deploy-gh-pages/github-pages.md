@@ -2,7 +2,7 @@
 
 This is a popular action I found.
 
-- [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages@`
+- [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages`
 
 Works with static site generators like Hugo, MkDocs, Gatsby, GitBook and mdBook.
 
