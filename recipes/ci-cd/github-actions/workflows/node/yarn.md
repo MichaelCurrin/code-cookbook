@@ -6,34 +6,44 @@ From Github Actions samples.
 
 Uses the [Github Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
+This passes commands to run with `yarn`.
+
+Note that this doesn't give much benefit over the [basic](basic.md) flow unless you use more details like in the second example below.
+
 ```yaml
 name: CI
+
 on: [push]
+
 jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@master
+      
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install
+          
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: build # will run `yarn build` command
+          cmd: build
+          
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: test # will run `yarn test` command
+          cmd: test
 ```
 
 ## Example 2
 
 From this [post](https://spin.atomicobject.com/2020/01/20/github-actions-react-node/) about deploying React/Node to Heroku.
 
-Use caches:
+This uses:
 
 - `actions/checkout`
-- `actions/cache`
+- `actions/cache` - for a faster build
 - `actions/setup-node`
 
 ```yaml
@@ -46,7 +56,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@master
 
     - name: Get yarn cache
       id: yarn-cache
@@ -84,18 +94,22 @@ From [react-build-with-github-actions](https://github.com/explooosion/react-buil
 jobs:
   install-and-test:
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
+        
     steps:
       - uses: actions/checkout@master
+      
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
+          
       - name: Install and Test
         run: |
-          yarn
+          yarn instll
           yarn test
         env:
           CI: true
@@ -131,11 +145,10 @@ Then run:
 Find out more about deployment here:
 
   bit.ly/CRA-deploy
-
 ```
 
 
-Example of homepage set in `package.json`.
+An example of homepage value set in `package.json`:
 
 ```json
 {
