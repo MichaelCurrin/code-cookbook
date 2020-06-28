@@ -38,7 +38,7 @@ on:
   - pull_request:
 ```
 
-### On push or master or Pull Request to any branch
+### On push to master or Pull Request to any branch
 
 ```yaml
 on:
@@ -48,7 +48,7 @@ on:
       - master
 ```
 
-### On push or Pull Request to master
+### On push to master or Pull Request to master
 
 ```yaml
 on:
