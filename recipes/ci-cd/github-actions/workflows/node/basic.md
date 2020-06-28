@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout
         with:
           persist-credentials: false
 
