@@ -1,8 +1,9 @@
 # Generic Github Actions cheatsheet
 
+
 ## Basic
 
-Here we use a standard Checkout action and some install and build steps without extra actions. These steps can be replaced with other shell commands.
+Here we use a standard [Checkout](https://github.com/actions/checkout) action and some install and build steps without installing any extra Actions. These steps can be replaced with other shell commands.
 
 ```yaml
 name: Build
