@@ -5,6 +5,6 @@ This section lets you choose a Github Action and use it in a workflow so you can
 
 This means that you can use any static site generator (such as Jekyll or Hugo) and as long as you know the output directory you can serve it.
 
-In the examples in this section, we use NPM or Yarn to build. The build command can use React, Hexo, Gatsby or another tool - it doesn't matter as long as it is installed as part of the deploy flow.
+See files in this section for available actions - the files are named after the action. We use NPM or Yarn to build there. The build command can use React, Hexo, Gatsby or another tool defined in `package.json` - it doesn't matter as long as it is installed as part of the deploy flow.
 
 See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide on use of tokens.
