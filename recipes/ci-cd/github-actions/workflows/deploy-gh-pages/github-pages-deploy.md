@@ -13,7 +13,7 @@ Add this to steps:
 - name: Deploy 🚀
   uses: JamesIves/github-pages-deploy-action@releases/v3
   with:
-    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     BRANCH: gh-pages
 ```
 
@@ -37,6 +37,10 @@ It uses:
 - `actions/checkout`
 - `JamesIves/github-pages-deploy-action`
 - `npm`
+
+Note from action:
+
+> If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 
 Workflow file:
 
@@ -64,7 +68,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
 ```
 
@@ -138,7 +142,7 @@ jobs:
       - name: Build and deploy
         uses: JamesIves/github-pages-deploy-action@master
         env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build
           BUILD_SCRIPT: yarn install && yarn build
