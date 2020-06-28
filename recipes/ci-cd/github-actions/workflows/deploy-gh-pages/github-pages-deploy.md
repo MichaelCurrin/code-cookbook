@@ -5,17 +5,30 @@ Action:
 - [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
 
 
+## Usage
+
+Add this to steps:
+
+```yaml
+- name: Deploy 🚀
+  uses: JamesIves/github-pages-deploy-action@releases/v3
+  with:
+    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    BRANCH: gh-pages
+```
+
+
 ## Sample
 
-Here we deploy a Node project - the build command could use React, Hexo, Vue or Gatsby for example,
-
-This sample is based on that action's sample.
+Here we deploy a Node project with NPM - this sample is based on that action's sample.
 
 It uses:
 
 - `actions/checkout`
 - `JamesIves/github-pages-deploy-action`
 - `npm`
+
+Workflow file:
 
 ```yaml
 name: Build and Deploy
@@ -68,9 +81,8 @@ Uses:
 - `JamesIves/github-pages-deploy-action`
 - `yarn`
 
-Perhaps this can be setup to only run the deploy after tests pass.
 
-Perhaps test can run on any branch but deploy only on master?
+Workflow file:
 
 ```yaml
 name: Build and Deploy
@@ -119,3 +131,9 @@ jobs:
           FOLDER: build
           BUILD_SCRIPT: yarn install && yarn build
 ```
+
+
+Notes:
+
+- This could can be setup to only run the deploy after tests pass.
+- This could also be adjusted test can run on any branch, but _deploy_ only on master pushes.
