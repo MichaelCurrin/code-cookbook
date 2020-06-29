@@ -60,7 +60,7 @@ From [actions/checkout](https://github.com/actions/checkout) - a TypeScript proj
 	}
 	```
 - `jest.config.js`
-	```json
+	```javascript
 	module.exports = {
 	  clearMocks: true,
 	  moduleFileExtensions: ['js', 'ts'],
