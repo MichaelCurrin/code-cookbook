@@ -1,5 +1,7 @@
 # Terraform
 
+## Dockerfile example
+
 I use this at work to setup a certain version of Terraform. Note that `apt` does not provide Terraform.
 
 I copy the entire git repo into the image.
@@ -23,6 +25,8 @@ RUN terraform version
 
 COPY . /root
 ```
+
+## Docker hub example
 
 As an alternative, you can use this Terraform container binary.
 
