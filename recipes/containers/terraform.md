@@ -28,7 +28,7 @@ COPY . /root
 
 ## Docker hub example
 
-As an alternative, you can use this Terraform container binary.
+As an alternative, you can use this Terraform container as a drop-in replacement for the `terraform` executable.
 
 - https://hub.docker.com/r/hashicorp/terraform/
 
