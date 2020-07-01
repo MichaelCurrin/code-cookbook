@@ -43,3 +43,9 @@ You can use:
 ```sh
 $ docker run -i -t hashicorp/terraform:light plan main.tf
 ```
+
+Or use a target version such as `0.12.20`:
+
+```sh
+$ docker pull hashicorp/terraform:0.12.20
+```
