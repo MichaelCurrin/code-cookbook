@@ -41,5 +41,5 @@ $ terraform plan main.tf
 You can use:
 
 ```sh
-$ docker run -i -t hashicorp/terraform:full plan main.tf
+$ docker run -i -t hashicorp/terraform:light plan main.tf
 ```
