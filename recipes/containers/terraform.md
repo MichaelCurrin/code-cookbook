@@ -41,8 +41,10 @@ $ terraform plan main.tf
 You can use:
 
 ```sh
-$ docker run -i -t hashicorp/terraform:light plan main.tf
+$ docker run --rm -i -t hashicorp/terraform:light plan main.tf
 ```
+
+Use `--rm` to remove it on each run - otherwise you create an container each time which doesn't get resused on the next run.
 
 Or use a target version such as `0.12.20`:
 
