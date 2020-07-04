@@ -124,18 +124,23 @@ We want to only copy to the `_site` directory the files and directories which we
 Jekyll will ignore files starting with a dot or underscore, but there are other files we
 want to ignore. So set these below in your `exclude `field. 
 
-```yaml
-exclude:
-  - LICENSE
-  - README.md
-  - Makefile
-
-  # In Jekyll 4, these are always excluded, so you never have to add them to your list.
-  # But in Jekyll 3, these must explicit if you set exclude value at all even with one item.
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/
+- Jekyll 4
+    ```yaml
+    exclude:
+      - LICENSE
+      - README.md
+      - Makefile
+    ```
+- Jekyll 3 (In Jekyll 4, the files above are always excluded, so you never have to add them to your list. But in Jekyll 3, these must explicit if you set exclude value at all even with one item. Here we add two directories and the gem files.
+    ```yaml
+    exclude:
+      - node_modules/
+      - vendor/
+      - Gemfile
+      - Gemfile.lock
+      - LICENSE
+      - Makefile
+      - README.md
 ```
 
 Notes:
