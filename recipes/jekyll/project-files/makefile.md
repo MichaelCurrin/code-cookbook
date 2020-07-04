@@ -32,23 +32,9 @@ The help command will include lines starting with text or with empty lines - so 
     build-prod:
       JEKYLL_ENV=production bundle exec jekyll build
     ```
-- Detailed
+- Additions - note `serve` has an extra param so instead of serving on subpath, we serve on root for GitHub Pages "User" site or Netlify.
     ```makefile
-    default: install
-    
-    help:
-      @egrep '^\S|^$$' Makefile
-
-    install:
-      bundle config --local path vendor/bundle
-      bundle install
-
-    upgrade:
-      bundle update
-
-    s serve:
-      bundle exec jekyll serve --trace --livereload
-    r serve-root:
+    serve:
       bundle exec jekyll serve --trace --livereload --baseurl ''
 
     build-dev:
@@ -57,5 +43,3 @@ The help command will include lines starting with text or with empty lines - so 
     build-prod:
       JEKYLL_ENV=production bundle exec jekyll build
     ```
-    - `serve` will use subpath, as on Github Pages "Project" site.
-    - `serve-root` will use root path, as on Github Pages "User" site or Netlify.
