@@ -1,18 +1,17 @@
-# Gitignore
+# Git ignore file
 
-From [MichaelCurrin/jekyll-blog-demo](https://github.com/MichaelCurrin/jekyll-blog-demo):
+- Simple - From [MichaelCurrin/jekyll-blog-demo](https://github.com/MichaelCurrin/jekyll-blog-demo)
+    ```
+    _site/
 
-```
-_site/
+    .jekyll-metadata
 
-.jekyll-metadata
+    .jekyll-cache/
+    .sass-cache/
 
-.jekyll-cache/
-.sass-cache/
-
-.bundle/
-vendor/
-```
+    .bundle/
+    vendor/
+    ```
 
 Notes:
 
