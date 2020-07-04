@@ -9,9 +9,9 @@ Based on [MichaelCurrin/jekyll-blog-demo](https://github.com/MichaelCurrin/jekyl
 ### Site metadata ###
 
 title: Title here
-
 description: >-
   Text here
+  
 github_username: MichaelCurrin
 ```
 
