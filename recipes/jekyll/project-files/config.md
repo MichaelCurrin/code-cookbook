@@ -17,6 +17,28 @@ email: your-email@example.com
 github_username: MichaelCurrin
 ```
 
+Optionally set:
+
+```yaml
+markdown: kramdown
+```
+
+### Description note
+
+If you leave the description blank and publish to Github Pages, it will take your Git
+repo's description. At least the way the theme is setup.
+
+```yaml
+description: >-
+  Write an awesome description for your new site here.
+  And more here.  
+```
+
+If using minima, this will appear in your document head meta (for Google search results) and in your feed.xml site description.
+
+Use `>-` to write multi-line content but to ignore newlines in the content.
+
+
 ## Build settings
 
 ```yaml
