@@ -1,5 +1,32 @@
-# Breadcrumbs
+# Page URL
 
+Get the page URL.
+
+```
+page.url
+```
+
+```
+page.url | relative_url
+```
+
+Page URL as an array.
+
+```
+page.url | remove: '/index.html' | split: '/' 
+```
+
+e.g. `/foo/bar/index.html` becomes `['foo', 'bar']`.
+
+Build up URL from that array.
+
+```
+{{ site.baseurl }}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}
+```
+
+These are used in the next section.
+
+## Breadcrumbs
 
 This is an improved form of the file here:
 
