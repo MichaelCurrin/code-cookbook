@@ -1,6 +1,6 @@
-# Make
+# Makefile
 
-See Make directory in cheatsheet and this repo.
+See Make directory in Cheatsheets and this repo.
 
 See also:
 
