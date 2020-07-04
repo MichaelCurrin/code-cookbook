@@ -12,16 +12,18 @@ title: Title here
 
 description: >-
   Text here
-
-email: your-email@example.com
 github_username: MichaelCurrin
 ```
 
 Optionally set:
 
 ```yaml
+email: your-email@example.com
+
 markdown: kramdown
 ```
+
+Some themes support social handles.
 
 ### Description note
 
@@ -58,27 +60,36 @@ permalink: pretty
 
 ### URL notes
 
+Your website will be served on: `{url}/{baseurl}`
+
+- e.g. https://michaelcurrin.github.com/jekyll-blog-demo/
+
+So set this up using the next two parameters - url and baseurl.
+
+For URL, include **protocol** and **no** trailing forward slash.
+
+- e.g. `"https://michaelcurrin.github.com"`.
+
+This value is ignored usually - it only applied for a prod build, that is:
+
+- When deploying to Github Pages.
+- When wetting JEKYLL_ENV='production' as an environment variable locally or on Netlify.
+
+It is recommended to set this at least for the canonical tag to be aware of the full domain,
+as that is recommended but not required for use by crawlers.
+
 ```yaml
-Your website will be served on: {url}/{baseurl}
-#     e.g. https://MichaelCurrin.github.com/jekyll-blog-demo
-# So set this up using the next two parameters - url and baseurl.
-
-# For URL, set base hostname AND protocol for your site, e.g. 'https://example.com'.
-# And do not use a trailing forward slash.
-#
-# This value is ONLY applied for a prod build, that is:
-#  - When deploying to Github Pages
-#  - When wetting JEKYLL_ENV='production' as an environment variable locally
-#    or on Netlify.
-# It is recommended to set this at least for the canonical tag to be aware of the full domain,
-# as that is recommended but not required for use by crawlers.
 url: "https://michaelcurrin.github.io"
+```
 
-# If using Github Pages as a project site (USERNAME.github.io/my-project),
-# this should be a forwardslash and the name of your repo - e.g. "/my-project"
-# Your site will be served from this URL so all URLs on the page should relative to this too.
-#
-# If using a Github Pages as a user site (USERNAME.github.io/), or using Netlify, this can be empty.
+If using Github Pages as a project site (`USERNAME.github.io/my-project`),
+this should be a forwardslash and the name of your repo - e.g. `"/my-project"`
+
+Your site will be served from this URL so all URLs on the page should relative to this too.
+
+If using a Github Pages as a user site (`USERNAME.github.io/`), or using Netlify, this can be empty.
+
+```yaml
 baseurl: "/jekyll-blog-demo"
 ```
     
