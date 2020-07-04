@@ -12,7 +12,7 @@ Be sure to use tab indentation.
 
 The help command will include lines starting with text or with empty lines - so ignoring indented lines. Perhaps this could be ignore tabs instead, but then add logic for keeping indent comments if needed.
 
-- Simple
+- Base
     ```makefile
     default: install
     
