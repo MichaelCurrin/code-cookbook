@@ -121,8 +121,7 @@ include:
 We want to only copy to the `_site` directory the files and directories which we want to be served publically.
 
 Jekyll will ignore files starting with a dot or underscore, but there are other files we
-want to ignore. So set these below in your `exclude `field. The Makefile line can be
-omitted if you do not have one. The slash is optional but helps indicate directories vs files.
+want to ignore. So set these below in your `exclude `field. 
 
 ```yaml
 exclude:
@@ -138,22 +137,22 @@ exclude:
   - vendor/
 ```
 
-For more precise control over vendor, add these:
+Notes:
 
-```yaml
-- vendor/bundle/
-- vendor/cache/
-- vendor/gems/
-- vendor/ruby/
-```
-
-Also add these if relevant for your project:
-
-```yaml
-- bin/
-- docs/
-```
-
+- The trailing slash is optional but helps indicate directories vs files.
+- The `Makefile` item can be omitted if you do not have one. 
+- Add these if relevant for your project. `bin` is for scripts.
+    ```yaml
+    - bin/
+    - docs/
+    ```
+- For more precise control over `vendor` directory, add these:
+    ```yaml
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/
+    ```
 
 ## Analytics
 
