@@ -102,6 +102,7 @@ If using a Github Pages as a user site (`USERNAME.github.io/`), or using Netlify
 baseurl: "/jekyll-blog-demo"
 ```
     
+    
 ## Include and exclude
 
 ### Include for processing
@@ -156,10 +157,12 @@ Notes:
 
 ## Analytics
 
+If you use the [jekyll-analytics](https://github.com/hendrikschneider/jekyll-analytics) plugin:
+
 ```yaml
 ### Analytics ###
 
-google_analytics: UA-87705880-3
+google_analytics: UA-12345678-9
 ```
 
 
@@ -206,4 +209,3 @@ defaults:
   values:
     layout: "default"
 ```
-  
