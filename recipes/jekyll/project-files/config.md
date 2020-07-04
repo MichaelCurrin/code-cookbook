@@ -131,10 +131,10 @@ exclude:
   - Makefile
 
   # In Jekyll 4, these are always excluded, so you never have to add them to your list.
-  # But in Jekyll 3, these are needed:
+  # But in Jekyll 3, these must explicit if you set exclude value at all even with one item.
   - Gemfile
   - Gemfile.lock
-  - node_modules
+  - node_modules/
   - vendor/
 ```
 
