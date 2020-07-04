@@ -3,6 +3,16 @@
 
 Based on [MichaelCurrin/jekyll-blog-demo](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/_config.yml) but with fewer notes here.
     
+    
+## Formatting
+
+YAML allows strings to be set without quotes.
+
+If you have any special YAML characters like `#`, use double quotes. Single quotes will be converted to double quotes by a YAML formatter I use in VS Code but it will not quoted unquoted values.
+
+For multi-line strings use: `|` or `>-`.
+
+
 ## Site metadata
 
 ```yaml
