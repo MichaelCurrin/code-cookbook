@@ -18,9 +18,8 @@ For multi-line strings use: `|` or `>-`.
 ```yaml
 ### Site metadata ###
 
-title: Title here
-description: >-
-  Text here
+title: My project title
+description: My project description
   
 github_username: MichaelCurrin
 ```
