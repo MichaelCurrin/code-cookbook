@@ -9,7 +9,9 @@ A collection of reusable code I have written or copied from other sources like t
 
 Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together. 
 
-Sometimes there is just a collection of ingredients which are similar and can be used in a larger recipe. For example, a collection of ESLint config files from various sources.
+Sometimes there is just a collection of ingredients which are similar and can be used in a larger recipe. For example, a collection of ESLint config files from various sources, or some boilerplate HTML and CSS to add an element to a Jekyll site.
+
+I have a lot of template or "quickstart" repos on GitHub, but sometimes there are too specific for a larger setup. So this cookbook repo can take the most useful parts of those repos and put them in here as snippets with detail comments. This is a nice balance between entire files or projects which are not all relevant (or up to date) and giving one-line definitions of fields and allowed values.
 
 
 ## About
@@ -34,7 +36,7 @@ This project does not cover steps on install tools but rather how to use them.
 - `sitemap.xml`
 - Github Actions - choosing actions
 - shell command patterns
-
+- Jekyll configs
 
 ## License
 
