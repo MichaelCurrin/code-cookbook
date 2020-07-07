@@ -31,4 +31,5 @@ I cleaned it up and added supported for relative URLs.
 
     </div>
     ```
-    
+
+The code above _always_ starts with `Home`. This may not make sense for pages like `/about.html` and `/animals/index.html` which are 1 level below `/` in terms of URL but they are not really below `Home`. So the top level could be `Animals` instead and `Home` can be reached through the navbar.
