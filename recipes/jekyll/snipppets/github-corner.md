@@ -16,6 +16,8 @@ Based on:
 
 - https://tholman.com/github-corners/
 
+That refers to the GitHub Ribbon which needed a redesign.
+
 Customization:
 
 - `fill`
