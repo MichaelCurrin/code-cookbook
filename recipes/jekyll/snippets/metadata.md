@@ -8,7 +8,7 @@ A variable can also be set at the start as `github_url` using `capture` or anoth
     ```liquid
     - Repo: [{{ site.github_username }}{{ site.baseurl }} ![Repo stars](https://img.shields.io/github/stars/{{ site.github_username }}{{ site.baseurl }}?style=social)](https://github.com/{{ site.github_username }}{{ site.baseurl }})
     - Author: [{{ site.github_username }}](https://github.com/{{ site.github_username }})
-    - Documentation: [GitHub docs](https://github.com/{{ site.github_username }}{{ site.baseurl }}/docs/)
+    - Documentation: [GitHub docs](https://github.com/{{ site.github_username }}{{ site.baseurl }}/tree/master/docs/)
     - Contribute: [Github contributing doc](https://github.com/{{ site.github_username }}{{ site.baseurl }}//blob/master/CONTRIBUTING.md)
     ```
     
