@@ -1,4 +1,4 @@
-# SSH config
+# Configure SSH
 
 ```sh
 $ nano ~/.ssh/config
