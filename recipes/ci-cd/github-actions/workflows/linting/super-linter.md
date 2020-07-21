@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Lint
-        uses: github/super-linter@v2.0.0
+        uses: docker://github/super-linter:v3
 ```
 
 Set variables optionally:
@@ -40,3 +40,5 @@ Set variables optionally:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_ANSIBLE: false
 ```
+
+The docs strongly recommend running using the pre-built image as `docker://github/super-linter:v3`. Or compile your own at a cost, with `github/super-linter@v3`.
