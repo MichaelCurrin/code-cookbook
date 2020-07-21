@@ -8,15 +8,20 @@ This is very verbose covering languages I don't use and also the markdown lintin
 
 However, this action is a good working example of all the linters on GitHub Actions, so I can unbundle them.
 
+## Links
+
 - [Super Linter](https://github.com/marketplace/actions/super-linter) in Marketplace
     [Support linters](https://github.com/marketplace/actions/super-linter#supported-linters) table
 - [github/super-linter](https://github.com/github/super-linter) repo
-    - [Dockerfile](https://github.com/github/super-linter/blob/master/Dockerfile) - this uses a lot of `FROM` lines.
-    - [linter.sh](https://github.com/github/super-linter/blob/master/lib/linter.sh) which does the work.
-        - See for example 
-            - `shellcheck --color`
-            - `pylint --rcfile ...`
-            - `rubocop -c ...`
-            - `markdownlint`
-            - `jsonlint`
+
+## Code breakdown
+
+- [Dockerfile](https://github.com/github/super-linter/blob/master/Dockerfile) - this uses a lot of `FROM` lines.
+- [linter.sh](https://github.com/github/super-linter/blob/master/lib/linter.sh) which does the work.
+    - See for example 
+        - `shellcheck --color`
+        - `pylint --rcfile ...`
+        - `rubocop -c ...`
+        - `markdownlint`
+        - `jsonlint`
             
