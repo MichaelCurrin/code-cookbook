@@ -4,7 +4,7 @@ title: Pre-commit hooks
 
 Here we use linters and pre-commit hooks on GH Actions - I don't know how this actually works or is useful but it is here for when I need it.
 
-See [pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks) repo - good for use with Python
+See [pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks) repo and [pre-commit.com/](https://pre-commit.com/) homepage - good for use with Python projects.
 
 See also the [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks.html) section of Dev Cheatsheets repo.
 
