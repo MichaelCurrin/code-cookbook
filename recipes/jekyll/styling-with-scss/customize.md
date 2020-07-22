@@ -1,8 +1,9 @@
 # Jekyll SCSS styling
 > How to use SCSS to set and override styles
 
+Instructions are collected from themes.
 
-## Minima 
+## Minima theme
 
 How to customize a site using the [Minima](https://github.com/jekyll/minima) theme.
 
@@ -68,3 +69,21 @@ Description:
 > - Front matter dashes at the very beginning (can be empty).
 > - Directive to import a skin.
 > - Directive to import the base styles (automatically loads overrides when available)
+
+
+## Architect theme
+
+### Latest
+
+
+- `assets/css/style.scss`
+    ```scss
+    ---
+    ---
+
+    @import "{{ site.theme }}";
+    ```
+
+Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+
+_Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet._
