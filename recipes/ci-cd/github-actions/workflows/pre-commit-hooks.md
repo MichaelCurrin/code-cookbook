@@ -6,7 +6,7 @@ Here we use linters and pre-commit hooks on GH Actions - I don't know how this a
 
 See [pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks) repo - good for use with Python
 
-See also the [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/committing/hooks.html) section of Dev Cheatsheets repo.
+See also the [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks.html) section of Dev Cheatsheets repo.
 
 
 ## Example
