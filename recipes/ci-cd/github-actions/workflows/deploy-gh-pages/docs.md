@@ -2,7 +2,7 @@
 
 This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building the Jekyll docs using GH Actions instead of plain GH Pages flow.
 
-Note these steps around Bundler and committing and publishing to GH Pages are very low-level. However, this was preferred when I brought it up on the PR as it provides more control over logging and I think it also reduces dependency on actions which might not be maintained or that do things it a way that is not ideal here.
+Note these steps around Bundler and committing and publishing to GH Pages are very low-level. However, this was preferred when I brought it up on the PR as it provides more control over logging and commit messages. I think it also reduces dependency on actions which might not be maintained or that do things it a way that is not ideal here.
 
 Note use of `GITHUB_TOKEN` near the end.
 
