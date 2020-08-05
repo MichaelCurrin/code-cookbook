@@ -32,11 +32,12 @@ This project does not cover steps on install tools but rather how to use them.
 
 ### Examples
 
-- `robots.txt` file
-- `sitemap.xml`
-- Github Actions - choosing actions
-- shell command patterns
-- Jekyll configs
+- [robots.txt file](/recipes/robots/)
+- [sitemap.xml](/recipes/sitemap/)
+- [Github Actions](/recipes/ci-cd/github-actions/) - choices of actions and some sample workflows
+- [Shell commands](/recipes/shell/) and patterns to use them
+- [Jekyll](/recipes/jekyll/) snippets and configs
+
 
 ## License
 
