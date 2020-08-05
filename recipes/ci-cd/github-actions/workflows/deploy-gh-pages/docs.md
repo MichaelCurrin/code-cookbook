@@ -2,10 +2,6 @@
 
 This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building the Jekyll docs using GH Actions instead of plain GH Pages flow.
 
-Note these steps around Bundler and committing and publishing to GH Pages are very low-level. However, this was preferred when I brought it up on the PR as it provides more control over logging and commit messages. I think it also reduces dependency on actions which might not be maintained or that do things it a way that is not ideal here.
-
-These steps are also intended to be used by GH and Jekyll experts and also involves a lot of boilerplate which has to be maintained. So for other projects it may make sense to use existing actions and therefore keep your workflow file shorter and simpler, and easier to maintain across many Jekyll projects. The burden of maintaining the code (for example as Bundler CLI changes) and making good choices then falls on action maintainers which is some risk but less effort.
-
 Note use of `GITHUB_TOKEN` near the end.
 
 - `docs.yaml`
@@ -78,3 +74,11 @@ Note use of `GITHUB_TOKEN` near the end.
               
               popd &>/dev/null
     ```
+
+
+
+Note these steps around Bundler and committing and publishing to GH Pages are very low-level. I wouldn't use this across many projects myself as it would be tedious to maintain and not DRY and also I do not care about this level of control when using a single action for whole flow meets my needs.
+
+However, this was preferred when I brought it up on the PR, the comment was that this provides more control over logging and commit messages. At the cost of having to maintain boilerplate instead of having it maintained in a separate action (which means less control and a different kind of risk of commands going out of date or security issues). I think it also reduces dependency on actions which might not be maintained or that do things it a way that is not ideal here.
+
+These steps are also intended to be used by GH and Jekyll experts and also involves a lot of boilerplate which has to be maintained. So for other projects it may make sense to use existing actions and therefore keep your workflow file shorter and simpler, and easier to maintain across many Jekyll projects. The burden of maintaining the code (for example as Bundler CLI changes) and making good choices (around Ruby, Bundler, publishing) then falls on action maintainers, which is a different kind of risk but less effort to use.
