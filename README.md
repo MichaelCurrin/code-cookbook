@@ -30,7 +30,7 @@ The solutions are based on my experienced or copied from other projects that I f
 
 This project does not cover steps on install tools but rather how to use them.
 
-### Examples
+Here are some highlights of this project:
 
 - [robots.txt](/recipes/robots/)
 - [sitemap.xml](/recipes/sitemap/)
