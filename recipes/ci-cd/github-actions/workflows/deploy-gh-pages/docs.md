@@ -4,6 +4,8 @@ This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files
 
 Note these steps around Bundler and committing and publishing to GH Pages are very low-level. However, this was preferred when I brought it up on the PR as it provides more control over logging and I think it also reduces dependency on actions which might not be maintained or that do things it a way that is not ideal here.
 
+Note use of `GITHUB_TOKEN` near the end.
+
 - `docs.yaml`
     ```yaml
     name: Build and deploy Jekyll documentation site
@@ -54,8 +56,11 @@ Note these steps around Bundler and committing and publishing to GH Pages are ve
           - name: Deploy to GitHub Pages
             run: |
               SOURCE_COMMIT="$(git log -1 --pretty="%an: %B" "$GITHUB_SHA")"
+              
               pushd docs/_site &>/dev/null
+              
               : > .nojekyll
+              
               REMOTE_REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
               REMOTE_BRANCH="${REMOTE_BRANCH:-gh-pages}"
               
@@ -68,5 +73,6 @@ Note these steps around Bundler and committing and publishing to GH Pages are ve
                 --message "Deploy docs from ${GITHUB_SHA}" \
                 --message "$SOURCE_COMMIT"
               git push "$REMOTE_REPO" "+HEAD:${REMOTE_BRANCH}"
+              
               popd &>/dev/null
     ```
