@@ -1,6 +1,7 @@
-# Docs
+# Build docs
+> Run Jekyll against docs directory and publish to GH Pages
 
-This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building the Jekyll docs using GH Actions instead of plain GH Pages flow.
+This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building the Jekyll docs at [jekyllrb.com](https://jekyllrb.com), using GH Actions instead of plain GH Pages flow.
 
 Note use of `GITHUB_TOKEN` near the end.
 
@@ -24,7 +25,6 @@ Note use of `GITHUB_TOKEN` near the end.
         
         steps:
           - uses: actions/checkout@v2
-          
           - uses: actions/setup-ruby@v1
             with:
               ruby-version: ${{ env.RUBY_VERSION }}
@@ -46,35 +46,34 @@ Note use of `GITHUB_TOKEN` near the end.
               bundle install --path=vendor/bundle --jobs 4 --retry 3
               bundle clean
               
+          - name: Clone target branch
+            run: |
+              REMOTE_BRANCH="${REMOTE_BRANCH:-gh-pages}"
+              REMOTE_REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+              echo "Publishing to ${GITHUB_REPOSITORY} on branch ${REMOTE_BRANCH}"
+              rm -rf docs/_site/
+              git clone --depth=1 --branch="${REMOTE_BRANCH}" --single-branch --no-checkout \
+                "${REMOTE_REPO}" docs/_site/
+                
           - name: Build site
             run: bundle exec jekyll build --source docs --destination docs/_site --verbose --trace
             env:
-              JEKYLL_PAT: ${{ secrets.GITHUB_TOKEN }}
+              # For jekyll-github-metadata
+              JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               
           - name: Deploy to GitHub Pages
             run: |
               SOURCE_COMMIT="$(git log -1 --pretty="%an: %B" "$GITHUB_SHA")"
-              
               pushd docs/_site &>/dev/null
-              
               : > .nojekyll
-              
-              REMOTE_REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
-              REMOTE_BRANCH="${REMOTE_BRANCH:-gh-pages}"
-              
-              echo "Publishing to ${GITHUB_REPOSITORY} on branch ${REMOTE_BRANCH}"
-              git init --quiet
-              git config user.name "${GITHUB_ACTOR}"
-              git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
               git add --all
-              git commit --quiet \
+              git -c user.name="${GITHUB_ACTOR}" -c user.email="${GITHUB_ACTOR}@users.noreply.github.com" \
+                commit --quiet \
                 --message "Deploy docs from ${GITHUB_SHA}" \
                 --message "$SOURCE_COMMIT"
-              git push "$REMOTE_REPO" "+HEAD:${REMOTE_BRANCH}"
-              
+              git push
               popd &>/dev/null
     ```
-
 
 
 Note these steps around Bundler and committing and publishing to GH Pages are very low-level. I wouldn't use this across many projects myself as it would be tedious to maintain and not DRY and also I do not care about this level of control when using a single action for whole flow meets my needs.
