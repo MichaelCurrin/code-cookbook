@@ -13,6 +13,14 @@ TODO - Can I create one at the user level to share across all repos? Unless `roo
 
 These are separate but can combined if they make sense for one project.
 
+### Shell
+
+```ini
+[*.sh]
+indent_style = space
+indent_size = 2
+```
+
 ### Python
 
 ```ini
