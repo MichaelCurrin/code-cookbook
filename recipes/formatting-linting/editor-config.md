@@ -6,6 +6,8 @@ The point of the editor config file is to set one in each repo so that when you 
 
 Note that VS Code does let you choose the indent level and tabs/spaces handling, but this is limited as it is not by file type but for all files, whether global or across a project.
 
+Note these are not always needed - in VS Code you can convert between tabs and spaces and change the spacing, then that will be remembered after that for that file. However, you have to repeat this for each new file. So perhaps leave default as 4 spaces at global IDE settings (to cover most of my cases) and then set spaces for certain languages. I mostly work on my projects alone, so maybe a shared global editor config is worthwhile.
+
 TODO - Can I create one at the user level to share across all repos? Unless `root = true` is set.
 
 
@@ -39,6 +41,12 @@ indent_size = 2
 
 ```ini
 [*.{js,ts}]
+indent_style = space
+indent_size = 2
+```
+
+```ini
+[*.{js,json}]
 indent_style = space
 indent_size = 2
 ```
