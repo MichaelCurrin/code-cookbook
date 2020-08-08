@@ -1,6 +1,6 @@
 # Workflows
 
-Files for: `.github/workflows/`
+Files for `.github/workflows/`.
 
 See also [CI-CD](/recipes/ci-ci/) section.
 
