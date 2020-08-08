@@ -1,6 +1,8 @@
-# Repo administration
+# Workflows
 
-`.github/workflows/`
+Files for: `.github/workflows/`
+
+See also [CI-CD](/recipes/ci-ci/) section.
 
 Note - you might have install an app from the marketplace in order to get these to work for your repo.
 
