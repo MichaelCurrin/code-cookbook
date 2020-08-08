@@ -1,8 +1,8 @@
 # EditorConfig
 
-See [editorconfig.org](https://editorconfig.org/).
+See [editorconfig.org](https://editorconfig.org/) for syntax.
 
-The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any IDE that supports it, you'll get the same settings. Note VS Code needs an extension.
+The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. GitHub and PyCharm don't need an extension to support this but VS Code does.
 
 Note that VS Code does let you choose the indent level and tabs/spaces handling, but this is limited as it is not by file type but for all files, whether global or across a project.
 
@@ -12,6 +12,44 @@ TODO - Can I create one at the user level to share across all repos? Unless `roo
 ## Samples
 
 These are separate but can combined if they make sense for one project.
+
+### Python
+
+```ini
+[*.py]
+indent_style = space
+indent_size = 4
+```
+
+### JavaScript
+
+```ini
+[*.js]
+indent_style = space
+indent_size = 2
+```
+
+```ini
+[*.{js,ts}]
+indent_style = space
+indent_size = 2
+```
+
+### Make
+
+```ini
+[Makefile]
+indent_style = tab
+```
+
+### Markdown
+
+```ini
+[*.md]
+indent_style = space
+indent_size = 4
+```
+
 
 ### Demo
 
@@ -49,28 +87,6 @@ indent_size = 2
 
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
-indent_style = space
-indent_size = 2
-```
-
-### Python
-
-```ini
-[*.py]
-indent_style = space
-indent_size = 4
-```
-
-### Make
-
-```ini
-[Makefile]
-indent_style = tab
-```
-
-### JavaScript
-
-```ini
 indent_style = space
 indent_size = 2
 ```
