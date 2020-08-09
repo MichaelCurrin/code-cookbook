@@ -3,7 +3,7 @@
 
 ## Setup Node action
 
-From Github Action samples.
+From the Github Action samples.
 
 - [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
 
@@ -21,7 +21,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,10 +29,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
