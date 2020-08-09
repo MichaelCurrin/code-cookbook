@@ -1,8 +1,26 @@
 # Yarn
 
-## Example 1
+## Sample
 
-From Github Actions samples.
+### Simple
+
+The GH docs recommend running yarn install like this: 
+
+```yaml
+steps:
+- name: Use Node.js  
+  uses: actions/setup-node@v1
+
+- name: Install dependencies
+  run: yarn --frozen-lockfile
+```
+
+Note that yarn is already included in setup Node.
+
+The flag is to prevent changes to lockfile:
+
+
+## GH Actions sample
 
 Uses the [Github Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
@@ -36,7 +54,7 @@ jobs:
           cmd: test
 ```
 
-## Example 2
+### React Yarn cache
 
 From this [post](https://spin.atomicobject.com/2020/01/20/github-actions-react-node/) about deploying React/Node to Heroku.
 
@@ -86,7 +104,7 @@ jobs:
 ```
 
 
-## Example 3
+## React Yarn
 
 From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app - just the install/test portion.
 
