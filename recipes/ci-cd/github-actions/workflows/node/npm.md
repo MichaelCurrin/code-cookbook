@@ -15,7 +15,7 @@ For persist artificts, see [Persisting workflow data using artifacts](https://do
 
 ## Samples
 
-### One Node.js version
+### Use single Node.js version
 
 I created this based on the other samples.
 
@@ -34,24 +34,6 @@ steps:
   env:
     CI: true
 ```
-
-### Run yarn
-
-The docs recommend running yarn install like this. 
-
-Note that yarn is already included in setup Node.
-
-```yaml
-steps:
-- name: Use Node.js  
-  uses: actions/setup-node@v1
-
-- name: Install dependencies
-  run: yarn --frozen-lockfile
-```
-
-The flag is to prevent changes to lockfile:
-
 
 ### Cache dependencies - docs sample
 
