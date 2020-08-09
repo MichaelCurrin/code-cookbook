@@ -11,9 +11,9 @@ Note that VS Code does let you choose the indent level and tabs/spaces handling,
 
 Note these are not always needed - in VS Code you can convert between tabs and spaces and change the spacing, then that will be remembered after that for that file. However, you have to repeat this for each new file. So perhaps leave default as 4 spaces at global IDE settings (to cover most of my cases) and then set spaces for certain languages. I mostly work on my projects alone, so maybe a shared global editor config is worthwhile.
 
-TODO - Can I create one at the user level to share across all repos? Unless `root = true` is set.
+See [JS formatting](js-formatting.md) guide around use with Prettier extension in VS Code.
 
-If using VS Code Prettier or related extensions (such as for formatting with semicolons), be sure to set space to 2 and disable tabs in the config. These will be applied when the file is saved and unfortunately the editor config is not picked up.
+TODO - Can I create one at the user level to share across all repos? Unless `root = true` is set.
 
 
 ## General format
