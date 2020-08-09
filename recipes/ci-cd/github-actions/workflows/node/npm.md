@@ -1,6 +1,7 @@
 # NPM actions
+> Patterns for using Node.js and NPM in a GH Action worflow
 
-See GH docs - [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions).
+See GH docs - [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions). Some of the samples come from here.
 
 Note use of this which comes from the doc linked above, but it is not used consistently in the docs - need to research what it does to test.
 
@@ -14,6 +15,8 @@ For persist artificts, see [Persisting workflow data using artifacts](https://do
 
 
 ## Setup Node action
+
+Note that the action environment **already** include Node.js, but using `actions/setup-node` gives more control.
 
 See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-node-js-environment) action.
 
