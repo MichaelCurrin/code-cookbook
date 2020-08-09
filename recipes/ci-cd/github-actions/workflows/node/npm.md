@@ -13,6 +13,37 @@ Note use of this which comes from the doc linked above, but it is not used consi
 For persist artificts, see [Persisting workflow data using artifacts](https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) - not covered here.
 
 
+## Setup Node action
+
+See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-node-js-environment) action.
+
+### Options
+
+<!-- TODO move to cheatsheets and link from here -->
+
+Sample from GH Actions recommendation:
+
+```yaml
+- name: Setup Node.js environment
+  uses: actions/setup-node@v2.1.1
+  with:
+    # Set always-auth in npmrc
+    always-auth: # optional, default is false
+    # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+    node-version: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries
+    scope: # optional
+    # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
+    token: # optional, default is ${{ github.token }}
+    # Deprecated. Use node-version instead. Will not be supported after October 1, 2019
+    version: # optional
+```
+
+
 ## Samples
 
 ### Basic
@@ -21,12 +52,14 @@ Use single Node.js version
 
 I created this based on the other samples.
 
+Note this uses [setup-node]() version while some of the other samples below are behind.
+
 ```yaml
 steps:
 - uses: actions/checkout@v2
 
 - name: Use Node.js  
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '14.x'
 
