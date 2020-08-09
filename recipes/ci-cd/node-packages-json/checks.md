@@ -1,6 +1,10 @@
 # Checks
 
-From [peaceiris/actions-gh-pages package.json](https://github.com/peaceiris/actions-gh-pages/blob/master/package.json).
+Reference for running linting and other steps. Some commands are for making changes locally and some are for running a check only - useful in a CI flow when you want logged output but don't actually want to make the commit as that makes more effort to set up and might not be suitable to apply.
+
+## Samples
+
+From [package.json](https://github.com/peaceiris/actions-gh-pages/blob/master/package.json) of `peaceiris/actions-gh-pages` repo.
 
 ```json
 {
