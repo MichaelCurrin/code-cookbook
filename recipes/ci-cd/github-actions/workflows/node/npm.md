@@ -15,7 +15,9 @@ For persist artificts, see [Persisting workflow data using artifacts](https://do
 
 ## Samples
 
-### Use single Node.js version
+### Basic
+
+Use single Node.js version
 
 I created this based on the other samples.
 
@@ -35,7 +37,11 @@ steps:
     CI: true
 ```
 
-### Cache dependencies - docs sample
+### Cache dependencies
+
+This reduces build time as dependencies are cached between builds.
+
+Sample from the docs.
 
 ```yaml
 steps:
@@ -60,8 +66,9 @@ steps:
   run: npm ci
 ```
 
+### Matrix
 
-### Matrix - docs sample
+This sample comes from the docs and is similar to the default covered in the example after this.
 
 ```yaml
 name: Node.js CI
@@ -94,7 +101,7 @@ jobs:
 
 ### Setup Node action default
 
-From the Github Action samples.
+From the Github Action samples:
 
 - [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
 
