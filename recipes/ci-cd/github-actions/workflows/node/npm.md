@@ -2,7 +2,7 @@
 
 See GH docs - [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions).
 
-Note use of this which comes from the docs linked above - need to research what it does to test.
+Note use of this which comes from the doc linked above, but it is not used consistently in the docs - need to research what it does to test.
 
 ```yaml
 - run: npm test
@@ -58,10 +58,12 @@ The flag is to prevent changes to lockfile:
 ```yaml
 steps:
 - uses: actions/checkout@v2
+
 - name: Use Node.js
   uses: actions/setup-node@v1
   with:
     node-version: '12.x'
+    
 - name: Cache Node.js modules
   uses: actions/cache@v2
   with:
@@ -71,6 +73,7 @@ steps:
     restore-keys: |
       ${{ runner.OS }}-node-
       ${{ runner.OS }}-
+      
 - name: Install dependencies
   run: npm ci
 ```
