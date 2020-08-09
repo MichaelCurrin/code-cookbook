@@ -17,6 +17,8 @@ For persist artificts, see [Persisting workflow data using artifacts](https://do
 
 See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-node-js-environment) action.
 
+> Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH
+
 ### Options
 
 <!-- TODO move to cheatsheets and link from here -->
