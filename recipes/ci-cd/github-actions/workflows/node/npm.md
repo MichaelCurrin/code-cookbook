@@ -26,7 +26,7 @@ See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-nod
 
 <!-- TODO move to cheatsheets and link from here -->
 
-Sample from GH Actions recommendation:
+Sample from GH Actions recommendation. Note that `v2` does not work but `v2-beta` is available (August 2020).
 
 ```yaml
 - name: Setup Node.js environment
