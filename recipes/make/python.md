@@ -56,6 +56,8 @@ Optionally add this at the top to prevent a file with that name from being execu
 
 ## MyPy and readthedocs 
 
+From: https://github.com/willmcgugan/rich/blob/master/Makefile
+
 `Makefile`
 ```make
 test:
