@@ -1,13 +1,16 @@
 # Python and make
 
 
-## Sample file
+## Install and check
+
 
 See [Makefile](https://github.com/MichaelCurrin/py-project-template/blob/master/Makefile) in my `py-project-template` repo as I have refined that over time to work well for me.
 
-That does not deal with cleaning a project or handling a Python package install / clean flow.
 
-So for interest see also this project copied from [article](https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html)
+
+## Install, check and clean 
+
+That does not deal with cleaning a project or handling a Python package install / clean flow. So for interest see also this project copied from [article](https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html)
 
 The clean command is probably out of date for PY3 work.
 
@@ -42,16 +45,36 @@ For `find`:
         python manage.py runserver
     ```
 
+Removing `.pyc` files might be different for pycache dir in newer PY3 or even the global dir.
+
 Optionally add this at the top to prevent a file with that name from being executed of the `make` target.
 
 ```mk
 .PHONY: clean-pyc clean-build
 ```
 
+
+## MyPy and readthedocs 
+
+`Makefile`
+```make
+test:
+	pytest --cov-report term-missing --cov=rich tests/ -vv
+format:
+	black --check rich
+typecheck:
+	mypy -p rich --ignore-missing-imports --warn-unreachable
+typecheck-report:
+	mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
+.PHONY: docs
+docs:
+	cd docs; make html
+```
+
 ## Running with parameters
 
 - `Makefile`
-    ```mk
+    ```make
     run:
         python manage.py runserver --host $(HOST) --port $(PORT)
     ```
