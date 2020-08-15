@@ -29,13 +29,16 @@ gem 'jekyll', '~> 4'
 ```
 
 
-## Windows
+## Windows support
 
-Install gems conditionally for Windows support.
+Install gems conditionally. See related [discussion thread](https://github.com/jekyll/jekyll/issues/5935#issuecomment-284198548).
 
-```
+```ruby
 install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-    gem "tzinfo"
-    gem "tzinfo-data"
+  gem "tzinfo"
+  gem "tzinfo-data"
 end
 ```
+
+This snippet was copied from [Jekyll forums question](https://talk.jekyllrb.com/t/plugins-not-working/4846/4).
+
