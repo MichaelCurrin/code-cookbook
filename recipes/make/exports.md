@@ -47,6 +47,8 @@ $ T=bar make
 : 'bar'
 ```
 
+See [Overriding variables](https://www.gnu.org/software/make/manual/make.html#Overriding) in the Make docs.
+
 Or
 
 - `Makefile`
