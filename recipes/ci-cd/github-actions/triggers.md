@@ -149,9 +149,8 @@ You can add "checks" in your branch rules so that a PR can _only_ merge to maste
 
 ## Multiple workflows
 
-
-You might split out to two workflow files such as one with a push trigger and app test job and another with a release trigger and page build job (to only build the site when creating tag). Alternatively, you could run tests on pull requests but only pages build on merge to master. 
-
+You might split out to two workflow files such as one with a push trigger and app testing job and another with a release trigger and page build job, as below.
+To only build the site when creating a tag. This means you build less frequently but more _safely_ and deliberately from a tag. This is especially useful if there are multiple people working on your project and comitting merging to master.
 
 ```yaml
 # build.yml
@@ -168,14 +167,13 @@ jobs:
   build:
     # Installs
 
-    # linting and unit tests.
+    # Linting and unit tests.
 
-    # build the app or static site so any errors come up, but don't persist the result.
+    # Build the app or static site so any errors come up, but don't persist the result.
 ```
 
 ```yaml
 # deploy.yml
-
 release:
     types:
       - created
@@ -185,4 +183,7 @@ jobs:
     # Build static site or docs site or publish to NPM etc.
 ```
 
-This means you can make changes directly to master without tagging, for frequent deploys. 
+This assumes tag and release is done after a build.yml run but that might not be a good assumption. You might want to add some build and test steps from build.yml and duplicate them in deploy.yml (unfortunately they can't be reused across workflow files I think).
+
+Whether using one or two files, you probably want your deploy job to _depend_ on another build job section in this the same workflow so they always run in series and a failed build will mean a deploy is skipped.
+ 
