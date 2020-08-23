@@ -24,15 +24,15 @@ See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-nod
 
 ### Options
 
-<!-- TODO move to cheatsheets and link from here -->
+<!-- TODO move to cheatsheets and link from here - similar to CLI usage guides this is actions usage -->
 
-Sample from GH Actions recommendation. Note that `v2` does not work but `v2-beta` is available (August 2020).
+Sample from GH Actions recommendation. Note that `v2` does not work but `v2.1.1` and `v2-beta` are available (August 2020).
 
 - `main.yml`
     ```yaml
     steps:
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2-beta
         with:
           # Set always-auth in npmrc
           always-auth: # optional, default is false
