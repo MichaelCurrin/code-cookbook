@@ -1,7 +1,8 @@
 # Jekyll with NPM packages on GH Pages
-> Run a build with NPM packages and Jekyll then publish to GitHub Pages
 
-This flow comes from DevHints [rstacruz/cheatsheet](https://github.com/rstacruz/cheatsheets) repo. 
+Start with a Jekyll-based project in your CI, add NPM to it and then publish to `gh-pages` branch for serving on GH Pages.
+
+This flow comes from DevHints [rstacruz/cheatsheet](https://github.com/rstacruz/cheatsheets) repo.
 
 It is low-level in working with tools - it may not be efficient compared with using other actions and workflows. But, it is a complete solution, so it could be useful to learn from. The file has been split into pieces so I can focus on using any piece.
 
