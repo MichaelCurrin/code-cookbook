@@ -1,4 +1,4 @@
-# Github Actions recipes
+# GitHub Actions recipes
 
 
 ## Resources
