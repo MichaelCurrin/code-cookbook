@@ -176,14 +176,14 @@ From the Github Action samples:
             node-version: [10.x, 12.x]
 
         steps:
-        - uses: actions/checkout@v2
+          - uses: actions/checkout@v2
 
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v1
+            with:
+              node-version: ${{ matrix.node-version }}
 
-        - run: npm ci
-        - run: npm run build --if-present
-        - run: npm test
+          - run: npm ci
+          - run: npm run build --if-present
+          - run: npm test
     ```
