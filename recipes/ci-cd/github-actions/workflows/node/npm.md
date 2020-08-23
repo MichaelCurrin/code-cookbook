@@ -11,7 +11,7 @@ Note use of this which comes from the doc linked above, but it is not used consi
     CI: true
 ```
 
-For persist artificts, see [Persisting workflow data using artifacts](https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) - not covered here.
+For building an app (such as React or Vue) and serving as a GH Pages site, see the [Deploy GH Pages](/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/) cookbook section.
 
 
 ## Setup Node action
