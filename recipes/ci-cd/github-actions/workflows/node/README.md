@@ -3,4 +3,21 @@
 
 Both NPM and Yarn are covered here.
 
-For info on `npm ci` usage, see [cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html).
+
+## CI installs
+
+### NPM
+
+Some flows here use `npm ci` command - see [NPM CI cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html) to learn about the command.
+
+A reason to **not** use is that it deletes `node_modules` if it exists. So if you use the `actions/cache` action to **cache** your dependencies each time for faster builds, make sure to use `npm install` to use the cached dependencies rather than deleting them.
+
+For more info on cache, see [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) page of this Cookbook.
+
+### Yarn
+
+The equivalent for Yarn:
+
+```sh
+$ yarn install --frozen-lockfile
+```
