@@ -30,6 +30,7 @@ See [Examples](https://github.com/actions/cache/blob/master/examples.md) in the 
 From [Node - NPM](https://github.com/actions/cache/blob/master/examples.md#node---npm) example.
 
 #### Simple
+
 The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.npmjs.com/cli/cache#cache) in the docs NPM docs.
 
 - `main.yml`
@@ -40,7 +41,14 @@ The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+          
+    # ...
+    
+    - name: Setup dependencies
+        run: npm install
     ```
+
+Make sure to use `npm install` and `npm ci`, as the latter will **delete** any `node_modules` directory that was retrieved from the cache.
 
 ### Using NPM config
 
@@ -110,3 +118,5 @@ From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#r
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
     ```
+
+Maybe use `bundle config --local ...` as that is what I do locally.
