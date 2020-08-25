@@ -1,12 +1,12 @@
 # Jekyll with NPM packages on GH Pages
 
-Start with a Jekyll-based project in your CI, add NPM to it and then publish to `gh-pages` branch for serving on GH Pages.
+Start with a Jekyll-based project in your CI, add NPM/Yarn to it and then publish to `gh-pages` branch for serving on GH Pages.
 
 This flow comes from DevHints [rstacruz/cheatsheet](https://github.com/rstacruz/cheatsheets) repo.
 
 It is low-level in working with tools - it may not be efficient compared with using other actions and workflows. But, it is a complete solution, so it could be useful to learn from. The file has been split into pieces so I can focus on using any piece.
 
-- Base setup
+- Base setup.
     ```yaml
       name: Deploy
       on: 
@@ -27,7 +27,7 @@ It is low-level in working with tools - it may not be efficient compared with us
             with:
               persist-credentials: false
     ```
-- Steps to setup use cache
+- Steps to setup and use cache for Yarn and Bundler.
     ```yaml
           # https://github.com/actions/cache/blob/master/examples.md#node---yarn
           - name: "Cache: Get yarn cache directory path"
