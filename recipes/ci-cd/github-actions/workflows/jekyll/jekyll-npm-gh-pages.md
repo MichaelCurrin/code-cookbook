@@ -27,7 +27,7 @@ It is low-level in working with tools - it may not be efficient compared with us
             with:
               persist-credentials: false
     ```
-- Steps to setup and use cache for Yarn and Bundler.
+- Steps to setup and use cache for Yarn and Bundler. These are just copied as is - see the [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) section of this Cookbook for more info.
     ```yaml
           # https://github.com/actions/cache/blob/master/examples.md#node---yarn
           - name: "Cache: Get yarn cache directory path"
