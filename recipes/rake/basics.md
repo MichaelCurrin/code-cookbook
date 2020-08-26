@@ -3,23 +3,28 @@
 
 ## Samples
 
-Here is a sample based on the [blog post](https://www.rubyguides.com/2019/02/ruby-rake/) on the RubyGuides site.
+### Hello world
+
+Based on the [blog post](https://www.rubyguides.com/2019/02/ruby-rake/) on the RubyGuides site.
 
 - `Rakefile`
     ```rake
-    desc "Print reminder about eating more fruit."
-
-    task :apple do
-      puts "Eat more apples!"
+    desc "Print a greeting."
+    task :greet do
+      puts "Hello, world!"
     end
     ```
 
-And how to run it:
+How to run it:
 
 ```sh
-$ rake apple
-# "Eat more apples!"
+$ rake greet
 ```
+```
+"Hello, world!"
+```
+
+### Task types
 
 See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tutorial - it covers the syntax. Only minimal examples are shown below as these are too generic to be useful as is.
 
@@ -27,7 +32,12 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
     ```rake
     # Simple.
     task :name
-      puts t
+      puts 'Hello, world!'
+    end
+    
+    # With arguments.
+    task :name do |t, args|
+      puts "Hello, #{args.name}!"
     end
     
     # With prerequisites.
@@ -35,10 +45,10 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
       puts t
     end
     
-    # With argugments.
-    task :name, [:first_name, :last_name] do |t, args|
-      puts "First name is #{args.first_name}"
-      puts "Last  name is #{args.last_name}"
-    end
+    # Alt
+    # task :name, [:first_name, :last_name] do |t, args|
+    # ...
     ```
     
+   
+TBC - what is `t`?
