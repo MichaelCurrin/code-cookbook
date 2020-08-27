@@ -10,6 +10,6 @@ Start with [Basic](basic.md) if you are new to GH Actions. To learn more about s
 
 ## Building to GitHub Pages
 
-The GH Pages section will cover how to persist the output directory of your static site or Node app and then serve it as GH Page site. 
+The [Deploy GH Pages](deploy-gh-pages) section will cover how to persist the output directory of your static site or Node app and then serve it as GH Page site. You can also see the [Jekyll](jekyll/) section which also covers a Jekyll + GH Pages flow.
 
 For more info on how to persist build artifacts see the [Persisting workflow data using artifacts](https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) section of GH docs.
