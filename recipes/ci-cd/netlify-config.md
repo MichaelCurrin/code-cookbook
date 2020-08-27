@@ -1,6 +1,16 @@
 # Netlify config
+> How to setup a Netlify build
 
-Netlify's config file is `netlify.toml`. It should be at the root of the repo. Indentation should be two spaces.
+I like using [netlify.com](https://netlify.com) to build and host many of my websites.
+
+It works well if you have a static site like made with Hugo or Jekyll, or a web app like React or Vue.
+
+## Why use a config file
+
+You don't even need a config file. You can configure values in the UI including build command and output directory.
+But for repeatable builds (across Netlify accounts or sites) and for keeping the value in version control, a config file in your repo is great. It will override the UI options. 
+
+Note that either way you don't need to specify an install command or caching dependencies - Netlify will do this for you based on the presence of a package file - Gemfile or yarn.lock file for example.
 
 
 ## Resources
@@ -12,9 +22,26 @@ See Netlify's docs:
     - [File-based configuration](https://docs.netlify.com/configure-builds/file-based-configuration/)
     - [YAML and JSON file support](https://docs.netlify.com/configure-builds/file-based-configuration/#json-and-yaml-configuration-files)
 
+## Sample configs
 
-## Basic Jekyll build
+Netlify's config file is `netlify.toml`. It should be at the root of the repo. Indentation should be two spaces.
 
+The minimum values are two params under build as below.
+
+- command - what shell command to run to build the app (dependencies are already installed by then)
+- publish - which output directory to serve as a site. This directory is usually unversioned in git.
+
+### Generic
+
+```toml
+[build]
+  command = "foo build"
+  publish = "foo"
+```
+
+Note you could use `./foo` as the publish directory if you want to be more verbose 
+
+### Jekyll prod build
 
 ```toml
 [build]
@@ -25,11 +52,49 @@ See Netlify's docs:
   JEKYLL_ENV = "production"
 ```
 
-### Build command
+Note that Netlify works well with bundle set or not. It uses it either anyway.
 
-Replace `<CMD>` with an appropriate command above.
+```
+bundle exec jekyll build
+```
 
-It is a good idea to use a `make` command here, so that what you run locally to test a prod build and what you run on Netlify are the same.
+
+### Node app
+
+Using NPM.
+
+```toml
+[build]
+  command = "npm test && npm run build"
+  publish = "build"
+```
+
+Using Yarn.
+
+```toml
+[build]
+  command = "yarn test && yarn build"
+  publish = "build"
+```
+
+You can use `dist` instead if `build` if you prefer. 
+
+
+## Build command
+
+Use any shell command or commands for the build parameter.
+
+e.g.
+
+- `jekyll build`
+- `npm run build && jekyll build`
+- `./fetch_data.sh && cp foo bar/ && make build`
+
+### Tasks
+
+For Node, define tasks in package.json otherwise you can use a `Makefile`.
+
+It is a good idea to use a `make` command so that what you run locally to test a prod build and what you run on Netlify are the same. You could even include running unit and integration tests, fetching data and actually doing the build, all in a single command.
 
 e.g.
 
@@ -39,12 +104,15 @@ $ make build-prod
 
 For a simple Jekyll project, it could be this, using the trace flag for verbose errors.
 
-```sh
-$ jekyll build --trace
+```make
+build-prod:
+    JEKYLL_ENV=prod bundle exec jekyll build --trace
 ```
 
 
 ## Headers format
+
+There is a lot you can specify in the config. Here are some header settings which allows doing cross-origin requests to use JS to get data from an API.
 
 ```toml
 [[headers]]
