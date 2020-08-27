@@ -45,7 +45,7 @@ You might want to add more packages or do some setup around folders and installi
 
 ## Pubishing
 
-I am not familiar with how to get an action on the marketplace.
+I am not familiar with how to get an action on the marketplace. Read this [doc](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace).
 
 But you can use any action repo including your own in a workflow if it exists on GitHub.
 
