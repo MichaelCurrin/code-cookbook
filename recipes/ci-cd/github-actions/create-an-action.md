@@ -40,6 +40,8 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
+The metadata might be more appropriate in `action.yml` as covered in the docs.
+
 You might want to add more packages or do some setup around folders and installing dependencies (like node packages or gems).
 
 
