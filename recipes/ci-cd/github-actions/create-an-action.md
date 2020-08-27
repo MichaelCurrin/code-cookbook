@@ -4,6 +4,7 @@ If you can't find an action on the GitHub Marketplace and you're not happy to wr
 
 Note this page is not for beginners as it involves detailed knowledge about Actions and adding a public repo to be used in workflows. Before making an action, consider if an existing action or a multi-step workflow will solve your need.
 
+There are Docker and JavaScript action types. This page focuses on the former.
 
 ## Structure
 
@@ -49,5 +50,15 @@ You might want to add more packages or do some setup around folders and installi
 
 I am not familiar with how to get an action on the marketplace. Read this [doc](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace).
 
-But you can use any action repo including your own in a workflow if it exists on GitHub.
+But you can use any action repo including your own in a workflow, if it just exists on GitHub and is valid in its format
+
+
+```yaml
+steps:
+    - uses: my-user/my-repo-action@v1
+```
+
+Repos are typically named with `-action` at the end.
+
+Tagging using semvar convention helps ensure safety for using your action.
 
