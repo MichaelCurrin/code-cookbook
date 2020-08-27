@@ -40,7 +40,7 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-The metadata might be more appropriate in `action.yml` as covered in the docs.
+The metadata might be more appropriate in `action.yml` as covered in the docs. See [Metadata syntax](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions).
 
 You might want to add more packages or do some setup around folders and installing dependencies (like node packages or gems).
 
