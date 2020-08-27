@@ -46,12 +46,11 @@ The metadata might be more appropriate in `action.yml` as covered in the docs. S
 You might want to add more packages or do some setup around folders and installing dependencies (like node packages or gems).
 
 
-## Pubishing
+## Releasing
 
 I am not familiar with how to get an action on the marketplace. Read this [doc](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace).
 
-But you can use any action repo including your own in a workflow, if it just exists on GitHub and is valid in its format
-
+But you can use _any_ action repo that is public (including your own) in a workflow, if it just exists on GitHub and is valid in its format
 
 ```yaml
 steps:
@@ -60,5 +59,4 @@ steps:
 
 Repos are typically named with `-action` at the end.
 
-Tagging using semvar convention helps ensure safety for using your action.
-
+Tagging using semvar convention helps ensure safety for using your action. See [Release management](https://docs.github.com/en/actions/creating-actions/about-actions#using-release-management-for-actions).
