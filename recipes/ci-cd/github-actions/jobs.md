@@ -1,4 +1,4 @@
-# Job cheatsheet
+# Jobs cheatsheet
 > Syntax for jobs in GH actions workflow file
 
 See [Workflow syntax for Github Actions](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions) in Github docs.
@@ -18,6 +18,7 @@ Each job must have a unique ID as below. This must start with a letter or `_` an
 jobs:
   my_first_job:
     name: My first job
+
   my_second_job:
     name: My second job
 ```
@@ -29,6 +30,7 @@ jobs:
   my_first_job:
     runs-on: ubuntu-latest
     name: My first job
+
   my_second_job:
     runs-on: ubuntu-latest
     name: My second job
@@ -42,8 +44,10 @@ Setup a sequence of jobs. Here these run in a sequence, not parallel.
 ```yaml
 jobs:
   job1:
+
   job2:
     needs: job1
+
   job3:
     needs: [job1, job2]
 ```
