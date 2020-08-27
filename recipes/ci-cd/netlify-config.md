@@ -28,8 +28,8 @@ Netlify's config file is `netlify.toml`. It should be at the root of the repo. I
 
 The minimum values are two params under build as below.
 
-- command - what shell command to run to build the app (dependencies are already installed by then)
-- publish - which output directory to serve as a site. This directory is usually unversioned in git.
+- _command_ - what shell command to run to build the app (dependencies are already installed by then)
+- _publish_ - which output directory to serve as a site. This directory is usually unversioned in git.
 
 ### Generic
 
@@ -54,10 +54,9 @@ Note you could use `./foo` as the publish directory if you want to be more verbo
 
 Note that Netlify works well with Bundle use or not. It uses it either anyway. I use Bundle locally.
 
+```toml
+  command: bundle exec jekyll build
 ```
-build: bundle exec jekyll build
-```
-
 
 ### Node app
 
@@ -78,6 +77,7 @@ Using Yarn.
 ```
 
 You can use `dist` instead if `build` if you prefer. 
+
 
 ## Fields
 
