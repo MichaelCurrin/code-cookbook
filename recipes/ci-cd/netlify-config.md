@@ -52,10 +52,10 @@ Note you could use `./foo` as the publish directory if you want to be more verbo
   JEKYLL_ENV = "production"
 ```
 
-Note that Netlify works well with bundle set or not. It uses it either anyway.
+Note that Netlify works well with Bundle use or not. It uses it either anyway. I use Bundle locally.
 
 ```
-bundle exec jekyll build
+build: bundle exec jekyll build
 ```
 
 
@@ -79,8 +79,9 @@ Using Yarn.
 
 You can use `dist` instead if `build` if you prefer. 
 
+## Fields
 
-## Build command
+### Build command
 
 Use any shell command or commands for the build parameter.
 
@@ -99,7 +100,7 @@ It is a good idea to use a `make` command so that what you run locally to test a
 e.g.
 
 ```sh
-$ make build-prod
+make build-prod
 ```
 
 For a simple Jekyll project, it could be this, using the trace flag for verbose errors.
@@ -110,7 +111,7 @@ build-prod:
 ```
 
 
-## Headers format
+### Headers format
 
 There is a lot you can specify in the config. Here are some header settings which allows doing cross-origin requests to use JS to get data from an API.
 
