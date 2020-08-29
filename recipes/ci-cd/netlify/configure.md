@@ -1,8 +1,11 @@
-# Netlify config
+# Configure
+> How to setup a Netlify build using the UI or a config file
+
 
 ## Why use a config file
 
-You don't even need a config file. You can configure values in the UI including build command and output directory.
+You don't need a config file. You can configure values in the UI including build command and output directory.
+
 But for repeatable builds (across Netlify accounts or sites) and for keeping the value in version control, a config file in your repo is great. It will override the UI options. 
 
 Note that either way you don't need to specify an install command or caching dependencies - Netlify will do this for you based on the presence of a package file - Gemfile or yarn.lock file for example.
@@ -105,7 +108,6 @@ For a simple Jekyll project, it could be this, using the trace flag for verbose 
 build-prod:
     JEKYLL_ENV=prod bundle exec jekyll build --trace
 ```
-
 
 ### Headers format
 
