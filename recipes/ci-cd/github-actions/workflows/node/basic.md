@@ -4,9 +4,9 @@
 A simple CI flow to check and build a Node app using GitHub Actions.
 
 
-## Commmands
+## Commands
 
-Here are the typical commands to run for a Node app. These should be run locally first and then added to a deploy pipeline so it can be run on every push.
+Here are the typical commands which are configured and run for a Node app.
 
 ```sh
 $ npm install
@@ -14,6 +14,8 @@ $ npm run lint
 $ npm run build 
 $ npm test
 ```
+
+These should be run **locally** first. Then add them to an automated pipeline so they can run in the cloud.
 
 You can of course leave out a step if it does not make sense for your app, but here I assume they are all needed and in this order.
 
