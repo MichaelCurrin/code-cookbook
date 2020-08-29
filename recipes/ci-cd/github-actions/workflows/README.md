@@ -1,7 +1,7 @@
 # Workflows
 > Samples, resources and instructions around run a GH Actions workflow
 
-This section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together.
+This section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together. Here are some highlights:
 
 ## Basics
 
@@ -9,10 +9,11 @@ This section covers a variety of tools and flows including Python, NPM, Jekyll, 
 - Continue to [Basic Node](node/basic.md) as that is still simple and will be useful for Node.js developers.
 - To learn more about specific fields like `jobs` and the `on` trigger, go back to the [GithHub Actions](../) level.
 
-## Building to GitHub Pages
+## Building and serving a site
 
-- The [Deploy GH Pages](deploy-gh-pages) section will cover how to persist the output directory of your static site or Node app and then serve it as GH Page site. 
+- The [Deploy GH Pages](deploy-gh-pages) section will cover how to persist the output directory of your static site (e.g. Jekyll) or Node app and then serve it as GH Page site. 
 - You can also see the [Jekyll](jekyll/) section which also covers a Jekyll + GH Pages flow.
+- The [MkDocs](mkdocs/) section is Python-based way of a building a docs site that can be hosted on GH Pages.
 
 ## Persist
 
