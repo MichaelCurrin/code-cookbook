@@ -1,5 +1,13 @@
 # Basic
 
+## Minimal
+
+A workflow that does just enough to be a useful JS extension.
+
+
+
+## Simple template 
+
 Copied from the base workflow created through the Github Actions UI.
 
 Uses [Checkout V2](https://github.com/actions/checkout) action - `actions/checkout`
