@@ -7,7 +7,7 @@ It works well if you have a static site like made with Hugo or Jekyll, or a web 
 
 ## Setup a site
 
-1. Create an account Netlify.
+1. Create an account on Netlify.
 2. Create a new site - select a repo GitHub (or BitBucket or GitLab).
 3. Set your config options (see next section).
 4. Rename the site domain.
