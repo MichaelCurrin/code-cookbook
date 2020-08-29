@@ -15,14 +15,14 @@ $ npm run build
 $ npm test
 ```
 
-You can course leave out a step if it does not make sense for your app, but here I assume they are all needed and in this order.
+You can of course leave out a step if it does not make sense for your app, but here I assume they are all needed and in this order.
+
+If you prefer using `yarn` you can use it here and in the next section.
 
 
 ## Workflow sample
 
-Here is a workflow to setup on GH Actions.
-
-Add to your repo. Use any file name but the directory is important.
+Add to your repo locally or using GitHub UI. Use any filename but the directory is important.
 
 - `.github/workflows/main.yml`
     ```yaml
@@ -49,18 +49,15 @@ Add to your repo. Use any file name but the directory is important.
           - name: Build 🏗️
             run: npm run build
 
-          - name: Run unit tests ☑
+          - name: Run unit tests 🚨
             run: npm test
     ```
-
-The `npm` command was used here, but `yarn` will be fine too.
 
 
 ## Actions used
 > Which actions are used in the workflow above
 
 This workflow uses `actions/checkout`, a standard action for cloning the repo in a workflow run.
-
 
 Note that **no** Node or Yarn action was used here - the default environment will setup Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.
 
