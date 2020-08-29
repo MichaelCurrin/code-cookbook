@@ -1,10 +1,12 @@
 # Basic
+> Simple Node.js workflow with GH Actions
 
 A simple CI flow to check and build a Node app using GitHub Actions.
 
-## Local commmands
 
-Here are the commands we run locally:
+## Commmands
+
+Here are the typical commands to run for a Node app. These should be run locally first and then added to a deploy pipeline so it can be run on every push.
 
 ```sh
 $ npm install
@@ -13,47 +15,52 @@ $ npm run build
 $ npm test
 ```
 
-You can course leave out a step if it is not needed but here I assume they are all needed and in this order.
+You can course leave out a step if it does not make sense for your app, but here I assume they are all needed and in this order.
 
-## Workflow
+
+## Workflow sample
 
 Here is a workflow to setup on GH Actions.
 
-Add to your repo as `.github/workflows/main.yml`.
+Add to your repo. Use any file name but the directory is important.
 
-```yaml
-name: Node CI
+- `.github/workflows/main.yml`
+    ```yaml
+    name: Node CI
 
-on: push
+    on: push
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
+    jobs:
+      build:
+        runs-on: ubuntu-latest
 
-      - name: Install 🔧
-        run: npm install
+        steps:
+          - name: Checkout 🛎️
+            uses: actions/checkout@master
+            with:
+              persist-credentials: false
 
-      - name: Run linter 🧐
-        run: npm run lint
+          - name: Install 🔧
+            run: npm install
 
-      - name: Build 🏗️
-        run: npm run build
+          - name: Run linter 🧐
+            run: npm run lint
 
-      - name: Run unit tests ☑
-        run: npm test
-```
+          - name: Build 🏗️
+            run: npm run build
+
+          - name: Run unit tests ☑
+            run: npm test
+    ```
+
+The `npm` command was used here, but `yarn` will be fine too.
 
 
 ## Actions used
+> Which actions are used in the workflow above
 
-This workflow uses `actions/checkout`, a standard action. 
+This workflow uses `actions/checkout`, a standard action for cloning the repo in a workflow run.
 
-Note that **no** specific Node or Yarn action was used here - the default environment will have those setup for you already.
 
-We used `npm` here but commands using `yarn` will be fine too.
+Note that **no** Node or Yarn action was used here - the default environment will setup Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.
+
