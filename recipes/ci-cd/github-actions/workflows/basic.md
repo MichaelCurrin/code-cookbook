@@ -1,16 +1,10 @@
 # Basic
 
-## Minimal
+If you are a JS developer, see the [Basic Node](node/basic.md) section.
 
-A workflow that does just enough to be a useful JS extension.
+## Sample
 
-
-
-## Simple template 
-
-Copied from the base workflow created through the Github Actions UI.
-
-Uses [Checkout V2](https://github.com/actions/checkout) action - `actions/checkout`
+Copied from the base workflow created through the GitHub Actions UI. This just demonstrates how to run a Hello World printing output and doesn't do anything useful.
 
 ```yaml
 # This is a basic workflow to help you get started with Actions
@@ -47,3 +41,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 ```
+
+## Actions
+
+Uses [Checkout V2](https://github.com/actions/checkout) action - `actions/checkout`. A standard action for most workflows.
