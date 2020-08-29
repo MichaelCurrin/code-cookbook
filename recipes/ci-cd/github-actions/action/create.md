@@ -1,6 +1,6 @@
 # Create an action
 
-If you can't find an action on the GitHub Marketplace and you're not happy to write commands in the workflow steps, you can write you own action.
+If you can't find an action on the GitHub Marketplace that meets your needs and you're not happy to write commands in the workflow steps, you can write you own action. This will be reusable for yourself and others across repos and so is a neat way to package your logic.
 
 Note this page is not for beginners as it involves detailed knowledge about Actions and adding a public repo to be used in workflows. Before making an action, consider if an existing action or a multi-step workflow will solve your need.
 
