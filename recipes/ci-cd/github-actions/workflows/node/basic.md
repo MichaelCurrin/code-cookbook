@@ -1,12 +1,33 @@
 # Basic
 
-A simple flow to build a Node app with GitHub Actions.
+A simple CI flow to check and build a Node app using GitHub Actions.
 
-This works using `actions/checkout`. Note that **no** specific Node or Yarn action is used here - the default environment will have that setup for you already.
+## Local commmands
+
+Here are the commands we run locally:
+
+```sh
+$ npm install
+$ npm run lint
+$ npm run build 
+$ npm test
+```
+
+You can course leave out a step if it is not needed but here I assume they are all needed and in this order.
+
+## Workflow
+
+Here is a workflow to setup on GH Actions.
+
+Add to your repo as `.github/workflows/main.yml`.
 
 ```yaml
+name: Node CI
+
+on: push
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -18,12 +39,21 @@ jobs:
       - name: Install 🔧
         run: npm install
 
+      - name: Run linter 🧐
+        run: npm run lint
+
       - name: Build 🏗️
         run: npm run build
+
+      - name: Run unit tests ☑
+        run: npm test
 ```
 
-If you have any linting or unit tests, add them too.
 
-## NPM vs Yarn
+## Actions used
 
-We used `npm` here but this can work with `yarn` too.
+This workflow uses `actions/checkout`, a standard action. 
+
+Note that **no** specific Node or Yarn action was used here - the default environment will have those setup for you already.
+
+We used `npm` here but commands using `yarn` will be fine too.
