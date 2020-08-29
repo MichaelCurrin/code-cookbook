@@ -1,8 +1,8 @@
 # Basic
 
-A simple flow to build a Node app with Github Actions.
+A simple flow to build a Node app with GitHub Actions.
 
-This works using `actions/checkout`. Note that **no** specific Node or Yarn action is used.
+This works using `actions/checkout`. Note that **no** specific Node or Yarn action is used here - the default environment will have that setup for you already.
 
 ```yaml
 jobs:
@@ -22,4 +22,8 @@ jobs:
         run: npm run build
 ```
 
-We use `npm` here but this can work with `yarn` too.
+If you have any linting or unit tests, add them too.
+
+## NPM vs Yarn
+
+We used `npm` here but this can work with `yarn` too.
