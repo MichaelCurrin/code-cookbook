@@ -8,7 +8,7 @@ It works well if you have a static site like made with Hugo or Jekyll, or a web 
 
 ## Configs
 
-See the [configs](configs.md) page for how to configure a Netlify build.
+See the [configure](configure.md) page for how to configure a Netlify build.
 
 
 ## Netlify vs GH Actions
