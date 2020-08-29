@@ -11,9 +11,13 @@ This section covers a variety of tools and flows including Python, NPM, Jekyll, 
 
 ## Building and serving a site
 
-- The [Deploy GH Pages](deploy-gh-pages) section will cover how to persist the output directory of your static site (e.g. Jekyll) or Node app and then serve it as GH Page site. 
-- You can also see the [Jekyll](jekyll/) section which also covers a Jekyll + GH Pages flow.
-- The [MkDocs](mkdocs/) section is Python-based way of a building a docs site that can be hosted on GH Pages.
+- The [Deploy GH Pages](deploy-gh-pages) section covers how to build a static site (e.g. Jekyll or Hugo) or Node.js app (e.g. Vue or React) and then serve it as as GH Pages site.
+- You can also see the [Jekyll](jekyll/) section which also covers a Jekyll 4 + GH Pages flow.
+- The [MkDocs](mkdocs/) section is Python-based way of a building a docs site that can be hosted on GH Pages. 
+
+If you're building with Jekyll 3 on GitHub Pages are don't need custom plugins, then maybe you don't need the overhead of GH Actions and can use the plain GH Pages flow.
+
+If you want to build a docs site without worrying about writing code or using GH Actions, use this [Docsify.js Template](https://michaelcurrin.github.io/docsify-js-template/#/) project. It is just static assets (HTML and Markdown) and doesn't even need a `package.json` file or any processing.
 
 ## Persist
 
