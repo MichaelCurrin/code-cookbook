@@ -57,7 +57,7 @@ Note you could use `./foo` as the publish directory if you want to be more verbo
 Note that Netlify works well with Bundle use or not. It uses it either anyway. I use Bundle locally.
 
 ```toml
-  command: bundle exec jekyll build
+command = bundle exec jekyll build
 ```
 
 ### Node app
@@ -78,7 +78,7 @@ Using Yarn.
   publish = "build"
 ```
 
-You can use `dist` instead if `build` if you prefer. 
+You can use `dist` instead of `build`, if you prefer. 
 
 
 ## Fields
