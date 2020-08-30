@@ -7,7 +7,7 @@
 
 ## Cookbook overview
 
-- [Recipe categories](/recipes/) - start here browse topics and languages that interest you.
+- [Recipe categories](/recipes/) - start here to browse topics and languages that interest you.
 - [Make](/recipes/make/) - `Makefile` samples
 - [CI/CD](/recipes/ci-cd/) 
     - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
