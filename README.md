@@ -1,13 +1,15 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
-> Recipes for solving 
+> Reusuable code patterns which you can use as reference or copy to your project
 
 <!--
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
 -->
 
-A collection of reusable code samples, from small code snippets in Python or JS, to entire files to use for your language-specific Makefile or deploy pipeline.
+This my collection of reusable code samples and instructions, arranged in a way like recipes so that you can use an entire file to solve a task and not just look for one line like in a cheatsheet guide.
 
-I have written and refined some of them myself. Or have copied from other sources like tutorials or other repos. I give credit as much as possible to the orginal source. Sometimes I don't even understand how a file works, but I know what it does and that it will be useful one day so I stash it as a reference in this centralized repo.
+Here you'll find code snippets in Jekyll, Bash, Python or JS. And some entire files you can copy in part or as a whole for your Makefile or deploy pipeline config.
+
+I have written and refined some of these recipes myself from my dev experience. Or I have copied from other sources like tutorials or other repos. I give credit as much as possible to the orginal source. Sometimes I don't even understand how a file works, but I know what it does and that it will be useful one day so I stash it as a reference in this centralized repo. This suits my learning style as I like to learn by example and real-world use, not just memorizing syntax and definitions. 
 
 <!-- TODO move to About section or new page.
 
@@ -37,12 +39,15 @@ This project is partly based on a principle in the book [Steal like an artist](h
 
 Here are some highlights of this project:
 
-- [CI/CD](/recipes/ci-cd) - many sample configs for GH Actions to test and deploy your app, plus a bit of Netlify configs
+- [CI/CD](/recipes/ci-cd) 
+    - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
+    - Plus some Netlify configs
 - SEO
     - [robots.txt](/recipes/robots/)
     - [sitemap.xml](/recipes/sitemap/)
 - [Shell](/recipes/shell/) - usage help for commands and examples or patterns to use them. Such as using `find` or `grep`.
 - [Jekyll](/recipes/jekyll/) - code snippets and configs
+- [Containers](/recipes/containers) - commands and configs for using Docket and k8s. 
 
 
 ## License
