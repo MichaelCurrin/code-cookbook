@@ -5,23 +5,17 @@
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
 -->
 
-## Cookbook
+## Cookbook overview
 
-### Menu
-
-- [recipes](/recipes/) - browse categories and languages that interest you.
-
-### Highlights 
-
-Here are some highlights of this project:
-
-- [CI/CD](/recipes/ci-cd) 
+- [Recipe categories](/recipes/) - start here browse topics and languages that interest you.
+- [Make](/recipes/make/) - `Makefile` samples
+- [CI/CD](/recipes/ci-cd/) 
     - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
-    - Plus some Netlify configs
+    - Plus some _Netlify_ configs.
 - SEO
     - [robots.txt](/recipes/robots/)
     - [sitemap.xml](/recipes/sitemap/)
-- [Shell](/recipes/shell/) - usage help for commands and examples or patterns to use them. Such as using `find` or `grep`.
+- [Shell](/recipes/shell/) - usage help and examples for commands and patterns to use one or more commands to solve a real problem. Such as how to do find and replace using `find` or `sed` or how to clean up your git repo.
 - [Jekyll](/recipes/jekyll/) - code snippets and configs
 - [Containers](/recipes/containers) - commands and configs for using Docket and k8s. 
 
