@@ -59,6 +59,10 @@ This project is partly based on a principle in the book [Steal like an artist](h
 
 -->
 
+## Contributing
+
+Contributions of new content or fixes are welcome. Please submit an issue or add a Pull Request from your forks's feature branch with a description of changes.
+
 
 ## License
 
