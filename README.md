@@ -1,15 +1,43 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusuable code patterns which you can use as reference or copy to your project
 
-<!--
+<!-- too noisy so stop it
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
 -->
 
-This my collection of reusable code samples and instructions, arranged in a way like recipes so that you can use an entire file to solve a task and not just look for one line like in a cheatsheet guide.
+## Cookbook
+
+### Menu
+
+- [recipes](/recipes/) - browse categories and languages that interest you.
+
+### Highlights 
+
+Here are some highlights of this project:
+
+- [CI/CD](/recipes/ci-cd) 
+    - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
+    - Plus some Netlify configs
+- SEO
+    - [robots.txt](/recipes/robots/)
+    - [sitemap.xml](/recipes/sitemap/)
+- [Shell](/recipes/shell/) - usage help for commands and examples or patterns to use them. Such as using `find` or `grep`.
+- [Jekyll](/recipes/jekyll/) - code snippets and configs
+- [Containers](/recipes/containers) - commands and configs for using Docket and k8s. 
+
+
+## Purpose
+
+This is my collection of reusable code samples and instructions, arranged in a way like recipes so that you can use an entire file to solve a task and not just look for one line like in a cheatsheet guide.
 
 Here you'll find code snippets in Jekyll, Bash, Python or JS. And some entire files you can copy in part or as a whole for your Makefile or deploy pipeline config.
 
-I have written and refined some of these recipes myself from my dev experience. Or I have copied from other sources like tutorials or other repos. I give credit as much as possible to the orginal source. Sometimes I don't even understand how a file works, but I know what it does and that it will be useful one day so I stash it as a reference in this centralized repo. This suits my learning style as I like to learn by example and real-world use, not just memorizing syntax and definitions. 
+
+## Background
+
+I have written and refined some of these recipes myself from my dev experience. Or I have copied from other sources like tutorials or other repos. I give credit as much as possible to the orginal source. Sometimes I don't even understand how a file works, but I know what it does and that it will be useful one day so I stash it as a reference in this centralized repo. This suits my learning style as I like to learn by example and real-world use, not just memorizing syntax and definitions.
+
+This collection approach I use it also great because I can collect code by myself or others which solves similar problems or the same problem (e.g. deploy a site) and then I can **compare** the solutions. I can choose one that makes sense for my situation or I can take the best parts from each solution and make a new entry, which becomes my go-to solution for keeping my projects consistent.
 
 <!-- TODO move to About section or new page.
 
@@ -36,18 +64,6 @@ This project does not cover steps on install tools but rather how to use them.
 This project is partly based on a principle in the book [Steal like an artist](https://www.amazon.com/Steal-Like-Artist-Things-Creative/dp/0761169253) which recommends making a stash of things that resonate with you and you can use an inspiration. Whether music, pictures, code... Note the book discourages plagiarism but focuses on the idea that nothing is truthy original, so use pieces that you find and rework them and make them yours in something new. This Code Cookbook is my collection or stash, using links and credits as much as possible to repos and docs, so I can draw on trusted examples when I need a reference.
 
 -->
-
-Here are some highlights of this project:
-
-- [CI/CD](/recipes/ci-cd) 
-    - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
-    - Plus some Netlify configs
-- SEO
-    - [robots.txt](/recipes/robots/)
-    - [sitemap.xml](/recipes/sitemap/)
-- [Shell](/recipes/shell/) - usage help for commands and examples or patterns to use them. Such as using `find` or `grep`.
-- [Jekyll](/recipes/jekyll/) - code snippets and configs
-- [Containers](/recipes/containers) - commands and configs for using Docket and k8s. 
 
 
 ## License
