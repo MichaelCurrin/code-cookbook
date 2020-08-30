@@ -1,13 +1,15 @@
-# Code Cookbook :computer: :cook: :book:
-> Recipes to follow to achieve small or large goals using scripts or configs
+# Code Cookbook 👩‍💻👨‍🍳📖🥗
+> Recipes for solving 
 
 <!--
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
 -->
 
-A collection of reusable code I have written or copied from other sources like tutorials or repos. I give credit as much as possible.
+A collection of reusable code samples, from small code snippets in Python or JS, to entire files to use for your language-specific Makefile or deploy pipeline.
 
-<!-- TODO simply and move to About section or new page.
+I have written and refined some of them myself. Or have copied from other sources like tutorials or other repos. I give credit as much as possible to the orginal source. Sometimes I don't even understand how a file works, but I know what it does and that it will be useful one day so I stash it as a reference in this centralized repo.
+
+<!-- TODO move to About section or new page.
 
 Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together. 
 
@@ -35,11 +37,12 @@ This project is partly based on a principle in the book [Steal like an artist](h
 
 Here are some highlights of this project:
 
-- [robots.txt](/recipes/robots/)
-- [sitemap.xml](/recipes/sitemap/)
-- [Github Actions](/recipes/ci-cd/github-actions/) - choices of actions and some sample workflows
-- [Shell commands](/recipes/shell/) and patterns to use them
-- [Jekyll](/recipes/jekyll/) snippets and configs
+- [CI/CD](/recipes/ci-cd) - many sample configs for GH Actions to test and deploy your app, plus a bit of Netlify configs
+- SEO
+    - [robots.txt](/recipes/robots/)
+    - [sitemap.xml](/recipes/sitemap/)
+- [Shell](/recipes/shell/) - usage help for commands and examples or patterns to use them. Such as using `find` or `grep`.
+- [Jekyll](/recipes/jekyll/) - code snippets and configs
 
 
 ## License
