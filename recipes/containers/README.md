@@ -2,5 +2,5 @@
 
 See also:
 
-- [MichaelCurrin/docker-quickstart](https://github.com/MichaelCurrin/docker-quickstart) repo for commands to run and standalone projects to run, including Dockerfiles.
-- [Containers](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/containers/) section of Dev Cheatsheests project
+- My [MichaelCurrin/docker-quickstart](https://github.com/MichaelCurrin/docker-quickstart) beginner-friendly repo - it covers commands to run, sample files for standalone projects and detailed docs for how to run each.
+- [Containers](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/containers/) section of my Dev Cheatsheests project
