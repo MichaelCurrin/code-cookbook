@@ -1,10 +1,10 @@
-# Workflows
+# Admin workflows
 
-Files for `.github/workflows/`.
+Sample files for `.github/workflows/` to automate repo administration tasks.
 
-See also [CI-CD](/recipes/ci-ci/) section.
+See also [CI-CD](/recipes/ci-ci/) section for running tests and deploys with GH Pages. 
 
-Note - you might have install an app from the marketplace in order to get these to work for your repo.
+Note - you might have install an app in your account or repo to give it permissions.
 
 
 ## Labeler
