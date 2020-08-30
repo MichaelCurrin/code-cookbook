@@ -1,8 +1,6 @@
-# Admin workflows
+# Repo admin
 
-Sample files for `.github/workflows/` to automate repo administration tasks.
-
-See also [CI-CD](/recipes/ci-ci/) section for running tests and deploys with GH Pages. 
+Sample workflow files for `.github/workflows/` to automate repo administration tasks.
 
 Note - you might have install an app in your account or repo to give it permissions.
 
@@ -19,6 +17,7 @@ on:
 jobs:
   triage:
     runs-on: ubuntu-latest
+
     steps:
     - uses: Foo/labeler@glob-all
       with:
@@ -41,6 +40,7 @@ on:
 jobs:
   stale:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/stale@v1
       with:
