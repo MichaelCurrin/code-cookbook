@@ -59,7 +59,8 @@ jobs:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: circle_test
           POSTGRES_PASSWORD: ""
-    steps:
+   
+   steps:
       - checkout
       - run:
           name: Install Python deps in a venv
