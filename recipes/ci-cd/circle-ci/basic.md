@@ -65,3 +65,47 @@ A Ruby app.
          - two
     ```
     
+
+### Steps
+
+```yaml
+steps:
+  - run:
+      name: Update apt-get
+      command: sudo apt-get update
+  - run:
+      name: Install container dependencies
+      command: sudo apt-get update && sudo apt-get install postgresql-client
+```
+
+### Variables
+
+Use `&NAME` to setup a reference for reusable stepsand `*NAME` to use it.
+
+
+```yaml
+variables:
+  install_dependencies: &install_dependencies
+    run:
+      name: Install dependencies
+      command: yarn
+  run_unit_tests: &run_unit_tests
+    run:
+      name: Run unit tests
+      command: yarn test
+      
+# ...
+
+jobs:
+  # ...
+  
+  client_build_and_test:
+    steps:
+      - *restore_codebase
+      - restore_cache:
+          # ...
+      - *install_dependencies
+      - save_cache:
+          # ...
+      - *run_unit_tests
+```
