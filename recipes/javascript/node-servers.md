@@ -1,5 +1,5 @@
-# Node servers
-> Using NodeJS for dev servers
+# Node.js servers
+> Using Node.js for dev servers
 
 
 ## Nodemon
