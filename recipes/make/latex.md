@@ -2,7 +2,12 @@
 
 ## Sample
 
-I'm not interested in [LaTeX](https://en.wikipedia.org/wiki/LaTeX) itself so much as the code layout here.
+I'm not interested in [LaTeX](https://en.wikipedia.org/wiki/LaTeX) itself so much as the code here.
+
+- for loop
+- shell choice
+- help text
+- all
 
 [source](https://tex.stackexchange.com/questions/399330/how-to-write-a-makefile-in-windows-to-compile-a-latex-document-using-a-loop)
 
