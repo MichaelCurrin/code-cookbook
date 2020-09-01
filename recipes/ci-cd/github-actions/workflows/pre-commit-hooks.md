@@ -5,7 +5,7 @@ description: How to use pre-commit hooks on GH Actions
 
 Here we we pre-commit hooks to apply lint fixes Actions. One could also run the hook locally as a pre-commit hook and I don't know the value of doing this in CI, but this is here anyway as a reference for when I need it.
 
-See also [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks.html) section of my Dev Cheatsheets repo.
+See also [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks/) section of my Dev Cheatsheets repo.
 
 
 ## Samples
