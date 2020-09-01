@@ -10,13 +10,19 @@ To use GH Actions, you must create a workflow YAML file with appropriate fields 
 
 ## How to get started
 
+Most of the content in this recipe section is around Workflows:
+
 - [Basic generic workflow](workflows/basic.md) 
     - A sample which covers the minimum fields
 - [Basic node workflow](workflows/node/basic.md)
     - Simple sample of running a Node.js app pipeline.
- - [Workflows](workflows/) section 
+- [Workflows](workflows/) section 
     - See sample workflows across programming languages.
 
-Or use this GH Actions section of the cook to learn more about [jobs](jobs.md) and [triggers](triggers.md) from samples and instructions.
+Here are some other areas to start with:
 
-See the first link under external resources below for a beginner's guide to setting up workflows.
+- Workflow syntax and samples / use-cases around them
+    - [Jobs](jobs.md)
+    - [Triggers](triggers.md)
+- [Resources](resources.md) for external links such as to docs, to help you get into how Actions work and the syntax
+
