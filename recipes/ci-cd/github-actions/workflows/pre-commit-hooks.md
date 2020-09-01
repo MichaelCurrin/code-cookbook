@@ -1,17 +1,20 @@
 ---
 title: Pre-commit hooks
+description: How to use pre-commit hooks on GH Actions
 ---
 
-Here we use linters and pre-commit hooks on GH Actions - I don't know how this actually works or is useful but it is here for when I need it.
+Here we we pre-commit hooks to apply lint fixes Actions. One could also run the hook locally as a pre-commit hook and I don't know the value of doing this in CI, but this is here anyway as a reference for when I need it.
 
-See [pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks) repo and [pre-commit.com/](https://pre-commit.com/) homepage - good for use with Python projects.
-
-See also the [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks.html) section of Dev Cheatsheets repo.
+See also [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks.html) section of my Dev Cheatsheets repo.
 
 
-## Example
+## Samples
 
-- From Poetry repo - `.pre-commit-config.yaml`. Note use of `pre-commit-hooks`.
+### Use Pre-commit hooks
+
+ Note use of `pre-commit-hooks` and how black, flake8 and isort are reference by repo (presumambly because Poetry is a replacement for pip and doesn't want to use pip to install).
+
+- From Poetry repo - `.pre-commit-config.yaml`.
     ```yaml
     repos:
       - repo: https://github.com/psf/black
@@ -41,7 +44,9 @@ See also the [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets
           - id: debug-statements
     ```
 
-## Actions
+### Python pre-commit
+
+Use of Python `pre-commit` package when linting. This alone won't persist changes without using a token.
 
 - `.github/workflows/main.yml`
     ```yaml
