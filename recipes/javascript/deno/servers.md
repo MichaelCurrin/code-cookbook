@@ -27,6 +27,8 @@ $ deno run server.ts --allow-net
 
 ### Web serving routing
 
+Add a `/users` endpoint to the server.
+
 - `server.ts`
     ```typescript
     import { Application } from "https://deno.land/x/oak/mod.ts";
@@ -64,8 +66,8 @@ $ deno run server.ts --allow-net
       // Order by name.
       return users.sort((a, b) => a.name.localeCompare(b.name));
     };
-    router
-      .get("/users", async ({ response }) => {
+    
+    router.get("/users", async ({ response }) => {
       response.body = await getUsers();
     });
 
