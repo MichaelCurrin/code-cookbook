@@ -1,7 +1,7 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
-> Reusuable code patterns which you can use as reference or copy to your project
+> Reusable code patterns which you can use as reference or copy to your project
 
-<!-- too noisy so stop it
+<!-- Too noisy so stopped it
 ![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
 -->
 
@@ -9,15 +9,14 @@
 
 - [Recipe categories](/recipes/) - start here to browse topics and languages that interest you.
 - [Make](/recipes/make/) - `Makefile` samples
-- [CI/CD](/recipes/ci-cd/) 
+- [CI/CD](/recipes/ci-cd/)
     - Many language-specific sample [workflows](https://github.com/MichaelCurrin/code-cookbook/tree/master/recipes/ci-cd/github-actions/workflows) for GH Actions to test and deploy your app
     - Plus some _Netlify_ configs.
-- SEO
-    - [robots.txt](/recipes/robots/)
-    - [sitemap.xml](/recipes/sitemap/)
+- [SEO](/recipes/seo)
+    - Recipes for [robots.txt](/recipes/seo/robots/) and [sitemap.xml](/recipes/seo/sitemap/) files.
 - [Shell](/recipes/shell/) - usage help and examples for commands and patterns to use one or more commands to solve a real problem. Such as how to do find and replace using `find` or `sed` or how to clean up your git repo.
 - [Jekyll](/recipes/jekyll/) - code snippets and configs
-- [Containers](/recipes/containers) - commands and configs for using Docket and k8s. 
+- [Containers](/recipes/containers) - commands and configs for using Docket and k8s.
 
 
 ## Purpose
@@ -35,7 +34,7 @@ This collection approach I use it also great because I can collect code by mysel
 
 <!-- TODO move to About section or new page.
 
-Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together. 
+Sometimes the "recipe" in a directory is a group of scripts and possibly configs which work together.
 
 Sometimes there is just a collection of ingredients which are similar and can be used in a larger recipe. For example, a collection of ESLint config files from various sources, or some boilerplate HTML and CSS to add an element to a Jekyll site.
 
