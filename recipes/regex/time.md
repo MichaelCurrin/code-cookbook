@@ -3,9 +3,6 @@
 
 ## Test strings
 
-Make sure to enable the global flag for multiple matches.
-
-https://www.regexpal.com/
 
 ```
 00:00
