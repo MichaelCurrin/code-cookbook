@@ -1,8 +1,41 @@
 # Time
 
 
+## Hours and minutes
+
+Match a 24-hour `HH:MM` time value.
+
+Match any time:
+
+```regex
+(2[0-3]|0[0-11]|1[2-9):[0-5][0-9]
+```
+
+
+## Time range
+
+Match a 24-hour `HH:MM` time value only if in a time range.
+
+### Business hours
+
+Only match 9am-5pm i.e. `09:00` to `16:59`.
+
+```regex
+(09|1[0-6]):[0-5]\d
+```
+
+### Outside of business hours
+
+Only match times outside business hours.
+
+```regex
+(2[0-3]|0[0-8]):[0-5]\d
+```
+
+
 ## Test strings
 
+Use for any of the sections above.
 
 ```
 00:00
@@ -29,35 +62,4 @@
 21:00
 22:00
 23:00
-```
-
-
-## Hours and minutes
-
-Match a 24-hour `HH:MM` time value.
-
-Match any time:
-
-```regex
-(2[0-3]|0[0-11]|1[2-9):[0-5][0-9]
-```
-
-## Time range
-
-Match a 24-hour `HH:MM` time value only if in a time range.
-
-### Business hours
-
-Only match 9am-5pm i.e. `09:00` to `16:59`.
-
-```regex
-(09|1[0-6]):[0-5]\d
-```
-
-### Outside of business hours
-
-Only match times outside business hours.
-
-```regex
-(2[0-3]|0[0-8]):[0-5]\d
 ```
