@@ -60,9 +60,24 @@ This project is partly based on a principle in the book [Steal like an artist](h
 
 ## Contributing
 
-Contributions of new content or fixes are welcome. Please submit an issue or add a Pull Request from your forks's feature branch with a description of changes.
+Contributions of new content or fixes are welcome. 
+
+Please submit an issue or add a Pull Request from your forks's feature branch with a description of changes - see [Contributing doc](/CONTRIBUTING.md).
 
 
 ## License
 
 Released under [MIT](/LICENSE).
+
+If you use a significant portion of this project in your own repo, please include a copy of this project's license in your repo (e.g. as `LICENSE-source` and add a link back to https://github.com/MichaelCurrin/code-cookbook/ somewhere in your docs.
+
+If you fork this repo just for fun or to contribute back, you don't need to update the `LICENSE` file.
+
+If your fork this repo for you own use which diverges and not to contribute, that's fine - just please include a copy of the original license:
+
+```sh
+$ # Copy the original repo
+$ cp LICENSE LICENSE-source
+$ # Out your own name in your fork's license
+$ open LICENSE  
+```
