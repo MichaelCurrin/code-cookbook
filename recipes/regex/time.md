@@ -46,18 +46,18 @@ Match any time:
 
 Match a 24-hour `HH:MM` time value only if in a time range.
 
-## Business hours
+### Business hours
 
-Only match 9am-5pm.
+Only match 9am-5pm i.e. `09:00` to `16:59`.
 
 ```regex
-([0][9]|1[0-6]):[0-5][0-9]
+(09|1[0-6]):[0-5]\d
 ```
 
-## Outside of business hours
+### Outside of business hours
 
-Only match times outside business.
+Only match times outside business hours.
 
 ```regex
-(2[0-3]|[0][0-8]):[0-5][0-9]
+(2[0-3]|0[0-8]):[0-5]\d
 ```
