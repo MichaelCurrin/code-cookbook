@@ -7,7 +7,7 @@ Match a 24-hour `HH:MM` time value.
 
 Match any time:
 
-```regex
+```re
 (2[0-3]|0[0-11]|1[2-9):[0-5][0-9]
 ```
 
