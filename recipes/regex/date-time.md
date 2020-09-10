@@ -37,7 +37,7 @@ abcd-09-08T09:42:25Z
 
 Business hours 9am to 5pm. Include loosely-matched date and ends with milliseconds:
 
-```regex
+```re
 \d{4}-\d{2}-\d{2}T(09|1[0-6]):[0-5]\d:\d\dZ
 ```
 
