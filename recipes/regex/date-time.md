@@ -11,7 +11,7 @@ YYYY-MM-DDTHH:MM:SSZ
 
 Note that this does not validate the number ranges, just that they are numbers.
 
-```regex
+```re
 \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z
 ```
 
