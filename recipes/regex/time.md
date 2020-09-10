@@ -20,7 +20,7 @@ Match a 24-hour `HH:MM` time value only if in a time range.
 
 Only match 9am-5pm i.e. `09:00` to `16:59`.
 
-```regex
+```re
 (09|1[0-6]):[0-5]\d
 ```
 
@@ -28,7 +28,7 @@ Only match 9am-5pm i.e. `09:00` to `16:59`.
 
 Only match times outside business hours.
 
-```regex
+```re
 (2[0-3]|0[0-8]):[0-5]\d
 ```
 
