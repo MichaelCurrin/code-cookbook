@@ -14,8 +14,10 @@
 - [Configuring and managing workflows](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow)
     - A good step-by-step tutorial for setting up GH Actions
 - [Environment variables](https://docs.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables)
+- _Getting Started_ section 
+    - [Core concepts](https://docs.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions)
 - _Reference_ section
-    - [Workflow syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions), from the _Reference_ section.
+    - [Workflow syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
     - [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
     - [Context and expression syntax](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions)
     - [Workflow commands](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions) 
