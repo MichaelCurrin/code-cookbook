@@ -1,6 +1,25 @@
 # Web server
 
+
 ## Basic
+
+A short script with no external dependencies.
+
+```go
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+func main() {
+	fs := http.FileServer(http.Dir("./"))
+	log.Fatal(http.ListenAndServe(":9000", fs))
+}
+```
+
+## More detailed
 
 Based on [Learn X in Y](https://learnxinyminutes.com/docs/go/).
 
