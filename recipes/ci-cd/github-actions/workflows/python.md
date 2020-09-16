@@ -13,54 +13,56 @@ Based on [Using Python with Github Actions](https://help.github.com/en/actions/l
 
 Specify `3.x` for latest version, or `3.8` for example to target a version.
 
-```yaml
-name: Python package
+- `build.yml`
+    ```yaml
+    name: Python package
 
-on: [push]
+    on: [push]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    jobs:
+      build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x' 
-        
-    # You can test your matrix by printing the current Python version
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-```
+        steps:
+        - uses: actions/checkout@v2
+
+        - name: Set up Python 3.x
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.x' 
+
+        # You can test your matrix by printing the current Python version
+        - name: Display Python version
+          run: python -c "import sys; print(sys.version)"
+    ```
 
 ### Use a matrix
 
-```yaml
-name: Python package
+- `build.yml`
+    ```yaml
+    name: Python package
 
-on: [push]
+    on: [push]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        max-parallel: 4
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+    jobs:
+      build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-        
-      # more steps...
-```
+        strategy:
+          matrix:
+            max-parallel: 4
+            python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+
+        steps:
+          - uses: actions/checkout@v2
+
+          - name: Set up Python ${{ matrix.python-version }}
+            uses: actions/setup-python@v2
+            with:
+              python-version: ${{ matrix.python-version }}
+
+          # more steps...
+    ```
 
 Alternate strategy:
 
@@ -153,31 +155,36 @@ Or more precisely:
 
 ### Publish package
 
-```yaml
-name: Upload Python Package
+- `deploy.yml`
+    ```yaml
+    name: Upload Python Package
 
-on:
-  release:
-    types: [created]
+    on:
+      release:
+        types: [created]
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
-```
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v2
+
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.x'
+
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install setuptools wheel twine
+
+        - name: Build and publish
+          env:
+            TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+            TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          run: |
+            python setup.py sdist bdist_wheel
+            twine upload dist/*
+    ```
