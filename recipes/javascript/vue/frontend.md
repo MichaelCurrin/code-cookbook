@@ -36,7 +36,6 @@ Sample from [CodePen](https://codepen.io) Vue template. Create your own here: ht
     };
     </script>
 
-    <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
     <style>
     #app {
       font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -60,3 +59,12 @@ Sample from [CodePen](https://codepen.io) Vue template. Create your own here: ht
     </style>
     ```
     
+For CodePen specifically, you can use preprocessors inline and not just in the settings. I don't know why the use is as the code won't work outside of CodePen, but anyway, here it is.
+
+```html
+<template lang="pug">
+</template>
+
+<style lang="scss">
+</style>
+```
