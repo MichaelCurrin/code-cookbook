@@ -1,4 +1,6 @@
 # CI/CD
 > Continuous Integration / Continuous Deployment
 
-How to running automated tests and deploys in the cloud with services.
+This are is about running automated tests and automated deploys using cloud services.
+
+Sample configs and explantions are provided.
