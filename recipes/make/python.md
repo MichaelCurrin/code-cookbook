@@ -68,6 +68,7 @@ typecheck:
 	mypy -p rich --ignore-missing-imports --warn-unreachable
 typecheck-report:
 	mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
+
 .PHONY: docs
 docs:
 	cd docs; make html
@@ -85,4 +86,44 @@ Run:
 
 ```sh
 $ make run HOST=127.0.0.1 PORT=8000
+```
+
+
+## Environment variables
+
+Note here the virtual env directory is `.venv`.
+
+```make
+VIRTUALENV = python3 -m venv
+SPHINX_BUILDDIR = docs/_build
+VENV := $(shell realpath $${VIRTUAL_ENV-.venv})
+PYTHON = $(VENV)/bin/python3
+
+DEV_STAMP = $(VENV)/.dev_env_installed.stamp
+DOC_STAMP = $(VENV)/.doc_env_installed.stamp
+INSTALL_STAMP = $(VENV)/.install.stamp
+
+TEMPDIR := $(shell mktemp -d)
+ZOPFLIPNG := zopflipng
+```
+
+This allows things like this:
+
+```make
+virtualenv: $(PYTHON)
+$(PYTHON):
+	$(VIRTUALENV) $(VENV)
+	
+black: install-dev ## Run the tests
+	$(VENV)/bin/black --target-version=py34 .
+
+```
+
+Though it is a lot easier if you only run `make` inside a virtual env locally (and not in a virtualenv on CI). Anyway there it is.
+
+Temp directory is used for:
+
+```make
+foo:
+	mkdir $(TEMPDIR)/zopfli
 ```
