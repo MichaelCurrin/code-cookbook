@@ -39,57 +39,83 @@ jobs:
 
 ## Needs
 
-Setup a sequence of jobs. Here these run in a sequence, not parallel.
+By default jobs run in parallel.
 
-```yaml
-jobs:
-  job1:
+Here we setup a sequence of jobs that only run if the previous one passed.
 
-  job2:
-    needs: job1
+[docs](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds_
 
-  job3:
-    needs: [job1, job2]
-```
+> Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
+
+- `main.yml`
+    ```yaml
+    jobs:
+      job1:
+
+      job2:
+        needs: job1
+
+      job3:
+        needs: [job1, job2]
+    ```
 
 Using job output in a dependent job:
 
-```yaml
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-    
-    # Map a step output to a job output
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
-      
-    steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
-      
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
-```
+- `main.yml`
+    ```yaml
+    jobs:
+      job1:
+        runs-on: ubuntu-latest
+
+        # Map a step output to a job output
+        outputs:
+          output1: ${{ steps.step1.outputs.test }}
+          output2: ${{ steps.step2.outputs.test }}
+
+        steps:
+        - id: step1
+          run: echo "::set-output name=test::hello"
+        - id: step2
+          run: echo "::set-output name=test::world"
+
+      job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+        - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+    ```
 
 
 ## If statement
 
 This step only runs when the event type is a pull_request and the event action is unassigned.
 
-```yaml
-steps:
- - name: My first step
-   if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
-   run: echo This event is a pull request that had an assignee removed.
-```
+- `main.yml`
+    ```yaml
+    steps:
+     - name: My first step
+       if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
+       run: echo This event is a pull request that had an assignee removed.
+    ```
+- `main.yml`
+    ```yaml
+    steps:
+    - name: Print a greeting
+      env:
+        MY_VAR: Hi there! My name is
+        FIRST_NAME: Mona
+        MIDDLE_NAME: The
+        LAST_NAME: Octocat
+      run: |
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+    ```
 
-Read more [here](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions).
+This can be useful if you want just one workflow file and one job but want to skip a deploy steps at the end.
+
+Read more
+
+- [Context and Expression Syntax](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions) 
+- [If steps](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps).
 
 
 ## Related
