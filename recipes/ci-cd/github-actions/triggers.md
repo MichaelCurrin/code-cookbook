@@ -21,40 +21,32 @@ on: push
 on: [push, pull_request]
 ```
 
-The same as:
+That's the same as:
 
 ```yaml
 on:
-  push:
-  pull_request:
+  - push
+  - pull_request
 ```
-
-### On push to master or Pull Request to any branch
+Or
 
 ```yaml
 on:
   push:
-    branches:
-      - master
-
   pull_request:
 ```
 
 ### On push to master or Pull Request to master
 
-This is more appropriate if you ever create a PR from one feature branch to another. Or from a feature branch to develop. And to treat that differently from a PR to master.
-
 ```yaml
 on:
   push:
-    branches:
-      - master
+    branches: [master]
             
   pull_request:
-    branches:
-      - master
+    branches: [master]
 ```
-
+Don't this won't run on a PR between two branches which aren't the `master` branch.
 
 ## On a schedule
 
@@ -74,7 +66,6 @@ on:
 ## On a release
 
 I haven't used release yet but it is popular from looking at other projects and I cover this in other recipes in the [workflows](workflows/) section.
-
 
 ```yaml
 on:
