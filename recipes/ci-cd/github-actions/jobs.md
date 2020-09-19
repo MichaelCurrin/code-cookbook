@@ -5,7 +5,7 @@ See [Workflow syntax for Github Actions](https://help.github.com/en/actions/refe
 
 > A workflow run is made up of one or more jobs. Jobs run in **parallel** by default.
 >
-> To run jobs sequentially, you can define dependencies on other jobs using the jobs.<job_id>.needs keyword.
+> To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 >
 > Each job runs in an environment specified by runs-on.
 
@@ -59,7 +59,7 @@ Here we setup a sequence of jobs that only run if the previous one passed.
         needs: [job1, job2]
     ```
 
-See [job output](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjobs_idoutputs) in the docs for how to persist. If you don't do this, then a `build` directory from one job can't be used by the other job.
+See [job output](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjobs_idoutputs) in the docs for how to persist or [upload and download artifications](https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts#passing-data-between-jobs-in-a-workflow). If you don't do this, then a `build` directory from one job can't be used by the other job.
 
 Using job output in a dependent job:
 
