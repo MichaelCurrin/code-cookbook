@@ -45,13 +45,13 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
           - name: Install 🔧
             run: npm install
 
-          - name: Run linter 🧐
+          - name: Lint 🧐
             run: npm run lint
 
           - name: Build 🏗️
             run: npm run build
 
-          - name: Run unit tests 🚨
+          - name: Test 🚨
             run: npm test
     ```
 
@@ -62,15 +62,18 @@ Steps for Yarn:
           - name: Install 🔧
             run: yarn install
 
-          - name: Run linter 🧐
+          - name: Lint 🧐
             run: yarn lint
 
           - name: Build 🏗️
             run: yarn build
 
-          - name: Run unit tests 🚨
+          - name: Test 🚨
             run: yarn test
 ```
+
+The assumption here is that the tests will be run against compiled JS files, so test is after build. But you could reverse those for some projects.
+
 
 ## Actions used
 > Which actions are used in the workflow above
