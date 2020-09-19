@@ -43,7 +43,7 @@ By default jobs run in parallel.
 
 Here we setup a sequence of jobs that only run if the previous one passed.
 
-[docs](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds_
+[Job Needs](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds) docs.
 
 > Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
 
@@ -80,7 +80,9 @@ Using job output in a dependent job:
 
       job2:
         runs-on: ubuntu-latest
+        
         needs: job1
+        
         steps:
         - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
     ```
