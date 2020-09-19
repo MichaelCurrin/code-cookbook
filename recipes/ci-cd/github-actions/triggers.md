@@ -44,7 +44,6 @@ on:
 on:
   push:
     branches: [master]
-            
   pull_request:
     branches: [master]
 ```
@@ -66,16 +65,9 @@ on:
 
 ## Include or ignore
 
-### Ignore path
-
-```yaml
-on:
-  push:
-    paths-ignore:
-    - 'docs/**'
-```
-
 ### Ignore a branch or tag
+
+Note that if you use a rule from another section to include pushes to master and PRs to master, you won't have to ignore automated commits to `gh-pages`.
 
 [docs](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-ignoring-branches-and-tags)
 
@@ -86,6 +78,14 @@ on:
       - foo
 ```
 
+### Ignore path
+
+```yaml
+on:
+  push:
+    paths-ignore:
+    - 'docs/**'
+```
 
 ### Include path
 
