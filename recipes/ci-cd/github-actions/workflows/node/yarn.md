@@ -134,11 +134,15 @@ From [react-build-with-github-actions](https://github.com/explooosion/react-buil
 
           - name: Install and Test
             run: |
-              yarn instll
+              yarn install
               yarn test
             env:
               CI: true
     ```
+
+I don't know what `CI` does.
+
+I prefer having install and test steps separately.
 
 
 ## Tips
