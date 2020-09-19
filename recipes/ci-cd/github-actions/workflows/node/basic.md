@@ -24,9 +24,9 @@ If you prefer using `yarn` you can use it here and in the next section.
 
 ## Workflow sample
 
-Add to your repo locally or using GitHub UI. Use any filename but the directory is important.
+Add to your repo locally or using GitHub UI. Use any filename but the directory is important as `.github/workflows`.
 
-- `.github/workflows/main.yml`
+- `main.yml`
     ```yaml
     name: Node CI
 
@@ -55,6 +55,22 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
             run: npm test
     ```
 
+Steps for Yarn:
+
+```yaml
+        steps:
+          - name: Install 🔧
+            run: yarn install
+
+          - name: Run linter 🧐
+            run: yarn lint
+
+          - name: Build 🏗️
+            run: yarn build
+
+          - name: Run unit tests 🚨
+            run: yarn test
+```
 
 ## Actions used
 > Which actions are used in the workflow above
