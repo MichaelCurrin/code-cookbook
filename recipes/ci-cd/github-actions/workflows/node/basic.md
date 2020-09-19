@@ -55,9 +55,8 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
             run: npm test
     ```
 
-Steps for Yarn:
-
-```yaml
+- Steps for Yarn:
+    ```yaml
         steps:
           - name: Install 🔧
             run: yarn install
@@ -70,7 +69,7 @@ Steps for Yarn:
 
           - name: Test 🚨
             run: yarn test
-```
+    ```
 
 The assumption here is that the tests will be run against compiled JS files, so test is after build. But you could reverse those for some projects.
 
