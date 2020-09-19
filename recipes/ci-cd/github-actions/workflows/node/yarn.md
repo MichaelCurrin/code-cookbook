@@ -1,10 +1,12 @@
 # Yarn
+> Workflows for running Yarn on GitHub Actions
 
-## Sample
+
+## Samples
 
 ### Simple
 
-The GH docs recommend running yarn install like this: 
+The GH docs recommend running `yarn install` like this: 
 
 ```yaml
 steps:
@@ -15,44 +17,45 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-Note that yarn is already included in setup Node.
+Note that yarn is **already** included in setup Node, so you don't need any Node or Yarn action.
 
-The flag is to prevent changes to lockfile:
+The flag is to prevent changes to lockfile.
 
 
-## GH Actions sample
+### GH Actions sample
 
-Uses the [Github Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
+This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
-This passes commands to run with `yarn`.
+This action doesn't just setup Yarn, it actually runs the commands that you pass to it (except you say `install` instead of `yarn install`).
 
-Note that this doesn't give much benefit over the [basic](basic.md) flow unless you use more details like in the second example below.
+For simple use (one Node/Yarn version test and no caching), I don't see the benefit. So just use the [basic](basic.md) flow.
 
-```yaml
-name: CI
+- `main.yml`
+    ```yaml
+    name: CI
 
-on: [push]
+    on: [push]
 
-jobs:
-  build:
-    name: Test
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@master
-      
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
-          
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
-          
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: test
-```
+    jobs:
+      build:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@master
+
+          - uses: borales/actions-yarn@v2.0.0
+            with:
+              cmd: install
+
+          - uses: borales/actions-yarn@v2.0.0
+            with:
+              cmd: build
+
+          - uses: borales/actions-yarn@v2.0.0
+            with:
+              cmd: test
+    ```
 
 ### React Yarn cache
 
@@ -64,74 +67,78 @@ This uses:
 - `actions/cache` - for a faster build
 - `actions/setup-node`
 
-```yaml
-jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    env:
-      NODE_ENV: test
+Workflow:
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
+- main.yml
+    ```yaml
+    jobs:
+      test:
+        name: Test
+        runs-on: ubuntu-latest
+        env:
+          NODE_ENV: test
 
-    - name: Get yarn cache
-      id: yarn-cache
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+        steps:
+        - name: Checkout
+          uses: actions/checkout@master
 
-    - uses: actions/cache@v1
-      with:
-        path: ${{ steps.yarn-cache.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
+        - name: Get yarn cache
+          id: yarn-cache
+          run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - uses: actions/setup-node@v1.1.0
-      with:
-        node-version: '10.x'
+        - uses: actions/cache@v1
+          with:
+            path: ${{ steps.yarn-cache.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-yarn-
 
-    - run: yarn install
+        - uses: actions/setup-node@v1.1.0
+          with:
+            node-version: '10.x'
 
-    - run: yarn lint
-    - run: knex migrate:latest
-    - run: yarn test:server
+        - run: yarn install
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: test
-```
+        - run: yarn lint
+        - run: knex migrate:latest
+        - run: yarn test:server
+
+      deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        needs: test
+    ```
 
 
 ## React Yarn
 
 From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app - just the install/test portion.
 
-```yaml
-jobs:
-  install-and-test:
-    runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-        
-    steps:
-      - uses: actions/checkout@master
-      
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-          
-      - name: Install and Test
-        run: |
-          yarn instll
-          yarn test
-        env:
-          CI: true
-```
+- `main.yml`
+    ```yaml
+    jobs:
+      install-and-test:
+        runs-on: ubuntu-latest
+
+        strategy:
+          matrix:
+            node-version: [8.x, 10.x, 12.x]
+
+        steps:
+          - uses: actions/checkout@master
+
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@master
+            with:
+              node-version: ${{ matrix.node-version }}
+
+          - name: Install and Test
+            run: |
+              yarn instll
+              yarn test
+            env:
+              CI: true
+    ```
 
 
 ## Tips
