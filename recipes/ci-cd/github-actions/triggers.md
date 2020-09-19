@@ -2,7 +2,8 @@
 
 Options for the `on` field to trigger deploys.
 
-Note that in general if you have test, lint and build steps, you probably want to run them on all pushes and PRs. If there is anything related to a deploy, you probably only want to run against the master branch.
+Note that in general if you have test, lint and build steps, you probably want to run them on all pushes and PRs. If there is anything related to a deploy, you probably only want to run against the master branch. Also you will only want to run the deploy against `master` - if you run it against `master` and also `gh-pages`, you'll have issues.
+
 
 ## Resources
 
