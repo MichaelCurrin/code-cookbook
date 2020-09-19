@@ -2,6 +2,7 @@
 
 Options for the `on` field to trigger deploys.
 
+Note that in general if you have test, lint and build steps, you probably want to run them on all pushes and PRs. If there is anything related to a deploy, you probably only want to run against the master branch.
 
 ## Resources
 
@@ -68,9 +69,13 @@ on:
 I haven't used release yet but it is popular from looking at other projects and I cover this in other recipes in the [workflows](workflows/) section.
 
 ```yaml
+  release:
+    types: [created]
+```
+
+```yaml
 on:
   release:
-    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
     types: [published, created, edited]
 ```
 
