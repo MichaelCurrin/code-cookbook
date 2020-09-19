@@ -9,7 +9,7 @@ Note that in general if you have test, lint and build steps, you probably want t
 
 - [Workflow syntax for Github Actions](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions) in Github docs. That also covers the ridiculous number of hours available for all your workflows so you can run them for all your projects.
 
-## On push or Pull Request
+## Trigger on a push or Pull Request event
 
 ### On push to any branch
 
@@ -64,8 +64,40 @@ on:
     - cron:  '0 0 * * *'
 ```
 
+## Include or ignore
 
-## On a release
+### Ignore path
+
+```yaml
+on:
+  push:
+    paths-ignore:
+    - 'docs/**'
+```
+
+### Ignore a branch or tag
+
+[docs](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-ignoring-branches-and-tags)
+
+```yaml
+on:
+  push:
+    branches-ignore:
+      - foo
+```
+
+
+### Include path
+
+```yaml
+on:
+  push:
+    paths:
+    - '**.js'
+```
+
+
+## On a tag or release
 
 I haven't used release yet but it is popular from looking at other projects and I cover this in other recipes in the [workflows](workflows/) section.
 
@@ -85,26 +117,6 @@ Or tags.
 ```yaml
 on:
   tags:
-```
-
-## Ignore and include
-
-### Ignore path
-
-```yaml
-on:
-  push:
-    paths-ignore:
-    - 'docs/**'
-```
-
-### Include path
-
-```yaml
-on:
-  push:
-    paths:
-    - '**.js'
 ```
 
 
