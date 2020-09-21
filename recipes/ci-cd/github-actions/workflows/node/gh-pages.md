@@ -25,6 +25,8 @@ Having two workflow files could solve this - but then you have to duplicate and 
 
 ### Yarn
 
+The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue you can setup the site to be on a subpath for GH Pages.
+
 - `main.yml`
     ```yaml
     name: GH Pages Deploy
