@@ -39,8 +39,8 @@ And `master` is the default branch. Alternatively one could check what the curre
 That could be redone using variables:
 
 ```sh
-$ REPO=birdseye
-$ ME=MichaelCurrin
-$ UPUSER=alexmojaki
+$ REPO_NAME=birdseye
+$ FORK_USER=MichaelCurrin
+$ UPSTREAM_USER=alexmojaki
 $ BRANCH=master
 ```
