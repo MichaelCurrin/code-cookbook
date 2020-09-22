@@ -30,6 +30,14 @@ $ UPSTREAM_USER=alexmojaki
 $ BRANCH=master
 ```
 
+Note - you might want to also run `git status` and remove untracked files.
+
+This can also be done with:
+
+```sh
+$ git clean -d
+```
+
 
 ## Background
 
