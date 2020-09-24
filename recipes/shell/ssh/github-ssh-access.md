@@ -4,7 +4,7 @@
 
 ## Why
 
-If you setup Github SSH acces, you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`.
+If you setup GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`.
 
 e.g.
 
@@ -31,9 +31,9 @@ $ view ~/.ssh/id_rsa.pub
 ```
 
 
-## Add key to Github
+## Add key to GitHub
 
-1. Login to Github account.
+1. Login to GitHub account.
 1. Go to the SSH keys page 
     - [github.com/settings/keys](https://github.com/settings/keys)
     - Or
