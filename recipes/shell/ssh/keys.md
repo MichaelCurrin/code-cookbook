@@ -2,6 +2,7 @@
 
 SSH is about identity verification - proving who you are when starting a shell tunnel that needs to be secure.
 
+Note that this page assumes you followed the [install](install.md) page to get SSH service running and the CLI commands available.
 
 ## About keys
 
