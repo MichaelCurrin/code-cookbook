@@ -17,12 +17,14 @@ This avoids having to enter your password each time your push or if you pull a p
 You can also use the SSH URL for any public repos by other people if you want to clone them (you won't be able to push unless you are a collaborator though).
 
 
-## Generate
+## Generate keys
 
-Follow the [keys](keys.md) guide to generate a pair of keys.
+Follow the [install](install.md) guide to install SSH with APT.
+
+Follow the [keys](keys.md) guide to generate a pair of SSH keys.
 
 
-## View
+## View keys
 
 View your _public_ key - the one with `.pub` extension. Copy it as you'll need to paste it in the next section.
 
