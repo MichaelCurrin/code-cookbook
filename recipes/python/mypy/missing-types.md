@@ -45,7 +45,9 @@ stubgen foo.py
 
 It will generate `out/foo.pyi`. You should place this in the same directory as the script.
 
-See also these to to automatically annotate legacy code
+See [Specifiying what to stub](https://mypy.readthedocs.io/en/stable/stubgen.html#specifying-what-to-stub)
+
+See also these to to automatically annotate legacy code, according to the docs:
 
 - [MonkeyType](https://monkeytype.readthedocs.io/en/latest/index.html)
 - [PyAnnotate](https://github.com/dropbox/pyannotate)
