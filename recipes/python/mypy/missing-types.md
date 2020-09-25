@@ -1,4 +1,4 @@
-# Missing imports
+# Missing types
 
 What to do when MyPy complains that an installed library does not support types, because it lacks type annotations or stubs.
 
@@ -7,7 +7,7 @@ What to do when MyPy complains that an installed library does not support types,
 
 ## No types for 3rd-party library
 
-### Upgrrade
+### Upgrade
 
 Upgrade the version of the library you’re using, in case a newer version has started to include type hints.
 
@@ -19,24 +19,19 @@ Search to see if there is a [PEP 561 compliant stub package](https://mypy.readth
 
 Write your own stub files containing type hints for the library. 
 
-### Supress errors for a library
+### Configure to ignore
 
-To suppress a single missing import error, add this at the end of the line containing the import:
-
-```python
-import foo # type: ignore
-```
-
-Or add to your MyPy config for package `foo`:
-
-```ini
-[mypy-foo.*]
-ignore_missing_imports = True
-```
-
-Or ignore across libraries:
-
-```init
-[mypy]
-ignore_missing_imports = True
-```
+- To suppress a single missing import error, add this at the end of the line containing the import:
+    ```python
+    import foo # type: ignore
+    ```
+- Add to your MyPy [Config](config.md) file for package `foo`.
+    ```ini
+    [mypy-foo.*]
+    ignore_missing_imports = True
+    ```
+  - Ignore across libraries:
+    ```init
+    [mypy]
+    ignore_missing_imports = True
+    ```
