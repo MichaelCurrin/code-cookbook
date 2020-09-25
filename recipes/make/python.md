@@ -74,6 +74,7 @@ docs:
 	cd docs; make html
 ```
 
+
 ## Running with parameters
 
 - `Makefile`
@@ -126,4 +127,15 @@ Temp directory is used for:
 ```make
 foo:
 	mkdir $(TEMPDIR)/zopfli
+```
+
+
+## Linting
+
+### Spellcheck
+
+```make
+# Run spellcheck on comments and docstring.
+spell:  
+	@pylint --disable all --enable spelling --spelling-dict en_US --spelling-private-dict-file spell.txt my_app
 ```
