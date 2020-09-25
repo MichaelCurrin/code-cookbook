@@ -21,6 +21,8 @@ Add in the repo:
 
 ## Sample
 
+Note you will get a warning if you leave out the global `[mypy]` section.
+
 - `sample.ini`
   ```ini
   [mypy]
