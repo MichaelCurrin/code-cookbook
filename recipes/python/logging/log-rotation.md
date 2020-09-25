@@ -12,7 +12,7 @@ w0-w6 (weekday, 0=Monday)
 midnight
 ```
 
-If `when` is "s" and interval is 3 then it rotates every 3 seconds
+If `when` is "s" and interval is 3 then it rotates every 3 seconds.
 
 If `when` is "midnight" then interval of 1 rotates once a day.
 
