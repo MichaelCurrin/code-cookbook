@@ -3,6 +3,13 @@
 
 See [Config file](https://mypy.readthedocs.io/en/latest/config_file.html) in the MyPy docs.
 
+From help:
+
+```
+  --config-file CONFIG_FILE
+                            Configuration file, must have a [mypy] section (defaults to mypy.ini,
+                            .mypy.ini, setup.cfg, ~/.config/mypy/config, ~/.mypy.ini)
+```
 
 ## Project config
 
