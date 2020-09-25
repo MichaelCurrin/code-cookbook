@@ -35,6 +35,11 @@ Upgrade the version of the library you’re using, in case a newer version has s
 > 
 > These stub files do not need to be complete! A good strategy is to use stubgen, a program that comes bundled with mypy, to generate a first rough draft of the stubs. You can then iterate on just the parts of the library you need.
 
+See also these to to automatically annotate legacy code
+
+- [MonkeyType](https://monkeytype.readthedocs.io/en/latest/index.html)
+- [PyAnnotate](https://github.com/dropbox/pyannotate)
+
 ### Configure to ignore
 
 - To suppress a single missing import error, add this at the end of the line containing the import:
