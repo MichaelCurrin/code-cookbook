@@ -40,4 +40,3 @@ Or ignore across libraries:
 [mypy]
 ignore_missing_imports = True
 ```
-
