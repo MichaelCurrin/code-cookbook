@@ -30,7 +30,7 @@ Write your own stub files containing type hints for the library.
     [mypy-foo.*]
     ignore_missing_imports = True
     ```
-  - Ignore across libraries:
+- Ignore across libraries:
     ```init
     [mypy]
     ignore_missing_imports = True
