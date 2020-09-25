@@ -36,7 +36,7 @@ Write your own stub files containing type hints for the library.
     ignore_missing_imports = True
     ```
 - Ignore across libraries:
-    ```init
+    ```ini
     [mypy]
     ignore_missing_imports = True
     ```
