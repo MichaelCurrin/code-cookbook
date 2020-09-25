@@ -23,14 +23,10 @@ Add in the repo:
 
 - `sample.ini`
   ```ini
-  # Global options:
-
   [mypy]
-  python_version = 2.7
+  python_version = 3.8
   warn_return_any = True
   warn_unused_configs = True
-
-  # Per-module options:
 
   [mypy-mycode.foo.*]
   disallow_untyped_defs = True
