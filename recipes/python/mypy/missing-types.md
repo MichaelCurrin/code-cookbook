@@ -2,10 +2,18 @@
 
 What to do when MyPy complains that an installed library does not support types, because it lacks type annotations or stubs.
 
-[Missing imports](https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports) in the docs.
+> ... error: Cannot find implementation or library stub for module named '...'
+
+See [Missing imports](https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports) in the docs.
 
 
-## No types for 3rd-party library
+## Missing type hints for standard library module
+
+1. Update and rerun MyPy.
+2. File a bug report.
+
+
+## Missing type hints for third party library
 
 ### Upgrade
 
@@ -13,11 +21,19 @@ Upgrade the version of the library you’re using, in case a newer version has s
 
 ### Find subs
 
-Search to see if there is a [PEP 561 compliant stub package](https://mypy.readthedocs.io/en/latest/installed_packages.html#installed-packages), corresponding to your third party library. Stub packages let you install type hints independently from the library itself. For example, if you want type hints for the `django` library, you can install the `django-stubs` package.
+> Search to see if there is a [PEP 561 compliant stub package](https://mypy.readthedocs.io/en/latest/installed_packages.html#installed-packages), corresponding to your third party library.
+>
+> Stub packages let you install type hints independently from the library itself. 
+>
+> For example, if you want type hints for the `django` library, you can install the `django-stubs` package.
 
 ### Write stubs
 
-Write your own stub files containing type hints for the library. 
+> Write your own stub files containing type hints for the library.
+> 
+> You can point mypy at your type hints either by passing them in via the command line, by using the files or mypy_path config file options, or by adding the location to the MYPYPATH environment variable.
+> 
+> These stub files do not need to be complete! A good strategy is to use stubgen, a program that comes bundled with mypy, to generate a first rough draft of the stubs. You can then iterate on just the parts of the library you need.
 
 ### Configure to ignore
 
