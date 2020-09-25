@@ -1,24 +1,53 @@
 # Add to project
 > How to add MyPY to your project for type checking
 
+## Setup
 
 1. Update your [requirements-dev.txt](/requirements-dev.txt) to include line:
     ```
     mypy
     ```
-2. Install it. e.g. one of
+1. Install it. e.g. one of
     ```sh
     $ pip install mypy
     $ pip install -r requirements-dev.txt
     $ make install-dev
     ```
-3. Add type checks to you `.py` files.
-4. Add target to [Makefile](/Makefile). With specific directories to check as args. e.g.
+1. Update `.gitignore` to include line:
+    ```
+    .mypy_cache/
+    ```
+
+
+## Check types
+
+Add type checks to you `.py` files.
+
+Check types directly.
+
+```sh
+$ mypy my_project tests
+```
+
+Or with `make`:
+
+1. Add target to [Makefile](/Makefile). With specific directories to check as args. e.g.
     ```make
     check-types:
         mypy my_project tests
     ```
-5. Update `.gitignore` to include line:
+1. Check types.
     ```
-    .pytest_cache/
+    make check-types
+    ```
+
+## Add to CI/CD pipeline
+
+Add a step your pipeline such GitHub Actions.
+
+- `main.yml`
+    ```yaml
+    steps:
+      - name: Check types
+        run: make check-types
     ```
