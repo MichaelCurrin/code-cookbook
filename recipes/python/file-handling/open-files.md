@@ -1,6 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
+# Open files
+
+## Compare `io.open` and `open`
+
 Open files - io.open vs open
 
 For python 2.7 - `io.open` and file built-in `open` are not equivalent.
@@ -10,15 +11,17 @@ Open has two encoding modes - text (str) and binary. If you give it a unicode st
 Note that no encoding mode has been set for io.open here and open does not have encoding parameter.
 
 See https://mail.python.org/pipermail/python-list/2015-March/687124.html
-"""
-import io
 
+### Setup
+    
+```python
 u = u'abc\ndef'
 s = 'abc\ndef'
+```
 
+### Using builtin `open`
 
-### USING OPEN BUILTIN
-
+```python
 # Write str in text mode.
 with open('builtin_test_s.txt', 'w') as f:
     f.writelines(s)
@@ -40,7 +43,10 @@ with open('builtin_test_u_b.txt', 'wb') as f:
     # 6400 0000 6500 0000 6600 0000
 
 
-### USING IO.OPEN
+### Using `io.open`
+
+```python
+import io
 
 # Write unicode string in text mode.
 with io.open('io_test_u.txt', 'w') as f:
@@ -66,18 +72,18 @@ except TypeError as e:
 # Allowed to write str in binary mode.
 with io.open('io_test_s_b.txt', 'wb') as f:
     f.writelines(s)
+```
 
+### Implications
 
-### IMPLICATIONS
+Binary mode is preferred for writing text files because of how newline
+characters are handled platform indepedent.
 
-# Binary mode is preferred for writing text files because of how newline
-# characters are handled platform indepedent.
+However, if you have a unicode string to write out in binary mode ('wb'),
+if you write with `io.open` you get a viewable encoded text file but if
+you use builtin `open` you get a binary file which cannot be viewed in a text
+editor.
 
-# However, if you have a unicode string to write out in binary mode ('wb'),
-# if you write with io.open you get a viewable encoded text file but if
-# you use builtin open you get a binary file which cannot be viewed in a text
-# editor.
-
-# If you have a str string to write out in binary mode, then io.open
-# will give you a viewable text file (will fail if you write str without
-# binary mode) and builtin open will also be fine.
+If you have a `str` string to write out in binary mode, then `io.open`
+will give you a viewable text file (will fail if you write `str` without
+binary mode) and builtin `open` will also be fine.
