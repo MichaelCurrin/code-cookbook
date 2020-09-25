@@ -33,7 +33,17 @@ Upgrade the version of the library you’re using, in case a newer version has s
 > 
 > You can point mypy at your type hints either by passing them in via the command line, by using the files or mypy_path config file options, or by adding the location to the MYPYPATH environment variable.
 > 
-> These stub files do not need to be complete! A good strategy is to use stubgen, a program that comes bundled with mypy, to generate a first rough draft of the stubs. You can then iterate on just the parts of the library you need.
+> These stub files do not need to be complete! A good strategy is to use **stubgen**, a program that comes bundled with mypy, to generate a first rough draft of the stubs. You can then iterate on just the parts of the library you need.
+
+- [stubgen](https://mypy.readthedocs.io/en/stable/stubgen.html) in the MyPy docs
+
+With MyPy installed, you can run:
+
+```sh
+stubgen foo.py
+```
+
+It will generate `out/foo.pyi`. You should place this in the same directory as the script.
 
 See also these to to automatically annotate legacy code
 
