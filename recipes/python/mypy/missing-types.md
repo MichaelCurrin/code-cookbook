@@ -58,6 +58,14 @@ See also these to to automatically annotate legacy code, according to the docs:
     ```python
     import foo # type: ignore
     ```
+    Handle multi-line import. Note putting the comment after closing bracket doesn't work.
+    ```python
+    from foo.bar import (  # type: ignore
+        FIZZ,
+        BUZZ
+    )
+    ```
+    
 - Add to your MyPy [Config](config.md) file for package `foo`.
     ```ini
     [mypy-foo.*]
