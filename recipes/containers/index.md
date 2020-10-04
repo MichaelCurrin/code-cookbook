@@ -1,7 +1,7 @@
 ---
 layout: listing
 ---
-# Containers cookbook
+# Containers
 
 See also:
 
