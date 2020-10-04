@@ -1,3 +1,6 @@
+# Basic
+
+```python
 """
 Tokenize a sentence and remove stopwords.
 
@@ -6,7 +9,7 @@ Based on
 
 See
   http://www.nltk.org/data.html
-  
+
 Required:
   - nltk
 """
@@ -22,3 +25,4 @@ tokens = word_tokenize(message.lower())
 
 print([i for i in tokens if i not in STOP_WORDS])
 # => ['foo', 'bar', 'bar', 'black', 'sheep']
+```
