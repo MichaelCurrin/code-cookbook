@@ -1,7 +1,7 @@
 ---
 layout: listing
 ---
-# Rake cookbook
+# Rake
 > Rake command and Rakefile samples
 
 Rake is a task runner tool for working with Ruby projects.
