@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 ![Commit activity](https://img.shields.io/github/commit-activity/m/michaelcurrin/code-cookbook)
 
+
 ## Cookbook overview
 
 - [Recipe categories](/recipes/) - start here to browse topics and languages that interest you.
