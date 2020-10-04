@@ -1,0 +1,42 @@
+### Site metadata ###
+
+title: Code Cookbook
+description: Reusable code patterns which you can use as reference or copy to your project
+
+github_username: MichaelCurrin
+
+### Build settings ###
+
+url: "https://michaelcurrin.github.io"
+baseurl: "/code-cookbook"
+
+theme: minima
+
+# TODO
+google_analytics:
+
+header_pages:
+  - index.md
+  - recipes/index.md
+  - about.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+
+exclude:
+  - docs/
+  - vendor/
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - Makefile
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
