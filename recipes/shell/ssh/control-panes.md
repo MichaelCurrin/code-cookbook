@@ -1,5 +1,5 @@
 # Control panes 🍱
-> Use iTerm2 to SSH tunnel to multiple servers and then send keyword commands to all panes
+> Send keyboard commands to all SSH panes at once, use iTerm2
 
 These scripts and instructions are for developers on macOS running iTerm2. They allow splitting the view into multiple planes for different servers. Using an iTerm2 feature, a command only needs to be entered once and the command can be sent to all panes at once.
 
@@ -14,7 +14,9 @@ This guide is based on this tutorial: [SSH to Multiple Hosts in Split Panes Usin
 
 ### Install iTerm2
 
-See the [iTerm2](https://www.iterm2.com/index.html) homepage and download it from there.
+If you don't have it installed, got to the [iTerm2](https://www.iterm2.com/index.html) homepage and download it from there.
+
+I don't know what support is like outside of macOS.
 
 ### Setup script
 
@@ -28,7 +30,7 @@ Create a script.
 $ touch ~/Library/Application\ Support/iTerm2/Scripts/my_script.scpt
 ```
 
-Then add the content below as is.
+Then add the content below as is:
 
 - `my_script.scpt`
     ```applescript
@@ -68,7 +70,6 @@ Then add the content below as is.
 ### Set hosts
 
 Replace the hostnames with your own list and add as many as you want. The list can have valid hosts where you have SSH access to, including host aliases in `/etc/hosts`/ or `~/.ssh/config`.
-
 
 ### Restart
 
