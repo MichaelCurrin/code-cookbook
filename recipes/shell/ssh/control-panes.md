@@ -1,13 +1,13 @@
-# Control multiple panes at once over SSH 🍱
-> How to use iTerm2 to SSH tunnel to multiple servers at once and then send commands to all panes
+# Control panes 🍱
+> Use iTerm2 to SSH tunnel to multiple servers and then send keyword commands to all panes
 
-These scripts and instructions are for developers on macOS running iTerm2. They allow splitting the view into multiple planes for different servers. Using an iTerm2 feature, a command only needs to be entered once and the command can be send to all panes at once.
+These scripts and instructions are for developers on macOS running iTerm2. They allow splitting the view into multiple planes for different servers. Using an iTerm2 feature, a command only needs to be entered once and the command can be sent to all panes at once.
 
 A use-case is when one needs to view Apache logs across say Prod 9 servers at once when debugging a Production bug or incident. 
 
 The start of each script can be customized easily for connecting to any list of host machines.
 
-The scripts are based on this tutorial: [SSH to Multiple Hosts in Split Panes Using iTerm2](https://medium.com/@maharajamandy/ssh-to-multiple-hosts-in-split-panes-using-iterm2-f2c3353fbea2).
+This guide is based on this tutorial: [SSH to Multiple Hosts in Split Panes Using iTerm2](https://medium.com/@maharajamandy/ssh-to-multiple-hosts-in-split-panes-using-iterm2-f2c3353fbea2).
 
 
 ## Installation :wrench:
@@ -15,7 +15,6 @@ The scripts are based on this tutorial: [SSH to Multiple Hosts in Split Panes Us
 ### Install iTerm2
 
 See the [iTerm2](https://www.iterm2.com/index.html) homepage and download it from there.
-
 
 ### Setup script
 
@@ -76,7 +75,6 @@ Replace the hostnames with your own list and add as many as you want. The list c
 Close and reopen iTerm2 to get your script loaded.
 
 
-
 ## Usage :runner:
 
 ### Control multiple panes at once in iTerm2
@@ -85,7 +83,6 @@ Close and reopen iTerm2 to get your script loaded.
 2. To **enable** sending of keyboard input to all panes, press <kbd>CMD</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
 3. Enter commands to run for all panes. e.g. `ls` or `cd`.
 4. Press the keys from step 2 to **disable**.
-
 
 ### Example
 
