@@ -29,7 +29,7 @@ $ terraform workspace select foo || terraform workspace new foo
 $ terraform import datadog_synthetics_test.this abc-def-123
 ```
 
-Note that if you try `terraform plan`, it maybe fail because of lack of required parameters. So put some in. Even if your parameters are wrong, at least you can import the remote resource into state. Then run a plan to see what is on the remote resource and use that diff to build your TF code.
+Note that if you try `terraform plan`, it maybe fail because of lack of **required** parameters. So put the required ones. Even if your parameters are wrong, at least you can import the remote resource into state. Then run a plan to see what is on the remote resource and use that diff to build your TF code.
 
 - `main.tf`
     ```terraform
