@@ -5,7 +5,7 @@
 
 How to import a resource into a workspace.
 
-Here for the Datadog provider - see [DD provider](https://registry.terraform.io/providers/DataDog/datadog/latest/docs) docs.
+Here we import a [Datadog synthetic](https://www.datadoghq.com/). See [DD provider](https://registry.terraform.io/providers/DataDog/datadog/latest/docs) section the Terraform docs.
 
 - `main.tf`
     ```terraform
