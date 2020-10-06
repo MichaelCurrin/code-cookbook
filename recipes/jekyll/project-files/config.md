@@ -141,7 +141,7 @@ want to ignore. So set these below in your `exclude `field.
       - LICENSE
       - Makefile
       - README.md
-```
+    ```
 
 Notes:
 
@@ -159,6 +159,7 @@ Notes:
     - vendor/gems/
     - vendor/ruby/
     ```
+
 
 ## Analytics
 
