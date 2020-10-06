@@ -9,8 +9,7 @@ Here for the Datadog provider - see [DD provider](https://registry.terraform.io/
 
 - `main.tf`
     ```terraform
-    resource "datadog_synthetics_test" "this" {
-    }
+    resource "datadog_synthetics_test" "this" {}
 - `versions.tf`
     ```terraform
     terraform {
