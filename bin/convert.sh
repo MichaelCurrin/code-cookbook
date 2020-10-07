@@ -1,5 +1,6 @@
 #!/bin/bash -e
 # Convert README.md files to index.md files with layout metadata.
+# Run as: ./bin/convert.sh
 
 # Args: Path to a README.md file.
 process() {
