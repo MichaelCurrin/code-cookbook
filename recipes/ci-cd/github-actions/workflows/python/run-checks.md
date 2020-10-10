@@ -2,14 +2,15 @@
 
 See also the flow in [PY Project Template workflow](https://github.com/MichaelCurrin/py-project-template/blob/master/.github/workflows/main.yml).
 
+
 ## Tests
 
-Make sure to add `pytest` and `pytest-cov` to `dev-requirements.txt`.
+Add `pytest` and `pytest-cov` to `requirements-dev.txt`. Then use it as below.
 
 ```yaml
 steps:
 - name: Install dev dependencies
-  run: pip install -r dev-requirements.txt
+  run: pip install -r requirements-dev.txt
 
 - name: Test with pytest
   run: |
@@ -17,20 +18,21 @@ steps:
       --cov=com --cov-report=xml --cov-report=html
 ```
 
+
 ## Lint
 
-Add `flake8` to `dev-requirements.txt`.
+Add `flake8` to `requirements-dev.txt` then use it as in steps below.
 
 ```yaml
 steps:
 - name: Install dev dependencies
-  run: pip install -r dev-requirements.txt
+  run: pip install -r requirements-dev.txt
 
 - name: Link with flake8
   run: flake8 .
 ```
 
-Or more precisely:
+Or, more precisely:
 
 ```yaml
 - name: Lint with flake8
