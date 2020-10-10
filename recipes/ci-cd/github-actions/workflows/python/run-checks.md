@@ -1,6 +1,8 @@
 # Run checks
 
-See also the flow in [PY Project Template workflow](https://github.com/MichaelCurrin/py-project-template/blob/master/.github/workflows/main.yml).
+See also the flow in my [PY Project Template workflow](https://github.com/MichaelCurrin/py-project-template/blob/master/.github/workflows/main.yml).
+
+If you use `make`, then it is better to move install and check commands there. Then you can execute the same command locally and on your CI. But these are given as commands without `make` here, for readability and simplicity.
 
 
 ## Tests
