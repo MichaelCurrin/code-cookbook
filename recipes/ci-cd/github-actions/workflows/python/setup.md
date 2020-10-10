@@ -1,14 +1,16 @@
-## Setup
+# Setup
+> How to setup one or more Python versions in your GH Actions environment
+
 
 ## Use a single Python version
 
-Specify `3.x` for latest version, or `3.8` for example to target a version.
+Specify `3.x` for the latest version, or `3.8` for example to target a version.
 
 - `build.yml`
     ```yaml
     name: Python package
 
-    on: [push]
+    on: push
 
     jobs:
       build:
@@ -21,11 +23,8 @@ Specify `3.x` for latest version, or `3.8` for example to target a version.
           uses: actions/setup-python@v2
           with:
             python-version: '3.x'
-
-        # You can test your matrix by printing the current Python version
-        - name: Display Python version
-          run: python -c "import sys; print(sys.version)"
     ```
+
 
 ## Use a matrix
 
@@ -33,7 +32,7 @@ Specify `3.x` for latest version, or `3.8` for example to target a version.
     ```yaml
     name: Python package
 
-    on: [push]
+    on: push
 
     jobs:
       build:
@@ -51,14 +50,21 @@ Specify `3.x` for latest version, or `3.8` for example to target a version.
             uses: actions/setup-python@v2
             with:
               python-version: ${{ matrix.python-version }}
-
-          # More steps...
     ```
 
-Alternate strategy:
+Alternately use just two versions:
 
 ```yaml
 strategy:
   matrix:
     python-version: [3.6, 3.X]
 ```
+
+You can test your matrix by printing the current Python version
+
+```yaml
+- name: Display Python version
+  run: python -c "import sys; print(sys.version)"
+```
+
+Or simply `python -V`.
