@@ -1,5 +1,7 @@
 # Publish package
 
+Based on a starter workflow.
+
 - `deploy.yml`
     ```yaml
     name: Upload Python Package
