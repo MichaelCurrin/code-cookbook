@@ -4,6 +4,7 @@ See [editorconfig.org](https://editorconfig.org/) for syntax.
 
 The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. GitHub and PyCharm don't need an extension to support this but VS Code does.
 
+
 ## VS Code notes
 
 Note that VS Code does let you choose the indent level and tabs/spaces handling, but this is limited as it is not by file type but for all files, whether global or across a project.
@@ -70,6 +71,21 @@ indent_style = space
 indent_size = 4
 ```
 
+### HTML
+
+```ini
+# editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+```
+
 ### Generated
 
 The VS Code EditorConfig extension can generate a file for you if you right-click on a file on a folder. It won't create one if one already exists. You could also create them them at multiple levels if you need to.
@@ -87,11 +103,9 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ```
 
-
-
 ### Demo
 
-Provided on the EditorConfig homepage.
+Based on the one of the EditorConfig homepage.
 
 ```ini
 # EditorConfig is awesome: https://EditorConfig.org
