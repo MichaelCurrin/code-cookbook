@@ -11,7 +11,7 @@ Netlify Functions in the docs:
 Netlify Functions site
 
 - [functions.netlify.com](https://functions.netlify.com/)
-- [Function Examples)](https://functions.netlify.com/examples/)
+- [Function Examples](https://functions.netlify.com/examples/)
 
 
 ## Limitations
