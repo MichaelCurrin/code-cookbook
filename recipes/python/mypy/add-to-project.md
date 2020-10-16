@@ -20,7 +20,7 @@
     ```
 
 
-## 2. Check types
+## 2. Validate types
 
 Add type checks to you `.py` files.
 
@@ -34,15 +34,15 @@ Or with `make`:
 
 1. Add target to [Makefile](/Makefile). With specific directories to check as args. e.g.
     ```make
-    check-types:
+    typecheck
         mypy my_project tests
     ```
 1. Check types.
     ```
-    make check-types
+    make typecheck
     ```
 
-Or `type-check` or `typecheck`.
+Or `check-types` or `type-check`.
 
 
 ## 3. Add to CI/CD pipeline
