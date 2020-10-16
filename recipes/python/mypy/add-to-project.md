@@ -1,5 +1,5 @@
 # Add to project
-> How to add MyPY to your project for type checking
+> How to add Mypy to your project for type checking
 
 
 ## 1. Setup
@@ -42,7 +42,7 @@ Or with `make`:
     make check-types
     ```
 
-Or `type-check`.
+Or `type-check` or `typecheck`.
 
 
 ## 3. Add to CI/CD pipeline
