@@ -1,7 +1,8 @@
 # Add to project
 > How to add MyPY to your project for type checking
 
-## Setup
+
+## 1. Setup
 
 1. Update your [requirements-dev.txt](/requirements-dev.txt) to include line:
     ```
@@ -19,7 +20,7 @@
     ```
 
 
-## Check types
+## 2. Check types
 
 Add type checks to you `.py` files.
 
@@ -41,7 +42,10 @@ Or with `make`:
     make check-types
     ```
 
-## Add to CI/CD pipeline
+Or `type-check`.
+
+
+## 3. Add to CI/CD pipeline
 
 Add a step your pipeline such GitHub Actions.
 
