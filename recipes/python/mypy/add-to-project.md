@@ -7,13 +7,13 @@
     ```
     mypy
     ```
-1. Install it. e.g. one of
+1. Install it using one of the following:
     ```sh
     $ pip install mypy
     $ pip install -r requirements-dev.txt
     $ make install-dev
     ```
-1. Update `.gitignore` to include line:
+1. Update `.gitignore` to include this line:
     ```
     .mypy_cache/
     ```
