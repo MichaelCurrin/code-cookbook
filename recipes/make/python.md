@@ -1,14 +1,41 @@
 # Python
 
 
-## Install and check
+## Samples
+
+### Install and check
 
 
-See my [Makefile](https://github.com/MichaelCurrin/py-project-template/blob/master/Makefile) in my `py-project-template` repo as I have refined that over time to work well for me.
+See my [Makefile in py-project-template](https://github.com/MichaelCurrin/py-project-template/blob/master/Makefile), I have refined that over time to work well for me.
 
 
+### Check types
 
-## Install, check and clean 
+For MyPy, see [Mypy - Add to project](../python/mypy/add-to-project.md) guide in this cookbook project. <!-- FIXME jekyll link -->
+
+
+### Mypy and readthedocs 
+
+From: [Makefile in github.com/willmcgugan](https://github.com/willmcgugan/rich/blob/master/Makefile)
+
+- `Makefile`
+	```make
+	test:
+		pytest --cov-report term-missing --cov=rich tests/ -vv
+	format:
+		black --check rich
+	typecheck:
+		mypy -p rich --ignore-missing-imports --warn-unreachable
+	typecheck-report:
+		mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
+
+	.PHONY: docs
+	docs:
+		cd docs; make html
+	```
+
+
+### Install, check and clean 
 
 That does not deal with cleaning a project or handling a Python package install / clean flow. So for interest see also this project copied from [article](https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html)
 
@@ -52,27 +79,6 @@ Optionally add this at the top to prevent a file with that name from being execu
 ```mk
 .PHONY: clean-pyc clean-build
 ```
-
-
-## Mypy and readthedocs 
-
-From: [Makefile in github.com/willmcgugan](https://github.com/willmcgugan/rich/blob/master/Makefile)
-
-- `Makefile`
-	```make
-	test:
-		pytest --cov-report term-missing --cov=rich tests/ -vv
-	format:
-		black --check rich
-	typecheck:
-		mypy -p rich --ignore-missing-imports --warn-unreachable
-	typecheck-report:
-		mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
-
-	.PHONY: docs
-	docs:
-		cd docs; make html
-	```
 
 
 ## Running with parameters
@@ -130,9 +136,9 @@ foo:
 ```
 
 
-## Linting
+### Linting
 
-### Spellcheck
+#### Spellcheck
 
 ```make
 # Run spellcheck on comments and docstring.
