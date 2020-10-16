@@ -1,10 +1,10 @@
-# Python and make
+# Python
 
 
 ## Install and check
 
 
-See [Makefile](https://github.com/MichaelCurrin/py-project-template/blob/master/Makefile) in my `py-project-template` repo as I have refined that over time to work well for me.
+See my [Makefile](https://github.com/MichaelCurrin/py-project-template/blob/master/Makefile) in my `py-project-template` repo as I have refined that over time to work well for me.
 
 
 
@@ -16,7 +16,7 @@ The clean command is probably out of date for PY3 work.
 
 For `find`:
 
-> The plus sign at the end of the command is for -exec command {} which means that the total number of invocations of the command will be much less than the number of matched files.
+> The plus sign at the end of the command is for `-exec command {}` which means that the total number of invocations of the command will be much less than the number of matched files.
 
 - `Makefile`
     ```make
@@ -54,25 +54,25 @@ Optionally add this at the top to prevent a file with that name from being execu
 ```
 
 
-## MyPy and readthedocs 
+## Mypy and readthedocs 
 
-From: https://github.com/willmcgugan/rich/blob/master/Makefile
+From: [Makefile in github.com/willmcgugan](https://github.com/willmcgugan/rich/blob/master/Makefile)
 
-`Makefile`
-```make
-test:
-	pytest --cov-report term-missing --cov=rich tests/ -vv
-format:
-	black --check rich
-typecheck:
-	mypy -p rich --ignore-missing-imports --warn-unreachable
-typecheck-report:
-	mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
+- `Makefile`
+	```make
+	test:
+		pytest --cov-report term-missing --cov=rich tests/ -vv
+	format:
+		black --check rich
+	typecheck:
+		mypy -p rich --ignore-missing-imports --warn-unreachable
+	typecheck-report:
+		mypy -p rich --ignore-missing-imports --warn-unreachable --html-report mypy_report
 
-.PHONY: docs
-docs:
-	cd docs; make html
-```
+	.PHONY: docs
+	docs:
+		cd docs; make html
+	```
 
 
 ## Running with parameters
