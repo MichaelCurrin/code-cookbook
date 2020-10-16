@@ -16,14 +16,16 @@ For MyPy, see [Mypy - Add to project](../python/mypy/add-to-project.md) guide in
 
 ### Mypy and readthedocs 
 
-From: [Makefile in github.com/willmcgugan](https://github.com/willmcgugan/rich/blob/master/Makefile)
+From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 
-- `Makefile`
+- `Makefile` - I am interested in the Mypy lines here.
 	```make
 	test:
 		pytest --cov-report term-missing --cov=rich tests/ -vv
+		
 	format:
 		black --check rich
+		
 	typecheck:
 		mypy -p rich --ignore-missing-imports --warn-unreachable
 	typecheck-report:
@@ -31,7 +33,30 @@ From: [Makefile in github.com/willmcgugan](https://github.com/willmcgugan/rich/b
 
 	.PHONY: docs
 	docs:
-		cd docs; make html
+		cd docs && make html
+	```
+- `docs/Makefile` - build ReadTheDocs site with Sphinx.
+	```make
+	# Minimal makefile for Sphinx documentation
+	#
+
+	# You can set these variables from the command line, and also
+	# from the environment for the first two.
+	SPHINXOPTS    ?=
+	SPHINXBUILD   ?= sphinx-build
+	SOURCEDIR     = source
+	BUILDDIR      = build
+
+	# Put it first so that "make" without argument is like "make help".
+	help:
+		@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+	.PHONY: help Makefile
+
+	# Catch-all target: route all unknown targets to Sphinx using the new
+	# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+	%: Makefile
+		@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	```
 
 
