@@ -1,9 +1,9 @@
-# Custom
+# Checks
 
-How to piece together general-purpose actions to handle a deploy of MkDocs to GH Pages.
+How to piece together general-purpose actions to handle checks of MkDocs.
 
 
-## Build and check links
+## Sample
 
 Based on another project I found.
 
@@ -52,17 +52,3 @@ Need to research Liche to see appropriate replacement args for the above.
 Also `mkdocs build --strict` is probably a good idea.
 
 You'll only want to run that on a `master` build while the link checks above are setup to work on a PR too.
-
-
-## Publish
-
-
-You can add this command to deploy a build and deploy in one step. Optionally use `--force` flag for force push.
-
-```sh
-$ mkdocs gh-deploy --strict
-```
-
-That can be run locally or in CI flow.
-
-Or use a more generic to [Deploy GitHub Pages](../deploy-gh-pages/) folder from site directory. As with any static output.
