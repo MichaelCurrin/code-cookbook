@@ -33,7 +33,7 @@ Store and retrieved cached dependencies for a faster build. Add this step to the
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
             ${{ runner.os }}-
@@ -43,3 +43,4 @@ Notes:
 
 - `path` - the path used here is specific to Ubuntu so change it if using other OS runners.
 - `key` - look to see if there is a cache hit for the corresponding requirements file.
+- Adjust the hashfiles value if your requirements file is at the root.
