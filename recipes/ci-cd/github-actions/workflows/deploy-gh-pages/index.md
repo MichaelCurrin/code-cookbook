@@ -1,7 +1,7 @@
 ---
 layout: listing
 ---
-# Deploy Github Pages
+# Deploy GitHub Pages
 > How to use an action to build and deploy a site to Github Pages
 
 This section lets you choose a Github Action and use it in a workflow so you can you can a built directory as a Github Pages site. You are not limited to just Jekyll and the packages that Github provides you with.
