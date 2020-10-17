@@ -29,7 +29,7 @@ Store and retrieved cached dependencies for a faster build. Add this step to the
 - `main.yml`
     ```yaml
     steps:
-      - name: Cache pip
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
