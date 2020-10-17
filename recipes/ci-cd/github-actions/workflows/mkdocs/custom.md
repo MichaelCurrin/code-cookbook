@@ -3,7 +3,7 @@
 How to piece together general-purpose actions to handle a deploy of MkDocs to GH Pages.
 
 
-## Build, check links, deploy
+## Build and check links
 
 Based on another project I found.
 
@@ -25,6 +25,7 @@ This won't persist the docs.
 
         steps:
           - uses: actions/checkout@v2
+          
           - name: Set up Python 3.x
             uses: actions/setup-python@v2
 
