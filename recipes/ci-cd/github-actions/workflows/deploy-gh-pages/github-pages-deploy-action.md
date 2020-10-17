@@ -1,8 +1,8 @@
-# Github Pages Deploy action
+# GitHub Pages Deploy action
 
 Action:
 
-- [Github Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
+- [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
 
 
 ## Usage
