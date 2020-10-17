@@ -1,45 +1,44 @@
 # Deploy MkDocs action
 
-- [deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs)
+- [deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs) action.
 
-This will build and publish docs via GitHub Pages.
+That action will install MkDocs and the Material theme and deploy to GH Pages for you. 
 
-Note that `requirements.txt` is not specified in the example - still need to check how this handles `mkdocs` version and themes.
+See the shell steps in [action.sh](https://github.com/mhausenblas/mkdocs-deploy-gh-pages/blob/master/action.sh) script.
 
-I use that action here:
-
-- [MichaelCurrin/mkdocs-quickstart](https://github.com/MichaelCurrin/mkdocs-quickstart)
+The author made a template repo - [mhausenblas/mkdocs-template](https://github.com/mhausenblas/mkdocs-template).
 
 
 ## Usage
 
-Example based on the one in the action docs:
+Example based on the one in the action's docs:
 
+- `main.yml`
+    ```yaml
+    name: Deploy docs
 
-```yaml
-name: Deploy docs
+    on:
+      push:
+        branches:
+          - master
 
-on:
-  push:
-    branches:
-      - master
+    jobs:
+      build:
+        name: Build
+        
+        runs-on: ubuntu-latest
 
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout master
-        uses: actions/checkout@v1
+        steps:
+          - name: Checkout master
+            uses: actions/checkout@v1
 
-      - name: Deploy to GH Pages
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
+          - name: Deploy to GH Pages
+            uses: mhausenblas/mkdocs-deploy-gh-pages@master
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
 
-The trigger section can be stricted to `docs` only. A good reason to move `requirments.txt` to the `docs` directory.
+The trigger section can be stricted to `docs` only. A good reason to move `requirements.txt` to the `docs` directory.
 
 ```yaml
 on:
