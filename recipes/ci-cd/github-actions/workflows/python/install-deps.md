@@ -24,7 +24,7 @@
 
 ### Cache
 
-Store and retrieved cached dependencies for a faster build. Add this step to the config above, after _Setup Python_.
+Store and retrieved cached dependencies for a faster build. Add this step to the config above, before the _Install dependencies_ step.
 
 - `main.yml`
     ```yaml
