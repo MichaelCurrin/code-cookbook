@@ -1,6 +1,10 @@
 # Install dependencies
+> How to install Python and Python packages on GH Actions
 
-## Basic
+
+## Samples
+
+### Basic
 
 - `main.yml`
     ```yaml
@@ -18,24 +22,24 @@
           pip install -r requirements.txt
     ```
 
-## Cache
+### Cache
 
-Cache dependencies for a faster build. Add this step to the config above, after _Setup Python_.
+Store and retrieved cached dependencies for a faster build. Add this step to the config above, after _Setup Python_.
 
 - `main.yml`
     ```yaml
     steps:
       - name: Cache pip
-          uses: actions/cache@v2
-          with:
-            path: ~/.cache/pip
-            key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-            restore-keys: |
-              ${{ runner.os }}-pip-
-              ${{ runner.os }}-
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
     ```
 
 Notes:
 
-- Path - the path used here is specific to Ubuntu so change it if using other OS runners.
-- Key - look to see if there is a cache hit for the corresponding requirements file.
+- `path` - the path used here is specific to Ubuntu so change it if using other OS runners.
+- `key` - look to see if there is a cache hit for the corresponding requirements file.
