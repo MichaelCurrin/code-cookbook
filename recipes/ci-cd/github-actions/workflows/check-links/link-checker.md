@@ -76,7 +76,9 @@ Add a step at the end.
   run: exit ${{ steps.lc.outputs.exit_code }}
 ```
 
-### Run checks out output directory
+### Run checks against output directory
+
+This checks links the directory like `site`.
 
 This runs against HTML files but it will still work.
 
@@ -89,7 +91,7 @@ steps:
   id: lc
   uses: peter-evans/link-checker@v1
   with:
-    args: -d ./site -r ./site -x man7.org
+    args: -d site -r site -x man7.org
     
 - name: Fail on link errors
   run: exit ${{ steps.lc.outputs.exit_code }
