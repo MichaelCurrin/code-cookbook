@@ -2,7 +2,10 @@
 
 - [deploy-mkdocs](https://github.com/marketplace/actions/deploy-mkdocs) action.
 
-That action will install MkDocs and the Material theme and deploy to GH Pages for you. 
+That action will install MkDocs and the Material theme and deploy to GH Pages for you. You don't need to specify or install any requirements.
+
+**Warning** - on the release of tag `1.15`, this action only deploys a configured `material` theme and fails on `mkdocs` or `readthedocs` as theme choices.
+
 
 See the shell steps in [action.sh](https://github.com/mhausenblas/mkdocs-deploy-gh-pages/blob/master/action.sh) script.
 
@@ -37,17 +40,6 @@ Example based on the one in the action's docs:
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
-
-The trigger section can be stricted to `docs` only. A good reason to move `requirements.txt` to the `docs` directory.
-
-```yaml
-on:
-  push:
-    branches:
-      - master
-    paths: 
-      - 'docs/**'
-```
 
 The `env` section also allows:
 
