@@ -62,3 +62,26 @@ Or
 $ make TMPDIR=foo
 foo
 ```
+
+
+
+For debugging, check the value of the token.
+
+B. Only run this on a remote if the logs are private, so no one steals your token on a PR preview. GitHub now hides secrets, does Netlify? Should builds be restricted to only PRs by me and not forks to avoid someone making a preview that expposes a token? The easiest is just private logs.
+
+```Makefile
+export GITHUB_TOKEN := $(if $(GITHUB_TOKEN), $(GITHUB_TOKEN), '')
+
+check-env:
+	@echo Checking value of GITHUB_TOKEN...
+
+	@echo "- Make-level with environment var: $$GITHUB_TOKEN"
+
+	@echo "- Make-level with source:"
+	@source .env && echo $$GITHUB_TOKEN
+
+	@bash -c 'echo "- Subprocess-level: $$GITHUB_TOKEN"'
+        
+build:
+	source .env && bundle exec jekyll build --trace
+```
