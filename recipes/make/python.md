@@ -59,6 +59,13 @@ From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 		@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	```
 
+### Clean
+
+```Makefile
+clean:
+	find . -name '*.pyc' -delete
+```
+
 
 ### Install, check and clean 
 
@@ -106,7 +113,7 @@ Optionally add this at the top to prevent a file with that name from being execu
 ```
 
 
-## Running with parameters
+### Running with parameters
 
 - `Makefile`
     ```make
@@ -121,7 +128,7 @@ $ make run HOST=127.0.0.1 PORT=8000
 ```
 
 
-## Environment variables
+### Environment variables
 
 Note here the virtual env directory is `.venv`.
 
