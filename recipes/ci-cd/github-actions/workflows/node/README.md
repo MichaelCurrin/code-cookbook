@@ -6,8 +6,8 @@ Both NPM and Yarn are covered here.
 
 ## Workflows in action
 
-- [react-create-app-quickstart](https://github.com/MichaelCurrin/react-create-app-quickstart/blob/master/.github/workflows/main.yml) workflow using Yarn
-- [preact-quickstart](https://github.com/MichaelCurrin/preact-quickstart/blob/master/.github/workflows/main.yml) workflow using NPM
+- [MichaelCurrin/react-quickstart](https://github.com/MichaelCurrin/react-quickstart/blob/master/.github/workflows/main.yml) workflow, using Yarn.
+- [MichaelCurrin/preact-quickstart](https://github.com/MichaelCurrin/preact-quickstart/blob/master/.github/workflows/main.yml) workflow, using NPM.
 
 
 ## CI installs
