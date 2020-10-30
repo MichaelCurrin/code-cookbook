@@ -8,6 +8,8 @@ See [ESLint](https://eslint.org/) homepage.
 
 ### Generic Node.js app
 
+From [Node Project Template](https://github.com/MichaelCurrin/node-project-template):
+
 - `.eslint.js`
     ```javascript
     // eslint-disable-next-line no-undef
@@ -33,11 +35,17 @@ See [ESLint](https://eslint.org/) homepage.
 
 ### Vue.js
 
-Generated from the quickstart:
+Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/blob/master/package.json):
 
 - `package.json`
     ```json
     {
+      "devDependencies": {
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-vue": "^6.2.2"
+      },
+      
       "eslintConfig": {
         "root": true,
         "env": {
@@ -85,7 +93,7 @@ Generated from the quickstart:
 
 ### React
 
-Generated from the quickstart:
+Generated from the [quickstart](https://github.com/MichaelCurrin/react-quickstart):
 
 - `package.json`
     ```json
@@ -96,7 +104,9 @@ Generated from the quickstart:
     }
     ```
 
-From [Create React App](https://create-react-app.dev/docs/setting-up-your-editor/) guide.
+Note that ESLint is handled as a dev dependency indirectly.
+
+Recommendation from [Create React App](https://create-react-app.dev/docs/setting-up-your-editor/) guide.
 
 - `.eslint.json`
     ```json
