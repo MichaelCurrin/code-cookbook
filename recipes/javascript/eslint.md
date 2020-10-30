@@ -10,6 +10,14 @@ See [ESLint](https://eslint.org/) homepage.
 
 From [Node Project Template](https://github.com/MichaelCurrin/node-project-template):
 
+- `package.json`
+    ```json
+    {
+      "devDependencies": {
+        "eslint": "^7.7.0"
+      }
+    }
+    ```
 - `.eslint.js`
     ```javascript
     // eslint-disable-next-line no-undef
