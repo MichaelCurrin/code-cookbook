@@ -76,7 +76,7 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/
 Generated from the quickstart:
 
 - `.eslint.js`
-    ```json
+    ```javascript
     // eslint-disable-next-line no-undef
     module.exports = {
       root: true,
@@ -115,7 +115,7 @@ Note that ESLint is handled as a dev dependency indirectly.
 
 Recommendation from [Create React App](https://create-react-app.dev/docs/setting-up-your-editor/) guide.
 
-- `.eslint.json`
+- `package.json`
     ```json
     {
       "eslintConfig": {
