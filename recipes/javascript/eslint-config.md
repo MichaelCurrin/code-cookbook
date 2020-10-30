@@ -73,7 +73,7 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/
 
 ### Next.js
 
-Generated from the quickstart:
+Generated from the [quickstart](https://github.com/MichaelCurrin/next-quickstart/blob/master/.eslintrc.js). Note the original generated file below means you can't read JSX syntax.
 
 - `.eslint.js`
     ```javascript
