@@ -1,7 +1,6 @@
-# ESlint
-> Config values for ESLint
+# ESlint config
 
-See [ESLint](https://eslint.org/) homepage.
+See also the [ESLint](https://eslint.org/) homepage.
 
 
 ## Samples
