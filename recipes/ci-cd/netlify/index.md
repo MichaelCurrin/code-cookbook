@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: netlify
 ---
 # Netlify
 > How to setup a Netlify site
@@ -27,7 +28,7 @@ See the [configure](configure.md) page for how to configure a Netlify build.
 
 ## Netlify vs GH Actions
 
-I like Netlify particularly becuause the setup is very light. You just need a package file like `Gemfile` or `package.json` and a one line build command and Netlify will build and serve your site for you on `my-app.netlify.app`. 
+I like Netlify particularly becuause the setup is very light. You just need a package file like `Gemfile` or `package.json` and a one line build command and Netlify will build and serve your site for you on `my-app.netlify.app`.
 
 You don't have have to setup a GH Actions workflow file of steps or choose any actions or setup a token to actually push to a branch which serves on GH Pages.
 

@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: ansible
 ---
 # Ansible
 

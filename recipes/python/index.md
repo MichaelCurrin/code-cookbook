@@ -1,5 +1,5 @@
 ---
 layout: listing
-logo: postgresql
+logo: python
 ---
-# SQL
+# Python

@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: githubactions
 ---
 # GitHub Actions recipes
 
@@ -15,11 +16,11 @@ To use GH Actions, you must create a workflow YAML file with appropriate fields 
 
 Most of the content in this recipe section is around Workflows:
 
-- [Basic generic workflow](workflows/basic.md) 
+- [Basic generic workflow](workflows/basic.md)
     - A sample which covers the minimum fields
 - [Basic node workflow](workflows/node/basic.md)
     - Simple sample of running a Node.js app pipeline.
-- [Workflows](workflows/) section 
+- [Workflows](workflows/) section
     - See sample workflows across programming languages.
 
 Here are some other areas to start with:

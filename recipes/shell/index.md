@@ -1,5 +1,5 @@
 ---
 layout: listing
-logo: postgresql
+logo: gnubash
 ---
-# SQL
+# Shell

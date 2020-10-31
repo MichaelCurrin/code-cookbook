@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: graphql
 ---
 # GitHub GraphQL
 > Recipes for querying data from GitHub's GraphQL API
