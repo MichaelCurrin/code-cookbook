@@ -1,6 +1,8 @@
 # Jobs cheatsheet
 > Syntax for jobs in GH actions workflow file
 
+{% raw %}
+
 See [Workflow syntax for Github Actions](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions) in Github docs.
 
 > A workflow run is made up of one or more jobs. Jobs run in **parallel** by default.
@@ -82,9 +84,9 @@ Using job output in a dependent job:
 
       job2:
         runs-on: ubuntu-latest
-        
+
         needs: job1
-        
+
         steps:
         - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
     ```
@@ -118,7 +120,7 @@ This can be useful if you want just one workflow file and one job but want to sk
 
 Read more
 
-- [Context and Expression Syntax](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions) 
+- [Context and Expression Syntax](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions)
 - [If steps](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps).
 
 
@@ -144,3 +146,5 @@ defaults:
     shell: bash
     working-directory: scripts
 ```
+
+{% endraw %}

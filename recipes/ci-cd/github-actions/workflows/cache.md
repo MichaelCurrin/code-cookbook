@@ -1,10 +1,12 @@
 # Cache
 > Cache artifacts like dependencies and build outputs to improve workflow execution time
 
+{% raw %}
+
 See [actions/cache](https://github.com/marketplace/actions/cache) in the actions marketplace.
 
 
-## General usage 
+## General usage
 
 - `main.yml`
     ```yaml
@@ -41,9 +43,9 @@ The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-          
+
     # ...
-    
+
     - name: Setup dependencies
         run: npm install
     ```
@@ -82,7 +84,7 @@ From [Node - Yarn](https://github.com/actions/cache/blob/master/examples.md#node
 From [Python - Pip](https://github.com/actions/cache/blob/master/examples.md#python---pip) example.
 
 Simple example using `~/.cache/pip` for Ubuntu.
- 
+
 - `main.yml`
     ```yaml
     steps:
@@ -110,9 +112,9 @@ From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#r
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-       
+
       # ...
-      
+
       - name: Bundle install
         run: |
           bundle config path vendor/bundle
@@ -120,3 +122,5 @@ From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#r
     ```
 
 Maybe use `bundle config --local ...` as that is what I do locally.
+
+{% endraw %}
