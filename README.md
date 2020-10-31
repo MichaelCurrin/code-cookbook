@@ -8,7 +8,7 @@
 ## Preview
 
 <div align="center">
-    <a href="https://michaelcurrin.github.io/code-cookbook/recipes/">
+    <a href="https://michaelcurrin.github.io/code-cookbook/">
         <img src="/sample-topics.png" alt="Sample screenshot" title="Sample screenshot" width="300" />
         <img src="/sample-docker.png" alt="Sample docker screenshot" title="Sample docker screenshot" width="300" />
     </a>
