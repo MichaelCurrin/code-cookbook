@@ -1,5 +1,7 @@
 # Jekyll with NPM packages on GH Pages
 
+{% raw %}
+
 Start with a Jekyll-based project in your CI, add NPM/Yarn to it and then publish to `gh-pages` branch for serving on GH Pages.
 
 This flow comes from DevHints [rstacruz/cheatsheet](https://github.com/rstacruz/cheatsheets) repo.
@@ -9,11 +11,11 @@ It is low-level in working with tools - it may not be efficient compared with us
 - Base setup.
     ```yaml
       name: Deploy
-      on: 
+      on:
         push:
           branches:
             master
-      
+
       jobs:
           build:
             runs-on: ubuntu-latest
@@ -89,3 +91,5 @@ It is low-level in working with tools - it may not be efficient compared with us
               BRANCH: gh-pages
               FOLDER: _site
     ```
+
+{% endraw %}

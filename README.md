@@ -5,9 +5,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 ![Commit activity](https://img.shields.io/github/commit-activity/m/michaelcurrin/code-cookbook)
 
-<!-- Too noisy so stopped it
-![Check markdown links](https://github.com/MichaelCurrin/code-cookbook/workflows/Check%20markdown%20links/badge.svg)
--->
 
 ## Cookbook overview
 
@@ -64,7 +61,7 @@ This project is partly based on a principle in the book [Steal like an artist](h
 
 ## Contributing
 
-Contributions of new content or fixes are welcome. 
+Contributions of new content or fixes are welcome.
 
 Please submit an issue or add a Pull Request from your forks's feature branch with a description of changes - see [Contributing doc](/CONTRIBUTING.md).
 
@@ -80,5 +77,5 @@ Released under [MIT](/LICENSE).
     $ # Copy the original repo.
     $ cp LICENSE LICENSE-source
     $ # Put your own name in your fork's license.
-    $ open LICENSE  
+    $ open LICENSE
     ```

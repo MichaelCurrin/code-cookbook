@@ -1,15 +1,19 @@
 # NPM actions
-> Patterns for using Node.js and NPM in a GH Action worflow
+> Patterns for using Node.js and NPM in a GH Action workflow
+
+{% raw %}
 
 See GH docs - [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions). Some of the samples come from here.
 
 Note use of this which comes from the doc linked above, but it is not used consistently in the docs - need to research what it does to test.
 
-```yaml
-- run: npm test
-  env:
-    CI: true
-```
+- `main.yml`
+    ```yaml
+    steps:
+      - run: npm test
+        env:
+          CI: true
+    ```
 
 For building an app (such as React or Vue) and serving as a GH Pages site, see the [Deploy GH Pages](/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/) cookbook section.
 
@@ -72,7 +76,7 @@ Note this uses [setup-node]() version while some of the other samples below are 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js  
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
@@ -104,7 +108,7 @@ Sample from the docs.
         uses: actions/cache@v2
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm 
+          path: ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
@@ -187,3 +191,5 @@ From the Github Action samples:
           - run: npm run build --if-present
           - run: npm test
     ```
+
+{% endraw %}

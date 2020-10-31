@@ -1,4 +1,4 @@
-# Github Pages action
+# GitHub Pages action
 > How to build GH Pages from master, for Jekyll and other site generators
 
 Action:

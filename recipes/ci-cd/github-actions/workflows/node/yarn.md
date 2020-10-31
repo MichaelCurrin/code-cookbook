@@ -1,16 +1,17 @@
 # Yarn
 > Workflows for running Yarn on GitHub Actions
 
+{% raw %}
 
 ## Samples
 
 ### Simple
 
-The GH docs recommend running `yarn install` like this: 
+The GH docs recommend running `yarn install` like this:
 
 ```yaml
 steps:
-- name: Use Node.js  
+- name: Use Node.js
   uses: actions/setup-node@v1
 
 - name: Install dependencies
@@ -184,3 +185,5 @@ An example of homepage value set in `package.json`:
   "homepage" : "http://myname.github.io/myapp"
 }
 ```
+
+{% endraw %}

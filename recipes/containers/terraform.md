@@ -1,3 +1,7 @@
+---
+logo: terraform
+description: How to run Terraform using a container approach
+---
 # Terraform
 
 ## Dockerfile example
@@ -14,7 +18,7 @@ RUN apt install -y -q git \
 	wget \
 	zip \
 	make
-	
+
 WORKDIR /root
 
 # TF v0.12.20
@@ -30,7 +34,7 @@ COPY . /root
 
 As an alternative, you can use this Terraform container as a drop-in replacement for the `terraform` executable.
 
-- https://hub.docker.com/r/hashicorp/terraform/
+- [hub.docker.com/r/hashicorp/terraform/](https://hub.docker.com/r/hashicorp/terraform/)
 
 Then, in place of this:
 

@@ -1,6 +1,7 @@
 # Install dependencies
 > How to install Python and Python packages on GH Actions
 
+{% raw %}
 
 ## Samples
 
@@ -43,4 +44,6 @@ Notes:
 
 - `path` - the path used here is specific to Ubuntu so change it if using other OS runners.
 - `key` - look to see if there is a cache hit for the corresponding requirements file.
-- Adjust the hashfiles value if your requirements file is at the root.
+- Adjust the hashFiles input if your requirements file is at the root.
+
+{% endraw %}
