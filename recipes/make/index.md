@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: cmake
 ---
 # Make
 > Using the `make` command and Makefile samples

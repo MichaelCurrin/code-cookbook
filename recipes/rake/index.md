@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: ruby
 ---
 # Rake
 > Rake command and Rakefile samples
