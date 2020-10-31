@@ -1,9 +1,14 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusable code patterns which you can use as reference or copy to your project
 
-[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook)](https://github.com/MichaelCurrin/code-cookbook/tags/?include_prereleases&sort=semver)
+[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook)](https://github.com/MichaelCurrin/code-cookbook/releases/?include_prereleases&sort=semver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
-![Commit activity](https://img.shields.io/github/commit-activity/m/michaelcurrin/code-cookbook)
+
+<div align="center">
+
+[![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=green&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/)
+
+</div>
 
 
 ## Cookbook overview
