@@ -4,7 +4,13 @@
 
 ## Samples
 
+### FaunaDB
+
 Downloaded from the demo on [FaunaDB app dashboard](https://dashboard.fauna.com/).
+
+See [FaunaDB cookbook](https://docs.fauna.com/fauna/current/cookbook/) and [API Reference](https://docs.fauna.com/fauna/current/api/).
+
+Endpoint: `https://graphql.fauna.com/graphql`
 
 - `ecommerce.gql`
     ```gql
@@ -75,4 +81,36 @@ Downloaded from the demo on [FaunaDB app dashboard](https://dashboard.fauna.com/
       submitOrder(customerId: ID!, products: [SubmitOrderProductInput]): Order! @resolver(name: "submit_order")
     }
     ```
-  
+- `mutation.gql`
+    ```gql
+    mutation {
+      createWarehouse(data: {
+        name: "East"
+        address: {
+          street: "13 Pierstorff Drive"
+          city: "Washington"
+          state: "DC"
+          zipCode: "20220"
+        }
+      }){
+        _id
+      }
+    }
+    ```
+- `query.gql`
+    ```gql
+    query {
+      allWarehouses {
+        data {
+          _id
+          name
+          address {
+            street
+            city
+            state
+            zipCode
+          }
+        }
+      }
+    }
+    ```
