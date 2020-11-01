@@ -27,15 +27,15 @@ Netlify's config file is `netlify.toml`. It should be at the root of the repo. I
 
 The minimum config two params under `[build]` as below.
 
-- _command_ - what shell command to run to build the app (dependencies are already installed by then)
-- _publish_ - which output directory to serve as a site. This directory is usually unversioned in git.
+- `command` - what shell command to run to build the app (dependencies are already installed by then)
+- `publish` - which output directory to serve as a site. This directory is usually unversioned in git.
 
 ### Generic
 
 ```toml
 [build]
-  command = "foo build"
-  publish = "foo"
+  command = "tool build"
+  publish = "out_dir"
 ```
 
 Note you could use `./foo` as the publish directory if you want to be more verbose 
@@ -59,6 +59,8 @@ command = "bundle exec jekyll build"
 
 ### Node app
 
+Your output directory might be something than `build`, such as `dist` or `out`.
+
 Using NPM.
 
 ```toml
@@ -74,8 +76,6 @@ Using Yarn.
   command = "yarn test && yarn build"
   publish = "build"
 ```
-
-You can use `dist` instead of `build`, if you prefer. 
 
 
 ## Fields
@@ -99,7 +99,7 @@ It is a good idea to use a `make` command so that what you run locally to test a
 e.g.
 
 ```sh
-make build-prod
+$ make build-prod
 ```
 
 For a simple Jekyll project, it could be this, using the trace flag for verbose errors.
@@ -120,8 +120,9 @@ There is a lot you can specify in the config. Here are some header settings whic
     Access-Control-Allow-Origin = "*"
 ```
 
-Allow one or more specific domains:
+Alternatives:
 
-```toml
-    Access-Control-Allow-Origin = ["www.example.com", "test.com"]
+```
+Access-Control-Allow-Origin = "example.com"
+Access-Control-Allow-Origin = ["example.com", "test.com"]
 ```
