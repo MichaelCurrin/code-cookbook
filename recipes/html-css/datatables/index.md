@@ -1,8 +1,18 @@
 # Datatables
 > Make your tables interactive
 
+## What you get
 
-## Required
+Turning your table into a Datatable gives you the following, without configuration:
+
+- The option to show X entries
+- A filter/search bar
+- Sortable columns
+- Prettified columns
+- Pagination at the bottom
+
+
+## Required setup
 
 - Load jQuery script
 - Load jQuery Datatables script
