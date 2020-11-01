@@ -31,6 +31,7 @@ See [Codepen demo](https://codepen.io/michaelcurrin/pen/ExKorNd).
           <th>Salary</th>
         </tr>
       </thead>
+        
       <tbody>
         <tr>
           <td>Tiger Nixon</td>
