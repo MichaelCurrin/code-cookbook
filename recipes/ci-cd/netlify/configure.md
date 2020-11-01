@@ -34,7 +34,7 @@ The minimum config two params under `[build]` as below.
 
 ```toml
 [build]
-  command = "tool build"
+  command = "tool build_cmd"
   publish = "out_dir"
 ```
 
@@ -59,7 +59,7 @@ command = "bundle exec jekyll build"
 
 ### Node app
 
-Your output directory might be something than `build`, such as `dist` or `out`.
+Your output directory might be something than `build`, such as `dist` or `out`. You might also build testing and linting into your build command.
 
 Using NPM.
 
