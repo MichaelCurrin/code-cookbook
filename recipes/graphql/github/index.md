@@ -1,8 +1,8 @@
 ---
 layout: listing
-logo: graphql
+logo: github
 ---
-# GitHub GraphQL
+# GitHub
 > Recipes for querying data from GitHub's GraphQL API
 
 
