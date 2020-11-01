@@ -8,6 +8,10 @@ See [Codepen demo](https://codepen.io/michaelcurrin/pen/ExKorNd).
     body {
       font-family: Arial
     }
+    
+    table {
+      width: 100%;
+    }
     ```
 - `main.js`
     ```javascript
@@ -28,7 +32,7 @@ See [Codepen demo](https://codepen.io/michaelcurrin/pen/ExKorNd).
 
     <br>
 
-    <table id="example" class="display" style="width:100%">
+    <table id="example">
       <thead>
         <tr>
           <th>Name</th>
