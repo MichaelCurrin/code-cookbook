@@ -22,3 +22,10 @@ Disallow: /
 
 
 For more info: [Robots](https://www.robotstxt.org/robotstxt.html) guide on the _robotstxt.org_ homepage.
+
+
+Add a sitemap link:
+
+```
+Sitemap: https://example.com/sitemap.xml
+```
