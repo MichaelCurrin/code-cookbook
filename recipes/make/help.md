@@ -6,10 +6,57 @@ The focus here is on the `help` target and some other targets are covered so you
 
 ## Samples
 
-Sort and add colors.
+### Basic
+
+My own.
 
 - `Makefile`
-	```make
+	```mk
+	# Show summary of make targets.
+	help:
+		@echo 'Print lines that are not indented (targets and comments) or empty.'
+		@egrep '^\S|^$$' Makefile
+	```
+
+### Extended
+
+If you use `@echo` within your targets:
+
+My own.
+
+- `Makefile`
+	```mk
+	# Show summary of make targets.
+	help:
+		@echo 'Print lines that are not indented (targets and comments) or empty, plus any indented echo lines.'
+		@egrep '(^\S)|(^$$)|\s+@echo' Makefile
+	```
+
+Alt echo: `@echo "Include left-aligned, empty lines and echo lines."`
+
+### Detailed
+
+Copied from Poetry's [Makefile](https://github.com/python-poetry/poetry/blob/master/Makefile).
+
+This is complex - I don't know why. I haven't tested yet but maybe something here is useful.
+
+- `Makefile`
+	```makefile
+	# lists all available targets
+	list:
+		@sh -c "$(MAKE) -p no_targets__ | \
+			awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {\
+				split(\$$1,A,/ /);for(i in A)print A[i]\
+			}' | grep -v '__\$$' | grep -v 'make\[1\]' | grep -v 'Makefile' | sort"
+	# required for list
+	no_targets__:
+
+	```
+
+### Sort and add colors
+
+- `Makefile`
+	```mk
 	.PHONY: virtualenv
 	virtualenv: $(PYTHON)
 	$(PYTHON):
@@ -23,7 +70,7 @@ Sort and add colors.
 	```
 
 
-List targets and descriptions.
+### List targets and descriptions
 
 - `Makefile`
 	```mk
