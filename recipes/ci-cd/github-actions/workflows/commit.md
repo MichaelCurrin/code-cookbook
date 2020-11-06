@@ -20,7 +20,7 @@ When you might want to create and persist changes in CI:
 
 ## Sample
 
-### Publish to GitHub Action
+Using the Publish to GitHub Action
 
 This uses an action maintained by GitHub - [actions/push-new-files-back-to-master](https://github.com/marketplace/actions/push-new-files-back-to-master).
 
@@ -65,7 +65,6 @@ I've refactored it.
     git push publisher ${BRANCH_NAME}
     ```
 
-
 ### Notes on the shell script
 
 This action works on the root and doesn't let you target a build directory like `_site`. So this is not a good idea for GH Pages. Even if you switch from `master` to `gh-pages` and your `.md` files are gone, your unversioned files (cache and gems) won't be ignored properly and would be committed unnecessarily.
@@ -75,3 +74,7 @@ It looks like the clone is built into the standard workflow itself, so this does
 The rebase might not do be useful if you are already up to date, unless there is something that gets committed between the start of the run and that pull step. Maybe the pull should be done before the commit? Note that you can't do a pull with a rebase unless you stage changes first.
 
 This will only work if the branch already exists, as it does not use `-b` in checkout.
+
+For comparison, there is a similar action dedicated to GitHub Pages but it uses TypeScript and has a lot more files.
+
+- [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
