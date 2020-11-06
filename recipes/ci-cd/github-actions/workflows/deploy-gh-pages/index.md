@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: github
 ---
 # Deploy GitHub Pages
 > How to use an action to build and deploy a site to Github Pages
