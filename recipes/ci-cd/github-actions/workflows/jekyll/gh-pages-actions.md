@@ -30,14 +30,14 @@ I have a demo which uses this action here [MichaelCurrin/jekyll-actions-quicksta
 
 ## Jekyll Action TS
 
-[repo](https://github.com/limjh16/jekyll-action-ts)
+[Repo link](https://github.com/limjh16/jekyll-action-ts)
 
 This is fork of the one above. It uses TypeScript instead of Docker so should be quicker to download and handle non-default use-cases.
 
 Sample usage from the docs:
 
 ```yaml
-name: Build and deploy Jekyll site
+name: Build and deploy
 
 on:
   push:
@@ -51,12 +51,6 @@ jobs:
       - name: 📂 Checkout
         uses: actions/checkout@v2
 
-        # Include the lines below if you are using jekyll-last-modified-at
-        # or if you would otherwise need to fetch the full commit history
-        # however this may be very slow for large repositories!
-        # with:
-        #   fetch-depth: '0'
-
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -66,4 +60,10 @@ jobs:
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
+
+      - name: 🚀 Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
 ```
