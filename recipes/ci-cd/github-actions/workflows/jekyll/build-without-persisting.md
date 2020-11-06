@@ -1,5 +1,5 @@
-# Basic
-> Jekyll CI flow without any specialized actions and without persisting or publishing
+# Build without persisting
+> Basic Jekyll CI flow without any specialized actions and without persisting or publishing
 
 
 ## Sample
