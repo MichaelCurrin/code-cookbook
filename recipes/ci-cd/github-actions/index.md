@@ -2,7 +2,7 @@
 layout: listing
 logo: githubactions
 ---
-# GitHub Actions recipes
+# GitHub Actions
 
 
 ## About
