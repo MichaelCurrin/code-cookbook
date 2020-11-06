@@ -2,7 +2,8 @@
 layout: listing
 logo: jekyll
 ---
-# Jekyll Github Actions
+# Jekyll
+> How to build a Jekyll static site using GH Actions
 
 
 ## Resources
