@@ -11,6 +11,11 @@ I haven't tried all these out and there are a lot more in the marketplace, using
 - [Marketplace](https://github.com/marketplace/actions/jekyll-4-build-deploy)
 
 
+## Jekyll Deploy GH Pages
+
+[Marketplace](https://github.com/marketplace/actions/jekyll-deploy-gh-pages)
+
+
 ## Jekyll Actions
 
 - [Marketplace](https://github.com/marketplace/actions/jekyll-actions) action
@@ -43,7 +48,7 @@ jobs:
   jekyll:
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 Setup
+      - name: 📂 Checkout
         uses: actions/checkout@v2
 
         # Include the lines below if you are using jekyll-last-modified-at
