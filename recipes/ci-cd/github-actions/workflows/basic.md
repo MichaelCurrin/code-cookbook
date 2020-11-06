@@ -70,3 +70,13 @@ This one was copied from the base workflow created through the GitHub Actions UI
 ## Actions used
 
 Uses [Checkout V2](https://github.com/actions/checkout) action - `actions/checkout`. A standard action for most workflows.
+
+You can customize it like this:
+
+```yaml
+steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+```
