@@ -1,5 +1,5 @@
 # GH Pages Actions
-> Build a Jekyll site and publish to GH Pages using a single action
+> A selection of Actions which both build a Jekyll site and publish it GH Pages, so you need one action instead of two
 
 Here are some available actions in the marketplace.
 
