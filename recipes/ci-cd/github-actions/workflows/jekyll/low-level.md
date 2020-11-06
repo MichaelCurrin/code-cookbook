@@ -1,9 +1,9 @@
-# Build docs
-> Run Jekyll against the docs directory and publish to GH Pages
+# Low-level
+> Run Jekyll against the docs directory and publish to GH Pages, using generic actions
 
 {% raw %}
 
-This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building the Jekyll docs at [jekyllrb.com](https://jekyllrb.com), using GH Actions instead of plain GH Pages flow.
+This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building Jekyll's own docs site at [jekyllrb.com](https://jekyllrb.com), using GH Actions instead of plain GH Pages flow. The code is very low-level for more control but this makes it so not reusable. There are further notes at the end of this page on this. You may want to take pieces of this recipe rather than the whole thing.
 
 Note use of `GITHUB_TOKEN` near the end.
 
@@ -27,6 +27,7 @@ Note use of `GITHUB_TOKEN` near the end.
 
         steps:
           - uses: actions/checkout@v2
+          
           - uses: actions/setup-ruby@v1
             with:
               ruby-version: ${{ env.RUBY_VERSION }}
@@ -60,7 +61,7 @@ Note use of `GITHUB_TOKEN` near the end.
           - name: Build site
             run: bundle exec jekyll build --source docs --destination docs/_site --verbose --trace
             env:
-              # For jekyll-github-metadata
+              # For jekyll-github-metadata plugin.
               JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Deploy to GitHub Pages
@@ -76,6 +77,7 @@ Note use of `GITHUB_TOKEN` near the end.
               git push
               popd &>/dev/null
     ```
+
 
 ## Notes on usage
 
