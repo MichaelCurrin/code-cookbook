@@ -1,5 +1,6 @@
 ---
 layout: listing
+logo: node-dot-js
 ---
 # Node.js
 > Sample workflows for building, testing and deploying a Node.js app using GitHub Actions
@@ -19,7 +20,7 @@ Both NPM and Yarn are covered here.
 
 Some flows here use `npm ci` command - see [NPM CI cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html) to learn about the command.
 
-A reason to **not** use is that it deletes `node_modules` if it exists. So if you use the `actions/cache` action to **cache** your dependencies each time for faster builds, make sure to use `npm install` to use the cached dependencies rather than deleting them.
+A reason to **not** use is that it will delete `node_modules` if it exists. So if you use the `actions/cache` action to retrieved **cached** dependencies each time (for faster builds), make sure to use `npm install` rather than `npm ci`. Otherwise the cache is unused..
 
 For more info on cache, see [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) page of this Cookbook.
 
