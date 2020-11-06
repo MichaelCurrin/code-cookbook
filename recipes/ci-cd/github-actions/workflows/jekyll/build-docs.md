@@ -1,5 +1,5 @@
 # Build docs
-> Run Jekyll against docs directory and publish to GH Pages
+> Run Jekyll against the docs directory and publish to GH Pages
 
 {% raw %}
 
@@ -77,6 +77,7 @@ Note use of `GITHUB_TOKEN` near the end.
               popd &>/dev/null
     ```
 
+## Notes on usage
 
 Note these steps around Bundler and committing and publishing to GH Pages are very low-level. I wouldn't use this across many projects myself as it would be tedious to maintain and not DRY and also I do not care about this level of control when using a single action for whole flow meets my needs. However, I might use the first few steps to manage cache, dependencies and building the site, but then rely on a more generic Action to handle committing to the `gh-pages` branch. 
 
