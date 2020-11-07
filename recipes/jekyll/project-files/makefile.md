@@ -1,8 +1,9 @@
 # Makefile
 
-See Make directory in Cheatsheets and this repo.
+See also:
 
-See also my Jekyll template's [Makefile]https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile
+- [Make](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/make/) section of Dev Cheatsheets project
+- Jekyll template repo's [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile)
 
 
 ## Samples
