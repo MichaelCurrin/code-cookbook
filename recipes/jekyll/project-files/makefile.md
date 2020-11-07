@@ -2,9 +2,8 @@
 
 See Make directory in Cheatsheets and this repo.
 
-See also:
+See also my Jekyll template's [Makefile]https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile
 
-https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile
 
 ## Samples
 
@@ -29,7 +28,7 @@ The help command will include lines starting with text or with empty lines - so 
 	s serve:
 		bundle exec jekyll serve --trace --livereload
 
-	build-prod:
+	build:
 		JEKYLL_ENV=production bundle exec jekyll build
 	```
 - Additions - note `serve` has an extra param so instead of serving on subpath, we serve on root for GitHub Pages "User" site or Netlify.
