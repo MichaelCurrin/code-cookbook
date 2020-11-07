@@ -2,6 +2,7 @@
 
 See also:
 
+- Make section of this Recipe project
 - [Make](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/make/) section of Dev Cheatsheets project
 - Jekyll template repo's [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile)
 
@@ -23,18 +24,18 @@ The help command will include lines starting with text or with empty lines - so 
 		bundle config --local path vendor/bundle
 		bundle install
 
-	upgrade:
-		bundle update
-
 	s serve:
 		bundle exec jekyll serve --trace --livereload
 
 	build:
-		JEKYLL_ENV=production bundle exec jekyll build
+		JEKYLL_ENV=production bundle exec jekyll build --trace
 	```
 - Additions - note `serve` has an extra param so instead of serving on subpath, we serve on root for GitHub Pages "User" site or Netlify.
 	```makefile
-	serve:
+	upgrade:
+		bundle update
+
+        s serve:
 		bundle exec jekyll serve --trace --livereload --baseurl ''
 
 	build-dev:
