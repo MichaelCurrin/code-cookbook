@@ -22,7 +22,7 @@ When you might want to create and persist changes in CI:
 
 ### No action
 
-A simple way to commit any changes.
+A simple way to commit any changes on the current branch.
 
 - `main.yml`
     ```yaml
