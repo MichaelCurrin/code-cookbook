@@ -2,11 +2,18 @@
 
 This section uses a workflow to apply formatting with GitHub Actions and commit the results.
 
+## Notes
+
+Based on [post](https://dev.to/mritunjay394/how-to-automate-code-formatting-for-python-projects-with-github-actions-a-study-47g8).
+
 It uses `yapf` - I prefer using `black` and `flake8`.
 
 Also I prefer to apply formatting locally by hand or with a push hook and to check formatting and linting on a workflow run, without changing code in the cloud. And then the local code is more consistent with what is on the remote and also you don't have to pull after every push.
 
-But I include this flow anyway for interest.
+But I include this flow anyway for interest of the pieces.
+
+
+## Sample
 
 ```yaml
 name: Format Python code
