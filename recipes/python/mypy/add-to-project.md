@@ -1,4 +1,4 @@
-# How to use Mypy
+# How to add Mypy to your project
 > How to install and run Mypy to your project for type checking
 
 
