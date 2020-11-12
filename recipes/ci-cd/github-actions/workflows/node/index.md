@@ -7,6 +7,8 @@ logo: node-dot-js
 
 Both NPM and Yarn are covered here.
 
+See [Building and testing Node.js](https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs) in the GH Actions docs.
+
 
 ## Workflows in action
 
