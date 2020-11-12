@@ -39,7 +39,7 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     ```
 - Publish to GitHub - `main.yml`
-    ```
+    ```yaml
     name: Node.js Package
     
     on:
