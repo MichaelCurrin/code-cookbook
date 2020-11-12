@@ -7,7 +7,9 @@
 
 ### Use NPM Publish
 
-Examples from [Publishing Node.js packages](https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages) in the GH Actions docs. See also [About packaging with GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/guides/about-packaging-with-github-actions).
+Examples from [Publishing Node.js packages](https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages) in the GH Actions docs. There is an example there for Yarn too.
+
+See also [About packaging with GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/guides/about-packaging-with-github-actions).
 
 - Publish to NPM - `main.yml`
     ```yaml
