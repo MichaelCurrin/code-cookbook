@@ -1,7 +1,7 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusable code patterns which you can use as reference or copy to your project
 
-[![GitHub tag](https://github.com/MichaelCurrin/code-cookbook/tags/?include_prereleases&sort=semver)](https://img.shields.io/github/releases/MichaelCurrin/code-cookbook)
+[![GitHub tag](https://img.shields.io/github/release/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/tags/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 
