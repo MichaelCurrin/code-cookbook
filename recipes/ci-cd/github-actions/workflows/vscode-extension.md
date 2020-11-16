@@ -18,11 +18,8 @@ Copied from [cschleiden/vscode-github-actions](https://github.com/cschleiden/vsc
               node-version: '12'
               
           - run: rm package-lock.json
-          
           - run: npm --no-git-tag-version version 1.0.${{ github.run_number }}
-          
           - run: npm install
-          
           - run: npm run package
           
           - name: Create Release
@@ -48,3 +45,20 @@ Copied from [cschleiden/vscode-github-actions](https://github.com/cschleiden/vsc
               asset_content_type: application/vsix
     ```
   
+Here are the script commands:
+
+- `package.json`
+    ```json
+    {
+      "scripts": {
+        "clean": "rimraf dist out",
+        "compile": "tsc -p .",
+        "watch": "tsc -watch -p .",
+        "package": "npm run clean && vsce package",
+        "vscode:prepublish": "webpack --mode production",
+        "webpack": "webpack --mode development",
+        "webpack-dev": "webpack --mode development --watch",
+        "test-compile": "tsc -p ."
+      }
+    }
+    ```
