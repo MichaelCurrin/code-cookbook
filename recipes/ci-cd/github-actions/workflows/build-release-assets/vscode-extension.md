@@ -2,7 +2,7 @@
 
 ## Sample
 
-This uses the standard [Create Release](https://github.com/actions/create-release) and [Upload Release](https://github.com/actions/upload-release-asset) actions to create a GH release and attach a built package to it as an asset.
+This uses the standard [Create Release](https://github.com/actions/create-release) and [Upload Release Asset](https://github.com/actions/upload-release-asset) actions to create a GH release and attach a built package to it as an asset.
 
 Copied from [cschleiden/vscode-github-actions](https://github.com/cschleiden/vscode-github-actions/blob/master/.github/workflows/build-preview.yml).
 
