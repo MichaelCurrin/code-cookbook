@@ -44,7 +44,11 @@ Copied from [cschleiden/vscode-github-actions](https://github.com/cschleiden/vsc
               asset_name: vscode-github-actions-1.0.${{ github.run_number }}.vsix
               asset_content_type: application/vsix
     ```
-  
+
+The Create Release section needs an underscore for the ID so it can be referenced in the last step.
+
+The asset path and asset name part are both the same - perhaps there is a shorter way like only setting one or referencing one in the other.
+
 Here are the script commands:
 
 - `package.json`
