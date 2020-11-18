@@ -14,7 +14,6 @@ Add this to your `_layouts/post.html` file.
                 {{ tag }}
             </span>
         </a>
-        {% unless forloop.last %}-{% endunless %}
      {% endfor %}
 </span>
 ```
