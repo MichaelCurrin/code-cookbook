@@ -58,3 +58,20 @@ If you run as a daemon, you can restart like this:
 ```sh
 $ docker restart blog
 ```
+
+
+## Run commands
+
+Install a theme. You might prefer bundle to gem though, as an command above used bundler.
+
+```sh
+$ docker exec -it blog \
+  gem install "jekyll-theme-hydeout"
+```
+
+
+## Start shell
+
+```sh
+$ docker exec -it blog bash
+```
