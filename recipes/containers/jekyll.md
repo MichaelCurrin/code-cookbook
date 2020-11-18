@@ -33,6 +33,8 @@ $ docker run --rm \
   jekyll new .
 ```
 
+Note we use volume flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
+
 
 ## Build
 
