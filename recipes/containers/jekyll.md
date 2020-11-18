@@ -22,9 +22,9 @@ The appropriate Jekyll image will be downloaded when needed.
 $ mkdir my-blog
 $ cd my-blog
 
-$ docker run -it --rm \
+$ docker run --rm \
   --volume="$PWD:/srv/jekyll" \
-  jekyll/jekyll:$JEKYLL_VERSION \
+  -it jekyll/jekyll:$JEKYLL_VERSION \
   jekyll new .
 ```
 
@@ -37,3 +37,13 @@ As above but in one line and with different command.
 $ docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build
 ```
 
+
+## Serve
+
+```sh
+$ docker run --name blog \
+  --volume="$PWD:/srv/jekyll" \
+  -p 3000:4000 \
+  -it jekyll/jekyll:$JEKYLL_VERSION \
+  jekyll serve --watch --drafts
+```
