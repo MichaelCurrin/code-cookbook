@@ -7,6 +7,9 @@ logo: jekyll
 Note that using a `Dockerfile` file and docker compose might be lighter to do. Maybe with `make` too. But here are low-level commands.
 
 
+Based on [article](https://ddewaele.github.io/running-jekyll-in-docker/).
+
+
 ## Setup
 
 Set an environment variable.
