@@ -4,6 +4,8 @@ logo: jekyll
 # Jekyll
 > How to run a Jekyll site in a container
 
+Note that using a `Dockerfile` file and docker compose might be lighter to do. Maybe with `make` too. But here are low-level commands.
+
 
 ## Setup
 
@@ -46,4 +48,10 @@ $ docker run --name blog \
   -p 3000:4000 \
   -it jekyll/jekyll:$JEKYLL_VERSION \
   jekyll serve --watch --drafts
+```
+
+If you run as a daemon, you can restart like this:
+
+```sh
+$ docker restart blog
 ```
