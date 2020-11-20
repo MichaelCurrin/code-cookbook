@@ -85,6 +85,12 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 ```
+For Jekyll markdown support, add this:
+
+```init
+[*.md]
+trim_trailing_whitespace = false
+```
 
 ### Generated
 
