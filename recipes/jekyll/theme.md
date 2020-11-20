@@ -2,9 +2,20 @@
 > Creating and maintaining a GitHub theme
 
 
+
 ## Samples
 
+### Quickstart
+
+My own quickstart theme project.
+
+[![MichaelCurrin - jekyll-theme-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-theme-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/jekyll-theme-quickstart)
+
+### Minima
+
 Pieces from the [Minima](https://github.com/jekyll/minima) theme, to help with build your theme.
+
+As in Minima, you can add gems to your theme's `*.gemspec` file. That means you don't have to add them to your project's `Gemfile`.
 
 - `Gemfile`
     ```ruby
