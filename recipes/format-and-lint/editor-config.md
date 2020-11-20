@@ -20,6 +20,29 @@ If using VS Code Prettier or related extensions (such as for formatting with sem
 
 These are separate but can combined if they make sense for one project.
 
+
+## General format
+
+```ini
+root = true
+
+[*]
+foo = bar
+
+[*.foo]
+foo = bar
+
+[*.{buzz,bazz}]
+foo = bar
+```
+
+Some people like to put this at the top of the file:
+
+```ini
+# editorconfig.org
+```
+
+
 ### Shell
 
 ```ini
@@ -74,20 +97,17 @@ indent_size = 4
 ### HTML
 
 ```ini
-# editorconfig.org
-
-root = true
-
 [*]
 charset = utf-8
-indent_size = 2
+indent_size = 4
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 ```
-For Jekyll markdown support, add this:
 
-```init
+For Jekyll markdown support, add this. But only if you use the double space at the end of a line to signify a line break.
+
+```ini
 [*.md]
 trim_trailing_whitespace = false
 ```
