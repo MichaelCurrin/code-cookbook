@@ -6,7 +6,6 @@ layout: home
 > {{ site.description }}
 
 
-
 Welcome to **Code Cookbook**.
 
 <div align="center" style="padding-bottom: 1em;">
