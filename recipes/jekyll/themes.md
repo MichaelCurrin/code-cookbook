@@ -9,21 +9,26 @@ See [Specification](https://ruby-doc.org/stdlib-2.7.0/libdoc/rubygems/rdoc/Gem/S
 
 ### Gemspec
 
-- The `*.gemspec` file is used to package the theme as gem. 
-- Here are ways to add required dependencies. These are not actually installed when you install the gem, but the theme will give an error to say they are missing (at least this is the way it works with Remote Theme.
-    ```ruby
-    spec.add_runtime_dependency 'example'
-    spec.add_runtime_dependency 'example', '~> 1.1', '>= 1.1.4'
-    
-    spec.add_dependency 'example' # alias for add_runtime_dependency
-    
-    spec.add_development_dependency 'example'
-    ```
+- The `*.gemspec` file is used to package the theme as gem.
+- Required dependencies
+    - Here are ways to add required dependencies.
+        ```ruby
+        spec.add_runtime_dependency 'example'
+        spec.add_runtime_dependency 'example', '~> 1.1', '>= 1.1.4'
+
+        spec.add_dependency 'example' # alias for add_runtime_dependency
+
+        spec.add_development_dependency 'example'
+        ```
+    - When using the Remote Theme plugin, it will give an error if the listed depenedencies are missing and will **not** install them. 
+    - But if you add the theme to your site's `Gemfile`, then you can install the theme's dependencies and avoid the error. Even though the theme itself in local gems is not used due to Remote Theme plugin using the remote one on each build. 
+    - If you use explicity approach approach, then you can make your `Gemfile` lighter and let the theme control the gems.this works for a RubyGems theme like `gem 'minima'` or custom theme on GitHub like `gem 'minima', git: 'https://github.com/MichaelCurrin/minima'`.
+ 
 
 ### Gemfile
 
 - A `Gemfile` is not needed in the theme. If it is included, it is only for testing the project and it is not passed to a downstream project.
-- The `gemspec` command in the `Gemfile` will install dependencies from the `*.gemspec` file.
+- The `gemspec` command in the `Gemfile` will install dependencies from the `*.gemspec` file when running a Bundle install within the theme.
 
 
 ## Samples
