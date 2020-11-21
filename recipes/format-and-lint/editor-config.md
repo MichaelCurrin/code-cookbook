@@ -16,11 +16,6 @@ TODO - Can I create one at the user level to share across all repos? Unless `roo
 If using VS Code Prettier or related extensions (such as for formatting with semicolons), be sure to set space to 2 and disable tabs in the config. These will be applied when the file is saved and unfortunately the editor config is not picked up.
 
 
-## Samples
-
-These are separate but can combined if they make sense for one project.
-
-
 ## General format
 
 ```ini
@@ -36,12 +31,25 @@ foo = bar
 foo = bar
 ```
 
-Some people like to put this at the top of the file:
+Some like to put this at the top of the file before `root`.
 
 ```ini
 # editorconfig.org
 ```
 
+## Samples
+
+These are separate but can combined if they make sense for one project.
+
+### Generic
+
+Some like to set this before going into more formats.
+
+```ini
+[*]
+charset = utf-8
+insert_final_newline = true
+```
 
 ### Shell
 
@@ -57,6 +65,14 @@ indent_size = 2
 [*.py]
 indent_style = space
 indent_size = 4
+```
+
+### Configs
+
+```ini
+[*.{json,yml}]
+indent_style = space
+indent_size = 2
 ```
 
 ### JavaScript
@@ -131,7 +147,7 @@ insert_final_newline = true
 
 ### Demo
 
-Based on the one of the EditorConfig homepage.
+Based on the one on the EditorConfig homepage.
 
 ```ini
 # EditorConfig is awesome: https://EditorConfig.org
