@@ -18,9 +18,5 @@ s serve:
 i serve-i:
 	bundle exec jekyll serve --trace --livereload --incremental
 
-
-build-dev:
-	bundle exec jekyll build
-
-build-prod:
+build:
 	JEKYLL_ENV=production bundle exec jekyll build
