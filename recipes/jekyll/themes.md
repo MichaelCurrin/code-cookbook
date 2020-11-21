@@ -1,6 +1,5 @@
-# Theme
+# Themes
 > Creating and maintaining a GitHub theme
-
 
 
 ## Samples
