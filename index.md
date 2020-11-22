@@ -5,8 +5,6 @@ layout: home
 
 > {{ site.description }}
 
-
-
 Welcome to **Code Cookbook**.
 
 <div align="center" style="padding-bottom: 1em;">
@@ -31,7 +29,7 @@ Welcome to **Code Cookbook**.
 - [Jekyll][]
     - Code snippets and configs
 - [Containers][]
-    - Commands and configs for using Docket and k8s.
+    - Commands and configs for using Docker and Kubernetes.
 
 
 [Make]: {{ site.baseurl }}{% link recipes/make/index.md %}

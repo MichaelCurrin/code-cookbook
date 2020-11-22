@@ -10,8 +10,6 @@ github_username: MichaelCurrin
 url: "https://michaelcurrin.github.io"
 baseurl: "/code-cookbook"
 
-theme: minima
-
 # TODO
 google_analytics:
 
@@ -20,17 +18,10 @@ header_pages:
   - recipes/index.md
   - about.md
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-titles-from-headings
-  - jekyll-optional-front-matter
-
-titles_from_headings:
-  strip_title: true
-
 exclude:
+  - bin/
   - docs/
+  - hooks/
   - vendor/
   - CONTRIBUTING.md
   - Gemfile
@@ -38,6 +29,14 @@ exclude:
   - LICENSE
   - Makefile
   - README.md
+  - sample*.png
+
+### Theme boilerplate
+
+remote_theme: MichaelCurrin/minima
+
+titles_from_headings:
+  strip_title: true
 
 defaults:
   - scope:
