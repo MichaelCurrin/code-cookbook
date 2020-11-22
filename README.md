@@ -23,11 +23,26 @@
 </div>
 
 
+## Documentation
+
+To setup and run this project (or a fork), see the project docs:
+
+<div align="center">
+
+[![Docs](https://img.shields.io/badge/View-Docs-blue?style=for-the-badge)](/docs/)
+
+</div>
+
+
 ## Contributing
 
-Contributions of new content or fixes are welcome.
+Contributions are welcome. See instructions.
 
-Please submit an issue or add a Pull Request from your fork's feature branch with a description of changes - see [Contributing doc](/CONTRIBUTING.md).
+<div align="center">
+
+[![Contributing doc](https://img.shields.io/badge/View-Contributing-blue?style=for-the-badge)](/CONTRIBUTING.md)
+
+</div>
 
 
 ## License
