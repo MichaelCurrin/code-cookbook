@@ -19,7 +19,9 @@ header_pages:
   - about.md
 
 exclude:
+  - bin/
   - docs/
+  - hooks/
   - vendor/
   - CONTRIBUTING.md
   - Gemfile
@@ -27,11 +29,9 @@ exclude:
   - LICENSE
   - Makefile
   - README.md
+  - sample*.png
 
 ### Theme boilerplate
-
-plugins:
-  - jekyll-remote-theme
 
 remote_theme: MichaelCurrin/minima
 
