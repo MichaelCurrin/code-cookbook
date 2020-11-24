@@ -3,7 +3,9 @@
 
 ## Basic
 
-A short script with no external dependencies.
+Similar to [FileServer example](https://golang.org/pkg/net/http/#example_FileServer).
+
+A short script to serve the current directory. This uses the standard lib.
 
 ```go
 package main
@@ -18,6 +20,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":9000", fs))
 }
 ```
+
 
 ## More detailed
 
