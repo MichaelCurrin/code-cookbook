@@ -43,7 +43,7 @@ These are separate but can combined if they make sense for one project.
 
 ### Generic
 
-Some like to set this before going into more formats.
+Some devs like to set this before going into more formats. You don't have to it.
 
 ```ini
 [*]
@@ -51,11 +51,18 @@ charset = utf-8
 insert_final_newline = true
 ```
 
-### Shell
+### Mixed
+
+If you have some files like Python Markdown files which need 4 spaces, then you can match with the `*` catchall and then only set 2 spaces for specific formats. 
 
 ```ini
-[*.sh]
+root = true
+
+[*]
 indent_style = space
+indent_size = 4
+
+[*.{js,ts,json}]
 indent_size = 2
 ```
 
@@ -67,38 +74,59 @@ indent_style = space
 indent_size = 4
 ```
 
+### Two spaces
+
+If needed, also add this to the samples below.
+
+```ini
+indent_style = space
+```
+
 ### Configs
 
 ```ini
 [*.{json,yml}]
-indent_style = space
 indent_size = 2
 ```
 
-### JavaScript
+#### Shell
+
+```ini
+[*.sh]
+indent_size = 2
+```
+
+#### JavaScript
 
 ```ini
 [*.js]
-indent_style = space
 indent_size = 2
 ```
 
 ```ini
 [*.{js,ts}]
-indent_style = space
 indent_size = 2
 ```
 
 ```ini
 [*.{js,json}]
-indent_style = space
+indent_size = 2
+```
+
+#### Ruby
+
+```ini
+[*.rb]
 indent_size = 2
 ```
 
 ### Make
 
+Note that in VS Code, it looks like you can leave the setting for `Makefile`, as any a new `Makefile` will default to tabs.
+
+But, if you have any other `.mk` files, you do need to set them up as tab.
 ```ini
-[Makefile]
+[*.mk]
 indent_style = tab
 ```
 
