@@ -20,7 +20,7 @@ See [Building and testing Node.js](https://docs.github.com/en/free-pro-team@late
 
 ### NPM
 
-Some flows here use `npm ci` command - see [NPM CI cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html) to learn about the command.
+Some flows here use the `npm ci` command - see [NPM CI cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html) to learn about the command.
 
 A reason to **not** use is that it will delete `node_modules` if it exists. So if you use the `actions/cache` action to retrieved **cached** dependencies each time (for faster builds), make sure to use `npm install` rather than `npm ci`. Otherwise the cache is unused..
 
