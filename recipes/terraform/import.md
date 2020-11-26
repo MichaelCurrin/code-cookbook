@@ -7,6 +7,7 @@ Here we import a [Datadog synthetic](https://www.datadoghq.com/). See [DD provid
 - `main.tf`
     ```terraform
     resource "datadog_synthetics_test" "this" {}
+    ```
 - `versions.tf`
     ```terraform
     terraform {
