@@ -17,6 +17,8 @@ Note use of this which comes from the doc linked above, but it is not used consi
 
 For building an app (such as React or Vue) and serving as a GH Pages site, see the [Deploy GH Pages](/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/) cookbook section.
 
+What does CI do?
+
 
 ## Setup Node action
 
@@ -69,37 +71,41 @@ Use single Node.js version
 
 I created this based on the other samples.
 
-Note this uses [setup-node]() version while some of the other samples below are behind.
-
 - `main.yml`
     ```yaml
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
 
-      - run: npm ci
-      - run: npm run build --if-present
+      - run: npm install
+      
+      - run: npm run build
+
       - run: npm test
         env:
           CI: true
     ```
 
+Note this uses `setup-node@2` while some of the other samples below are behind.
+
+
 ### Cache dependencies
 
 This reduces build time as dependencies are cached between builds.
 
-Sample from the docs.
+Sample from the docs. The docs actually use `npm ci` which delete `node_modules`, so I've setup `npm install` here instead.
 
 - `main.yml`
     ```yaml
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
@@ -107,7 +113,6 @@ Sample from the docs.
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -115,8 +120,9 @@ Sample from the docs.
             ${{ runner.OS }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
     ```
+
 
 ### Matrix
 
@@ -126,7 +132,7 @@ This sample comes from the docs and is similar to the default covered in the exa
     ```yaml
     name: Node.js CI
 
-    on: [push]
+    on: push
 
     jobs:
       build:
@@ -145,7 +151,9 @@ This sample comes from the docs and is similar to the default covered in the exa
               node-version: ${{ matrix.node-version }}
 
           - run: npm install
-          - run: npm run build --if-present
+          
+          - run: npm run build
+          
           - run: npm test
             env:
               CI: true
@@ -154,7 +162,7 @@ This sample comes from the docs and is similar to the default covered in the exa
 
 ### Setup Node action default
 
-From the Github Action samples:
+From the GitHub Action samples:
 
 - [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
 
@@ -188,7 +196,9 @@ From the Github Action samples:
               node-version: ${{ matrix.node-version }}
 
           - run: npm ci
+          
           - run: npm run build --if-present
+
           - run: npm test
     ```
 
