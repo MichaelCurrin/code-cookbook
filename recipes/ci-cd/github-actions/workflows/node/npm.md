@@ -96,9 +96,9 @@ Note this uses `setup-node@2` while some of the other samples below are behind.
 
 ### Cache dependencies
 
-This reduces build time as dependencies are cached between builds.
+You can reduce build time if dependencies are cached between builds.
 
-Sample from the docs. The docs actually use `npm ci` which delete `node_modules`, so I've setup `npm install` here instead.
+Sample from the docs:
 
 - `main.yml`
     ```yaml
@@ -122,6 +122,10 @@ Sample from the docs. The docs actually use `npm ci` which delete `node_modules`
       - name: Install dependencies
         run: npm install
     ```
+
+It looks like this depends on a lockfile existing. I don't like to commit that - perhaps `package.json` can be used instead.
+
+The docs actually use `npm ci` which delete `node_modules`, so I've setup `npm install` here instead.
 
 
 ### Matrix
