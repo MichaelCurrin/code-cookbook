@@ -35,7 +35,7 @@ For simple use (one Node/Yarn version test and no caching), I don't see the bene
     ```yaml
     name: CI
 
-    on: [push]
+    on: push
 
     jobs:
       build:
@@ -141,7 +141,7 @@ From [react-build-with-github-actions](https://github.com/explooosion/react-buil
               CI: true
     ```
 
-I don't know what `CI` does.
+I don't know what `CI` does here.
 
 I prefer having install and test steps separately.
 
