@@ -1,6 +1,8 @@
 # Formatting JS projects
 
-Install prettier globally or in a project, or just in an extension.
+Notes for formatting with Prettier.
+
+Install prettier globally or in a project, or just as an extension.
 
 The Prettier Now extension for VS Code works well. If using VS Code Prettier or related extensions (such as for formatting with semicolons), be sure to set space to 2 and disable tabs in the config. These will be applied when the file is saved and unfortunately the EditorConfig is not picked up.
 
