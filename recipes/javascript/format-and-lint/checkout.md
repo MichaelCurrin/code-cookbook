@@ -3,7 +3,7 @@
 Sample files for ESLint (linting), Prettier (formatting), Jest (tests) and TypeScript.
 
 
-## The checkout project
+## The Checkout repo
 
 From [actions/checkout](https://github.com/actions/checkout) - a TypeScript project.
 
