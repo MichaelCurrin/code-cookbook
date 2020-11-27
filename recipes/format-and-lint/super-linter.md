@@ -11,7 +11,7 @@ However, this action is a good working example of all the linters on GitHub Acti
 ## Links
 
 - [Super Linter](https://github.com/marketplace/actions/super-linter) in Marketplace
-    [Support linters](https://github.com/marketplace/actions/super-linter#supported-linters) table
+    - [Support linters](https://github.com/marketplace/actions/super-linter#supported-linters) table
 - [github/super-linter](https://github.com/github/super-linter) repo
 
 
