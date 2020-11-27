@@ -1,21 +1,6 @@
 # Prettier
 
-JavaScript formatting with Prettier.
-
-## Disable
-
-Disable a line:
-
-```
-// eslint-disable-next-line prettier/prettier
-```
-
-
-## Resources
-
-- [Prettier](https://prettier.io/) homepage
-- [Configuration file](https://prettier.io/docs/en/configuration.html)
-- [Options](https://prettier.io/docs/en/options.html)
+See also [Prettier](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/format-and-lint/) in my Cheatsheets.
 
 
 ## Samples
