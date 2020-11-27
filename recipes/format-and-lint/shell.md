@@ -4,14 +4,14 @@
 
 ## Formatting
 
-Use ShellFormat.
+Use _ShellFormat_.
 
 - [shell-format extension](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format)
 
 
 ## Linting
 
-Use Shellcheck directly or with VS Code.
+Use _Shellcheck_ directly or with VS Code.
 
 - [shellcheck.net](https://www.shellcheck.net/) homepage
 - [shellcheck extension](https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck)
