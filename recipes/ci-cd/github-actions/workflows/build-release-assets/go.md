@@ -1,13 +1,24 @@
+---
+logo: go
+---
 # Go
 > How to build and release assets for a Go project
 
+
 ## Go Releaser
+
+This tool helps build your application for several platforms. 
+
+### Resources
 
 - [Homepage](https://goreleaser.com/)
 - [Quickstart](https://goreleaser.com/quick-start/)
 - [GitHub Actions](https://goreleaser.com/ci/actions/) section
 
+
 ### Sample
+
+There is a GitHub Actions action you can use in your CI.
 
 - `release.yml` from the docs.
     ```
@@ -58,3 +69,14 @@
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
+    
+Sample result on an [imgcat](https://github.com/trashhalo/imgcat/releases/tag/v1.2.0) release:
+
+```
+checksums.txt
+imgcat_1.2.0_Darwin_x86_64.tar.gz
+imgcat_1.2.0_Linux_i386.tar.gz
+imgcat_1.2.0_Linux_x86_64.tar.gz
+imgcat_1.2.0_Windows_i386.tar.gz
+imgcat_1.2.0_Windows_x86_64.tar.gz
+```
