@@ -1,4 +1,4 @@
-# Shell
+# Format and Lint
 > How to format and lint your shell scripts
 
 
