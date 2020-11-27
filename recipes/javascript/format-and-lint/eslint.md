@@ -1,4 +1,4 @@
-# ESlint config
+# ESLint
 
 See also the [ESLint](https://eslint.org/) homepage.
 
@@ -52,7 +52,7 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-vue": "^6.2.2"
       },
-      
+
       "eslintConfig": {
         "root": true,
         "env": {
