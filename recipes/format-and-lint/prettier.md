@@ -1,7 +1,5 @@
 # Prettier
 
-See also [Prettier](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/format-and-lint/) in my Cheatsheets.
-
 
 ## Samples
 
