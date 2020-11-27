@@ -5,7 +5,6 @@ logo: go
 # Go
 
 
-## Resources
+## CI
 
-- Go by Example - https://gobyexample.com/
-    > Go by Example is a hands-on introduction to Go using annotated example programs.
+See [Go]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/build-release-assets/go.md %}) page of the GitHub Actions section of this site.
