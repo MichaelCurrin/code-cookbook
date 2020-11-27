@@ -14,14 +14,14 @@ However, this action is a good working example of all the linters on GitHub Acti
     [Support linters](https://github.com/marketplace/actions/super-linter#supported-linters) table
 - [github/super-linter](https://github.com/github/super-linter) repo
 
+
 ## Code breakdown
 
 - [Dockerfile](https://github.com/github/super-linter/blob/master/Dockerfile) - this uses a lot of `FROM` lines.
 - [linter.sh](https://github.com/github/super-linter/blob/master/lib/linter.sh) which does the work.
-    - See for example 
+    - See for example
         - `shellcheck --color`
         - `pylint --rcfile ...`
         - `rubocop -c ...`
         - `markdownlint`
         - `jsonlint`
-            
