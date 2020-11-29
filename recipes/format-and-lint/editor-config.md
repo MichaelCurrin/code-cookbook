@@ -64,7 +64,7 @@ insert_final_newline = true
 
 I find this a good starting point for adding a file to a project and then refining it.
 
-It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript files and config files.
+It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript and JSON files.
 
 ```ini
 root = true
@@ -73,9 +73,23 @@ root = true
 indent_style = space
 indent_size = 4
 
-[*.{sh,js,ts,json,yml}]
+[*.{js,json]
 indent_size = 2
 ```
+
+If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set Python and Markdown as exceptions.
+
+```ini
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_size = 4
+```
+
 
 ### Python
 
