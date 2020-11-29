@@ -2,21 +2,29 @@
 
 See [editorconfig.org](https://editorconfig.org/) for syntax.
 
-The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. GitHub and PyCharm don't need an extension to support this but VS Code does.
+The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. 
 
 
-## VS Code notes
+## Support
 
-Note that VS Code does let you choose the indent level and tabs/spaces handling, but this is limited as it is not by file type but for all files, whether global or across a project.
+The `.editorconfig` file will only be used by your editor if it supports it.
 
-Note these are not always needed - in VS Code you can convert between tabs and spaces and change the spacing, then that will be remembered after that for that file. However, you have to repeat this for each new file. So perhaps leave default as 4 spaces at global IDE settings (to cover most of my cases) and then set spaces for certain languages. I mostly work on my projects alone, so maybe a shared global editor config is worthwhile.
+GitHub and PyCharm don't need an extension to support this.
 
-See [JS formatting](js-formatting.md) guide around use with Prettier extension in VS Code.
+For VS Code, you need an extension. I would highly recommend the [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extension as it is popular and I find it useful.
 
-TODO - Can I create one at the user level to share across all repos? Unless `root = true` is set.
+### VS Code notes
+
+Without using editor config, VS Code already lets you choose the indent level and tabs/spaces handling. You cannot set by file type though. It can infer from the current file, this can be annoying when creating a new JS file example and the indent level is set to 4 spaces until you override it or type it that way.
+
+When you use an editor config file and an extension in VS Code, then you get to set the indentation for all new and existing files. This takes preference over the VS Code's inference.
+
+For using the Prettier extension, see the VS Code section of the [Prettier]({{ site.baseurl }}{% link recipes/javascript/format-and-lint/prettier.md %}) page.
 
 
-## General format
+## File format
+
+Here is what the general syntax is like for a `.editorconfig` file.
 
 ```ini
 root = true
@@ -37,6 +45,7 @@ Some like to put this at the top of the file before `root`.
 # editorconfig.org
 ```
 
+
 ## Samples
 
 These are separate but can combined if they make sense for one project.
@@ -53,7 +62,9 @@ insert_final_newline = true
 
 ### Mixed
 
-If you have some files like Python Markdown files which need 4 spaces, then you can match with the `*` catchall and then only set 2 spaces for specific formats. 
+I find this a good starting point for adding a file to a project and then refining it.
+
+It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript files and config files.
 
 ```ini
 root = true
@@ -62,7 +73,7 @@ root = true
 indent_style = space
 indent_size = 4
 
-[*.{js,ts,json}]
+[*.{sh,js,ts,json,yml}]
 indent_size = 2
 ```
 
