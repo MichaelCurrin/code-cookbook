@@ -50,17 +50,7 @@ Some like to put this at the top of the file before `root`.
 
 These are separate but can combined if they make sense for one project.
 
-### Generic
-
-Some devs like to set this before going into more formats. You don't have to it.
-
-```ini
-[*]
-charset = utf-8
-insert_final_newline = true
-```
-
-### Mixed
+### Own
 
 I find this a good starting point for adding a file to a project and then refining it.
 
@@ -77,7 +67,7 @@ indent_size = 4
 indent_size = 2
 ```
 
-If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set Python and Markdown as exceptions.
+If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set exceptions for `.md`, `.html` and `.py`.
 
 ```ini
 root = true
@@ -86,7 +76,7 @@ root = true
 indent_style = space
 indent_size = 2
 
-[*.md]
+[*.{md,html}]
 indent_size = 4
 ```
 
@@ -195,6 +185,16 @@ indent_style = space
 indent_size = 4
 charset = utf-8
 trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+### Generic
+
+Some devs like to set this before going into more formats. I don't see it as needed. The final newline I handle in my global IDE settings, though other users might not.
+
+```ini
+[*]
+charset = utf-8
 insert_final_newline = true
 ```
 
