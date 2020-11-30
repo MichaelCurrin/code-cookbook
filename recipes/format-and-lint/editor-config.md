@@ -54,6 +54,8 @@ These are separate but can combined if they make sense for one project.
 
 I find this a good starting point for adding a file to a project and then refining it.
 
+#### Python focused projects
+
 It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript and JSON files.
 
 ```ini
@@ -67,6 +69,8 @@ indent_size = 4
 indent_size = 2
 ```
 
+#### JS-focused projects
+
 If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set exceptions for `.md`, `.html` and `.py`.
 
 ```ini
@@ -78,8 +82,10 @@ indent_size = 2
 
 [*.{md,html}]
 indent_size = 4
-```
 
+[Makefile]
+indent_size = 4
+```
 
 ### Python
 
@@ -137,9 +143,17 @@ indent_size = 2
 
 ### Make
 
-Note that in VS Code, it looks like you can leave the setting for `Makefile`, as any a new `Makefile` will default to tabs.
+Note that in VS Code, it looks like you can leave out the style setting for `Makefile`. Any new `Makefile` will default to tabs.
 
-But, if you have any other `.mk` files, you do need to set them up as tab.
+But if you use a `*` glob to set size, you need to set for `Makefile`. The size is just for visibility in the IDE, not how it is stored.
+
+```ini
+[Makefile]
+indent_size = 2
+```
+
+If your `*` glob sets spaces and if you have any other `.mk` files, then you do need to set them up as tab.
+
 ```ini
 [*.mk]
 indent_style = tab
