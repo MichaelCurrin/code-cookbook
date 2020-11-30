@@ -7,7 +7,19 @@ logo: jekyll
 Note that using a `Dockerfile` file and docker compose might be lighter to do. Maybe with `make` too. But here are low-level commands.
 
 
-Based on [article](https://ddewaele.github.io/running-jekyll-in-docker/).
+Steps are based on an [article](https://ddewaele.github.io/running-jekyll-in-docker/), though that is similar what is in the Jekyll docker [docs](https://github.com/envygeeks/jekyll-docker#readme).
+
+
+### Images
+
+Links to Docker hub.
+
+- [jekyll](https://hub.docker.com/u/jekyll) user
+- [jekyll/jekyll](https://hub.docker.com/r/jekyll/jekyll) image - standard.
+- [jekyll/builder](https://hub.docker.com/r/jekyll/builder) image - includes tools.
+- [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
+
+Use standard image is used below, but you can change out `jekyll/jekyll` for one of the others.
 
 
 ## Setup
@@ -38,10 +50,11 @@ Note we use volume flag so that we can mount the project in the container as `/s
 
 ## Build
 
-As above but in one line and with different command.
-
 ```sh
-$ docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build
+$ docker run --rm \
+  --volume="$PWD:/srv/jekyll" \
+  -it jekyll/jekyll:$JEKYLL_VERSION \
+  jekyll build
 ```
 
 
