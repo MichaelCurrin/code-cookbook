@@ -10,7 +10,7 @@ Note that using a `Dockerfile` file and docker compose might be lighter to do. M
 Steps are based on an [article](https://ddewaele.github.io/running-jekyll-in-docker/), though that is similar what is in the Jekyll docker [docs](https://github.com/envygeeks/jekyll-docker#readme).
 
 
-### Images
+## Images
 
 Links to Docker hub.
 
@@ -30,10 +30,14 @@ Set an environment variable.
 export JEKYLL_VERSION=3.9
 ```
 
+Note that only `3.8` and `4` or higher are available, `3.9` is not. See [tags](https://hub.docker.com/r/jekyll/jekyll/tags?page=1&ordering=last_updated).
+
+
 The appropriate Jekyll image will be downloaded when needed.
 
+## Usage
 
-## Create
+### Create site
 
 ```sh
 $ mkdir my-blog
@@ -48,7 +52,7 @@ $ docker run --rm \
 Note we use volume flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
 
 
-## Build
+### Build site
 
 ```sh
 $ docker run --rm \
@@ -58,7 +62,7 @@ $ docker run --rm \
 ```
 
 
-## Serve
+### Run dev server
 
 ```sh
 $ docker run --name blog \
@@ -75,9 +79,9 @@ $ docker restart blog
 ```
 
 
-## Run commands
+### Install geme
 
-Install a theme. You might prefer bundle to gem though, as an command above used bundler.
+Install a theme.
 
 ```sh
 $ docker exec -it blog \
@@ -85,7 +89,7 @@ $ docker exec -it blog \
 ```
 
 
-## Start shell
+### Start interactive shell
 
 ```sh
 $ docker exec -it blog bash
