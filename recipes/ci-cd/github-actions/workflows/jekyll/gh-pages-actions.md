@@ -20,6 +20,8 @@ I haven't tried all these out and there are a lot more in the marketplace, using
 
 - [Marketplace](https://github.com/marketplace/actions/jekyll-actions) action
 
+This will build a Jekyll site and publish to `gh-pages` branch for oyu.
+
 The downsides of this action are:
 
 - it does not work with `GITHUB_TOKEN` so is less secure and
@@ -30,9 +32,11 @@ I have a demo which uses this action here [MichaelCurrin/jekyll-actions-quicksta
 
 ## Jekyll Action TS
 
-[Repo link](https://github.com/limjh16/jekyll-action-ts)
+- [![limjh16 - jekyll-action-ts](https://img.shields.io/static/v1?label=limjh16&message=jekyll-action-ts&color=blue&logo=github)](https://github.com/limjh16/jekyll-action-ts)
 
-This is fork of the one above. It uses TypeScript instead of Docker so should be quicker to download and handle non-default use-cases.
+This is fork of the one above. 
+
+This uses TypeScript instead of Docker so should be quicker to download and handle non-default use-cases. Also, the action itself does not publish to GH Pages. For that, use an action like `peaceiris/actions-gh-pages` as below. 
 
 Sample usage from the docs:
 
