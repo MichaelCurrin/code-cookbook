@@ -1,4 +1,4 @@
-# GH Pages Actions
+# Actions for GH Pages
 > A selection of Actions which both build a Jekyll site and publish it GH Pages, so you need one action instead of two
 
 Here are some available actions in the marketplace.
@@ -13,7 +13,7 @@ I haven't tried all these out and there are a lot more in the marketplace, using
 
 ## Jekyll Deploy GH Pages
 
-[Marketplace](https://github.com/marketplace/actions/jekyll-deploy-gh-pages)
+- [Marketplace](https://github.com/marketplace/actions/jekyll-deploy-gh-pages)
 
 
 ## Jekyll Actions
@@ -36,34 +36,35 @@ This is fork of the one above. It uses TypeScript instead of Docker so should be
 
 Sample usage from the docs:
 
-```yaml
-name: Build and deploy
+- `main.yml`
+    ```yaml
+    name: Build and deploy
 
-on:
-  push:
-    branches:
-      - master
+    on:
+      push:
+        branches:
+          - master
 
-jobs:
-  jekyll:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📂 Checkout
-        uses: actions/checkout@v2
+    jobs:
+      jekyll:
+        runs-on: ubuntu-latest
+        steps:
+          - name: 📂 Checkout
+            uses: actions/checkout@v2
 
-      - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
+          - name: 💎 Setup ruby
+            uses: ruby/setup-ruby@v1
+            with:
+              ruby-version: 2.7
 
-      - name: 🔨 Install dependencies and build site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: true
+          - name: 🔨 Install dependencies and build site
+            uses: limjh16/jekyll-action-ts@v2
+            with:
+              enable_cache: true
 
-      - name: 🚀 Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
-```
+          - name: 🚀 Deploy
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: _site
+    ```
