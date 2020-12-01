@@ -1,7 +1,15 @@
 # Actions for GH Pages
-> A selection of Actions which both build a Jekyll site and publish it GH Pages, so you need one action instead of two
+
+A selection of Actions which both build a Jekyll site and publish it GH Pages. So you need one action instead of two.
+
+## Warning
+
+As appealing as the idea is to have on Action to handle both sides, it means you get locked into an action which might do too much. If you want to change how Jekyll installs or is built or how the publishing is handled, you are limited.
+
+Compare with the approach where you handle Jekyll alone and then GH Pages alone. This means you can swap out the piece you need. And it also frees you up to change from Jekyll to another tool and still use the same generic GH Pages deploy flow.
 
 {% raw %}
+
 
 ## Actions
 
@@ -30,19 +38,11 @@ The downsides of this action are:
 
 I have a demo which uses this action here [MichaelCurrin/jekyll-actions-quickstart](https://github.com/MichaelCurrin/jekyll-actions-quickstart)
 
-## Jekyll Action TS
-
-- [![limjh16 - jekyll-action-ts](https://img.shields.io/static/v1?label=limjh16&message=jekyll-action-ts&color=blue&logo=github)](https://github.com/limjh16/jekyll-action-ts)
-
-This is fork of the one above. 
-
-This uses TypeScript instead of Docker so should be quicker to download and handle non-default use-cases. Also, the action itself does not publish to GH Pages. For that, use an action like `peaceiris/actions-gh-pages` as below. 
-
-Sample usage from the docs:
+Sample usage from the README.md. I updated to only handle push from master.
 
 - `main.yml`
     ```yaml
-    name: Build and deploy
+    name: Testing the GitHub Pages publication
 
     on:
       push:
@@ -51,26 +51,22 @@ Sample usage from the docs:
 
     jobs:
       jekyll:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-16.04
         steps:
-          - name: 📂 Checkout
-            uses: actions/checkout@v2
+        - uses: actions/checkout@v2
 
-          - name: 💎 Setup Ruby
-            uses: ruby/setup-ruby@v1
-            with:
-              ruby-version: 2.7
+        # Use GitHub Actions' cache to shorten build times and decrease load on servers
+        - uses: actions/cache@v1
+          with:
+            path: vendor/bundle
+            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-gems-
 
-          - name: 🔨 Install dependencies and build site
-            uses: limjh16/jekyll-action-ts@v2
-            with:
-              enable_cache: true
-
-          - name: 🚀 Deploy
-            uses: peaceiris/actions-gh-pages@v3
-            with:
-              github_token: ${{ secrets.GITHUB_TOKEN }}
-              publish_dir: _site
+        # Standard usage
+        - uses:  helaili/jekyll-action@2.0.4
+          env:
+            JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
     ```
 
 {% endraw %}
