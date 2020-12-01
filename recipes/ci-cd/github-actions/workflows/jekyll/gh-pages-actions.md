@@ -1,24 +1,25 @@
 # Actions for GH Pages
 > A selection of Actions which both build a Jekyll site and publish it GH Pages, so you need one action instead of two
 
+{% raw %}
+
+## Actions
+
 Here are some available actions in the marketplace.
 
 I haven't tried all these out and there are a lot more in the marketplace, using different approaches and configurations. 
 
+### Jekyll 4 Build Deploy
 
-## Jekyll 4 Build Deploy
+- [GH Marketplace](https://github.com/marketplace/actions/jekyll-4-build-deploy)
 
-- [Marketplace](https://github.com/marketplace/actions/jekyll-4-build-deploy)
+### Jekyll Deploy GH Pages
 
+- [GH Marketplace](https://github.com/marketplace/actions/jekyll-deploy-gh-pages)
 
-## Jekyll Deploy GH Pages
+### Jekyll Actions
 
-- [Marketplace](https://github.com/marketplace/actions/jekyll-deploy-gh-pages)
-
-
-## Jekyll Actions
-
-- [Marketplace](https://github.com/marketplace/actions/jekyll-actions) action
+- [GH Marketplace](https://github.com/marketplace/actions/jekyll-actions) action
 
 This will build a Jekyll site and publish to `gh-pages` branch for oyu.
 
@@ -28,7 +29,6 @@ The downsides of this action are:
 - it uses Docker so can be slow (according to the README doc).
 
 I have a demo which uses this action here [MichaelCurrin/jekyll-actions-quickstart](https://github.com/MichaelCurrin/jekyll-actions-quickstart)
-
 
 ## Jekyll Action TS
 
@@ -56,7 +56,7 @@ Sample usage from the docs:
           - name: 📂 Checkout
             uses: actions/checkout@v2
 
-          - name: 💎 Setup ruby
+          - name: 💎 Setup Ruby
             uses: ruby/setup-ruby@v1
             with:
               ruby-version: 2.7
@@ -72,3 +72,5 @@ Sample usage from the docs:
               github_token: ${{ secrets.GITHUB_TOKEN }}
               publish_dir: _site
     ```
+
+{% endraw %}
