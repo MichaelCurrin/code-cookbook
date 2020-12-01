@@ -9,6 +9,8 @@ Note that using a `Dockerfile` file and docker compose might be lighter to do. M
 
 Steps are based on an [article](https://ddewaele.github.io/running-jekyll-in-docker/), though that is similar what is in the Jekyll docker [docs](https://github.com/envygeeks/jekyll-docker#readme).
 
+For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build.md %}) page relating to Jekyll.
+
 
 ## Images
 
@@ -32,10 +34,12 @@ export JEKYLL_VERSION=3.9
 
 Note that only `3.8` and `4` or higher are available, `3.9` is not. See [tags](https://hub.docker.com/r/jekyll/jekyll/tags?page=1&ordering=last_updated).
 
+The appropriate Jekyll image will be downloaded when running a command.
 
-The appropriate Jekyll image will be downloaded when needed.
 
 ## Usage
+
+Note that `-i` might not be needed here.
 
 ### Create site
 
@@ -78,7 +82,6 @@ If you run as a daemon, you can restart like this:
 $ docker restart blog
 ```
 
-
 ### Install geme
 
 Install a theme.
@@ -87,7 +90,6 @@ Install a theme.
 $ docker exec -it blog \
   gem install "jekyll-theme-hydeout"
 ```
-
 
 ### Start interactive shell
 
