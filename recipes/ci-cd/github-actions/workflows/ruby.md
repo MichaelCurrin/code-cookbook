@@ -23,14 +23,20 @@
 
 [![actions - cache](https://img.shields.io/static/v1?label=actions&message=cache&color=blue&logo=github)](https://github.com/actions/cache)
 
-Using [example](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler).
+Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler).
 
 - `main.yml`
     ```yaml
-    - uses: actions/cache@v2
+    - name: Load cached dependencies
+      uses: actions/cache@v2
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gems-
+
+    - name: Install dependencies
+      run: |
+        bundle config set path vendor/bundle
+        bundle install --jobs 4 --retry 3
     ```
