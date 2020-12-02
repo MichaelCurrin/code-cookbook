@@ -1,6 +1,10 @@
 # ESLint
 
-See also the [ESLint](https://eslint.org/) homepage.
+
+## Resources
+
+- [ESLint](https://eslint.org/) homepage.
+- [ESlint](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/format-and-lint/eslint.html) page on my Dev Cheatsheets.
 
 
 ## Samples
@@ -37,6 +41,47 @@ From [Node Project Template](https://github.com/MichaelCurrin/node-project-templ
           'always'
         ]
       }
+    };
+    ```
+
+### TypeScript
+
+A reference from my [AutoCommitMsg](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/.eslintrc.js) VS Code extension which is in TypeScript.
+
+The rules were empty, but I added some.
+
+- `.eslintrc.js`
+    ```javacsript
+    /**@type {import('eslint').Linter.Config} */
+    // eslint-disable-next-line no-undef
+    module.exports = {
+      root: true,
+      parser: '@typescript-eslint/parser',
+      plugins: [
+        '@typescript-eslint',
+      ],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      rules: {
+        'semi': [
+          2,
+          'always',
+        ],
+        'comma-dangle': [
+          2,
+          'always-multiline',
+        ],
+        'quotes': [
+          2,
+          'single',
+        ],
+        '@typescript-eslint/no-unused-vars': 0,
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/no-non-null-assertion': 0,
+      },
     };
     ```
 
