@@ -87,7 +87,7 @@ The rules were empty, but I added some.
 
 ### Vue.js
 
-Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/blob/master/package.json):
+Generated from the Create Vue App flow. See my [vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/blob/master/package.json) repo.
 
 - `package.json`
     ```json
@@ -97,7 +97,6 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-vue": "^6.2.2"
       },
-
       "eslintConfig": {
         "root": true,
         "env": {
@@ -118,7 +117,7 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/vue-quickstart/
 
 ### Next.js
 
-Generated from the [quickstart](https://github.com/MichaelCurrin/next-quickstart/blob/master/.eslintrc.js). Note the original generated file below means you can't read JSX syntax.
+Generated from the Create Next App flow. See my [next-quickstart](https://github.com/MichaelCurrin/next-quickstart/blob/master/.eslintrc.js) repo. Note the original generated file below means you can't parse JSX syntax.
 
 - `.eslint.js`
     ```javascript
@@ -145,7 +144,7 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/next-quickstart
 
 ### React
 
-Generated from the [quickstart](https://github.com/MichaelCurrin/react-quickstart):
+Generated from the Create React App flow. See my [react-quickstart](https://github.com/MichaelCurrin/react-quickstart) repo.
 
 - `package.json`
     ```json
@@ -156,9 +155,9 @@ Generated from the [quickstart](https://github.com/MichaelCurrin/react-quickstar
     }
     ```
 
-Note that ESLint is handled as a dev dependency indirectly.
+Note that ESLint is handled as a subdependency and so it not in the `package.json` file.
 
-Recommendation from [Create React App](https://create-react-app.dev/docs/setting-up-your-editor/) guide.
+Here is the recommendation from the [Create React App](https://create-react-app.dev/docs/setting-up-your-editor/) guide.
 
 - `package.json`
     ```json
