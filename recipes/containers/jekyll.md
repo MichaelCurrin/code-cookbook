@@ -39,7 +39,9 @@ The appropriate Jekyll image will be downloaded when running a command.
 
 ## Usage
 
-Note that `-i` might not be needed here.
+Note that `-i` might not actually be needed here but was copied.
+
+The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persised outside the container. But you should leave out the flag when you want to perist gems inside the container.
 
 ### Create site
 
@@ -82,16 +84,20 @@ If you run as a daemon, you can restart like this:
 $ docker restart blog
 ```
 
-### Install geme
+### Install gem
 
-Install a theme.
+Install a gem inside the contain. Here we install a theme.
 
 ```sh
 $ docker exec -it blog \
   gem install "jekyll-theme-hydeout"
 ```
 
+TBC - how to install from the `Gemfile`.
+
 ### Start interactive shell
+
+If you want to have a look at the state of files or maybe gems in the container, you can start the container interactive mode.
 
 ```sh
 $ docker exec -it blog bash
