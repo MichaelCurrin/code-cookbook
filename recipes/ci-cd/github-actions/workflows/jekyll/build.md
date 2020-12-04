@@ -5,9 +5,13 @@ Here we we don't use any specialized actions and don't handle without persisting
 
 Related Cookbook pages:
 
-- [GH Pages Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/gh-pages-actions.md %}) page in this Jekyll section.
-- [Deploy GH Pages]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}) as a more generic section which could still be used for Jekyll.
-- [Jekyll](({{ site.baseurl }}{% linkrecipes/containers/jekyll.md %}) page in the container section. 
+- [GH Pages Actions][] page in this Jekyll section.
+- [Deploy GH Pages][] as a more generic section which could still be used for Jekyll.
+- [Jekyll container][] page. 
+
+[GH Pages Actions]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/gh-pages-actions.md %}
+[Deploy GH Pages]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}
+[Jekyll container]: {{ site.baseurl }}{% link recipes/containers/jekyll.md %}
 
 
 ## Sample
