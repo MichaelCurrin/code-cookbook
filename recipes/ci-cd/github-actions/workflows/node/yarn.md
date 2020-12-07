@@ -32,7 +32,7 @@ This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/gi
 
 This action doesn't just setup Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
 
-For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit :🤷‍♂️ . So just use the [Simple](simple.md) flow.
+For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit :🤷‍♂️ . So just use the [Simple](simple.md) flow above or the [Basic]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}) page.
 
 - `main.yml`
     ```yaml
