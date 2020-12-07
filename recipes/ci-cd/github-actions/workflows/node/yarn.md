@@ -23,16 +23,16 @@ steps:
 
 Note that yarn is **already** included in setup Node, so you don't need any Node or Yarn action.
 
-The flag is to prevent changes to lockfile.
+The flag is to prevent changes to the lockfile.
 
 
 ### GH Actions sample
 
 This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
-This action doesn't just setup Yarn, it actually runs the commands that you pass to it (except you say `install` instead of `yarn install`).
+This action doesn't just setup Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
 
-For simple use (one Node/Yarn version test and no caching), I don't see the benefit. So just use the [basic](basic.md) flow.
+For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit :🤷‍♂️ . So just use the [Simple](simple.md) flow.
 
 - `main.yml`
     ```yaml
