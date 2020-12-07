@@ -84,6 +84,7 @@ indent_size = 2
 indent_size = 4
 
 [Makefile]
+indent_style = tab
 indent_size = 4
 ```
 
@@ -143,19 +144,13 @@ indent_size = 2
 
 ### Make
 
-Note that in VS Code, it looks like you can leave out the style setting for `Makefile`. Any new `Makefile` will default to tabs.
+Without EditorConfig settings, VS Code knows that a `Makefile` must have tabs only (running a file with spaces gives an error).
 
-But if you use a `*` glob to set size, you need to set for `Makefile`. The size is just for visibility in the IDE, not how it is stored.
+But, if you use a `*` glob change it in your EditorConfig, then also need a section `Makefile`. The size is just for visibility in the IDE, not how it is stored.
 
 ```ini
 [Makefile]
 indent_size = 2
-```
-
-If your `*` glob sets spaces and if you have any other `.mk` files, then you do need to set them up as tab.
-
-```ini
-[*.mk]
 indent_style = tab
 ```
 
