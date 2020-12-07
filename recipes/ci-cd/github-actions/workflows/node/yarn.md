@@ -1,3 +1,6 @@
+---
+logo: yarn
+---
 # Yarn
 > Workflows for running Yarn on GitHub Actions
 
