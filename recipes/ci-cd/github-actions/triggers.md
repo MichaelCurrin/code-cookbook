@@ -218,7 +218,7 @@ Whether using one or two files, you probably want your deploy job to _depend_ on
 
 See [Manual events](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#manual-events) in the docs.
 
-> You can manually trigger workflow runs. 
+You can manually trigger workflow runs. If you configure your workflow to use a manual event, then you'll get a button on the workflow to run it directly, without a commit.
 
 ### Workflow dispatch
 
