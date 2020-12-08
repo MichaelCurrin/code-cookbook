@@ -3,6 +3,7 @@ default: install
 h help:
 	@egrep '^\S|^$$' Makefile
 
+
 .PHONY: hooks
 hooks:
 	cd .git/hooks && ln -s -f ../../hooks/pre-push pre-push
@@ -10,6 +11,7 @@ hooks:
 install:
 	bundle config set --local path vendor/bundle
 	bundle install
+
 
 s serve:
 	bundle exec jekyll serve --trace --livereload
