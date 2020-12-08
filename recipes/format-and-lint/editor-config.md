@@ -1,17 +1,20 @@
 # EditorConfig
+> How to setup a `.editorconfig` file for your project
 
-See [editorconfig.org](https://editorconfig.org/) for syntax.
+See [editorconfig.org](https://editorconfig.org/) homepage for the syntax.
 
 The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. 
 
+Note that this config intended to be a versioned file read by IDEs - I don't think command-line tools use it and I don't know if Vim or Nano etc. support it.
 
-## Support
 
-The `.editorconfig` file will only be used by your editor if it supports it.
+## IDE support
+
+The `.editorconfig` file will actually only be used by your IDE if it supports it.
 
 GitHub and PyCharm don't need an extension to support this.
 
-For VS Code, you need an extension. I would highly recommend the [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extension as it is popular and I find it useful.
+And for VS Code, you need an extension. I would highly recommend the [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extension as it is popular and I find it useful.
 
 ### VS Code notes
 
@@ -73,10 +76,13 @@ indent_size = 2
 
 If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set exceptions for `.md`, `.html` and `.py`.
 
+Set the line length to 100 if you prefer.
+
 ```ini
 root = true
 
 [*]
+max_line_length = 80
 indent_style = space
 indent_size = 2
 
@@ -95,6 +101,13 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 ```
+
+Optionally set the size. Though, PyLint CLI, the VS Code extensions and VS Code settings handle this fine without setting this.
+
+```
+max_line_length = 80
+```
+
 
 ### Two spaces
 
