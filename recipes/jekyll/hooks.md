@@ -14,15 +14,20 @@ Create the file.
     make build
     ```
     
-Use `sh` as per standard git hooks flow. It has reduced access and syntax but this is fine. 
-
-Optionally add `make install`. Or `make all` if that uses the install and build steps. That is less important if you have a lockfile (dependencies won't changed unexpectedly) or if you always make sure to run the `make install` step manually whenever you change your dependencies file directly or with a pull.
 
 Then make it executable.
 
 ```sh
 $ chmod +x hooks/pre-push
 ```
+
+Notes:
+
+- Use `sh` as per standard git hooks flow. It has reduced access and syntax but this is fine. 
+- Make commands
+    - Optionally add `make install`. 
+    - Or `make all` if that uses the install and build steps - but if you never run `make all` by hand then consider removing it and just moving the commands to the pre-push hooks as you'll get the safety benefit. 
+    - Using the install step on each push is less important if you have a lockfile (dependencies won't changed unexpectedly) or if you always make sure to run the `make install` step manually whenever you change your dependencies file directly or with a pull.
 
 
 ## 2. Setup Makefile
