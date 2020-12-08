@@ -1,4 +1,9 @@
-# Triggers cheatsheet
+# Triggers
+
+{% raw %}
+
+<!-- TODO this is really a cheatsheet and should be moved to Cheatsheets. The lines are few and easy to add into a larger file. -->
+
 
 Options for the `on` field to trigger deploys.
 
@@ -207,3 +212,57 @@ jobs:
 This assumes tag and release is done after a build.yml run but that might not be a good assumption. You might want to add some build and test steps from build.yml and duplicate them in deploy.yml (unfortunately they can't be reused across workflow files I think).
 
 Whether using one or two files, you probably want your deploy job to _depend_ on another build job section in this the same workflow so they always run in series and a failed build will mean a deploy is skipped.
+
+
+## Manual triggers
+
+See [Manual events](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#manual-events) in the docs.
+
+> You can manually trigger workflow runs. 
+
+### Workflow dispatch
+
+> To trigger specific workflows in a repository, use the `workflow_dispatch event`. 
+
+Example:
+
+```yaml
+on: workflow_dispatch
+```
+
+```yaml
+name: Manually triggered workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
+        echo "- in ${{ github.event.inputs.home }}!"
+```
+
+### Repo dispatch
+
+> To trigger more than one workflow in a repository and create custom events and event types, use the `repository_dispatch` event.
+
+```
+on:
+  repository_dispatch:
+    types: [opened, deleted]
+```
+
+{% endraw %}
+
