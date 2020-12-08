@@ -54,15 +54,25 @@ $ make hooks
 Check it worked.
 
 ```sh
-$ ls -l ./.git/hooks/
+$ ls -l .git/hooks/pre-push
+```
+You should see something like:
+
+```
+... ... ... pre-push -> ../../hooks/pre-push
 ```
 
-The hook should run whenever you push this on the command-line, or using your IDE.
+The hook will run whenever you push this on the command-line, or using your IDE.
 
-```
+```sh
 $ git push
 ```
 
+If you have uncommitted changes, you'll get an error. You'll have to stash them first so the rebase can work. Here we included _untracked_ changes.
+
+```sh
+$ git stash -u && git push && git stash pop
+```
 
 ## 4. Clean-up
 
