@@ -1,5 +1,5 @@
 # GitHub Pages action
-> How to build GH Pages from master, for Jekyll and other site generators
+> A generic action which builds a GH Pages and works great with Jekyll and React/Vue JS apps
 
 Action:
 
@@ -29,7 +29,15 @@ Add this as a step in your workflow and set the last parameter to your build dir
 
   with:
     github_token: ${{ secrets.GITHUB_TOKEN }}
-    publish_dir: ./public
+    publish_dir: public
+```
+
+### Don't clean
+
+Prevent the old files in the `gh-pages` from being deleted. This is useful if you have hash filenames for assets and want to keep the assets for old deploys available. This avoids getting 404 error on loading JS for example, where the browser has the old HTML page cached. That error causes a blank page on a Vue app after a deploy.
+
+```yaml
+    keep_files: true
 ```
 
 ### Publish to custom branch
@@ -52,5 +60,5 @@ Choose a repo for `external_repository`. Note use of `deploy_key` from that targ
     deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     external_repository: username/external-repository
     publish_branch: master
-    publish_dir: ./public
+    publish_dir:/public
 ```
