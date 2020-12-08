@@ -16,7 +16,7 @@ Create the file.
     
 Use `sh` as per standard git hooks flow. It has reduced access and syntax but this is fine. 
 
-Optionally add `make install`. Or `make all` if that uses the install and build steps.
+Optionally add `make install`. Or `make all` if that uses the install and build steps. That is less important if you have a lockfile (dependencies won't changed unexpectedly) or if you always make sure to run the `make install` step manually whenever you change your dependencies file directly or with a pull.
 
 Then make it executable.
 
