@@ -1,7 +1,19 @@
 # EditorConfig
 > How to setup a `.editorconfig` file for your project
 
-See [editorconfig.org](https://editorconfig.org/) homepage for the syntax.
+
+## Resources
+
+See [editorconfig.org](https://editorconfig.org/) homepage for info on what the file is, how use wildcard patterns and what properties are supported.
+
+See also the [EditorConfig Properties](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties) on the Wiki.
+
+
+## About
+
+What is EditorConfig?
+
+> EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.
 
 The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. 
 
@@ -36,10 +48,13 @@ root = true
 foo = bar
 
 [*.foo]
-foo = bar
+# ...
 
 [*.{buzz,bazz}]
-foo = bar
+# ...
+
+[lib/**.js]
+# ...
 ```
 
 Some like to put this at the top of the file before `root`.
@@ -51,7 +66,7 @@ Some like to put this at the top of the file before `root`.
 
 ## Samples
 
-These are separate but can combined if they make sense for one project.
+Pick from some of these sample files and add as `.editorconfig` in your project. Some are smaller pieces that can be combined as you mix languages.
 
 ### Own
 
@@ -76,13 +91,10 @@ indent_size = 2
 
 If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set exceptions for `.md`, `.html` and `.py`.
 
-Set the line length to 100 if you prefer.
-
 ```ini
 root = true
 
 [*]
-max_line_length = 80
 indent_style = space
 indent_size = 2
 
@@ -92,6 +104,12 @@ indent_size = 4
 [Makefile]
 indent_style = tab
 indent_size = 4
+```
+
+Set the line length to `80` or `100` as you prefer. I can't see the difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like `10`.
+
+```
+max_line_length = 80
 ```
 
 ### Python
