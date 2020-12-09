@@ -28,6 +28,8 @@ GitHub and PyCharm don't need an extension to support this.
 
 And for VS Code, you need an extension. I would highly recommend the [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extension as it is popular and I find it useful.
 
+You can even use that extension to generate config for you. Open the VS Code command prompt and run the _Generate .editorconfig_ command, or right-click in your root directory and select the option from the droplist.
+
 ### VS Code notes
 
 Without using editor config, VS Code already lets you choose the indent level and tabs/spaces handling. You cannot set by file type though. It can infer from the current file, this can be annoying when creating a new JS file example and the indent level is set to 4 spaces until you override it or type it that way.
@@ -72,7 +74,7 @@ Pick from some of these sample files and add as `.editorconfig` in your project.
 
 I find this a good starting point for adding a file to a project and then refining it.
 
-#### Python focused projects
+#### Python-focused projects
 
 It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript and JSON files.
 
@@ -83,7 +85,7 @@ root = true
 indent_style = space
 indent_size = 4
 
-[*.{js,json]
+[*.{js,json}]
 indent_size = 2
 ```
 
@@ -110,6 +112,19 @@ Set the line length to `80` or `100` as you prefer. I can't see the difference i
 
 ```
 max_line_length = 80
+```
+
+#### Shared projects
+
+If you have other people contributing your project with a different choice of IDE, IDE configuration or OS, then you may want to extend these settings to include this:
+
+```ini
+[*]
+# ...
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 ```
 
 ### Python
