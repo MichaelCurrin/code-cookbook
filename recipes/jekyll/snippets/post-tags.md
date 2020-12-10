@@ -4,7 +4,7 @@
 
 In the repo this was taken from, there is a listing of all posts and there is a listing of all tags with posts shown under each tag.
 
-Note that Jekyll doesn't generate a page for each category and post, but there is a PR in the works on the Jekyll repo to add that.
+Note that Jekyll doesn't generate a page for _each_ category and post, but there is a PR in the works on the Jekyll repo to add that. An approach in the meantime is to make a page that lists all tags (or all posts) and use an ID and anchor tag to link to an item from a tag link on a post.
 
 
 ## Navigation
