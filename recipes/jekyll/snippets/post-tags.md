@@ -4,6 +4,8 @@
 
 In the repo this was taken from, there is a listing of all posts and there is a listing of all tags with posts shown under each tag.
 
+Note that Jekyll doesn't generate a page for each category and post, but there is a PR in the works on the Jekyll repo to add that.
+
 
 ## Navigation
 
