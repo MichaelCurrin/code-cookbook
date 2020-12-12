@@ -87,7 +87,11 @@ indent_size = 4
 
 [*.{js,json}]
 indent_size = 2
+
+[Makefile]
+indent_style = tab
 ```
+
 
 #### JS-focused projects
 
@@ -108,9 +112,11 @@ indent_style = tab
 indent_size = 4
 ```
 
+The Makefile part is clearer on its own.
+
 Set the line length to `80` or `100` as you prefer. I can't see the difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like `10`.
 
-```
+```ini
 max_line_length = 80
 ```
 
@@ -219,11 +225,32 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 ```
 
-For Jekyll markdown support, add this. But only if you use the double space at the end of a line to signify a line break.
+For Jekyll markdown support, you could add this. But only if you use the double space at the end of a line to signify a line break.
 
 ```ini
 [*.md]
 trim_trailing_whitespace = false
+```
+
+### Jekyll
+
+For a Jekyll project.
+
+Using HTML, Markdown, JSON, YAML, JS, Ruby, CSS, SCSS and Makefile. Only the first two are actually 4 spaces, so a glob for 2 spaces makes sense.
+
+```yaml
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+[*.{md,html}]
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+indent_size = 4
 ```
 
 ### Generated
