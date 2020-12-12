@@ -6,7 +6,7 @@ See [Jest](https://jestjs.io/) homepage.
 Use the following pattern for placing naming your test scripts, so Jest can find them,.
 
 - Scripts `tests/unit` that end in `.spec.(js|jsx|ts|tsx)`. e.g. `src/tests/unit/foo.spec.js`.
-- Any js(x)/ts(x) files inside `__tests__` directories. e.g. `src/__tests__/foo.test.js`.
+- Any `js(x)/ts(x)` files inside `__tests__` directories. e.g. `src/__tests__/foo.test.js`.
 
 
 
@@ -50,6 +50,7 @@ $ npm install jest -D
     })
     
     // To group cases, use `describe` and `it` (which is an alias for `test`).
+    // You can also have 2 `describe` levels around `it`.
     describe("Hello.vue", () => {
       it("can square a number successfully", () => {
         expect(foo(3)).toEqual(9);
