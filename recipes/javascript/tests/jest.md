@@ -56,6 +56,24 @@ $ npm install jest -D
       });
     });
     ```
+- `.eslintrc.js` - If you use ESLint, add to the config.
+    ```javascript
+    module.exports = {
+      // ...
+      
+      overrides: [
+        {
+          files: [
+            "**/__tests__/*.{j,t}s?(x)",
+            "**/tests/unit/**/*.spec.{j,t}s?(x)",
+          ],
+          env: {
+            jest: true,
+          },
+        },
+      ],
+    }
+    ```
 
 Then run as:
 
