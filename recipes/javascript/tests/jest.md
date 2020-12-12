@@ -4,9 +4,14 @@
 See [Jest](https://jestjs.io/) homepage.
 
 
+Test scripts should be named `*.spec.js`. You can also use `.jsx`, `.ts` or `.tsx` for the extension.
+
+They can exist next to the script it is testing, or put all your tests in `__tests__`.
+
+
 ## Sample
 
-Install with
+Install with:
 
 ```sh
 $ npm install jest -D
