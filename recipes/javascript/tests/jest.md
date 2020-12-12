@@ -10,7 +10,9 @@ Use the following pattern for placing naming your test scripts, so Jest can find
 
 
 
-## Sample
+## Samples
+
+### Plain JavaScript
 
 Install with:
 
@@ -46,6 +48,13 @@ $ npm install jest -D
     test('Square a number successfully', () => {
       expect(foo(3)).toBe(9)
     })
+    
+    // To group cases, use `describe` and `it` (which is an alias for `test`).
+    describe("Hello.vue", () => {
+      it("can square a number successfully", () => {
+        expect(foo(3)).toEqual(9);
+      });
+    });
     ```
 
 Then run as:
@@ -59,3 +68,24 @@ You can also generate a Jest config:
 ```sh
 $ jest --init
 ```
+
+### Vue
+
+Based on the file generated when adding the [Vue Jest plugin](https://cli.vuejs.org/core-plugins/unit-jest.html).
+
+- `Helloworld.spec.js`
+    ```vue
+    import Help from "@/components/Hello.vue";
+    import { shallowMount } from "@vue/test-utils";
+
+    describe("Hello.vue", () => {
+      it("renders props.message when passed", () => {
+        const message = "Hello, world!";
+        const wrapper = shallowMount(Hello, {
+          propsData: { message },
+        });
+
+        expect(wrapper.text()).toMatch(message);
+      });
+    });
+    ```
