@@ -48,9 +48,9 @@ $ npm install jest -D
     test('Square a number successfully', () => {
       expect(foo(3)).toBe(9)
     })
-    
-    // To group cases, use `describe` and `it` (which is an alias for `test`).
-    // You can also have 2 `describe` levels around `it`.
+    ```
+    To group cases, use `describe` and `it` (which is an alias for `test`). You can also have 2 `describe` levels around `it`.
+    ```javascript
     describe("Hello.vue", () => {
       it("can square a number successfully", () => {
         expect(foo(3)).toEqual(9);
