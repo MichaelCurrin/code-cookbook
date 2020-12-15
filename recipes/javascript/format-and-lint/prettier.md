@@ -34,7 +34,7 @@ You can use a JSON or JS file. Setting up a config file in JSON is best practice
 
 ### More
 
-I found this in use on a project and copied it.
+I found this in use on a project [here](https://github.com/vuematerial/examples/blob/master/examples/quick-start/.prettierrc) and copied it.
 
 - `.prettierrc.json`
 
