@@ -1,9 +1,17 @@
 # Prettier
 
+I would recommend setting up and use ESLint first as it can handle style things like quotes, semicolons and indentation and also semantic things like imports, unused variables and and syntax issues.
+
+If you are not satisfied with ESLint, then you can add Prettier on top. This can help with formatting but not linting. Also maybe not want to add Prettier because it can conflict with ESLint and then you have to configure them both to use the same settings.
+
 
 ## Samples
 
 ### Basic
+
+Copied from the docs.
+
+You can use a JSON or JS file. Setting up a config file in JSON is best practice on general as it is not code like a JS file is.
 
 - `.prettierrc.json`
     ```json
@@ -23,6 +31,25 @@
       singleQuote: true,
     };
     ```
+
+### More
+
+I found this in use on a project and copied it.
+
+- `.prettierrc.json`
+
+```json
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "bracketSpacing": false,
+  "jsxBracketSameLine": false
+}
+```
 
 
 ## VS Code notes
