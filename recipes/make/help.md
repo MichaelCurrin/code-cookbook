@@ -8,31 +8,35 @@ The focus here is on the `help` target and some other targets are covered so you
 
 ### Basic
 
-My own.
+Find lines starting with lowercase letters or comments. This excludes `.HOOKS` and any constants (typicall set using uppercase). This excludes empty lines, so the output is tightly packed.
 
 - `Makefile`
 	```mk
-	# Show summary of make targets.
 	help:
-		@echo 'Print lines that are not indented (targets and comments) or empty.'
+		@grep ^[a-z#]' Makefile
+	```
+
+### Not indented
+
+Print lines that are not indented (targets and comments) or empty (so that empty lines add space between commands).
+
+- `Makefile`
+	```mk
+	help:
 		@egrep '^\S|^$$' Makefile
 	```
+	
+### Include echo lines
 
-### Extended
+If you use `@echo` within your targets, you can incldue them.
 
-If you use `@echo` within your targets:
-
-My own.
+Includes left-aligned, empty lines and echo lines.
 
 - `Makefile`
 	```mk
-	# Show summary of make targets.
 	help:
-		@echo 'Print lines that are not indented (targets and comments) or empty, plus any indented echo lines.'
 		@egrep '(^\S)|(^$$)|\s+@echo' Makefile
 	```
-
-Alt echo: `@echo "Include left-aligned, empty lines and echo lines."`
 
 ### Detailed
 
@@ -42,7 +46,6 @@ This is complex - I don't know why. I haven't tested yet but maybe something her
 
 - `Makefile`
 	```makefile
-	# lists all available targets
 	list:
 		@sh -c "$(MAKE) -p no_targets__ | \
 			awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {\
