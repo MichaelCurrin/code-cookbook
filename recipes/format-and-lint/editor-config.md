@@ -57,6 +57,9 @@ foo = bar
 
 [lib/**.js]
 # ...
+
+[{*.gql,Makefile}]
+# ...
 ```
 
 Some like to put this at the top of the file before `root`.
@@ -210,6 +213,8 @@ But, if you use a `*` glob change it in your EditorConfig, then also need a sect
 indent_style = tab
 indent_size = 4
 ```
+
+See section at the start of this page on mixing `Makefile` with other extensions.
 
 #### GraphQL
 
