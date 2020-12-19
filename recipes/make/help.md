@@ -1,8 +1,8 @@
 # Help
-
-Printing help for target commands.
+> Add a `help` target to your Makefile
 
 The focus here is on the `help` target and some other targets are covered so you can see what kind of format is works against in that file.
+
 
 ## Samples
 
@@ -12,9 +12,20 @@ Find lines starting with lowercase letters or comments. This excludes `.HOOKS` a
 
 - `Makefile`
 	```mk
-	help:
+	h help:
 		@grep ^[a-z#]' Makefile
 	```
+
+You have an export like `export FOO := 'bar'` by requiring only lowercase letters, spaces or hyphens up to a colon. This pattern does not care if there is anything after the colon.
+
+- `Makefile`
+	```mk
+	h help:
+		@egrep '^[a-z -]+:' Makefile
+	```
+
+If you want non-indented comments as well, add this to the start: `^#|`.
+
 
 ### Not indented
 
@@ -22,7 +33,7 @@ Print lines that are not indented (targets and comments) or empty (so that empty
 
 - `Makefile`
 	```mk
-	help:
+	h help:
 		@egrep '^\S|^$$' Makefile
 	```
 	
