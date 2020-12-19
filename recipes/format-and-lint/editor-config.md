@@ -74,9 +74,9 @@ Pick from some of these sample files and add as `.editorconfig` in your project.
 
 I find this a good starting point for adding a file to a project and then refining it.
 
-#### Python-focused projects
+#### Focus on 4-spaces
 
-It supports an explicit default of 4 spaces such as for Python or Markdown files and an override for JavaScript and JSON files.
+If most of your file types use 4-spaces, use this.
 
 ```ini
 root = true
@@ -92,10 +92,13 @@ indent_size = 2
 indent_style = tab
 ```
 
+If your 2-space block below starts growing, consider using the section covered next.
+ 
+#### Focus on 2-spaces
 
-#### JS-focused projects
+Even if most of the files by count use 4 spaces, if  most of your file types use 2 spaces then use this.
 
-If most of the project's scripts (shell, JS, TS) and configs (YAML and JSON) use 2 spaces, then it makes sense to use `2` as the default. And set exceptions for `.md`, `.html` and `.py`.
+This handles shell, JS, Ruby, CSS, config files, etc. without setting them explicitly.
 
 ```ini
 root = true
