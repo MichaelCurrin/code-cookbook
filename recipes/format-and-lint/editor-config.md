@@ -197,7 +197,9 @@ indent_size = 2
 indent_size = 2
 ```
 
-### Make
+### Tabs
+
+#### Make
 
 Without EditorConfig settings, VS Code knows that a `Makefile` must have tabs only (running a file with spaces gives an error).
 
@@ -205,8 +207,16 @@ But, if you use a `*` glob change it in your EditorConfig, then also need a sect
 
 ```ini
 [Makefile]
-indent_size = 2
 indent_style = tab
+indent_size = 4
+```
+
+#### GraphQL
+
+```ini
+[*.gql]
+indent_style = tab
+indent_size = 4
 ```
 
 ### Markdown
