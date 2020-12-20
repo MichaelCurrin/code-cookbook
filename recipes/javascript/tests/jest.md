@@ -108,3 +108,17 @@ Based on the file generated when adding the [Vue Jest plugin](https://cli.vuejs.
       });
     });
     ```
+
+## Expect
+
+See [Expect](https://jestjs.io/docs/en/expect.html) page of the docs.
+
+### Error
+
+Expect a function call to throw an error. Make sure to pass an anonymous function.
+
+```javascript
+test('throws on octopus', () => {
+  expect(() => drinkFlavor('octopus')).toThrow();
+});
+```
