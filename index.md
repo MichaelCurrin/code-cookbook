@@ -35,7 +35,7 @@ Welcome to **Code Cookbook**.
 [Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
 [CI/CD]: {{ site.baseurl }}{% link recipes/ci-cd/index.md %}
 [Workflows]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/index.md %}
-[SEO]: {{ site.baseurl }}{% link recipes/seo/index.md %}
+[SEO]: {{ site.baseurl }}{% link recipes/web/seo/index.md %}
 [Shell]: {{ site.baseurl }}{% link recipes/shell/index.md %}
 [Jekyll]: {{ site.baseurl }}{% link recipes/jekyll/index.md %}
 [Containers]: {{ site.baseurl }}{% link recipes/containers/index.md %}
