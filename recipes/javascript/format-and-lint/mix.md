@@ -1,9 +1,6 @@
-# Configs
+# Mix
 
 Sample files for ESLint (linting), Prettier (formatting), Jest (tests) and TypeScript.
-
-
-## The Checkout repo
 
 From [actions/checkout](https://github.com/actions/checkout) - a TypeScript project.
 
@@ -29,9 +26,9 @@ From [actions/checkout](https://github.com/actions/checkout) - a TypeScript proj
 		"import/no-namespace": "off",
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": "error",
-		
+
 		// ...
-		
+
 		"@typescript-eslint/restrict-plus-operands": "error",
 		"semi": "off",
 		"@typescript-eslint/semi": ["error", "never"],
@@ -92,4 +89,3 @@ From [actions/checkout](https://github.com/actions/checkout) - a TypeScript proj
 	  "exclude": ["__test__", "lib", "node_modules"]
 	}
 	```
-	
