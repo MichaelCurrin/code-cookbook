@@ -1,5 +1,6 @@
 # Access token cheatsheet
 
+{% raw %}
 
 ## Warning
 
@@ -38,7 +39,6 @@ Github will also scan to find accidentally committed secrets - [doc](https://hel
 
 ## How to use an access token in a workflow
 
-
 ### 1. Create token
 
 1. Go to **Personal Access Tokens** section.
@@ -52,7 +52,6 @@ Github will also scan to find accidentally committed secrets - [doc](https://hel
     - Give it has permissions to `public_repos` (or the entire `repo` scope for private repository). Necessary for the action
    to commit to the `gh-pages` branch.
 1. **Copy** the token value.
-
 
 ### 2. Set the token in secrets
 
@@ -123,3 +122,5 @@ https://<token>:x-oauth-basic@github.com/USERNAME/REPO_NAME.git
 From [blog post](https://github.blog/2012-09-21-easier-builds-and-deployments-using-git-over-https-and-oauth/)
 
 > Tokens should be treated as passwords. Putting the token in the clone URL will result in Git writing it to the .git/config file in plain text. Unfortunately, this happens for HTTP passwords, too.
+
+{% endraw %}
