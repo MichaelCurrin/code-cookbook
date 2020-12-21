@@ -5,7 +5,7 @@ description: How to use pre-commit hooks on GH Actions
 
 Here we we pre-commit hooks to apply lint fixes Actions. One could also run the hook locally as a pre-commit hook and I don't know the value of doing this in CI, but this is here anyway as a reference for when I need it.
 
-See also [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/git/hooks/) section of my Dev Cheatsheets repo.
+See also [Hooks](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/git/hooks/) section of my Dev Cheatsheets repo.
 
 
 ## Samples
@@ -56,12 +56,12 @@ Use of Python `pre-commit` package when linting. This alone won't persist change
 
         steps:
           - uses: actions/checkout@v2
-          
+
           - name: Set up Python 3.8
             uses: actions/setup-python@v1
             with:
               python-version: 3.8
-              
+
           - name: Linting
             run: |
               pip install pre-commit
