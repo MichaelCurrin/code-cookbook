@@ -1,5 +1,6 @@
 # Ruby
 
+{% raw %}
 
 ## Samples
 
@@ -18,7 +19,7 @@
 
       - run: ruby hello.rb
     ```
-    
+
 ### Cache dependencies
 
 [![actions - cache](https://img.shields.io/static/v1?label=actions&message=cache&color=blue&logo=github)](https://github.com/actions/cache)
@@ -40,3 +41,5 @@ Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby
         bundle config set path vendor/bundle
         bundle install --jobs 4 --retry 3
     ```
+
+{% endraw %}
