@@ -21,10 +21,9 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-Note that yarn is **already** included in setup Node, so you don't need any Node or Yarn action.
+Note that `yarn` is **already** included in `setup-node`, so you don't need any Node or Yarn action to handle that.
 
-The flag is to prevent changes to the lockfile.
-
+The `--frozen-lockfile` flag is to prevent changes to the lockfile.
 
 ### GH Actions sample
 
@@ -179,7 +178,6 @@ Find out more about deployment here:
 
   bit.ly/CRA-deploy
 ```
-
 
 An example of homepage value set in `package.json`:
 
