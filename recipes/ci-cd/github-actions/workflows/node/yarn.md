@@ -25,6 +25,12 @@ Note that `yarn` is **already** included in `setup-node`, so you don't need any 
 
 The `--frozen-lockfile` flag is to prevent changes to the lockfile.
 
+### Caching
+
+Load cached dependencies.
+
+See the Yarn section of the [Cache]({{ site.baseurl }}{% link code-cookbook/ci-cd/github-actions/workflows/cache.md) guide.
+
 ### GH Actions sample
 
 This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
