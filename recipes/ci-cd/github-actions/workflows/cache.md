@@ -66,7 +66,7 @@ For a code sample, see [example](https://github.com/actions/cache/blob/master/ex
 
 From the [Node - Yarn](https://github.com/actions/cache/blob/master/examples.md#node---yarn) example.
 
-This has an extra step compared with the NPM flow - it uses the `yarn cache dir` command to dynamically lookup a value like `~/.cache/yarn`. If I always used Ubuntu, this could be hardcoded after knowing the value once and assuming Yarn keeps the location the same - that would remove a step.
+This has an extra step compared with the NPM flow - it uses the `yarn cache dir` command to dynamically lookup a value like `~/.cache/yarn/v6`.
 
 - `main.yml`
     ```yaml
