@@ -30,7 +30,7 @@ See the [actions/cache](https://github.com/marketplace/actions/cache) page in th
 
 Based on the [Examples](https://github.com/actions/cache/blob/master/examples.md) in the action's docs.
 
-### Node and NPM
+### NPM
 
 From the [Node - NPM](https://github.com/actions/cache/blob/master/examples.md#node---npm) examples.
 
@@ -60,7 +60,7 @@ Make sure to use `npm install` and not `npm ci` - the latter will **delete** any
 
 For a code sample, see [example](https://github.com/actions/cache/blob/master/examples.md#using-multiple-systems-and-npm-config).
 
-#### Node and Yarn
+#### Yarn
 
 From the [Node - Yarn](https://github.com/actions/cache/blob/master/examples.md#node---yarn) example.
 
