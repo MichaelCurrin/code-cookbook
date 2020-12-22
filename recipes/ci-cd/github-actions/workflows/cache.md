@@ -5,6 +5,8 @@
 
 See the [actions/cache](https://github.com/marketplace/actions/cache) page in the Actions marketplace.
 
+Note that it is recommended to have a lock file for this flow, though you don't have to such as a the [Python](#python) case.
+
 
 ## General usage
 
@@ -64,19 +66,19 @@ For a code sample, see [example](https://github.com/actions/cache/blob/master/ex
 
 From the [Node - Yarn](https://github.com/actions/cache/blob/master/examples.md#node---yarn) example.
 
-This use the `yarn cache dir` to dynamically lookup where Yarn's cached packages are, so has an extra step.
+This has an extra step compared with the NPM flow - it uses the `yarn cache dir` command to dynamically lookup a value like `~/.cache/yarn`. If I always used Ubuntu, this could be hardcoded after knowing the value once and assuming Yarn keeps the location the same - that would remove a step.
 
 - `main.yml`
     ```yaml
     steps:
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
+      - name: Get Yarn cache directory
+        id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
 
@@ -86,9 +88,7 @@ This use the `yarn cache dir` to dynamically lookup where Yarn's cached packages
 
 Yarn help on the use of the flag:
 
-```
-    --frozen-lockfile                   don't generate a lockfile and fail if an update is needed
-```
+- `--frozen-lockfile` - don't generate a lockfile and fail if an update is needed
 
 ### Python
 
