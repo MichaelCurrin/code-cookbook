@@ -2,7 +2,10 @@
 
 Add Vue.js to your frontend only - no CLI or build step needed.
 
-Sample from [CodePen](https://codepen.io) Vue template. Create your own here: https://codepen.io/pen/editor/vue
+
+## Codepen sample
+
+Sample from the [CodePen](https://codepen.io) Vue template. Create your own here: [codepen.io/pen/editor/vue](https://codepen.io/pen/editor/vue)
 
 - `index.html`
     ```vue
@@ -67,4 +70,38 @@ For CodePen specifically, you can use preprocessors inline and not just in the s
 
 <style lang="scss">
 </style>
+```
+
+
+## JSPM sample
+
+From the Vue.js example in [JSPM Sandbox](https://jspm.org/sandbox).
+
+This uses the module syntax so you can reference Vue by URL on JSPM CDN, rather than as a script tag.
+
+```html
+<!doctype html>
+<body style=margin:0>
+  <div id="container"></div>
+</body>
+<script type="importmap">
+{
+  "imports": {
+    "vue": "https://jspm.dev/vue/dist/vue"
+  }
+}
+</script>
+<script type="module">
+import Vue from 'vue';
+
+container.innerHTML = `<p>{{ message }}</p>`;
+
+new Vue({
+  el: '#container',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+});
+
+</script>
 ```
