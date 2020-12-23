@@ -31,7 +31,7 @@ exclude:
   - README.md
   - sample*.png
 
-### Theme boilerplate
+### Theme boilerplate ###
 
 remote_theme: MichaelCurrin/minima
 
