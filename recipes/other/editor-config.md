@@ -15,7 +15,7 @@ What is EditorConfig?
 
 > EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.
 
-The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings. 
+The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you'll get the same settings.
 
 Note that this config intended to be a versioned file read by IDEs - I don't think command-line tools use it and I don't know if Vim or Nano etc. support it.
 
@@ -96,7 +96,7 @@ indent_style = tab
 ```
 
 If your 2-space block below starts growing, consider using the section covered next.
- 
+
 #### Focus on 2-spaces
 
 Even if most of the files by count use 4 spaces, if  most of your file types use 2 spaces then use this.
@@ -110,7 +110,7 @@ root = true
 indent_style = space
 indent_size = 2
 
-[*.{md,html}]
+[*.{html,md}]
 indent_size = 4
 
 [Makefile]
