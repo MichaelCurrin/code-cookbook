@@ -6,9 +6,7 @@
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/releases/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-Theme - my fork of Minima, with support added for icons and for nesting content.
-
-https://github.com/MichaelCurrin/minima
+[![MichaelCurrin - minima](https://img.shields.io/static/v1?label=MichaelCurrin&message=minima&color=blue&logo=github)](https://github.com/MichaelCurrin/minima) - For theme, this uses - my fork of Minima, with support added for icons and for nested content structure. 
 
 
 ## Preview
