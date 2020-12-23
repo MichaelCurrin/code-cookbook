@@ -1,5 +1,7 @@
+---
+description: Running checks against a Node.js app
+---
 # Checks
-> Running checks against a Node.js app
 
 Reference for running linting and other test steps from an existing project.
 

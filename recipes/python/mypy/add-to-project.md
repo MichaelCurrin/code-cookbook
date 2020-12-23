@@ -1,5 +1,7 @@
+---
+description: How to install and run Mypy to your project for type checking
+---
 # How to add Mypy to your project
-> How to install and run Mypy to your project for type checking
 
 
 ## 1. Setup

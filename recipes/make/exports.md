@@ -1,11 +1,13 @@
+---
+description: Exporting variables in Makefiles
+---
 # Exports
-> Exporting variables in Makefiles
 
 ## Sample
 
 I don't know if these defaults are actually used here.
 
-        
+
 - `defaults.mk`
     ```Makefile
     TF_VAR_environment=${ENVIRONMENT}
@@ -24,7 +26,7 @@ I don't know if these defaults are actually used here.
         echo "PROGRAM must be set; export PROGRAM=<program>"; exit 10; \
       fi
     ```
-    
+
 ## StackOverflow sample
 
 [link](https://stackoverflow.com/questions/24263291/define-a-makefile-variable-using-a-env-variable-or-a-default-value)
@@ -35,7 +37,7 @@ I don't know if these defaults are actually used here.
     all:
             : '$(T)'
     ```
-  
+
 ```sh
 $ make
 : 'foo'
@@ -57,7 +59,7 @@ Or
     test:
         @echo $(TMPDIR)
     ```
-    
+
 ```sh
 $ make TMPDIR=foo
 foo
@@ -81,7 +83,7 @@ check-env:
 	@source .env && echo $$GITHUB_TOKEN
 
 	@bash -c 'echo "- Subprocess-level: $$GITHUB_TOKEN"'
-        
+
 build:
 	source .env && bundle exec jekyll build --trace
 ```

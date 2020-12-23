@@ -1,5 +1,7 @@
+---
+description: Publish a Node package to GitHub or NPM
+---
 # Publish
-> Publish a Node package to GitHub or NPM
 
 
 ## Samples
@@ -14,18 +16,18 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
 - Publish to NPM - `main.yml`
     ```yaml
     name: Node.js Package
-    
+
     on:
       release:
         types: [created]
-        
+
     jobs:
       build:
         runs-on: ubuntu-latest
-        
+
         steps:
         - uses: actions/checkout@v2
-        
+
         # Setup .npmrc file to publish to npm
         - uses: actions/setup-node@v1
           with:
@@ -33,7 +35,7 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
             registry-url: 'https://registry.npmjs.org'
 
         - run: npm install
-        
+
         - run: npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -41,18 +43,18 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
 - Publish to GitHub - `main.yml`
     ```yaml
     name: Node.js Package
-    
+
     on:
       release:
         types: [created]
-        
+
     jobs:
       build:
         runs-on: ubuntu-latest
-        
+
         steps:
         - uses: actions/checkout@v2
-        
+
         # Setup .npmrc file to publish to GitHub Packages
         - uses: actions/setup-node@v1
           with:
@@ -60,9 +62,9 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
             registry-url: 'https://npm.pkg.github.com'
             # Defaults to the user or organization that owns the workflow file
             scope: '@octocat'
-            
+
         - run: npm install
-        
+
         - run: npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,16 +83,16 @@ Based on workflow in [Presite](https://github.com/egoist/presite).
     ```yaml
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - run: npm install
-      
+
       - run: npm test
-      
+
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

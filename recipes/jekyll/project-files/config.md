@@ -1,9 +1,11 @@
+---
+description: Guide to `_config.md` file for Jekyll
+---
 # Config
-> Guide to `_config.md` file for Jekyll
 
 Based on [MichaelCurrin/jekyll-blog-demo](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/_config.yml) but with fewer notes here.
-    
-    
+
+
 ## Formatting
 
 YAML allows strings to be set without quotes.
@@ -20,7 +22,7 @@ For multi-line strings use: `|` or `>-`.
 
 title: My project title
 description: My project description
-  
+
 github_username: MichaelCurrin
 ```
 
@@ -42,7 +44,7 @@ repo's description. At least the way the theme is setup.
 ```yaml
 description: >-
   Write an awesome description for your new site here.
-  And more here.  
+  And more here.
 ```
 
 If using minima, this will appear in your document head meta (for Google search results) and in your feed.xml site description.
@@ -101,8 +103,8 @@ If using a Github Pages as a user site (`USERNAME.github.io/`), or using Netlify
 ```yaml
 baseurl: "/jekyll-blog-demo"
 ```
-    
-    
+
+
 ## Include and exclude
 
 ### Include for processing
@@ -122,7 +124,7 @@ include:
 We want to only copy to the `_site` directory the files and directories which we want to be served publically.
 
 Jekyll will ignore files starting with a dot or underscore, but there are other files we
-want to ignore. So set these below in your `exclude `field. 
+want to ignore. So set these below in your `exclude `field.
 
 - Jekyll 4
     ```yaml
@@ -146,7 +148,7 @@ want to ignore. So set these below in your `exclude `field.
 Notes:
 
 - The trailing slash is optional but helps indicate directories vs files.
-- The `Makefile` item can be omitted if you do not have one. 
+- The `Makefile` item can be omitted if you do not have one.
 - Add these if relevant for your project. `bin` is for scripts.
     ```yaml
     - bin/

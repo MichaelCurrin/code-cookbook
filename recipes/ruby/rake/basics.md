@@ -1,5 +1,7 @@
+---
+description: Intro to using rake for Ruby projects
+---
 # Rakefile basics
-> Intro to using rake for Ruby projects
 
 ## Samples
 
@@ -34,21 +36,21 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
     task :name
       puts 'Hello, world!'
     end
-    
+
     # With arguments.
     task :name do |t, args|
       puts "Hello, #{args.name}!"
     end
-    
+
     # With prerequisites.
     task name: [:prereq1, :prereq2] do |t|
       puts t
     end
-    
+
     # Alt
     # task :name, [:first_name, :last_name] do |t, args|
     # ...
     ```
-    
-   
+
+
 TBC - what is `t`?

@@ -1,5 +1,7 @@
+---
+description: Basic web servers with Deno
+---
 # Servers
-> Basic web servers with Deno
 
 
 ### Web server
@@ -17,7 +19,7 @@ From [post](https://medium.com/@nikhilsharmarockstar21/getting-started-with-deno
       req.respond({ body: "Hello, world\n" });
     }
     ```
-    
+
 Run:
 
 ```sh
@@ -48,25 +50,25 @@ Add a `/users` endpoint to the server.
 - `config.ts`
     ```typescript
     const APP_HOST = 'http://localhost',
-      APP_PORT = 8000; 
+      APP_PORT = 8000;
     ```
 - `routing.ts` - note that `db.ts` and `user.ts` need to be defined too.
     ```typescript
     import { Router } from "https://deno.land/x/oak/mod.ts";
-    
+
     import getUsers from "./handlers/getUsers.ts";
     import { fetchData } from "./db.ts";
     import { User } from "../models/user.ts";
-    
+
     const router = new Router();
-    
+
     export const getUsers = async (): Promise<User[]> => {
       const users = await fetchData();
 
       // Order by name.
       return users.sort((a, b) => a.name.localeCompare(b.name));
     };
-    
+
     router.get("/users", async ({ response }) => {
       response.body = await getUsers();
     });

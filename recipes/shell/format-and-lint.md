@@ -1,5 +1,7 @@
+---
+description: How to format and lint your shell scripts
+---
 # Format and Lint
-> How to format and lint your shell scripts
 
 
 ## Formatting

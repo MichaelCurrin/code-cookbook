@@ -1,12 +1,14 @@
+---
+description: Run a GitHub Actions for a Deno app
+---
 # Deno
-> Run a GitHub Actions for a Deno app
 
 <!-- TODO update with learn to code and cheatsheet links -->
 
 - [deno.land](https://deno.land/)
     > A secure runtime for JavaScript and TypeScript.
 
-It's not a new language, just a different runtime for running server-side JS, created by the author of Node. 
+It's not a new language, just a different runtime for running server-side JS, created by the author of Node.
 
 It has a lot of benefits and doesn't use node modules and package.json but has its own system.
 

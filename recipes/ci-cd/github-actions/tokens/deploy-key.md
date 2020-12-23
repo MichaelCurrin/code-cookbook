@@ -1,5 +1,7 @@
+---
+description: A repo-scoped Github tokens useful for automated deploys
+---
 # Deploy key
-> A repo-scoped Github tokens useful for automated deploys
 
 
 ## About
@@ -28,7 +30,7 @@ Run this locally:
 $ ssh-keygen
 ```
 
-Or, according to [gist](https://gist.github.com/zhujunsan/a0becf82ade50ed06115) on using it on a Linux server - not in the GH Actions context. 
+Or, according to [gist](https://gist.github.com/zhujunsan/a0becf82ade50ed06115) on using it on a Linux server - not in the GH Actions context.
 
 ```sh
 $ ssh-keygen -t rsa -b 4096 -C "foo@bar.com"

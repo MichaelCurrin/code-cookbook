@@ -1,5 +1,7 @@
+---
+description: How to act as the root user
+---
 # Sudoers
-> How to act as the root user
 
 Guide for Linux
 
@@ -54,7 +56,7 @@ Configure your system to avoid entering your password every time your run sudo.
 Add this as a row to sudoers config under this section. Replace `foo` with username.
 
 ```
-foo ALL=(ALL) NOPASSWD:ALL 
+foo ALL=(ALL) NOPASSWD:ALL
 ```
 
 It might even work do to `%foo` if that references a group.

@@ -1,9 +1,9 @@
 ---
 layout: listing
 logo: netlify
+description: How to setup a Netlify site
 ---
 # Netlify
-> How to setup a Netlify site
 
 I like using [netlify.com](https://netlify.com) to build and host many of my websites. If you aren't familiar, sign up for a free account and hook up one of your GitHub repos to deploy it.
 

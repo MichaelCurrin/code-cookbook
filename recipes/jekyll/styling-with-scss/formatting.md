@@ -1,5 +1,7 @@
+---
+description: How to apply syntax highlighting and formatting to SCSS files in a Jekyll project
+---
 # Formatting
-> How to apply syntax highlighting and formatting to SCSS files in a Jekyll project
 
 
 ## Problem
@@ -21,7 +23,7 @@ So I recommend this extension:
 
 Install it and set is as the default formatter for SCSS files.
 
-It respects frontmatter when formatting (it doesn't understand `#` comments properly though) and highlights the rest of the file as SCSS. 
+It respects frontmatter when formatting (it doesn't understand `#` comments properly though) and highlights the rest of the file as SCSS.
 
 Unfortunately the linter gives a warning when the file starts with frontmatter dashes and not an `@` import.
 

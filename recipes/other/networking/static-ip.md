@@ -1,5 +1,7 @@
+---
+description: Setup a static IP on your home network on Linux
+---
 # Static IP
-> Setup a static IP on your home network on Linux
 
 ## About
 
@@ -96,9 +98,9 @@ Add an address row.
 
 Fill in with values like:
 
-Address | Netmask | Gateway
----     | ---     | ---
-`192.168.1.10` | `/24` | `192.168.1.1`
+| Address        | Netmask | Gateway       |
+| -------------- | ------- | ------------- |
+| `192.168.1.10` | `/24`   | `192.168.1.1` |
 
 Fill in _DNS servers_. This should be two comma-separated values, usually `8.8.8.8` and your gateway. I've also seen `8.8.8.8` and `4.4.4.4` in one guide.
 

@@ -1,11 +1,11 @@
 ---
 layout: listing
 logo: github
+description: How to use an action to build and deploy a site to GitHub Pages
 ---
 # Deploy to GitHub Pages
-> How to use an action to build and deploy a site to GitHub Pages
 
-This section gives you choices over a GitHub Action that will add an output dirctory to `gh-pages` so you can serve your site on GitHub Pages site. 
+This section gives you choices over a GitHub Action that will add an output dirctory to `gh-pages` so you can serve your site on GitHub Pages site.
 
 These generic flows work for anything with an output directory, including:
 

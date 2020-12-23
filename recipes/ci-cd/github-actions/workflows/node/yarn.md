@@ -1,8 +1,8 @@
 ---
 logo: yarn
+description: Workflows for running Yarn on GitHub Actions
 ---
 # Yarn
-> Workflows for running Yarn on GitHub Actions
 
 {% raw %}
 

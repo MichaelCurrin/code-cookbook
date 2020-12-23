@@ -1,5 +1,7 @@
+---
+description: How to keep git tags in sync with GitHub for an NPM project
+---
 # NPM version
-> How to keep git tags in sync with GitHub for an NPM project
 
 Note: If you only tag your repo using the CLI and not the GitHub UI, you can leave off the fetch. As `npm version` will use the `"version"` field in `package.json` to incremen the tag, not git tags.
 

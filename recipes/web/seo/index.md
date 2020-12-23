@@ -1,5 +1,5 @@
 ---
 layout: listing
+description: Search-engine optimization recipes
 ---
 # SEO
-> Search-engine optimization recipes

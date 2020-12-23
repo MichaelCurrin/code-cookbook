@@ -1,9 +1,9 @@
 ---
 layout: listing
 logo: ruby
+description: Rake command and Rakefile samples
 ---
 # Rake
-> Rake command and Rakefile samples
 
 Rake is a task runner tool for working with Ruby projects.
 

@@ -1,5 +1,7 @@
+---
+description: Deploy a GH Pages app using GH Actions and NPM/Yarn
+---
 # GitHub Pages
-> Deploy a GH Pages app using GH Actions and NPM/Yarn
 
 {% raw %}
 

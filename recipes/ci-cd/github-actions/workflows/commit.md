@@ -1,5 +1,7 @@
+---
+description: How to use a generic Action to commit files during the CI flow.
+---
 # Commit
-> How to use a generic Action to commit files during the CI flow.
 
 
 ## Use-cases
@@ -10,7 +12,7 @@ When you might want to create and persist changes in CI:
     - Compiled file for C, Go, Rust, etc.
     - Archive file for a Ruby gem or VS Code Extension.
     - A `dist` directory of JS files.
-- Static assets for serving on GH Pages 
+- Static assets for serving on GH Pages
     - Built with a static site generator like Jekyll.
     - Build wih `npm run build`.
 - Doc changes in `README.md`
@@ -72,7 +74,7 @@ I've refactored it below.
     ```sh
     # Initialize git.
     REMOTE_REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-    
+
     git config http.sslVerify false
     git config user.name "Automated Publisher"
     git config user.email "actions@users.noreply.github.com"

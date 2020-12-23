@@ -1,5 +1,7 @@
+---
+description: A generic action which builds a GH Pages and works great with Jekyll and React/Vue JS apps
+---
 # GitHub Pages action
-> A generic action which builds a GH Pages and works great with Jekyll and React/Vue JS apps
 
 Action:
 
@@ -19,7 +21,7 @@ This supports all 3 token types, but `GITHUB_TOKEN` is the simplest and works pe
 
 ### Basic
 
-Deploy to `gh-pages` branch (by default). 
+Deploy to `gh-pages` branch (by default).
 
 Add this as a step in your workflow and set the last parameter to your build directly e.g. `_site` or `build`.
 

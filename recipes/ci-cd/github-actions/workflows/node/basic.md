@@ -1,5 +1,7 @@
+---
+description: Simple Node.js workflow with GH Actions
+---
 # Basic
-> Simple Node.js workflow with GH Actions
 
 A simple CI flow to check and build a Node app using GitHub Actions.
 
@@ -11,7 +13,7 @@ Here are the typical commands which are configured and run for a Node app.
 ```sh
 $ npm install
 $ npm run lint
-$ npm run build 
+$ npm run build
 $ npm test
 ```
 
@@ -80,4 +82,3 @@ The assumption here is that the tests will be run against compiled JS files, so 
 This workflow uses `actions/checkout`, a standard action for cloning the repo in a workflow run.
 
 Note that **no** Node or Yarn action was used here - the default environment will setup Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.
-

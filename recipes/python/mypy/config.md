@@ -1,5 +1,7 @@
+---
+description: Setting up a MyPY config file
+---
 # Config
-> Setting up a MyPY config file
 
 See [Config file](https://mypy.readthedocs.io/en/latest/config_file.html) in the MyPy docs.
 
@@ -17,7 +19,7 @@ Add in the repo:
 
 - `mypy.ini`
 - `.mypy.ini`
-- `setup.cfg` 
+- `setup.cfg`
 
 
 ## Use config
@@ -46,4 +48,3 @@ Note you will get a warning if you leave out the global `[mypy]` section.
   [mypy-somelibrary]
   ignore_missing_imports = True
   ```
-  

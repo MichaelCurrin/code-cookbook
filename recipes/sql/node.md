@@ -1,5 +1,7 @@
+---
+description: Query a SQL database using Node.js
+---
 # Node
-> Query a SQL database using Node.js
 
 ## Samples
 

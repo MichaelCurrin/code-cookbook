@@ -1,9 +1,11 @@
+---
+description: Send keyboard commands to all SSH panes at once, use iTerm2
+---
 # Control panes 🍱
-> Send keyboard commands to all SSH panes at once, use iTerm2
 
 These scripts and instructions are for developers on macOS running iTerm2. They allow splitting the view into multiple planes for different servers. Using an iTerm2 feature, a command only needs to be entered once and the command can be sent to all panes at once.
 
-A use-case is when one needs to view Apache logs across say Prod 9 servers at once when debugging a Production bug or incident. 
+A use-case is when one needs to view Apache logs across say Prod 9 servers at once when debugging a Production bug or incident.
 
 The start of each script can be customized easily for connecting to any list of host machines.
 

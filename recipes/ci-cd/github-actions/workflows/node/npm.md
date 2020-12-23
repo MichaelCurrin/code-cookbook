@@ -1,5 +1,7 @@
+---
+description: Patterns for using Node.js and NPM in a GH Action workflow
+---
 # NPM actions
-> Patterns for using Node.js and NPM in a GH Action workflow
 
 {% raw %}
 
@@ -83,7 +85,7 @@ I created this based on the other samples.
           node-version: '14.x'
 
       - run: npm install
-      
+
       - run: npm run build
 
       - run: npm test
@@ -155,9 +157,9 @@ This sample comes from the docs and is similar to the default covered in the exa
               node-version: ${{ matrix.node-version }}
 
           - run: npm install
-          
+
           - run: npm run build
-          
+
           - run: npm test
             env:
               CI: true
@@ -200,7 +202,7 @@ From the GitHub Action samples:
               node-version: ${{ matrix.node-version }}
 
           - run: npm ci
-          
+
           - run: npm run build --if-present
 
           - run: npm test

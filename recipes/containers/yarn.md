@@ -1,5 +1,7 @@
+---
+description: Add Yarn to a container
+---
 # Yarn
-> Add Yarn to a container
 
 Rather than using a Node or Yarn image, this takes a standard image and adds to it.
 
@@ -23,7 +25,7 @@ As an alternative, you can install Node and then use `npm i -g yarn`.
     RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
     RUN apt install -q -y yarn
     ```
-    
+
 Notes:
 
 - `DEBIAN_FRONTEND` is set to avoid the flow to set region for tzdata.

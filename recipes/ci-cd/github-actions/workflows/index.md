@@ -1,8 +1,8 @@
 ---
 layout: listing
+description: Samples, resources and instructions around run a GH Actions workflow
 ---
 # Workflows
-> Samples, resources and instructions around run a GH Actions workflow
 
 This section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together. Here are some highlights:
 
@@ -16,7 +16,7 @@ This section covers a variety of tools and flows including Python, NPM, Jekyll, 
 
 - The [Deploy GH Pages](deploy-gh-pages) section covers how to build a static site (e.g. Jekyll or Hugo) or Node.js app (e.g. Vue or React) and then serve it as as GH Pages site.
 - You can also see the [Jekyll](jekyll/) section which also covers a Jekyll 4 + GH Pages flow.
-- The [MkDocs](mkdocs/) section is Python-based way of a building a docs site that can be hosted on GH Pages. 
+- The [MkDocs](mkdocs/) section is Python-based way of a building a docs site that can be hosted on GH Pages.
 
 If you're building with Jekyll 3 on GitHub Pages are don't need custom plugins, then maybe you don't need the overhead of GH Actions and can use the plain GH Pages flow.
 

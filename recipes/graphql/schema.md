@@ -1,5 +1,7 @@
+---
+description: GraphQL schemas
+---
 # Schema
-> GraphQL schemas
 
 
 ## Samples
@@ -16,7 +18,7 @@ Endpoint: `https://graphql.fauna.com/graphql`
     ```gql
     type Warehouse @collection(name: "warehouses") {
       name: String!
-      address: Address! 
+      address: Address!
     }
 
     type Product @collection(name: "products") {

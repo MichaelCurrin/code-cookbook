@@ -1,12 +1,14 @@
+---
+description: How to setup your machine and GitHub profile to allow access by SSH
+---
 # GitHub SSH access
-> How to setup your machine and GitHub profile to allow access by SSH
 
 How to setup SSH on your machine from scratch and configure SSH access on your GitHub account
 
 
 ## Why
 
-If you setup GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`, unlike the usual **HTTP(* accesd method, which is less secure. 
+If you setup GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`, unlike the usual **HTTP(* accesd method, which is less secure.
 
 e.g.
 
@@ -14,7 +16,7 @@ e.g.
 $ git clone git@github.com:MichaelCurrin/code-cookbook.git
 ```
 
-This avoids having to enter your **password** each time your push, or if you pull a private repo. And this is especially useful if **2FA** is setup. 
+This avoids having to enter your **password** each time your push, or if you pull a private repo. And this is especially useful if **2FA** is setup.
 
 You can also use the SSH URL for any **public** repos by other people if you want to clone them (you won't be able to push unless you are a collaborator though).
 
@@ -38,7 +40,7 @@ $ view ~/.ssh/id_rsa.pub
 ## Add key to GitHub
 
 1. Login to GitHub account.
-1. Go to the SSH keys page 
+1. Go to the SSH keys page
     - [github.com/settings/keys](https://github.com/settings/keys)
     - Or
         1. Settings.

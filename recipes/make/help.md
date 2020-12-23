@@ -1,5 +1,7 @@
+---
+description: Add a `help` target to your Makefile
+---
 # Help
-> Add a `help` target to your Makefile
 
 The focus here is on the `help` target and some other targets are covered so you can see what kind of format is works against in that file.
 
@@ -36,7 +38,7 @@ Print lines that are not indented (targets and comments) or empty (so that empty
 	h help:
 		@egrep '^\S|^$$' Makefile
 	```
-	
+
 ### Include echo lines
 
 If you use `@echo` within your targets, you can incldue them.

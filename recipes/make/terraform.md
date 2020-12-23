@@ -1,5 +1,7 @@
+---
+description: Makefiles for Terraform
+---
 # Terraform
-> Makefiles for Terraform
 
 ## Resources
 
@@ -30,7 +32,7 @@ Here is an example of a `Makefile` which is used to deploy AWS infrastructure. I
     apply : plan
       terraform apply plans/$(ENV).tfplan
     ```
-    
+
 This takes care of validating the required env variable, running TF commas as `init` and then a `plan` or `apply` as required.
 
 

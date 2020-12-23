@@ -1,5 +1,5 @@
 ---
 layout: listing
+description: Static type checking for Python
 ---
 # Mypy
-> Static type checking for Python

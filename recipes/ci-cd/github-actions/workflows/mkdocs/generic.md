@@ -1,5 +1,7 @@
+---
+description: Build and deploy MkDocs to GH Pages using generic actions
+---
 # Generic
-> Build and deploy MkDocs to GH Pages using generic actions
 
 
 ## Sample
@@ -20,4 +22,3 @@ $ mkdocs gh-deploy --strict
 ```
 
 That works locally and on GH Pages.
-

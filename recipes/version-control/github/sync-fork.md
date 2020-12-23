@@ -1,5 +1,7 @@
+---
+description: How to bring your forked GH repo in line with the original repo, without a merge commit
+---
 # Sync fork
-> How to bring your forked GH repo in line with the original repo, without a merge commit
 
 
 ## Shell commands
@@ -55,4 +57,3 @@ This can be done using the _git merge_ command, but there is a small risk of com
 I recommend the `git reset` option rather. This will not try and do a merge between the two repos but will update your `master` branch HEAD to point to the same commit as the fork's latest commit - regardless of if your fork is ahead or behind.
 
 Warning: You will lose any unsaved file changes locally. And the force push will overwrite any changes on your fork which differ from the upstream.
-

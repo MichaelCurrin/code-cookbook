@@ -1,5 +1,7 @@
+---
+description: How to install Python and Python packages on GH Actions
+---
 # Install dependencies
-> How to install Python and Python packages on GH Actions
 
 {% raw %}
 

@@ -1,8 +1,8 @@
 ---
 logo: jekyll
+description: How to run a Jekyll site in a container
 ---
 # Jekyll
-> How to run a Jekyll site in a container
 
 Note that using a `Dockerfile` file and docker compose might be lighter to do. Maybe with `make` too. But here are low-level commands.
 

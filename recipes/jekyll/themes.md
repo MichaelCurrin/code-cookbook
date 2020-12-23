@@ -1,5 +1,7 @@
+---
+description: Creating and maintaining a GitHub theme
+---
 # Themes
-> Creating and maintaining a GitHub theme
 
 ## Notes
 
@@ -20,10 +22,10 @@ See [Specification](https://ruby-doc.org/stdlib-2.7.0/libdoc/rubygems/rdoc/Gem/S
 
         spec.add_development_dependency 'example'
         ```
-    - When using the Remote Theme plugin, it will give an error if the listed depenedencies are missing and will **not** install them. 
-    - But if you add the theme to your site's `Gemfile`, then you can install the theme's dependencies and avoid the error. Even though the theme itself in local gems is not used due to Remote Theme plugin using the remote one on each build. 
+    - When using the Remote Theme plugin, it will give an error if the listed depenedencies are missing and will **not** install them.
+    - But if you add the theme to your site's `Gemfile`, then you can install the theme's dependencies and avoid the error. Even though the theme itself in local gems is not used due to Remote Theme plugin using the remote one on each build.
     - If you use explicity approach approach, then you can make your `Gemfile` lighter and let the theme control the gems.this works for a RubyGems theme like `gem 'minima'` or custom theme on GitHub like `gem 'minima', git: 'https://github.com/MichaelCurrin/minima'`.
- 
+
 
 ### Gemfile
 

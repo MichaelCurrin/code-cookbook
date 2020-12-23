@@ -1,8 +1,8 @@
 ---
 layout: listing
+description: Instructions to set a Github token for CI builds
 ---
 # Tokens cheatsheet
-> Instructions to set a Github token for CI builds
 
 A Github Action needs permissions to push to your `gh-pages` branch - so you must provide a token.
 

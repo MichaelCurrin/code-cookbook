@@ -1,5 +1,7 @@
+---
+description: How to setup a `.editorconfig` file for your project
+---
 # EditorConfig
-> How to setup a `.editorconfig` file for your project
 
 
 ## Resources

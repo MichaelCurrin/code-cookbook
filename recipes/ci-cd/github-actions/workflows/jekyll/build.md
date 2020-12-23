@@ -1,5 +1,7 @@
+---
+description: Build a Jekyll site in GH Actions
+---
 # Build
-> Build a Jekyll site in GH Actions
 
 Here we we don't use any specialized actions and don't handle without persisting or publishing. See the link below for deploy to GH Pages.
 
@@ -7,7 +9,7 @@ Related Cookbook pages:
 
 - [GH Pages Actions][] page in this Jekyll section.
 - [Deploy GH Pages][] as a more generic section which could still be used for Jekyll.
-- [Jekyll container][] page. 
+- [Jekyll container][] page.
 
 [GH Pages Actions]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/gh-pages-actions.md %}
 [Deploy GH Pages]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}

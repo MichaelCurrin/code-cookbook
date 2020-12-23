@@ -1,5 +1,7 @@
+---
+description: Make your tables interactive
+---
 # jQuery datatables
-> Make your tables interactive
 
 
 ## Resources

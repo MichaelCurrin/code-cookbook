@@ -1,5 +1,7 @@
+---
+description: How to add Jest to your Node.js project
+---
 # Jest
-> How to add Jest to your Node.js project
 
 See [Jest](https://jestjs.io/) homepage.
 
@@ -34,9 +36,9 @@ $ npm install jest -D
 - `src/foo.js`
     ```javascript
     function square(value) {
-      return value**2;    
+      return value**2;
     }
-    
+
     module.exports = {
       foo
     }
@@ -44,7 +46,7 @@ $ npm install jest -D
 - `src/__tests__/foo.test.js`
     ```javascript
     const { foo } = require('../foo.js')
-    
+
     test('Square a number successfully', () => {
       expect(foo(3)).toBe(9)
     })
@@ -61,7 +63,7 @@ $ npm install jest -D
     ```javascript
     module.exports = {
       // ...
-      
+
       overrides: [
         {
           files: [

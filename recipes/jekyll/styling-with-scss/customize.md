@@ -1,5 +1,7 @@
+---
+description: How to use SCSS to set and override styles
+---
 # Jekyll SCSS styling
-> How to use SCSS to set and override styles
 
 Instructions are collected from themes.
 
@@ -9,7 +11,7 @@ How to customize a site using the [Minima](https://github.com/jekyll/minima) the
 
 ### Version 2.5
 
-Based on the README, create a file like this. 
+Based on the README, create a file like this.
 
 
 Note the filename, frontmatter, import and then custom content.
@@ -25,7 +27,7 @@ Example:
   ---
 
   @import "minima";
-  
+
   a {
     color: blue;
   }
@@ -63,7 +65,7 @@ Example:
     @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
     @import "minima/initialize";
     ```
-  
+
 Description:
 
 > - Front matter dashes at the very beginning (can be empty).

@@ -1,13 +1,13 @@
 ---
 logo: go
+description: How to build and release assets for a Go project
 ---
 # Go
-> How to build and release assets for a Go project
 
 
 ## Go Releaser
 
-This tool helps build your application for several platforms. 
+This tool helps build your application for several platforms.
 
 ### Resources
 
@@ -37,12 +37,12 @@ There is a GitHub Actions action you can use in your CI.
             uses: actions/checkout@v2
             with:
               fetch-depth: 0
-  
+
           - name: Set up Go
             uses: actions/setup-go@v2
             with:
               go-version: 1.15
-  
+
           - name: Run GoReleaser
             uses: goreleaser/goreleaser-action@v2
             with:
@@ -69,7 +69,7 @@ There is a GitHub Actions action you can use in your CI.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
-    
+
 Sample result on an [imgcat](https://github.com/trashhalo/imgcat/releases/tag/v1.2.0) release:
 
 ```

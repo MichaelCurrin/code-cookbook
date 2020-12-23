@@ -1,9 +1,9 @@
 ---
 layout: listing
 logo: cmake
+description: Using the `make` command and Makefile samples
 ---
 # Make
-> Using the `make` command and Makefile samples
 
 Make is a task runner which saves you having to remember and type long commands or sequences and also makes your flows easy to reproduce locally, on remote services and on other developers' machines.
 
