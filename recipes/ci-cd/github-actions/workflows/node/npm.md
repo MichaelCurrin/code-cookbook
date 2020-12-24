@@ -1,25 +1,13 @@
 ---
-description: Patterns for using Node.js and NPM in a GH Action workflow
+description: Patterns for using Node.js and NPM in a GH Actions workflow
 ---
-# NPM actions
+# NPM
 
 {% raw %}
 
-See GH docs - [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions). Some of the samples come from here.
+See the GH docs page on [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions). Some of the samples come from here.
 
-Note use of this which comes from the doc linked above, but it is not used consistently in the docs - need to research what it does to test.
-
-- `main.yml`
-    ```yaml
-    steps:
-      - run: npm test
-        env:
-          CI: true
-    ```
-
-For building an app (such as React or Vue) and serving as a GH Pages site, see the [Deploy GH Pages](/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/) cookbook section.
-
-What does CI do?
+To build a Node app (such as React or Vue) and serve it with GH Pages, see the [Deploy GH Pages]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}) section of this cookbook site.
 
 
 ## Setup Node action
