@@ -10,86 +10,98 @@ It is low-level in working with tools - it may not be efficient compared with us
 
 - Base setup.
     ```yaml
-      name: Deploy
-      on:
-        push:
-          branches:
-            master
+    name: Deploy
+    on:
+      push:
+        branches:
+          - master
 
-      jobs:
-          build:
-            runs-on: ubuntu-latest
+    jobs:
+        build:
+          runs-on: ubuntu-latest
 
-            steps:
-                # ...
+          steps:
+            # ...
     ```
 - Checkout step.
     ```yaml
-          - uses: actions/checkout@v2
-            with:
-              persist-credentials: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
     ```
 - Steps to setup and use cache for Yarn and Bundler. These are just copied as is - see the [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) section of this Cookbook for more info.
     ```yaml
-          # https://github.com/actions/cache/blob/master/examples.md#node---yarn
-          - name: "Cache: Get yarn cache directory path"
-            id: yarn-cache-dir-path
-            run: echo "::set-output name=dir::$(yarn cache dir)"
+    steps:
+      # checkout...
 
-          - name: "Cache: Set up yarn cache"
-            uses: actions/cache@v2
-            id: yarn-cache
-            with:
-              path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-              restore-keys: |
-                ${{ runner.os }}-yarn-
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      - name: "Cache: Get yarn cache directory path"
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-          # https://github.com/actions/cache/blob/master/examples.md#ruby---bundler
-          - name: "Cache: Set up bundler cache"
-            uses: actions/cache@v2
-            with:
-              path: vendor/bundle
-              key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-              restore-keys: |
-                ${{ runner.os }}-gems-
+       
+      - name: "Cache: Set up yarn cache"
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      # https://github.com/actions/cache/blob/master/examples.md#ruby---bundler
+      - name: "Cache: Set up bundler cache"
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gems-
     ```
 - Setup NodeJS (and Yarn) and Ruby.
     ```yaml
-          - name: Use Node.js
-            uses: actions/setup-node@v1
-            with: { node-version: '12.x' }
+    steps:
+      # ...
 
-          - name: Use Ruby
-            uses: actions/setup-ruby@v1
-            with: { ruby-version: '2.7.1' }
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: { node-version: '12.x' }
+
+      - name: Use Ruby
+        uses: actions/setup-ruby@v1
+        with: { ruby-version: '2.7.1' }
     ```
 - Setup node packages and gems and do the yarn build. NPM could be used here too.
     ```yaml
-          - name: Setup dependencies
-            run: |
-              yarn install --frozen-lockfile
-              bundle config path vendor/bundle
-              bundle install --jobs 4 --retry 3
+    steps:
+      # ...
 
-          - run: yarn build
+      - name: Setup dependencies
+        run: |
+          yarn install --frozen-lockfile
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - run: yarn build
     ```
 - GitHub pages deploy to main site and to a mirror. This will run on the `jekyll build` command and use the NPM build output from above.
     ```yaml
-          - name: "Deploy to gh-pages 🚀"
-            uses: JamesIves/github-pages-deploy-action@releases/v3
-            with:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              BRANCH: gh-pages
-              FOLDER: _site
+    steps:
+      # ...
 
-          - name: "Deploy to mirror 🚀"
-            uses: JamesIves/github-pages-deploy-action@releases/v3
-            with:
-              ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-              REPOSITORY_NAME: rstacruz/devhints-mirror
-              BRANCH: gh-pages
-              FOLDER: _site
+      - name: "Deploy to gh-pages 🚀"
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: _site
+
+      - name: "Deploy to mirror 🚀"
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          REPOSITORY_NAME: rstacruz/devhints-mirror
+          BRANCH: gh-pages
+          FOLDER: _site
     ```
 
 {% endraw %}
