@@ -62,11 +62,11 @@ The `--future` flag is to publish futured-dated posts.
 
 - [![limjh16 - jekyll-action-ts](https://img.shields.io/static/v1?label=limjh16&message=jekyll-action-ts&color=blue&logo=github)](https://github.com/limjh16/jekyll-action-ts)
 
-This is fork of [Jekyll Actions](https://github.com/marketplace/actions/jekyll-actions) action, except this one doesn't seem to publish for you. The docs recommend a popular action though for this, as below.
+This is fork of [Jekyll Actions](https://github.com/marketplace/actions/jekyll-actions) action, except this one doesn't seem to publish for you. Which is fine as it means this Jekyll action has a narrow scope and it is also easy to add an extra step to publish to GH Pages. The docs recommend a popular action by PeaceIris, as shown in the last step below.
 
-This uses TypeScript instead of Docker so is supposed should be quicker to download than the original and handles non-default use-cases.
+This uses TypeScript instead of Docker, so is supposed should be quicker to download than the original. It also is more flexible to handle non-default use-cases.
 
-Sample usage from the docs. Note this includes a publish to GH Pages step.
+Sample usage from the docs.
 
 - `main.yml`
     ```yaml
@@ -80,6 +80,7 @@ Sample usage from the docs. Note this includes a publish to GH Pages step.
     jobs:
       jekyll:
         runs-on: ubuntu-latest
+
         steps:
           - name: 📂 Checkout
             uses: actions/checkout@v2
