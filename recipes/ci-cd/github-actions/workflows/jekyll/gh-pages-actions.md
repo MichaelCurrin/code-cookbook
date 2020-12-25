@@ -1,15 +1,18 @@
+---
+description: Actions to build a Jekyll site then publish to GH Pages
+---
 # Actions for GH Pages
 
-A selection of Actions which both build a Jekyll site and publish it GH Pages. So you need one action instead of two.
+{% raw %}
+
+A selection of Actions which both build a Jekyll site and publish to GH Pages. So you need one action instead of two - which can be a good and a bad thing.
+
 
 ## Warning
 
 As appealing as the idea is to have on Action to handle both sides, it means you get locked into an action which might do too much. If you want to change how Jekyll installs or is built or how the publishing is handled, you are limited.
 
 Compare with the approach where you handle Jekyll alone and then GH Pages alone. This means you can swap out the piece you need. And it also frees you up to change from Jekyll to another tool and still use the same generic GH Pages deploy flow.
-
-{% raw %}
-
 
 ## Actions
 
@@ -52,6 +55,7 @@ Sample usage from the README.md. I updated to only handle push from master.
     jobs:
       jekyll:
         runs-on: ubuntu-16.04
+
         steps:
         - uses: actions/checkout@v2
 
