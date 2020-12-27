@@ -258,7 +258,7 @@ For a Jekyll project.
 
 Using HTML, Markdown, JSON, YAML, JS, Ruby, CSS, SCSS and Makefile. Only the first two are actually 4 spaces, so a glob for 2 spaces makes sense.
 
-```yaml
+```ini
 root = true
 
 [*]
@@ -302,7 +302,7 @@ insert_final_newline = true
 
 ### Demo
 
-Based on the one on the EditorConfig homepage.
+Based on the sample on the EditorConfig homepage.
 
 ```ini
 # EditorConfig is awesome: https://EditorConfig.org
