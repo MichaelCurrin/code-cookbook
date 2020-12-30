@@ -10,6 +10,8 @@ Repo: [urfave/cli](https://github.com/urfave/cli)
 
 From [V2 manual](https://github.com/urfave/cli/blob/master/docs/v2/manual.md#getting-started).
 
+See also [video](https://youtu.be/i2p0Snwk4gc).
+
 ### Minimal
 
 ```go
