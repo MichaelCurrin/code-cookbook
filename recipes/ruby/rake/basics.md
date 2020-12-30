@@ -1,7 +1,10 @@
 ---
-description: Intro to using rake for Ruby projects
+description: Intro to using rake and Rakefile for Ruby projects
 ---
-# Rakefile basics
+# Basics
+
+Rake is a Ruby task runner. You run the `rake` command with arguments and the tasks to run are defined in a `Rakefile` which has Ruby code in it.
+
 
 ## Samples
 
@@ -52,5 +55,7 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
     # ...
     ```
 
+### Wikipedia
 
-TBC - what is `t`?
+From the [Rake](https://en.m.wikipedia.org/wiki/Rake_(software)) page on Wikipedia.
+
