@@ -1,5 +1,6 @@
 ---
 description: Intro to using rake and Rakefile for Ruby projects
+# TODO move to cheatsheets as this is just general syntax
 ---
 # Basic
 
@@ -59,3 +60,22 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
 
 From the [Rake](https://en.m.wikipedia.org/wiki/Rake_(software)) page on Wikipedia.
 
+Compile a Hello Worls program in C.
+
+```ruby
+file 'hello.o' => 'hello.c' do
+  sh 'cc -c -o hello.o hello.c'
+end
+
+file 'hello' => 'hello.o' do
+  sh 'cc -o hello hello.o'
+end
+```
+
+Rules
+
+```ruby
+rule '.o' => '.c' do |t|
+  sh "cc #{t.source} -c -o #{t.name}"
+end
+```
