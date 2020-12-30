@@ -38,7 +38,7 @@ To setup and run this project (or a fork), see the project docs:
 
 ## Contributing
 
-Contributions are welcome. See instructions.
+Contributions are welcome. See instructions:
 
 <div align="center">
 
@@ -49,14 +49,18 @@ Contributions are welcome. See instructions.
 
 ## License
 
-Released under [MIT](/LICENSE).
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
 
-- If you use a significant portion of this project in your own repo, please include a copy of this project's license in your repo (e.g. as `LICENSE-source` and add a link back to https://github.com/MichaelCurrin/code-cookbook/ somewhere in your docs.
+If you use a significant portion of this project in your own project, please include a copy of this project's license in your repo (e.g. as `LICENSE-source` and add a link back to https://github.com/MichaelCurrin/code-cookbook/ somewhere in your docs).
+
+### Forking
+
 - If you fork this repo just for fun or to contribute back, you don't need to update the `LICENSE` file.
-- But if your fork this repo and make significant changes without planning to contribute back with a PR, that's fine - just please include a copy of the original license in your fork:
+- But if you fork this repo and _do_ make significant changes without planning to contribute back with a PR, that's fine - just please include a copy of the original license in your fork:
     ```sh
-    $ # Copy the original repo.
+    $ # Copy the original license.
     $ cp LICENSE LICENSE-source
-    $ # Put your own name in your fork's license.
+
+    $ # Put your own name in your fork's main license.
     $ open LICENSE
     ```
