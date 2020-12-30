@@ -31,18 +31,18 @@ To setup and run this project (or your fork), see the project docs:
 
 <div align="center">
 
-[![Docs](https://img.shields.io/badge/View-Docs-blue?style=for-the-badge)](/docs/)
+[![Docs](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/)
 
 </div>
 
 
 ## Contributing
 
-Contributions are welcome. See instructions:
+Contributions are welcome. Please see the instructions:
 
 <div align="center">
 
-[![Contributing doc](https://img.shields.io/badge/View-Contributing-blue?style=for-the-badge)](/CONTRIBUTING.md)
+[![Contributing doc](https://img.shields.io/badge/View-Contributing_doc-blue?style=for-the-badge)](/CONTRIBUTING.md)
 
 </div>
 
