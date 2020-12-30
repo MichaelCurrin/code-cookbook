@@ -10,3 +10,56 @@ Repo: [urfave/cli](https://github.com/urfave/cli)
 
 From [V2 manual](https://github.com/urfave/cli/blob/master/docs/v2/manual.md#getting-started).
 
+### Minimal
+
+```go
+package main
+
+import (
+  "os"
+
+  "github.com/urfave/cli/v2"
+)
+
+func main() {
+  (&cli.App{}).Run(os.Args)
+}
+```
+
+### Greet
+
+- `greet.go`
+```go
+package main
+
+import (
+  "fmt"
+  "log"
+  "os"
+
+  "github.com/urfave/cli/v2"
+)
+
+func main() {
+  app := &cli.App{
+    Name: "greet",
+    Usage: "fight the loneliness!",
+    Action: func(c *cli.Context) error {
+      fmt.Println("Hello friend!")
+      return nil
+    },
+  }
+
+  err := app.Run(os.Args)
+  if err != nil {
+    log.Fatal(err)
+  }
+}
+```
+
+Install and run it.
+
+```sh
+$ go install
+$ greet
+```
