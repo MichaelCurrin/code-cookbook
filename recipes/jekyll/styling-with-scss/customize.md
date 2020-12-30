@@ -3,7 +3,14 @@ description: How to use SCSS to set and override styles
 ---
 # Jekyll SCSS styling
 
-Instructions are collected from themes.
+In Jekyll, you can use SCSS as a preprocessor - this helps for nest styles, handling variables and allowing imports.
+
+The way you apply it is using `.scss` files in the `assets/` and in `_sass/` (which is Jekyll's default SCSS directory). If you add an `@import` in assets, you'll get a compiled result that loads a file with `url()` and this loads as a separate request in the browser. If you do any imports within the `_sass` directory, you'll get your styling bundled in a single large file.
+
+See [Assets](https://jekyllrb.com/docs/step-by-step/07-assets/) in step 7 of the tutorial in the Jekyll docs. And see my [Jekyll Blog Demo](https://github.com/MichaelCurrin/jekyll-blog-demo) repo which is the result of following the tutorial.
+
+Instructions below are collected from themes.
+
 
 ## Minima theme
 
