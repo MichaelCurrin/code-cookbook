@@ -1,5 +1,7 @@
 ---
 layout: listing
-logo: github
+logo: git
 ---
-# Version Control
+# Version control
+
+See [Version control](https://michaelcurrin.github.io/dev-resources/resources/version-control/) in my Dev Resources.
