@@ -39,7 +39,6 @@ It is low-level in working with tools - it may not be efficient compared with us
       - name: "Cache: Get yarn cache directory path"
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-
        
       - name: "Cache: Set up yarn cache"
         uses: actions/cache@v2
@@ -78,7 +77,7 @@ It is low-level in working with tools - it may not be efficient compared with us
       - name: Setup dependencies
         run: |
           yarn install --frozen-lockfile
-          bundle config path vendor/bundle
+          bundle config set path vendor/bundle
           bundle install --jobs 4 --retry 3
 
       - run: yarn build
