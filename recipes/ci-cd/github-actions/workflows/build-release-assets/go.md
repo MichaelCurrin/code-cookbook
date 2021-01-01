@@ -21,7 +21,7 @@ This tool helps build your application for several platforms.
 There is a GitHub Actions action you can use in your CI.
 
 - `release.yml` from the docs.
-    ```
+    ```yaml
     name: goreleaser
 
     on:
