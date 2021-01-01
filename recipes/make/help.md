@@ -18,7 +18,7 @@ Find lines starting with lowercase letters or comments. This excludes `.HOOKS` a
 		@grep ^[a-z#]' Makefile
 	```
 
-You have an export like `export FOO := 'bar'` by requiring only lowercase letters, spaces or hyphens up to a colon. This pattern does not care if there is anything after the colon.
+If you need to ignore an export like `export FOO := 'bar'` by requiring certain characters (lowercase letters, spaces or hyphens) repeated up to a colon and using extended `egrep`.
 
 - `Makefile`
 	```mk
@@ -28,6 +28,9 @@ You have an export like `export FOO := 'bar'` by requiring only lowercase letter
 
 If you want non-indented comments as well, add this to the start: `^#|`.
 
+This pattern does not care if there is anything after the colon.
+
+Or maybe it is cleaner to ignore `export` rather.
 
 ### Not indented
 
