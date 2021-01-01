@@ -4,6 +4,7 @@ description: How to build and release assets for a Go project
 ---
 # Go
 
+{% raw %}
 
 ## Go Releaser
 
@@ -80,3 +81,5 @@ imgcat_1.2.0_Linux_x86_64.tar.gz
 imgcat_1.2.0_Windows_i386.tar.gz
 imgcat_1.2.0_Windows_x86_64.tar.gz
 ```
+
+{% endraw %}
