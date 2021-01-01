@@ -48,7 +48,8 @@ Note use of `GITHUB_TOKEN` near the end.
             run: |
               gem update --system --no-document
               gem update bundler --no-document
-              bundle install --path=vendor/bundle --jobs 4 --retry 3
+              bundle config set --local path vendor/bundle
+              bundle install --jobs 4 --retry 3
               bundle clean
 
           - name: Clone target branch
