@@ -5,7 +5,24 @@ description: Run Jekyll against the docs directory and publish to GH Pages, usin
 
 {% raw %}
 
+## Own
+
+Avoid updating the `Gemfile.lock` file.
+
+```sh
+bundle install --frozen
+```
+
+Use PeaceIris action to handle the commit part, instead of the detailed committing in the next example.
+
+Consider for Jekyll 4 cache, also caching `.jekyll-cache/` for faster builds. Or let the remote build be slower and let the cached build locally be fast.
+
+
+## Jekyll docs
+
 This example is based on a [PR](https://github.com/jekyll/jekyll/pull/8201/files) for building Jekyll's own docs site at [jekyllrb.com](https://jekyllrb.com), using GH Actions instead of plain GH Pages flow. The code is very low-level for more control but this makes it so not reusable. There are further notes at the end of this page on this. You may want to take pieces of this recipe rather than the whole thing.
+
+I don't know why cache keys is too items. I usually see it as one or two lines in a single string.
 
 Note use of `GITHUB_TOKEN` near the end.
 
@@ -48,7 +65,7 @@ Note use of `GITHUB_TOKEN` near the end.
             run: |
               gem update --system --no-document
               gem update bundler --no-document
-              bundle config set --local path vendor/bundle
+              bundle config set path vendor/bundle
               bundle install --jobs 4 --retry 3
               bundle clean
 
