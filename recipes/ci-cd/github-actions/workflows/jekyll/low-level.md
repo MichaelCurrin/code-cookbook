@@ -7,11 +7,19 @@ description: Run Jekyll against the docs directory and publish to GH Pages, usin
 
 ## Own
 
-Avoid updating the `Gemfile.lock` file.
+Dependencies steps:
 
 ```sh
-bundle install --frozen
+gem update --system --no-document
+gem update bundler --no-document
+bundle config set path vendor/bundle
+bundle install --jobs 4 --retry 3 --frozen
+bundle clean
 ```
+
+Avoid updating the `Gemfile.lock` file with `--frozen` flag.
+
+The [clean](https://bundler.io/man/bundle-clean.1.html) command removes unused gems. I don't see it in `bundle -h` output though.
 
 Use PeaceIris action to handle the commit part, instead of the detailed committing in the next example.
 
