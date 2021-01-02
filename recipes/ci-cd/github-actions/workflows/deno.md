@@ -9,11 +9,11 @@ description: Run a GitHub Actions for a Deno app
 - [deno.land](https://deno.land/)
     > A secure runtime for JavaScript and TypeScript.
 
-It's not a new language, just a different runtime for running server-side JS, created by the author of Node.
+A different runtime for running server-side JS. Created by the author of Node.
 
 It has a lot of benefits and doesn't use node modules and package.json but has its own system.
 
-One day Deno could be the new Node...
+One day Deno could be the new Node.
 
 
 ## Samples
