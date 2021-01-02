@@ -21,19 +21,23 @@ One day Deno could be the new Node...
 This will:
 
 - Setup Deno in the environment.
-- Run Deno commands.
+- Use Deno to check formatting and run tests.
+
+What's missing is a build step to compile TS to JS and bundle as a single JS file. That would be useful for distributing a package or making a GH Pages site.
 
 Here is the config:
 
 - `main.yml`
     ```yaml
-    name: CI
+    name: Deno CI
 
-    on: [push, pull_request]
+    on:
+      push:
+      pull_request:
 
     jobs:
       build:
-        name: Server tests
+        name: Test app
 
         runs-on: ubuntu-latest
 
@@ -41,7 +45,7 @@ Here is the config:
           - name: Checkout repo
             uses: actions/checkout@v2
 
-          - name: Download deno
+          - name: Download Deno
             uses: denolib/setup-deno@master
             with:
               deno-version: v1.1.2
