@@ -1,4 +1,5 @@
 ---
+logo: deno
 description: Run a GitHub Actions for a Deno app
 ---
 # Deno
