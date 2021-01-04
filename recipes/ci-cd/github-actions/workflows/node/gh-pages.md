@@ -1,20 +1,25 @@
 ---
 description: Deploy a GH Pages app using GH Actions and NPM/Yarn
 ---
-# GitHub Pages
+# GitHub Pages deploy
 
 {% raw %}
 
 ## About
 
-This workflow covers how to build your app using GH Actions and then persist the results on the `gh-pages` branch so they can served using GH Pages. This flow is ideal for a React or Vue app, or any other app that can be built to a build directory and served as a static assets, without needing a Node.js server.
+This guide covers how to setup two things in one workflow:
+
+1. Test and build your app using GH Actions. On any push or PR
+2. Persist the results on the `gh-pages` branch (so they can served using GH Pages). But on a push to `master` only.
+
+This flow is ideal for a Jekyll site. Or a React or Vue app, or any other app that can be built to a build directory and served as a static assets, without needing a Node.js server.
 
 
-## Samples
+## Sample
 
-### Yarn
+The example below uses Yarn.
 
-The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue you can setup the site to be on a subpath for GH Pages.
+The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue app you can setup the site to be on a subpath for GH Pages.
 
 - `main.yml`
     ```yaml
@@ -22,9 +27,9 @@ The `NODE_ENV` environment variable is set to `production` to ensure a productio
 
     on:
       push:
-        branches: [master]
+        branches: master
       pull_request:
-        branches: [master]
+        branches: master
 
     jobs:
       build-deploy:
@@ -52,7 +57,7 @@ The `NODE_ENV` environment variable is set to `production` to ensure a productio
             uses: peaceiris/actions-gh-pages@v3
             with:
               github_token: ${{ secrets.GITHUB_TOKEN }}
-              publish_dir: ./dist
+              publish_dir: dist
     ```
 
 
@@ -62,7 +67,7 @@ This flow uses just **one** build job.
 
 The job runs on a **push** to `master` and on a **PR** against `master`. Simply creating a feature branch will not trigger the build.
 
-To avoid actually deploying using a PR and waiting until code is merged to master, we use a conditional statement to skip the deploy step for PR events.
+We want avoid actually deploying code on a PR and rather wait until code is merged to master. So we use a conditional statement to skip the deploy step for PR events.
 
 ```yaml
 if: ${{ github.event_name != 'pull_request' }}
