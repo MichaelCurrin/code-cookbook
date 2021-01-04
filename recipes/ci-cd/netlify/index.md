@@ -35,6 +35,8 @@ Netlify is similar to using GH Actions to build and deploy to a `gh-pages` branc
 
 With Ruby or Node and your gems and node modules (it will look for Gemfile and packages.json files).
 
-You don't have to setup a GH Actions workflow file of steps or choose any actions or setup a token to actually push to a branch which serves on GH Pages.
+You don't have to setup a GH Actions workflow file of steps or choose any actions. 
 
-You don't have to worry about tokens in Netlify either - GH Actions typically needs a token so it can commit to a branch for your and use that to serve a site.
+With GH Actions, setup an auth token to actually push to a `gh-pages` branch for serving on GH Pages. Netlify doesn't need a token or even use a `gh-pages` branch as it stores the content for you. Note using a token makes Netlify more secure - you don't have to manage a token and worry about it getting shared accidentally.
+
+By the way, GH Actions and Netlify both have security to prevent secrets like a token from getting printed in your deploy log, in case someone makes a malicious fork.
