@@ -10,8 +10,7 @@ github_username: MichaelCurrin
 url: "https://michaelcurrin.github.io"
 baseurl: "/code-cookbook"
 
-# TODO
-google_analytics:
+google_analytics: G-ED9PSVN5DS
 
 header_pages:
   - index.md
