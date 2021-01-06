@@ -26,13 +26,9 @@ Here links to images on the Docker Hub website under the [jekyll](https://hub.do
 - [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
 
 
-## Run Jekyll executable
+## Set Jekyll version
 
-Make sure you have Docker installed.
-
-### Setup
-
-Set an environment variable on your host.
+Set an environment variable on your host machine.
 
 ```sh
 export JEKYLL_VERSION=4
@@ -45,25 +41,39 @@ The appropriate Jekyll image will be downloaded when running a command below - y
 
 ## Usage
 
-Run the commands below on your host machine.
+Run the commands below on your **host** machine.
 
-Note that `-i` might not actually be needed here but was copied.
+### Notes
 
-The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persised outside the container. But you should leave out the flag when you want to perist gems inside the container.
+- Note that `-i` might not actually be needed here but was copied.
+- The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persised outside the container. But you should leave out the flag when you want to perist gems inside the container.
+- We use the `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
 
-### Create site
+### Create new Jekyll project
 
 ```sh
 $ mkdir my-blog
 $ cd my-blog
+```
 
+```sh
 $ docker run --rm \
   --volume="$PWD:/srv/jekyll" \
   -it jekyll/jekyll:$JEKYLL_VERSION \
   jekyll new .
 ```
 
-Note we use `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
+```
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
+Running bundle install in /srv/jekyll... 
+  Bundler: Fetching gem metadata from https://rubygems.org/..........
+  Bundler: Fetching gem metadata from https://rubygems.org/.
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 4.0.6
+...
+```
+
+As you can see, that creates installs gems using Bundler after setting up the files.
 
 ### Build site
 
@@ -109,10 +119,7 @@ Note use of `gem` as system-wide gems, since you are working in a dedicated cont
 
 I can't find any way to read a Gemfile with `gem` command. So then you need to use Bundler.
 
-```sh
-$ docker exec -it blog \
-  gem install bundler
-```
+You don't have to install Bundler, as the images come with it.
 
 ```sh
 $ docker exec -it blog \
