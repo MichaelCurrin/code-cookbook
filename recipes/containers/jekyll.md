@@ -14,14 +14,14 @@ For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link 
 
 ## Images
 
-Links to Docker hub.
+Links to images on the Docker Hub website.
 
 - [jekyll](https://hub.docker.com/u/jekyll) user
 - [jekyll/jekyll](https://hub.docker.com/r/jekyll/jekyll) image - standard.
 - [jekyll/builder](https://hub.docker.com/r/jekyll/builder) image - includes tools.
 - [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
 
-Use standard image is used below, but you can change out `jekyll/jekyll` for one of the others.
+The standard image is used in the examples below, but you can change it out.
 
 
 ## Setup
