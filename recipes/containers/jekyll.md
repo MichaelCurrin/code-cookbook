@@ -4,8 +4,13 @@ description: How to run a Jekyll site in a container
 ---
 # Jekyll
 
-Note that using a `Dockerfile` file and docker compose might be lighter to do. Maybe with `make` too. But here are low-level commands.
+## Purpose
 
+Running Jekyll in as container executable is useful for development across operatings and also means you don't have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project. You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.
+
+## Notes
+
+Note that using a `Dockerfile` file and docker compose (with volumes) might be lighter to do than using the Jekyll container executable approach below. Maybe with `make` too. But below are low-level commands.
 
 Steps are based on an [article](https://ddewaele.github.io/running-jekyll-in-docker/), though that is similar what is in the Jekyll docker [docs](https://github.com/envygeeks/jekyll-docker#readme).
 
@@ -14,30 +19,33 @@ For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link 
 
 ## Images
 
-Links to images on the Docker Hub website.
+Here links to images on the Docker Hub website under the [jekyll](https://hub.docker.com/u/jekyll) user profile. The standard image will be used in teh next sections but you can change it out.
 
-- [jekyll](https://hub.docker.com/u/jekyll) user
 - [jekyll/jekyll](https://hub.docker.com/r/jekyll/jekyll) image - standard.
 - [jekyll/builder](https://hub.docker.com/r/jekyll/builder) image - includes tools.
 - [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
 
-The standard image is used in the examples below, but you can change it out.
 
+## Run Jekyll executable
 
-## Setup
+Make sure you have Docker installed.
 
-Set an environment variable.
+### Setup
+
+Set an environment variable on your host.
 
 ```sh
-export JEKYLL_VERSION=3.9
+export JEKYLL_VERSION=4
 ```
 
-Note that only `3.8` and `4` or higher are available, `3.9` is not. See [tags](https://hub.docker.com/r/jekyll/jekyll/tags?page=1&ordering=last_updated).
+Note that only `3.8` and `4` or higher are available, while `3.9` is not. See [tags](https://hub.docker.com/r/jekyll/jekyll/tags?page=1&ordering=last_updated).
 
-The appropriate Jekyll image will be downloaded when running a command.
+The appropriate Jekyll image will be downloaded when running a command below - you don't have to download it explicitly.
 
 
 ## Usage
+
+Run the commands below on your host machine.
 
 Note that `-i` might not actually be needed here but was copied.
 
@@ -55,8 +63,7 @@ $ docker run --rm \
   jekyll new .
 ```
 
-Note we use volume flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
-
+Note we use `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
 
 ### Build site
 
@@ -66,7 +73,6 @@ $ docker run --rm \
   -it jekyll/jekyll:$JEKYLL_VERSION \
   jekyll build
 ```
-
 
 ### Run dev server
 
@@ -86,14 +92,32 @@ $ docker restart blog
 
 ### Install gem
 
-Install a gem inside the contain. Here we install a theme.
+Install a gem inside the persistent container. 
+
+#### Using gem command
+
+Here we install a theme, as recommended in a doc.
 
 ```sh
 $ docker exec -it blog \
-  gem install "jekyll-theme-hydeout"
+  gem install jekyll-theme-hydeout
 ```
 
-TBC - how to install from the `Gemfile`.
+Note use of `gem` as system-wide gems, since you are working in a dedicated container. Normally you'd use `bundle` for your project, outside a container.
+
+### Using Bundler
+
+I can't find any way to read a Gemfile with `gem` command. So then you need to use Bundler.
+
+```sh
+$ docker exec -it blog \
+  gem install bundler
+```
+
+```sh
+$ docker exec -it blog \
+  bundle install
+```
 
 ### Start interactive shell
 
