@@ -11,15 +11,6 @@ Running Jekyll and Bundler using a container executable is useful for developmen
 You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.
 
 
-## Notes
-
-Note that using a `Dockerfile` file and docker compose (with volumes) might more convienient (less to type) than using the Jekyll container executable approach below. Maybe with `make` too. Below are low-level commands which are more to type (or paste) but don't rely on any configs.
-
-Steps are based on the Jekyll Docker repo's [docs](https://github.com/envygeeks/jekyll-docker#readme) and an article titled [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/).
-
-For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build.md %}) page relating to Jekyll.
-
-
 ## Images
 
 Here links to images on the Docker Hub website under the [jekyll](https://hub.docker.com/u/jekyll) user profile. The standard image will be used in teh next sections but you can change it out.
@@ -48,11 +39,14 @@ Run the commands below on your **host** machine.
 
 ### Notes
 
-- Note that `-i` might not actually be needed here but was copied.
+- Steps are based on the Jekyll Docker repo's [docs](https://github.com/envygeeks/jekyll-docker#readme) and an article titled [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/).
+- Using a `Dockerfile` file and docker compose (with volumes) might more convenient (less to type) than using the Jekyll container executable approach here. Maybe using `make` instead. Note that `Dockerfile` is useful if you need to add Node.js to your container and you can still use volumes so you can edit code on the host.
+- On this page below are low-level commands which means more to type (or paste) each time but they don't rely on any configs like `Dockerfile`, so are easy to experiment with.
+- For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build.md %}) page relating to Jekyll.
 - The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persised outside the container. But you should leave out the flag when you want to perist gems inside the container.
 - We use the `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
 
-### Create new Jekyll project
+### Create new site
 
 ```sh
 $ mkdir my-blog
@@ -89,31 +83,41 @@ $ docker run --rm \
 
 ### Run dev server
 
+This one command will install gems to your host's `vendor` directory using `bundle install`, then start a dev server.
+
 ```sh
 $ docker run --name blog \
   --volume="$PWD:/srv/jekyll" \
-  -p 3000:4000 \
+  -p 4000:4000 \
   -it jekyll/jekyll:$JEKYLL_VERSION \
   jekyll serve --trace
 ```
 
 Then open in the browser:
 
-- [localhost:3000](http://localhost:3000)
+- [localhost:4000](http://localhost:4000)
 
-If you ran as a daemon with `-d`, you can restart like this:
+Cancel to stop the container.
+
+The command above is from the docs, but I recommend adding `--rm` to remove the container and everytime you run the command it will install gems. If you don't use `--rm`, you'll get an error on running the command again saying the name is in use and you need to remove or rename.
+
+Or leave out `--rm` and use this to start the stopped container again, which is quicker and shorter to type. It will skip installing gems though.
 
 ```sh
+$ docker start blog
+$ docker stop blog
 $ docker restart blog
 ```
 
-### Install gem
+You can also run the initial run command using `-d`. Unfortunately when doing that or running `start`, you can't see the output so also need a log command. While run with `--rm` covers you for logging.
 
-Install a gem inside the persistent container. 
+### Install gems
 
-#### Using gem command
+Note that `bundle install` seems to run whenever a command is run in the container, so you don't have to run it yourself.
 
-Here we install a theme, as recommended in a doc.
+Note that the container must be running for `docker exec` to work. You don't have to specify volume here as it is already in use.
+
+Here we install a theme, as recommended in the doc.
 
 ```sh
 $ docker exec -it blog \
@@ -122,16 +126,6 @@ $ docker exec -it blog \
 
 Note use of `gem` as system-wide gems, since you are working in a dedicated container. Normally you'd use `bundle` for your project, outside a container.
 
-### Using Bundler
-
-I can't find any way to read a Gemfile with `gem` command. So then you need to use Bundler.
-
-You don't have to install Bundler, as the images come with it.
-
-```sh
-$ docker exec -it blog \
-  bundle install
-```
 
 ### Start interactive shell
 
