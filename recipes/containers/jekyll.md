@@ -179,6 +179,8 @@ ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
 
 If you don't provide any arguments, it just shows the Jekyll command help.
 
+See the [entrypoint](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/copy/all/usr/jekyll/bin/entrypoint) script in the repo. It seems when I run the container, if you command starts with `jekyll` then it will run the `bundle install` steps for you but not if you do something else.
+
 ```sh
 $ docker build --rm -t my_app:latest .
 ```
@@ -203,3 +205,5 @@ $ docker run --rm \
   my_app \
   jekyll serve
 ```
+
+Rather than chaining two commands at the end using `&&`, rather use two `docker run` commands such as one for your NPM install and one for `jekyll serve` which handles gems for you.
