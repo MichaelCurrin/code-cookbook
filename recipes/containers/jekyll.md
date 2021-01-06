@@ -81,6 +81,13 @@ $ docker run --rm \
   jekyll build --trace
 ```
 
+Check the results on the host:
+
+```sh
+$ ls _site/
+$ ls vendor/bundle/ruby/2.7.0/gems/
+```
+
 ### Run dev server
 
 This one command will install gems to your host's `vendor` directory using `bundle install`, then start a dev server.
@@ -173,7 +180,7 @@ ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
 If you don't provide any arguments, it just shows the Jekyll command help.
 
 ```sh
-$ docker build --rm -t foo:latest .
+$ docker build --rm -t my_app:latest .
 ```
 
 ```sh
@@ -185,4 +192,13 @@ Usage:
 
   jekyll <subcommand> [options]
 ...
+```
+
+Start dev server:
+
+```sh
+$ docker run --rm \
+  --volume="$PWD:/srv/jekyll" \
+  my_app \
+  jekyll serve
 ```
