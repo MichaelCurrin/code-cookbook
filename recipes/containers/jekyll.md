@@ -126,11 +126,63 @@ $ docker exec -it blog \
 
 Note use of `gem` as system-wide gems, since you are working in a dedicated container. Normally you'd use `bundle` for your project, outside a container.
 
-
 ### Start interactive shell
 
 If you want to have a look at the state of files or maybe gems in the container, you can start the container interactive mode.
 
 ```sh
 $ docker exec -it blog bash
+```
+
+
+## Use in Dockerfile
+> How to use the Jekyll image in a Dockerfile
+
+Use `apk`, the Alphine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
+
+```Dockefile
+FROM node:14
+
+FROM jekyll/jekyll
+
+RUN apk update
+RUN apk add sqlite
+```
+
+If you want to use `apt-get`, you must used it before `jekyll` otherwise it will not be found.
+
+```Dockerfile
+FROM node:14
+
+RUN apt-get update
+RUN apk install -y \
+  sqlite
+
+FROM jekyll/jekyll
+```
+
+When you use the Jekyll image in Dockerfile, you lose the entry point, so the container will do nothing.
+
+You can add the steps from the image's Dockerfile.
+
+```Dockefile
+CMD ["jekyll", "--help"]
+ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
+```
+
+If you don't provide any arguments, it just shows the Jekyll command help.
+
+```sh
+$ docker build --rm -t foo:latest .
+```
+
+```sh
+$ docker run foo
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
+jekyll 4.2.0 -- Jekyll is a blog-aware, static site generator in Ruby
+
+Usage:
+
+  jekyll <subcommand> [options]
+...
 ```
