@@ -1,7 +1,7 @@
 ---
 description: How to use SCSS to set and override styles
 ---
-# Jekyll SCSS styling
+# Customize
 
 In Jekyll, you can use SCSS as a preprocessor - this helps for nest styles, handling variables and allowing imports.
 
