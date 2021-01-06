@@ -6,13 +6,16 @@ description: How to run a Jekyll site in a container
 
 ## Purpose
 
-Running Jekyll in as container executable is useful for development across operatings and also means you don't have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project. You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.
+Running Jekyll and Bundler using a container executable is useful for development across operating systems and also means you don't have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project. 
+
+You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.
+
 
 ## Notes
 
-Note that using a `Dockerfile` file and docker compose (with volumes) might be lighter to do than using the Jekyll container executable approach below. Maybe with `make` too. But below are low-level commands.
+Note that using a `Dockerfile` file and docker compose (with volumes) might more convienient (less to type) than using the Jekyll container executable approach below. Maybe with `make` too. Below are low-level commands which are more to type (or paste) but don't rely on any configs.
 
-Steps are based on an [article](https://ddewaele.github.io/running-jekyll-in-docker/), though that is similar what is in the Jekyll docker [docs](https://github.com/envygeeks/jekyll-docker#readme).
+Steps are based on the Jekyll Docker repo's [docs](https://github.com/envygeeks/jekyll-docker#readme) and an article titled [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/).
 
 For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build.md %}) page relating to Jekyll.
 
@@ -81,7 +84,7 @@ As you can see, that creates installs gems using Bundler after setting up the fi
 $ docker run --rm \
   --volume="$PWD:/srv/jekyll" \
   -it jekyll/jekyll:$JEKYLL_VERSION \
-  jekyll build
+  jekyll build --trace
 ```
 
 ### Run dev server
@@ -91,10 +94,14 @@ $ docker run --name blog \
   --volume="$PWD:/srv/jekyll" \
   -p 3000:4000 \
   -it jekyll/jekyll:$JEKYLL_VERSION \
-  jekyll serve --watch --drafts
+  jekyll serve --trace
 ```
 
-If you run as a daemon, you can restart like this:
+Then open in the browser:
+
+- [localhost:3000](http://localhost:3000)
+
+If you ran as a daemon with `-d`, you can restart like this:
 
 ```sh
 $ docker restart blog
