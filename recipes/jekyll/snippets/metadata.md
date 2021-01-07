@@ -4,7 +4,11 @@
 
 A metadata snippet to use on your site to describe the site metadata and how to get involved.
 
-This can be used an includes file and used anywhere on your site.
+This can be used an includes file and used anywhere on your site - as long it is a markdown file and not an HTML layout.
+
+```liquid
+{% include metadata.md %}
+```
 
 This assumes `site.baseurl` is like `/repo-name`, to avoid storing repo name separately. This won't work for Netlify projects though where baseurl is not set. Consider using the GitHub Metadata plugin, which is lighter than GitHub Pages plugin.
 
