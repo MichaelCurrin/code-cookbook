@@ -6,7 +6,7 @@ description: How to run a Jekyll site in a container
 
 ## Purpose
 
-Running Jekyll and Bundler using a container executable is useful for development across operating systems and also means you don't have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project. 
+Running Jekyll and Bundler using a container executable is useful for development across operating systems and also means you don't have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project.
 
 You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.
 
@@ -62,7 +62,7 @@ $ docker run --rm \
 
 ```
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
-Running bundle install in /srv/jekyll... 
+Running bundle install in /srv/jekyll...
   Bundler: Fetching gem metadata from https://rubygems.org/..........
   Bundler: Fetching gem metadata from https://rubygems.org/.
   Bundler: Resolving dependencies...
@@ -106,7 +106,7 @@ Then open in the browser:
 
 Cancel to stop the container.
 
-The command above is from the docs, but I recommend adding `--rm` to remove the container and everytime you run the command it will install gems. If you don't use `--rm`, you'll get an error on running the command again saying the name is in use and you need to remove or rename.
+The command above is from the docs, but I recommend adding `--rm` to remove the container and every time you run the command it will install gems. If you don't use `--rm`, you'll get an error on running the command again saying the name is in use and you need to remove or rename.
 
 Or leave out `--rm` and use this to start the stopped container again, which is quicker and shorter to type. It will skip installing gems though.
 
@@ -147,7 +147,7 @@ $ docker exec -it blog bash
 
 Use `apk`, the Alphine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
-```Dockefile
+```Dockerfile
 FROM node:14
 
 FROM jekyll/jekyll
