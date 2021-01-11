@@ -172,7 +172,7 @@ When you use the Jekyll image in Dockerfile, you lose the entry point, so the co
 
 You can add the steps from the image's Dockerfile.
 
-```Dockefile
+```Dockerfile
 CMD ["jekyll", "--help"]
 ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
 ```
