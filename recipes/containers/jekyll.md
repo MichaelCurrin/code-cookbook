@@ -13,7 +13,7 @@ You can also use these commands in a CI flow if you want, which is actually wher
 
 ## Images
 
-Here links to images on the Docker Hub website under the [jekyll](https://hub.docker.com/u/jekyll) user profile. The standard image will be used in teh next sections but you can change it out.
+Here links to images on the Docker Hub website under the [jekyll](https://hub.docker.com/u/jekyll) user profile. The standard image will be used in the next sections but you can change it out.
 
 - [jekyll/jekyll](https://hub.docker.com/r/jekyll/jekyll) image - standard.
 - [jekyll/builder](https://hub.docker.com/r/jekyll/builder) image - includes tools.
@@ -145,7 +145,7 @@ $ docker exec -it blog bash
 ## Use in Dockerfile
 > How to use the Jekyll image in a Dockerfile
 
-Use `apk`, the Alphine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
+Use `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
 ```Dockerfile
 FROM node:14
