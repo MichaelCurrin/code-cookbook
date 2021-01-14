@@ -1,15 +1,21 @@
-# Access token cheatsheet
+# Access token guide
+
 
 {% raw %}
 
-## Warning
+## Security warnings
 
-- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin, someone has access to read or write to _all_ your repos.
-- Unfortunately a lot of actions like to use this in their recommendations, but you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it.
-- And if you regenerate the token, you have to go and update all the secrets of repos that use the token.
+- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read or write to _all_ your repos.
+- Unfortunately, the documentation for many actions recommends this option.
+- But you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.
+- Fortunately, GitHub does remove the token values from log output and restricts PRs of forks from using tokens.
+    - Note from the Secrets settings tab of a repo:
+        > Secrets are not passed to workflows that are triggered by a pull request from a fork. [Learn more](https://docs.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets).
+- If you regenerate the token, you have to go and update all the secrets of repos that use that same token. 
+- To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be _functionally the same_, each with access to write to _all_ your public repos and not just on erpe.
 
 
-## Name of the known
+## Name of the token
 
 This is known a "Personal Access Token" or "PAT" or "authentication token".
 
