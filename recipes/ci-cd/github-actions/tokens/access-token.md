@@ -1,18 +1,27 @@
-# Access token guide
+---
+title: Access Token
+description: A guide to the user-generated GitHub auth token for use in workflows
+---
 
 
 {% raw %}
 
-## Security warnings
+## Warnings
 
-- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read or write to _all_ your repos.
-- Unfortunately, the documentation for many actions recommends this option.
-- But you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.
+### Security
+
+- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read or write to _all_ your repos. Both in GH workflows and outside - such as doing a `curl` request on their machine to the GitHub API with your token in the URL or paylad.
+- Unfortunately, the documentation for many actions recommends this Access Token option.
+- But, you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.
 - Fortunately, GitHub does remove the token values from log output and restricts PRs of forks from using tokens.
     - Note from the Secrets settings tab of a repo:
         > Secrets are not passed to workflows that are triggered by a pull request from a fork. [Learn more](https://docs.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets).
-- If you regenerate the token, you have to go and update all the secrets of repos that use that same token. 
-- To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be _functionally the same_, each with access to write to _all_ your public repos and not just on erpe.
+
+### Generating
+
+- You can regenerate a token at any time. This will invalidate any values for the same token which are in use and possibly compromised.
+- Then you have to go and update all the secrets of repos that use that same token. Which is typically just in a repo's workflow secrets or a local `.env` file for GH API use.
+- If you use the same token across many repos, you'll invalidate them all at once and will have to go and update the Secrets section on GH for each. To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be _functionally the same_, each with access to write to _all_ your public repos and not just one repo.
 
 
 ## Name of the token
