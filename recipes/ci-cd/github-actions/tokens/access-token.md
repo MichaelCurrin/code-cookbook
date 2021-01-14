@@ -5,18 +5,20 @@
 ## Warning
 
 - This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin, someone has access to read or write to _all_ your repos.
-- Unfortunately a lot of actions like to use this in their recommendations, but you can swap this out in your workflow.
+- Unfortunately a lot of actions like to use this in their recommendations, but you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it.
 - And if you regenerate the token, you have to go and update all the secrets of repos that use the token.
 
 
-## Access token naming
+## Name of the known
 
-aka "PAT" or "authentication token".
+This is known a "Personal Access Token" or "PAT" or "authentication token".
 
 Depending on the workflow, the token should be named something like one of these:
 
 - `ACCESS_TOKEN`
-- `JEKYLL_PAT` or "Jekyll Personal Access Token" in the case of one project's convention.
+- `JEKYLL_PAT`
+
+Note the `GITHUB_` is a reserved prefix in workflows so custom token names can't start with that.
 
 
 ## About
@@ -44,7 +46,7 @@ Github will also scan to find accidentally committed secrets - [doc](https://hel
 1. Go to **Personal Access Tokens** section.
     - Shortcut URL: [https://github.com/settings/tokens](https://github.com/settings/tokens)
     - Navigation:
-        1. Go to your Github profile.
+        1. Go to your GitHub profile.
         1. Go to **Developer Settings**
         1. Go to the **Personal Access Tokens** section.
 1. **Create** a token - or use one you generated before.
