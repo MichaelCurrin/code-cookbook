@@ -1,5 +1,4 @@
 ---
-layout: listing
 ---
 # Serve from CGI bin
 
@@ -16,7 +15,7 @@ $ chmod +x filename.py
 Run CGI server
 
 ```sh
-$ python3 -m http.server 
+$ python3 -m http.server
 ```
 
 Open in the browser:

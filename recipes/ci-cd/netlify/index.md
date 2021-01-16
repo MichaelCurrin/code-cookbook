@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: netlify
 description: How to setup a Netlify site
 ---
@@ -31,11 +30,11 @@ See the [configure](configure.md) page for how to configure a Netlify build.
 
 ## Netlify vs GH Actions
 
-Netlify is similar to using GH Actions to build and deploy to a `gh-pages` branch, but I find Netlify easier to configure. You need one line for a build command and it will take care of setting up your environment. 
+Netlify is similar to using GH Actions to build and deploy to a `gh-pages` branch, but I find Netlify easier to configure. You need one line for a build command and it will take care of setting up your environment.
 
 With Ruby or Node and your gems and node modules (it will look for Gemfile and packages.json files).
 
-You don't have to setup a GH Actions workflow file of steps or choose any actions. 
+You don't have to setup a GH Actions workflow file of steps or choose any actions.
 
 With GH Actions, setup an auth token to actually push to a `gh-pages` branch for serving on GH Pages. Netlify doesn't need a token or even use a `gh-pages` branch as it stores the content for you. Note using a token makes Netlify more secure - you don't have to manage a token and worry about it getting shared accidentally.
 

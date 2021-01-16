@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: circleci
 ---
 # CircleCI

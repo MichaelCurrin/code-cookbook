@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: ruby
 description: Rake command and Rakefile samples
 ---

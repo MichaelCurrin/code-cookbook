@@ -1,5 +1,4 @@
 ---
-layout: listing
 ---
 # Check links
 

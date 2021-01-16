@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: github
 description: How to use an action to build and deploy a site to GitHub Pages
 ---

@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: docker
 ---
 # Containers

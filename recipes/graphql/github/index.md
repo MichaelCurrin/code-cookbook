@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: github
 description: Recipes for querying data from GitHub's GraphQL API
 ---

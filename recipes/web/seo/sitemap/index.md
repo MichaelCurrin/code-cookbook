@@ -1,11 +1,10 @@
 ---
-layout: listing
 ---
 # Sitemaps
 
 ## Basic
 
-What is a sitemap and do you need one? 
+What is a sitemap and do you need one?
 
 A sitemap is usually machine-readable file such as `/sitemap.xml`. You also get user-facing pages like `/site-map.html` and this may be paginated or have a breakdown of categories, but the focus of this guide is on the XML one.
 

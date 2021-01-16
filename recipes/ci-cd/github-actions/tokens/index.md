@@ -1,5 +1,4 @@
 ---
-layout: listing
 description: Instructions to set a Github token for CI builds
 ---
 # Tokens cheatsheet

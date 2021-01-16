@@ -1,5 +1,4 @@
 ---
-layout: listing
 description: Samples, resources and instructions around run a GH Actions workflow
 ---
 # Workflows

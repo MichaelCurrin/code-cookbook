@@ -1,5 +1,4 @@
 ---
-layout: listing
 description: Configure your JS project for formatting and linting
 ---
 # Format and Lint

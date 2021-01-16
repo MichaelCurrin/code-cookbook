@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: jekyll
 description: How to build a Jekyll static site using GH Actions
 ---

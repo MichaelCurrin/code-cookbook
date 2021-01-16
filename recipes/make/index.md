@@ -1,5 +1,4 @@
 ---
-layout: listing
 logo: cmake
 description: Using the `make` command and Makefile samples
 ---
