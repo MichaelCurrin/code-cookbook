@@ -20,12 +20,12 @@ One day Deno could be the new Node.
 
 This will:
 
-- Setup Deno in the environment.
+- Setup Deno in the environment using [denolib/setup-deno](https://github.com/denolib/setup-deno) action.
 - Use Deno to check formatting and run tests.
 
-What's missing is a build step to compile TS to JS and bundle as a single JS file. That would be useful for distributing a package or making a GH Pages site.
+What's missing is a step build the app - to compile TS to JS and bundle as a single JS file (or binary). That would be useful for distributing a package or making a GH Pages site.
 
-Here is the config:
+Here is the workflow:
 
 - `main.yml`
     ```yaml
