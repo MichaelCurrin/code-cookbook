@@ -1,8 +1,8 @@
 ---
+title: Deno
 logo: deno
 description: Run a GitHub Actions for a Deno app
 ---
-# Deno
 
 <!-- TODO update with learn to code and cheatsheet links -->
 
