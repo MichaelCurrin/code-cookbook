@@ -29,6 +29,7 @@ Note that it is recommended to have a lock file for this flow, though you don't 
         restore-keys: # optional
     ```
 
+Note `restore-keys` is usually set as a multi-line YAML string - of one or two lines. Not an array.
 
 ## Samples
 
@@ -50,7 +51,8 @@ The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm install
@@ -82,7 +84,8 @@ This has an extra step compared with the NPM flow - it uses the `yarn cache dir`
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -105,7 +108,8 @@ A simple example.
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: ${{ runner.os }}-pip-
+          restore-keys: |
+            ${{ runner.os }}-pip-
     ```
 
 ### Ruby
@@ -122,7 +126,8 @@ From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#r
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-gems-
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
       - name: Bundle install
         run: |
