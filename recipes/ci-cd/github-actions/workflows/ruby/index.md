@@ -1,6 +1,10 @@
-# Ruby
+---
+title: Ruby
+logo: ruby
+---
 
 {% raw %}
+
 
 ## Samples
 
