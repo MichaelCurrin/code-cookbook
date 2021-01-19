@@ -18,9 +18,31 @@ One day Deno could be the new Node.
 
 ## Samples
 
+Here we use the [denolib/setup-deno](https://github.com/denolib/setup-deno) action.
+
+### Basic
+
+- `main.yml`
+    ```yaml
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.x
+          
+      - run: |
+          deno --version
+          deno run https://deno.land/std/examples/welcome.ts
+          deno install --allow-read -n deno_cat https://deno.land/std/examples/cat.ts
+          deno_cat ./README.md
+    ```
+
+### Format and test
+
 This will:
 
-- Setup Deno in the environment using [denolib/setup-deno](https://github.com/denolib/setup-deno) action.
+- Setup Deno in the environment...
 - Use Deno to check formatting and run tests.
 
 What's missing is a step build the app - to compile TS to JS and bundle as a single JS file (or binary). That would be useful for distributing a package or making a GH Pages site.
