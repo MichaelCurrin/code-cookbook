@@ -1,4 +1,7 @@
-# Basic
+---
+title: Basic
+description: Minimal workflows for GH Actions to get you started
+---
 
 If you are a JS developer, see the [Basic Node](node/basic.md) section.
 
@@ -66,17 +69,3 @@ This one was copied from the base workflow created through the GitHub Actions UI
             echo Add other actions to build,
             echo test, and deploy your project.
     ```
-
-## Actions used
-
-Uses [Checkout V2](https://github.com/actions/checkout) action - `actions/checkout`. A standard action for most workflows.
-
-You can customize it like this:
-
-```yaml
-steps:
-      - name: 🛎 Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-```
