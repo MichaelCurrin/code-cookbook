@@ -5,7 +5,7 @@ description: The workflow that GH Actions suggests to you for a Go project
 
 ## Sample
 
-- `main.yml`
+- `go.yml` (name suggested for you)
     ```yaml
     name: Go
 
@@ -19,7 +19,7 @@ description: The workflow that GH Actions suggests to you for a Go project
 
       build:
         runs-on: ubuntu-latest
-        
+
         steps:
         - uses: actions/checkout@v2
 
