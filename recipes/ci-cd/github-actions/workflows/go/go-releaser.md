@@ -5,7 +5,12 @@ description: And action to build and release assets for a Go project
 
 {% raw %}
 
-This action helps build your Go application for several platforms in your CI
+This action helps build your Go application for several platforms in your CI.
+
+Note you should still setup Go in workflow, using `setup-go` as per the doc's example below. 
+
+The Go Releaser action handles building assets attaching to a release. I need to look more into the action docs to see how it knows what to release.
+
 
 ## Resources
 
