@@ -16,7 +16,6 @@ description: The workflow that GH Actions suggests to you for a Go project
         branches: [ master ]
 
     jobs:
-
       build:
         runs-on: ubuntu-latest
 
