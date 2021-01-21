@@ -9,7 +9,7 @@ Repo: [actions/setup-go](https://github.com/actions/setup-go)
 
 ## Sample
 
-### Download Go
+### Download a single Go version
 
 ```yaml
 steps:
@@ -19,7 +19,7 @@ steps:
       go-version: 1.15
 ```
 
-### Run Go in your project
+### Download and run Go in your project
 
 ```yaml
 steps:
@@ -30,4 +30,31 @@ steps:
       go-version: '^1.13.1'
       
   - run: go version
+  
+  - run: go run hello.go
+```
+
+### Matrix version
+
+Based on the action's doc.
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    
+    strategy:
+      matrix:
+        go: [ '1.14', '1.13' ]
+        
+    name: Go ${{ matrix.go }}
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go }}
+          
+      - run: go run hello.go
 ```
