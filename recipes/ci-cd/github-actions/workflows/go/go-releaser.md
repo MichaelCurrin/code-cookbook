@@ -1,25 +1,20 @@
 ---
-logo: go
-description: How to build and release assets for a Go project
+description: And action to build and release assets for a Go project
 ---
-# Go
+# Go Releaser
 
 {% raw %}
 
-## Go Releaser
+This action helps build your Go application for several platforms in your CI
 
-This tool helps build your application for several platforms.
-
-### Resources
+## Resources
 
 - [Homepage](https://goreleaser.com/)
 - [Quickstart](https://goreleaser.com/quick-start/)
 - [GitHub Actions](https://goreleaser.com/ci/actions/) section
 
 
-### Sample
-
-There is a GitHub Actions action you can use in your CI.
+## Sample
 
 - `release.yml` from the docs.
     ```yaml
@@ -59,7 +54,7 @@ There is a GitHub Actions action you can use in your CI.
         tags:
           - '*'
     ```
-- Or on a condition.
+- Or on a condition. This flow recommend in the doc lets you run your entire workflow on every push but only release on a tag - perhaps checking event type is "tag" is similar would be more in keeping in GH Actions convention.
     ```yaml
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
