@@ -4,6 +4,6 @@ logo: go
 # Go
 
 
-## CI
+### Related
 
-See [Go]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/build-release-assets/go.md %}) page of the GitHub Actions section of this site.
+See the [Go]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/go/index.md %}) page of the GitHub Actions section of this site.
