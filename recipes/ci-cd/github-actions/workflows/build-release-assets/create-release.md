@@ -1,5 +1,7 @@
 # Create release
 
+{% raw %}
+
 This uses the [Create Release](https://github.com/actions/create-release) action and is based on the doc's example.
 
 - `main.yml`
@@ -14,6 +16,7 @@ This uses the [Create Release](https://github.com/actions/create-release) action
     jobs:
       build:
         name: Create Release
+
         runs-on: ubuntu-latest
         
         steps:
@@ -35,3 +38,5 @@ This uses the [Create Release](https://github.com/actions/create-release) action
               draft: false
               prerelease: false
     ```
+
+{% endraw %}
