@@ -1,5 +1,5 @@
 ---
-title: Go
+title: Release Go assets
 logo: go
 ---
 
