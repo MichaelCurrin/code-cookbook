@@ -121,3 +121,37 @@ See [denolib/setup-deno](https://github.com/denolib/setup-deno).
           - name: Run Tests
             run: deno test -A --unstable
     ```
+    
+A variation without the matrix strategy.
+
+- `deno.yml`
+    ```yaml
+    name: Deno CI
+
+    on:
+      push:
+        branches:
+          - main
+      pull_request:
+        branches:
+          - main
+
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Setup repo
+            uses: actions/checkout@v2
+
+          - name: Setup Deno
+            uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
+            with:
+              deno-version: v1.x
+
+          - name: Cache Dependencies
+            run: deno cache deps.ts
+
+          - name: Run Tests
+            run: deno test -A --unstable
+    ```
