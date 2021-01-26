@@ -78,3 +78,46 @@ Here is the workflow:
           - name: Run tests
             run: deno test --allow-read --allow-write
     ```
+
+### Recommended
+
+Based on the file created for you when adding a new Deno workflow through the GitHub UI.
+
+This will test across two Deno versions and will run on 3 operating systems.
+
+See [denolib/setup-deno](https://github.com/denolib/setup-deno).
+
+- `deno.yml`
+    ```yaml
+    name: Deno CI
+
+    on:
+      push:
+        branches: [main]
+      pull_request:
+        branches: [main]
+
+    jobs:
+      test:
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+          matrix:
+            deno: ["v1.x", "nightly"]
+            os: [macOS-latest, windows-latest, ubuntu-latest]
+
+        steps:
+          - name: Setup repo
+            uses: actions/checkout@v2
+
+          - name: Setup Deno
+            uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
+            with:
+              deno-version: ${{ matrix.deno }}
+
+          - name: Cache Dependencies
+            run: deno cache deps.ts
+
+          - name: Run Tests
+            run: deno test -A --unstable
+    ```
