@@ -122,7 +122,7 @@ See [denolib/setup-deno](https://github.com/denolib/setup-deno).
             run: deno test -A --unstable
     ```
     
-A variation without the matrix strategy.
+A variation without the matrix strategy. And using v2 instead of a commit hash.
 
 - `deno.yml`
     ```yaml
@@ -145,7 +145,7 @@ A variation without the matrix strategy.
             uses: actions/checkout@v2
 
           - name: Setup Deno
-            uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
+            uses: denolib/setup-deno@v2
             with:
               deno-version: v1.x
 
