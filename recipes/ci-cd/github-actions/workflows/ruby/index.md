@@ -32,7 +32,7 @@ Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby
 
 - `main.yml`
     ```yaml
-    - name: Load cached dependencies
+    - name: Get cached gems
       uses: actions/cache@v2
       with:
         path: vendor/bundle
