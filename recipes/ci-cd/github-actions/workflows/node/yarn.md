@@ -12,7 +12,7 @@ GH Actions already setups Node and Yarn for you. If you want more customization,
 
 ### Simple
 
-The GH docs recommend running `yarn install` like this:
+The GH docs recommend installing with Yarn using Setup Node action and frozen lockfile flag. 
 
 ```yaml
 steps:
@@ -20,10 +20,12 @@ steps:
   uses: actions/setup-node@v2
 
 - name: Install dependencies
-  run: yarn --frozen-lockfile
+  run: yarn install --frozen-lockfile
 ```
 
-The `--frozen-lockfile` flag is to prevent changes to the lockfile.
+The `--frozen-lockfile` flag is to prevent changes to the lockfile. Presumably this only makes a difference if you added a package to `package.json` without updating your lockfile locally, which means a CI install will install packages and change the lockfile each time, without saving it.
+
+Note that NPM doesn't have the flag and it NPM installs get by fine in CI.
 
 ### Caching
 
