@@ -26,8 +26,8 @@ The Go Releaser action handles building assets attaching to a release. I need to
     name: goreleaser
 
     on:
-      pull_request:
       push:
+      pull_request:
 
     jobs:
       goreleaser:
@@ -57,7 +57,7 @@ The Go Releaser action handles building assets attaching to a release. I need to
     on:
       push:
         tags:
-          - '*'
+          - 'v*'
     ```
 - Or on a condition. This flow recommend in the doc lets you run your entire workflow on every push but only release on a tag - perhaps checking event type is "tag" is similar would be more in keeping in GH Actions convention.
     ```yaml
