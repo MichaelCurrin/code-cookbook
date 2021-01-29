@@ -31,19 +31,20 @@ logo: ruby
 Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler).
 
 - `main.yml`
-    ```yaml
-    - name: Get cached gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+```yaml
+steps:
+  - name: Get cached gems
+    uses: actions/cache@v2
+    with:
+      path: vendor/bundle
+      key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      restore-keys: |
+        ${{ runner.os }}-gems-
 
-    - name: Install dependencies
-      run: |
-        bundle config set path vendor/bundle
-        bundle install --jobs 4 --retry 3
-    ```
+  - name: Install dependencies
+    run: |
+      bundle config set path vendor/bundle
+      bundle install --jobs 4 --retry 3
+```
 
 {% endraw %}
