@@ -3,6 +3,8 @@ description: A generic action which builds a GH Pages and works great with Jekyl
 ---
 # GitHub Pages action by Peace Iris
 
+{% raw %}
+
 Action:
 
 - [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages`
@@ -10,6 +12,7 @@ Action:
 This action will publish a target build directory as a `gh-pages` branch with a commit and it will serve it on GH Pages.
 
 This does not actually build the directory itself, leaving that up to you with your own steps.
+
 This action integrates well with any flow that writes a build directory. Including static site generators such as Jekyll, Hugo, MkDocs, Gatsby, GitBook and mdBook, or web apps such as a React and Vue which have a `npm run build` step.
 
 This action also has many stars so that adds to my confidence in its quality and long term maintenance.
@@ -64,3 +67,5 @@ Choose a repo for `external_repository`. Note use of `deploy_key` from that targ
     publish_branch: master
     publish_dir:/public
 ```
+
+{% endraw %}
