@@ -6,6 +6,8 @@ description: Workflows for running Yarn on GitHub Actions
 
 {% raw %}
 
+GH Actions already setups Node and Yarn for you. If you want more customization, you can use an action to setup Node or Yarn.
+
 ## Samples
 
 ### Simple
@@ -15,13 +17,11 @@ The GH docs recommend running `yarn install` like this:
 ```yaml
 steps:
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
 
 - name: Install dependencies
   run: yarn --frozen-lockfile
 ```
-
-Note that `yarn` is **already** included in `setup-node`, so you don't need any Node or Yarn action to handle that.
 
 The `--frozen-lockfile` flag is to prevent changes to the lockfile.
 
@@ -29,7 +29,7 @@ The `--frozen-lockfile` flag is to prevent changes to the lockfile.
 
 Load cached dependencies.
 
-See the Yarn section of the [Cache]({{ site.baseurl }}{% link code-cookbook/ci-cd/github-actions/workflows/cache.md) guide.
+See the Yarn section of the [Cache]({{ site.baseurl }}{% link code-cookbook/ci-cd/github-actions/workflows/cache.md %) guide.
 
 ### GH Actions sample
 
