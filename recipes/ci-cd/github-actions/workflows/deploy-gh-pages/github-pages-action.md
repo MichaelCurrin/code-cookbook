@@ -26,7 +26,7 @@ This supports all 3 token types, but `GITHUB_TOKEN` is the simplest and works pe
 
 Deploy to `gh-pages` branch (by default).
 
-Add this as a step in your workflow and set the last parameter to your build directly e.g. `_site` or `build`.
+Add this as a step in your workflow and set the last parameter to your build directly e.g. `_site` for Jekyll or `build` for a Node app.
 
 ```yaml
 - name: Deploy 🚀
@@ -42,15 +42,15 @@ Add this as a step in your workflow and set the last parameter to your build dir
 Prevent the old files in the `gh-pages` from being deleted. This is useful if you have hash filenames for assets and want to keep the assets for old deploys available. This avoids getting 404 error on loading JS for example, where the browser has the old HTML page cached. That error causes a blank page on a Vue app after a deploy.
 
 ```yaml
-    keep_files: true
+keep_files: true
 ```
 
-### Publish to custom branch
+### Publish to a custom branch
 
 Choose a different branch.
 
 ```yaml
-    publish_branch: master
+publish_branch: master
 ```
 
 ### Publish to alternative repo
@@ -65,7 +65,7 @@ Choose a repo for `external_repository`. Note use of `deploy_key` from that targ
     deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     external_repository: username/external-repository
     publish_branch: master
-    publish_dir:/public
+    publish_dir: public
 ```
 
 {% endraw %}
