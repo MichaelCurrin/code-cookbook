@@ -4,6 +4,8 @@ logo: deno
 description: Run a GitHub Actions for a Deno app
 ---
 
+{% raw %}
+
 <!-- TODO update with learn to code and cheatsheet links -->
 
 - [deno.land](https://deno.land/)
@@ -103,8 +105,8 @@ See [denolib/setup-deno](https://github.com/denolib/setup-deno).
 
         strategy:
           matrix:
+            os: [ubuntu-latest, macOS-latest, windows-latest]
             deno: ["v1.x", "nightly"]
-            os: [macOS-latest, windows-latest, ubuntu-latest]
 
         steps:
           - name: Setup repo
@@ -155,3 +157,5 @@ A variation without the matrix strategy. And using v2 instead of a commit hash.
           - name: Run Tests
             run: deno test -A --unstable
     ```
+
+{% endraw %}
