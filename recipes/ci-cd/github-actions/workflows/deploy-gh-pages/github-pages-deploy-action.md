@@ -3,6 +3,8 @@ title: GitHub Pages Deploy action by JamesIves
 description: Deploy your static output directory on the GH Pages branch
 ---
 
+{% raw %}
+
 Action:
 
 - [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
@@ -156,3 +158,5 @@ Notes:
 
 - This could can be setup to only run the deploy after tests pass.
 - This could also be adjusted test can run on any branch, but _deploy_ only on master pushes.
+
+{% endraw %}
