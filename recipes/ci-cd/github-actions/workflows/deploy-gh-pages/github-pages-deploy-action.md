@@ -80,7 +80,7 @@ Notes:
 - `with` is used here but `env` in the example below - does that matter?
 - `actions/setup-node` is not used.
 - Some more emojis to use: `⚙️ 🧱`
-- If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+- If you're using `actions/checkout@v2` you must set persist-credentials to false in most cases for the deployment to work correctly.
 - The branch is _required_.
 - Tests are missing. See example below.
 
