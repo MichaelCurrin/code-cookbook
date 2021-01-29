@@ -129,7 +129,7 @@ Based on [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.
 
       - name: Install gems
         run: |
-          bundle config set --local path vendor/bundle
+          bundle config set path vendor/bundle
           bundle install --jobs 4 --retry 3
     ```
 
