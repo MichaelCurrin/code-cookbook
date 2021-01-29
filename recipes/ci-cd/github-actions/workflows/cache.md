@@ -114,14 +114,12 @@ A simple example.
 
 ### Ruby
 
-From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler) example.
-
-> When dependencies are installed later in the workflow, we must specify the same path for the bundler.
+Based on [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler) example.
 
 - `main.yml`
     ```yaml
     steps:
-      - name: "Cache: Set up bundler cache"
+      - name: Get cached gems
         uses: actions/cache@v2
         with:
           path: vendor/bundle
@@ -129,12 +127,10 @@ From [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#r
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Bundle install
+      - name: Install gems
         run: |
-          bundle config path vendor/bundle
+          bundle config set --local path vendor/bundle
           bundle install --jobs 4 --retry 3
     ```
-
-Maybe use `bundle config --local ...` as that is what I do locally.
 
 {% endraw %}
