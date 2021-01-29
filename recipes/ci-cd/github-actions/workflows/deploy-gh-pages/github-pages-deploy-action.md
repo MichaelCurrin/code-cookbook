@@ -1,13 +1,16 @@
-# GitHub Pages Deploy action
+---
+title: GitHub Pages Deploy action by JamesIves
+description: Deploy your static output directory on the GH Pages branch
+---
 
 Action:
 
 - [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
-
+    >  This GitHub Action will automatically deploy your project to GitHub Pages. It can be configured to push your production-ready code into any branch you'd like, including `gh-pages` and `docs`. It can also handle cross repository deployments too. 
 
 ## Usage
 
-Add this to steps:
+Add this to your steps:
 
 ```yaml
 - name: Deploy 🚀
