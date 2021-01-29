@@ -1,7 +1,7 @@
 ---
 description: A generic action which builds a GH Pages and works great with Jekyll and React/Vue JS apps
 ---
-# GitHub Pages action
+# GitHub Pages action by Peace Iris
 
 Action:
 
