@@ -2,6 +2,7 @@
 title: Deploy to Netlify
 logo: netlify
 description: Build your Netlify site on schedule using a request to a build hook
+layout: page  # Hide menus
 ---
 
 {% raw %}
