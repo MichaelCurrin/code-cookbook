@@ -2,10 +2,11 @@
 title: Deploy to Netlify
 logo: netlify
 description: Build your Netlify site on schedule using a request to a build hook
-layout: page  # Hide menus
 ---
 
 {% raw %}
+
+This guide was inspired by this [post](https://dev.to/chantastic/schedule-netlify-builds-with-github-actions-chron-and-webhooks-17n7).
 
 
 ## The problem case
