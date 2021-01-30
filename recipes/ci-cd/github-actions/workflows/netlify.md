@@ -1,9 +1,11 @@
 ---
 title: Deploy to Netlify
+logo: netlify
 description: Build your Netlify site on schedule using a request to a build hook
 ---
 
 {% raw %}
+
 
 ## The problem case
 
@@ -47,7 +49,7 @@ jobs:
 
     steps:
       - name: Request build hook
-        run: curl -d '' {{ }}
+        run: curl -d '' {{ secrets.NETLIFY_HOOK_URL }}
 ```
 
 Here we run daily at midnight in UTC time. Which is the same as GMT+00:00.
