@@ -20,21 +20,26 @@ This action also has many stars so that adds to my confidence in its quality and
 
 ## Usage
 
-This supports all 3 token types, but `GITHUB_TOKEN` is the simplest and works perfectly so I prefer that. You do not need to modify the token field below - you can copy and paste as is and GH Actions will substitute your secret token in for you.
+This action supports all 3 token types for getting permissions to commit to your branch.
+
+I highly recommend `GITHUB_TOKEN` as set below. It requires zero setup and is the most secure (no human can see the token value not even you, and unlike the personal access token the GitHub token only has access to _one repo_ and not all of them). 
+
+You do not need to modify your Secrets. You can copy and paste the code below exactly as it is, then GH Actions will create and substitute a secret token for you in each run.
 
 ### Basic
 
-Deploy to `gh-pages` branch (by default).
+Deploy to the `gh-pages` branch (by default).
 
-Add this as a step in your workflow and set the last parameter to your build directly e.g. `_site` for Jekyll or `build` for a Node app.
+Add this as a step in your workflow and set the last parameter to your build directory e.g. `_site` for Jekyll or `build` for a Node app.
 
 ```yaml
-- name: Deploy 🚀
-  uses: peaceiris/actions-gh-pages@v3
+steps:
+  - name: Deploy 🚀
+    uses: peaceiris/actions-gh-pages@v3
 
-  with:
-    github_token: ${{ secrets.GITHUB_TOKEN }}
-    publish_dir: public
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: public
 ```
 
 ### Don't clean
@@ -53,7 +58,7 @@ Choose a different branch.
 publish_branch: master
 ```
 
-### Publish to alternative repo
+### Publish to an alternative repo
 
 Choose a repo for `external_repository`. Note use of `deploy_key` from that target repo, as `github_token` will probably not work.
 
