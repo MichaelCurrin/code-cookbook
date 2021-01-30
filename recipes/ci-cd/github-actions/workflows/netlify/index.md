@@ -8,6 +8,8 @@ description: Build your Netlify site on schedule using a request to a build hook
 
 This guide was inspired by this [post](https://dev.to/chantastic/schedule-netlify-builds-with-github-actions-chron-and-webhooks-17n7).
 
+This leverages the scheduling of a GH Action and a [Netlify build hook](https://docs.netlify.com/configure-builds/build-hooks/).
+
 
 ## The problem case
 
@@ -22,7 +24,7 @@ We are going to use GH Actions on a schedule to trigger that build.
 
 ## How to setup
 
-1. In Netlify, go to site preferences and create a build hook for a site. 
+1. In Netlify, go to site preferences and create a build hook for your site. 
     - When you do a _POST_ request that URL, your site will build. 
    - If you want, you can test the snippet by running it locally and then checking your deploys in Netlify.
 1. Copy the URL portion of the snippet you get.
