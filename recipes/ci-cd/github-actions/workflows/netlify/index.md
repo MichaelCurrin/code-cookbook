@@ -8,7 +8,11 @@ description: Build your Netlify site on schedule using a request to a build hook
 
 This guide was inspired by this [post](https://dev.to/chantastic/schedule-netlify-builds-with-github-actions-chron-and-webhooks-17n7).
 
-This leverages the scheduling of a GH Action and a [Netlify build hook](https://docs.netlify.com/configure-builds/build-hooks/).
+This leverages following areas:
+
+- Scheduling of a GH Action
+- GH secret environment variables
+- Netlify build hooks - see [docs](https://docs.netlify.com/configure-builds/build-hooks/).
 
 
 ## The problem case
