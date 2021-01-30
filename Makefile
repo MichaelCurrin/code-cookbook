@@ -1,7 +1,9 @@
 default: install
 
+all: hooks install build
+
 h help:
-	@egrep '^\S|^$$' Makefile
+	@grep '^[a-z]' Makefile
 
 
 .PHONY: hooks
