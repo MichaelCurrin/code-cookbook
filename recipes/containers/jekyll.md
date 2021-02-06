@@ -147,7 +147,7 @@ $ docker exec -it blog bash
 
 Using the Jekyll container as a binary in the previous sections might be too limiting. In this sample below, we include Node and Jekyll images together and install SQLite.
 
-I normally like `apt`. But instead I used `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
+Here using `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
 ```Dockerfile
 FROM node:14
@@ -157,13 +157,13 @@ RUN apk update
 RUN apk add sqlite
 ```
 
-If you do want to use `apt-get`, you must use it before `jekyll`, otherwise it will not be found.
+If you do want to use `apt-get`, you must use it _before_ `jekyll`, otherwise it will not be found. I don't know why - the Jekyll image seems to do something to remove use of `apt-get`.
 
 ```Dockerfile
 FROM node:14
 
 RUN apt-get update
-RUN apk install -y \
+RUN apt-get install -y \
   sqlite
 
 FROM jekyll/jekyll
