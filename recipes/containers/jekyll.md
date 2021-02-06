@@ -145,9 +145,11 @@ $ docker exec -it blog bash
 ## Use with a Dockerfile
 > How to use the Jekyll image in a Dockerfile
 
-Using the Jekyll container as a binary in the previous sections might be too limiting. In this sample below, we include Node and Jekyll images together and install SQLite.
+Using the Jekyll container as a binary in the previous sections might be too limiting. 
 
-Here using `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
+In this sample below, we include Node and Jekyll images together and install SQLite.
+
+Here installing SQLite using `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
 ```Dockerfile
 FROM node:14
@@ -167,6 +169,14 @@ RUN apt-get install -y \
   sqlite
 
 FROM jekyll/jekyll
+```
+
+If you prefer to install Node with a command rather than an image. You might get an old version like v10. You'll need to add a registry if you want 12 or 14.
+
+```Dockerfile
+RUN apt-get update
+RUN apt-get install -y \
+  node.js
 ```
 
 When you use the Jekyll image in Dockerfile, you lose the entry point, so the container will do nothing.
