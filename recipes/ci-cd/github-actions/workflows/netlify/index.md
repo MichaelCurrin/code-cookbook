@@ -43,7 +43,9 @@ We are going to use GH Actions on a daily schedule to trigger that build.
     - Go to _Actions_ tab of your repo and create a new workflow - at the top click _set up an workflow yourself_.
     - Or create a file file with path `.github/workflows/netlify.yml`.
 1. Copy and paste the content from the workflow file below.
-1. Now wait for your workflow to run at the specified time. You'll see it logged on the Actions tab and in your Netlify deploys.
+1. Now wait for your workflow to run at the specified time. 
+    - Find it logged on the Actions tab.
+    - Find it logged in your Netlify deploys - as "Deploy triggered by build hook: hook1".
 
 
 ## Workflow file
@@ -74,4 +76,26 @@ We are going to use GH Actions on a daily schedule to trigger that build.
 - Customize the schedule expression with the help [crontab.guru](https://crontab.guru).
 - We turn the curl request into a _POST_ by supplying an empty data payload with `-d`.
 - You secret will be kept private in your logs. The above will be logged as `curl -d '' https://api.netlify.com/build_hooks/***`.
+
+
+## Manually trigger
+
+You can trigger your build manually at any time using the following approaches:
+
+### Workflow dispatch in GH Actions
+
+Expand the workflow above to allow manual builds through GitHub. For example, if you want to check that your workflow and secret are setup correctly.
+
+```yaml
+on:
+  schedule:
+    - cron: "0 0 * * *"
+```
+
+Then under the Actions tab for a workflow, you will see "This workflow has a workflow_dispatch event trigger." and the "Run workflow" button.
+
+### Trigger in GH Actions
+
+Under "Deploys", click "Trigger deploy".
+
 {% endraw %}
