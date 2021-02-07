@@ -63,8 +63,8 @@ We are going to use GH Actions on a daily schedule to trigger that build.
         runs-on: ubuntu-latest
 
         steps:
-          - name: Request build hook
-            run: curl -d '' https://api.netlify.com/build_hooks/{{ secrets.NETLIFY_HOOK_ID }}
+          - name: Trigger hook
+            run: curl -d '' https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_HOOK_ID }}
     ```
 
 ### Notes
