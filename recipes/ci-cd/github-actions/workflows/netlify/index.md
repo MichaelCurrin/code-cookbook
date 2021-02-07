@@ -73,5 +73,5 @@ We are going to use GH Actions on a daily schedule to trigger that build.
 - If hover of the cron time when editing with Actions tab, GitHub will show you the frequency on hover.
 - Customize the schedule expression with the help [crontab.guru](https://crontab.guru).
 - We turn the curl request into a _POST_ by supplying an empty data payload with `-d`.
-
+- You secret will be kept private in your logs. The above will be logged as `curl -d '' https://api.netlify.com/build_hooks/***`.
 {% endraw %}
