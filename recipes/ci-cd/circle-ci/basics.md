@@ -1,12 +1,13 @@
-# Basic
+# Basics
+
 
 ## Samples
 
-From [Digging Into Your First Pipeline](https://circleci.com/docs/2.0/getting-started/#digging-into-your-first-pipeline) in the docs.
+From [Digging Into Your First Pipeline](https://circleci.com/docs/2.0/getting-started/#digging-into-your-first-pipeline) part of the Getting Started docs.
 
 ### Single job
 
-A Node.js job.
+A Node.js app.
 
 - `.circleci/config.yml`
     ```yaml
