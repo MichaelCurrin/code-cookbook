@@ -3,12 +3,40 @@ description: Using Python, Flask and Postgres
 ---
 # Python
 
-From [Project walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) doc.
+{% raw %}
+
+Mostly from [Project walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) doc.
 
 I've added empty lines for easy reading.
 
 
 ## Samples
+
+### CircleCI default
+
+```yaml
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+      - run:
+          command: ./manage.py test
+          name: Test
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
+```
 
 ### Install
 
@@ -17,6 +45,7 @@ Install Python packages.
 - `main.yml`
     ```yaml
     version: 2
+    
     jobs:
       build:
         docker:
@@ -34,6 +63,7 @@ Add a database - such as for running tests against a staging database.
 - `main.yml`
     ```yaml
     version: 2
+    
     jobs:
       build:
         docker:
@@ -53,8 +83,6 @@ Add a database - such as for running tests against a staging database.
 ### Combine
 
 Both of the previous sections combined.
-
-{% raw %}
 
 - `main.yml`
     ```yaml
@@ -152,7 +180,6 @@ The example flow continue including caching of packages and deploying to Heroku.
       deploy:
         steps:
           - checkout
-
           - run:
               name: Deploy Master to Heroku
               command: |
