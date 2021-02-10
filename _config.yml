@@ -30,6 +30,11 @@ exclude:
   - README.md
   - sample*.png
 
+liquid:
+  error_mode: strict
+
+strict_front_matter: true
+
 ### Theme boilerplate ###
 
 remote_theme: MichaelCurrin/fractal
