@@ -4,11 +4,13 @@ description: Basic web servers with Deno
 # Servers
 
 
-Run the examples below using:
+Run the examples below using network permissions allowed.
 
 ```sh
-$ deno run server.ts --allow-net
+$ deno run --allow-net server.ts 
 ```
+
+Note the flag must be _before_ the path, not at the end.
 
 
 ## Using serve
@@ -86,7 +88,9 @@ Web server with routing - we add a `/users` endpoint.
 
 ## Using ABC
 
-From the `README.md` of the [abc](https://deno.land/x/abc) package.
+### Basic
+
+Simple server from the `README.md` of the [abc](https://deno.land/x/abc) package.
 
 - `server.ts`
     ```typescript
@@ -103,4 +107,41 @@ From the `README.md` of the [abc](https://deno.land/x/abc) package.
       .start({ port: APP_PORT });
     ```
 
-See also the [examples](https://deno.land/x/abc@v1.2.4/examples) directory.
+Below are adapted from the [examples](https://deno.land/x/abc@v1.2.4/examples) directory.
+
+### Static
+
+This setup serves file in the static `assets` directory.
+
+- `static.ts`
+    ```typescript
+    import { cors } from "https://deno.land/x/abc@v1.2.4/middleware/cors.ts";
+    import { Application } from "https://deno.land/x/abc@v1.2.4/mod.ts";
+
+    const APP_PORT = 8080;
+
+    const app = new Application();
+    
+    app.static("/", "./assets", cors())
+      .start({ port: APP_PORT });
+    console.log(`Server listening on http://localhost:${APP_PORT}`);
+    ```
+    
+In the case of `app.static`, you must as file permissions.
+
+```sh
+$ deno run --allow-net --allow-read static.ts 
+```
+
+If you have an `index.html` file you want to view, you must reference it explicitly.
+
+- This will work: [localhost:8080/index.html](http://localhost:8080/index.html)
+- This will give a 404 not found error: [localhost:8080/](http://localhost:8080/)
+
+From the docs for `app.static`:
+
+> Register a new route with path prefix to serve static files from the provided root directory.
+>
+> For example, a request to `/static/js/main.js` will fetch and serve `assets/js/main.js` file.
+>
+> `app.static("/static", "assets");`
