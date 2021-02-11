@@ -1,6 +1,6 @@
 ---
-title: Frontend compilation
-description: Add Vue.js to your frontend - no CLI or build step needed
+title: No build step
+description: How to add Vue.js to your frontend - no Vue CLI or build step needed
 ---
 
 {% raw %}
@@ -14,7 +14,24 @@ If you want the full dev experience with Node and Vue CLI, then you would use [v
 
 See also [MichaelCurrin/vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart).
 
-But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow the samples below. These don't need a server-side build step to compile SFC files.
+But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow some samples below. These don't need a server-side build step to compile SFC files.
+
+
+## Template in script tag
+
+Normally you set `template` tag in a `.vue` file.
+
+You can set `template` on a Vue object and it will be compiled for you.
+
+```javascript
+export default {
+   name: "Foo",
+   props: {
+     message: { type: String, required: true },
+   },
+   template: "<span>{{ message }}</span>",
+};
+```
 
 
 ## JSPM sample
