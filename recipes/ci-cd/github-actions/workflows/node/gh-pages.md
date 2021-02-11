@@ -5,6 +5,7 @@ description: Deploy a GH Pages app using GH Actions and NPM/Yarn
 
 {% raw %}
 
+
 ## About
 
 This guide covers how to setup two things in one workflow:
@@ -79,6 +80,5 @@ The downside of using two jobs is that you need extra code to save the build out
 
 Or you have two workflow files. The one does just a build. And the deploy workflow does a build and deploy.
 But then you have to duplicate and maintain install/test/build steps in both. And you probably want to be efficent and adjust your conditions to prevent both flows from running at once. The build one then only needs to run on a PR and the deploy one needs to run on master.
-
 
 {% endraw %}
