@@ -1,11 +1,10 @@
 ---
-title: Vue files
-description: Setting up a site using `.vue` files
+title: Codepen template
 ---
 
-## CodePen sample
+Sample from the [CodePen](https://codepen.io) standard Vue template file. 
 
-Sample from the [CodePen](https://codepen.io) Vue template. Create your own here: [codepen.io/pen/editor/vue](https://codepen.io/pen/editor/vue)
+Create your own here: [codepen.io/pen/editor/vue](https://codepen.io/pen/editor/vue)
 
 - `App.vue`
     ```vue
