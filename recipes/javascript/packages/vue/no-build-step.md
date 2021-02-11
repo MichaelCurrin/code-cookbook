@@ -26,9 +26,6 @@ You can set `template` on a Vue object and it will be compiled for you.
 ```javascript
 export default {
    name: "Foo",
-   props: {
-     message: { type: String, required: true },
-   },
    template: "<span>{{ message }}</span>",
 };
 ```
