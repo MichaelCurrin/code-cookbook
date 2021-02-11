@@ -1,5 +1,5 @@
 ---
-title: Codepen template
+title: CodePen Vue template
 ---
 
 Sample from the [CodePen](https://codepen.io) standard Vue template file. 
