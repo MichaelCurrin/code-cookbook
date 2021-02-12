@@ -1,6 +1,7 @@
 ---
 title: Upload assets
 description: Take an artifact like an archive file and attach it to a GitHub release
+---
 
 {% raw %}
 
