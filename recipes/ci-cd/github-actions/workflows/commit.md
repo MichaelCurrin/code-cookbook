@@ -1,8 +1,9 @@
 ---
-description: How to use a generic Action to commit files during the CI flow.
+title: Commit
+description: How to commit files during the CI flow - using a generic Action
 ---
-# Commit
 
+{% raw %}
 
 ## Use-cases
 
@@ -104,3 +105,5 @@ This will only work if the branch already exists, as it does not use `-b` in che
 For comparison, there is a similar action dedicated to GitHub Pages but it uses TypeScript and has a lot more files.
 
 - [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+
+{% endraw %}
