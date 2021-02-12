@@ -49,22 +49,28 @@ A simple way to commit any changes on the current branch.
 
 ### Use the Publish to GitHub action
 
-This uses an action maintained by GitHub - [actions/push-new-files-back-to-master](https://github.com/marketplace/actions/push-new-files-back-to-master).
+See [push-new-files-back-to-master](https://github.com/marketplace/actions/push-new-files-back-to-master) Action in the GH Marketplace.
+
+> A GitHub Action to push any local file changes, including new files, back to supplied branch name.
+>
+> This action is useful to put after other actions that modify files in the local checkout that you'd then like to persist back into the repository.
 
 - `main.yml`
     ```yaml
     steps:
-      - run: # Build site...
+      - name: Build
+        run: ...
 
-      - uses: mikeal/publish-to-github-action@master
+      - name: Commit changes
+        uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 
-If you don't want to commit to `master`, you can specify a branch in `env` like so:
+Specify another branch instead of `master`.
 
 ```yaml
-BRANCH_NAME: my-branch
+BRANCH_NAME: main
 ```
 
 If you look at the code in the action, this is what is does (excluding validating variables and working with GitHub LFS).
