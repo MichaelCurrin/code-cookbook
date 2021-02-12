@@ -9,16 +9,16 @@ description: How to commit files during the CI flow - using a generic Action
 
 When you might want to create and persist changes in CI:
 
-- Binary files for distribution
+- Binary files for distribution.
     - Compiled file for C, Go, Rust, etc.
     - Archive file for a Ruby gem or VS Code Extension.
     - A `dist` directory of JS files.
-- Static assets for serving on GH Pages
-    - Built with a static site generator like Jekyll.
-    - Build wih `npm run build`.
-- Doc changes in `README.md`
-    - Update list of contributors.
-    - Update table of contents.
+- Static assets for serving on GH Pages.
+    - Build with a static site generator like Jekyll, Hugo or Gatsby.
+    - Build your Node app with `npm run build`.
+- Doc changes in `README.md`.
+    - Update a list of contributors.
+    - Update a table of contents.
 
 
 ## Samples
