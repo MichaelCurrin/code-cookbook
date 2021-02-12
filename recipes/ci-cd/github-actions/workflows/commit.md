@@ -7,17 +7,17 @@ description: How to commit files during the CI flow - using a generic Action
 
 ## Use-cases
 
-When you might want to create and persist changes in CI:
+Some situations when you might want to add/edit and commit files all during a single CI run.
 
 - Binary files for distribution.
     - Compiled file for C, Go, Rust, etc.
-    - Archive file for a Ruby gem or VS Code Extension.
+    - An rchive file for a Ruby gem or VS Code Extension.
     - A `dist` directory of JS files.
 - Static assets for serving on GH Pages.
     - Build with a static site generator like Jekyll, Hugo or Gatsby.
     - Build your Node app with `npm run build`.
 - Doc changes in `README.md`.
-    - Update a list of contributors.
+    - Update a list of contributors. (A GH bot can handle this for you)
     - Update a table of contents.
 
 
