@@ -64,7 +64,9 @@ steps:
 
 ### Load Go version dynamically
 
-Use `grep` to find the version in `go.mod` file. 
+Use `grep` to find the version in `go.mod` file or `Dockerfile`.
+
+#### Use GitHub env file and go.mod
 
 This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`. That file is then read in the next step. See more info on `$GITHUB_ENV` on this [Persist](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/persist.html) guide in my cheatsheets.
 
@@ -84,7 +86,9 @@ Thanks to comment [here](https://github.com/actions/setup-go/issues/23#issuecomm
 
 That the regex groups or `-o` flag are not used here, but `cut` command is. Which means the regex pattern can be short as `go \d\.` (assuming single digit major version) or longer as `go \d+\.\d+'` but with `egrep`.
 
-Or load from `Dockerfile`.
+#### Use outputs and Dockerfile
+
+Based on [iron-go-project](https://github.com/ironpeakservices/iron-go-project/blob/master/.github/workflows/build.yml).
 
 ```yaml
 steps:
