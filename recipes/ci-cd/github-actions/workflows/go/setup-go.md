@@ -49,18 +49,19 @@ go env
 
 Here is the Action with more steps around it.
 
-```yaml
-steps:
-  - uses: actions/checkout@v2
-  
-  - uses: actions/setup-go@v2
-    with:
-      go-version: '^1.13.1'
-      
-  - run: go version
-  
-  - run: go run hello.go
-```
+- `main.yml`
+    ```yaml
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.13.1'
+
+      - run: go version
+
+      - run: go run hello.go
+    ```
 
 ### Load Go version dynamically
 
@@ -70,17 +71,18 @@ Use `grep` to find the version in `go.mod` file or `Dockerfile`.
 
 This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`. That file is then read in the next step. See more info on `$GITHUB_ENV` on this [Persist](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/persist.html) guide in my cheatsheets.
 
-```yaml
-steps:
-  - uses: actions/checkout@v2
-  
-  - name: Get Go version
-    run: echo "GO_VERSION=$(grep 'go \d\.' go.mod | cut -d ' ' -f 2)" >> $GITHUB_ENV
-    
-  - uses: actions/setup-go@v2
-    with:
-      go-version: ${{ env.GO_VERSION }}
-```
+- `main.yml`
+    ```yaml
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Go version
+        run: echo "GO_VERSION=$(grep 'go \d\.' go.mod | cut -d ' ' -f 2)" >> $GITHUB_ENV
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GO_VERSION }}
+    ```
 
 Thanks to comment [here](https://github.com/actions/setup-go/issues/23#issuecomment-732276072) on a `setup-go` issue.
 
@@ -90,46 +92,52 @@ That the regex groups or `-o` flag are not used here, but `cut` command is. Whic
 
 Based on [iron-go-project](https://github.com/ironpeakservices/iron-go-project/blob/master/.github/workflows/build.yml).
 
-```yaml
-steps:
-  - name: Checkout
-    uses: actions/checkout@v2
+- `Dockerfile`
+    ```Dockerfile
+    FROM golang:1.15
+    ```
+- `main.yml`
+    ```yaml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  - name: Get Go version
-    id: vars
-    run: |
-      echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
-      echo "Using Go version ${{ steps.vars.outputs.go_version }}"
+      - name: Get Go version
+        id: vars
+        run: |
+          echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
+          echo "Using Go version ${{ steps.vars.outputs.go_version }}"
 
-  - name: Setup Go
-    uses: actions/setup-go@v2
-    with:
-      go-version: ${{ steps.vars.outputs.go_version }}
-```
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ steps.vars.outputs.go_version }}
+    ```
 
 ### Matrix version
 
 How to run against multiple Go version. Based on the action's doc.
 
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-16.04
-    
-    strategy:
-      matrix:
-        go: [ '1.14', '1.13' ]
-        
-    name: Go ${{ matrix.go }}
-    
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup go
-        uses: actions/setup-go@v1
-        with:
-          go-version: ${{ matrix.go }}
-          
-      - run: go run hello.go
-```
+- `main.yml`
+    ```yaml
+    jobs:
+      build:
+        runs-on: ubuntu-16.04
+
+        strategy:
+          matrix:
+            go: [ '1.14', '1.13' ]
+
+        name: Go ${{ matrix.go }}
+
+        steps:
+          - uses: actions/checkout@v2
+          - name: Setup go
+            uses: actions/setup-go@v1
+            with:
+              go-version: ${{ matrix.go }}
+
+          - run: go run hello.go
+    ```
 
 {% endraw %}
