@@ -2,14 +2,20 @@
 title: Setup Go
 ---
 
+{% raw %}
+
 Repo: [actions/setup-go](https://github.com/actions/setup-go)
 
->  Set up your GitHub Actions workflow with a specific version of Go 
+> Set up your GitHub Actions workflow with a specific version of Go 
 
 
-## Sample
+## Samples
 
 ### Download a single Go version
+
+The Go version will be the **latest** unless you specify a version.
+
+Previously downloaded versions will be used from **cache**, to save on downloading. Which means if omit the version, I think you'd end up loading from cache 1.15 even when 1.18 is latest.
 
 ```yaml
 steps:
@@ -19,9 +25,9 @@ steps:
       go-version: 1.15
 ```
 
-Previously downloaded versions will be used from cache.
+Or a version range like `'^1.13.1'`.
 
-Output:
+Sample output:
 
 ```
 Run actions/setup-go@v2
@@ -41,6 +47,8 @@ go env
 
 ### Download and run Go in your project
 
+Here is the Action with more steps around it.
+
 ```yaml
 steps:
   - uses: actions/checkout@v2
@@ -54,9 +62,50 @@ steps:
   - run: go run hello.go
 ```
 
+### Load Go version dynamically
+
+Use `grep` to find the version in `go.mod` file. 
+
+This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`.
+
+That file is then read in the next step.
+
+```yaml
+steps:
+  - uses: actions/checkout@v2
+  
+  - name: Get Go version
+    run: echo "GO_VERSION=$(grep 'go \d\.' go.mod | cut -d ' ' -f 2)" >> $GITHUB_ENV
+    
+  - uses: actions/setup-go@v2
+    with:
+      go-version: ${{ env.GO_VERSION }}
+```
+
+Thanks to comment [here](https://github.com/actions/setup-go/issues/23#issuecomment-732276072) on a `setup-go` issue.
+
+Or load from `Dockerfile`.
+
+```yaml
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+
+  - name: Get Go version
+    id: vars
+    run: |
+      echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
+      echo "Using Go version ${{ steps.vars.outputs.go_version }}"
+
+  - name: Setup Go
+    uses: actions/setup-go@v2
+    with:
+      go-version: ${{ steps.vars.outputs.go_version }}
+```
+
 ### Matrix version
 
-Based on the action's doc.
+How to run against multiple Go version. Based on the action's doc.
 
 ```yaml
 jobs:
@@ -78,3 +127,5 @@ jobs:
           
       - run: go run hello.go
 ```
+
+{% endraw %}
