@@ -66,9 +66,7 @@ steps:
 
 Use `grep` to find the version in `go.mod` file. 
 
-This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`.
-
-That file is then read in the next step.
+This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`. That file is then read in the next step. See more info on `$GITHUB_ENV` on this [Persist](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/persist.html) guide in my cheatsheets.
 
 ```yaml
 steps:
@@ -83,6 +81,8 @@ steps:
 ```
 
 Thanks to comment [here](https://github.com/actions/setup-go/issues/23#issuecomment-732276072) on a `setup-go` issue.
+
+That the regex groups or `-o` flag are not used here, but `cut` command is. Which means the regex pattern can be short as `go \d\.` (assuming single digit major version) or longer as `go \d+\.\d+'` but with `egrep`.
 
 Or load from `Dockerfile`.
 
