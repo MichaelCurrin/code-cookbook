@@ -5,6 +5,7 @@ description: How to commit files during the CI flow - using a generic Action
 
 {% raw %}
 
+
 ## Use-cases
 
 Some situations when you might want to add/edit and commit files all during a single CI run.
@@ -23,29 +24,43 @@ Some situations when you might want to add/edit and commit files all during a si
 
 ## Samples
 
+A placeholder step is used too modifies files in the workspace. Replace it with something more suitable. Such as building your app or applying lint and formatting fixes.
+
 ### No action
 
-A simple way to commit any changes on the current branch.
+A simple way to commit any changes on the current branch. This is slightly verbose but not too long. You know exactly what it is doing and it is easy to customize.
 
 - `main.yml`
     ```yaml
     steps:
-      - run: # Modify files...
+      - name: Checkout
+        # uses: ...
+        
+      - name: Build
+        # run: ...
 
       - name: Check for modified files
         id: git-check
         run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
 
-      - name: Push changes
+      - name: Commit changes
         if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --global user.name 'Automated Publisher'
           git config --global user.email 'actions@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Commit message..."
+          
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push
     ```
 
+The commit step will commit _all_ file changes - both modified files and previously untracked files that got created for the first time.
+
+```
+    -a, --all             commit all changed files
+```
+
+This uses a branch that already exists (whether a feature branch or `master`), so you don't need give extra options to `git push`.
 
 ### Use the Publish to GitHub action
 
@@ -58,8 +73,11 @@ See [push-new-files-back-to-master](https://github.com/marketplace/actions/push-
 - `main.yml`
     ```yaml
     steps:
+      - name: Checkout
+        # uses: ...
+        
       - name: Build
-        run: ...
+        # run: ...
 
       - name: Commit changes
         uses: mikeal/publish-to-github-action@master
@@ -67,7 +85,9 @@ See [push-new-files-back-to-master](https://github.com/marketplace/actions/push-
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 
-Specify another branch instead of `master`.
+Currently there's only a `1.0.0` tag of the Action - I don't know if `@v1` will work here. But it is worth locking rather than the floating `@master`.
+
+Specify another branch of yours, instead of the `master` default.
 
 ```yaml
 BRANCH_NAME: main
