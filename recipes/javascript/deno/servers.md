@@ -13,9 +13,9 @@ $ deno run --allow-net server.ts
 Note the flag must be _before_ the path, not at the end.
 
 
-## Using serve
+## Using http module
 
-Using the [serve](https://deno.land/std@0.86.0/http/server.ts) module from the standard lib.
+Using the [serve](https://deno.land/std@0.86.0/http/server.ts) function from the `http` module of the standard lib.
 
 From [post](https://medium.com/@nikhilsharmarockstar21/getting-started-with-deno-js-fa2154f8657e).
 
@@ -34,7 +34,7 @@ From [post](https://medium.com/@nikhilsharmarockstar21/getting-started-with-deno
     ```
 
 
-## Using Oak
+## Using Oak module
 
 Using the [oak](https://deno.land/x/oak) package.
 
@@ -86,7 +86,7 @@ Web server with routing - we add a `/users` endpoint.
     ```
 
 
-## Using ABC
+## Using ABC module
 
 ### Basic
 
