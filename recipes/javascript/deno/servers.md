@@ -111,7 +111,9 @@ Below are adapted from the [examples](https://deno.land/x/abc@v1.2.4/examples) d
 
 ### Static
 
-This setup serves file in the static `assets` directory.
+This setup serves file in the static `build` directory.
+
+You can leave out the `cors` section if you don't need it.
 
 - `static.ts`
     ```typescript
@@ -122,8 +124,9 @@ This setup serves file in the static `assets` directory.
 
     const app = new Application();
     
-    app.static("/", "./assets", cors())
+    app.static("/", "build", cors())
       .start({ port: APP_PORT });
+  
     console.log(`Server listening on http://localhost:${APP_PORT}`);
     ```
     
@@ -133,15 +136,29 @@ In the case of `app.static`, you must as file permissions.
 $ deno run --allow-net --allow-read static.ts 
 ```
 
-If you have an `index.html` file you want to view, you must reference it explicitly.
+Then view as:
 
-- This will work: [localhost:8080/index.html](http://localhost:8080/index.html)
-- This will give a 404 not found error: [localhost:8080/](http://localhost:8080/)
+- `http://localhost:8080/js/main.js`
+- `http://localhost:8080/index.html` (not just `/`).
 
-From the docs for `app.static`:
+Notes based on [Static files](https://deno.land/x/abc/docs/static_files.md) in ABC docs.
 
-> Register a new route with path prefix to serve static files from the provided root directory.
->
-> For example, a request to `/static/js/main.js` will fetch and serve `assets/js/main.js` file.
->
-> `app.static("/static", "assets");`
+- Static directory
+    - Serve `public` directory as `/index.html`, `about.html` and nested paths like `/assets/js/main.js`.
+    - Code
+        ```typescript
+        app.static("/static", "public");
+        ```
+- Static file
+    - Make `index.html` available as `/`.
+    - Code 
+        ```typescript
+        app.file("/", "public/index.html");
+        ```
+- Combine both of the above. 
+    - Serve both a directory of static assets and a short path for the `index.html` page as `/`.
+    - Code
+        ```typescript
+        app.file("/", "public/index.html")
+          .static("/", "public")
+        ```
