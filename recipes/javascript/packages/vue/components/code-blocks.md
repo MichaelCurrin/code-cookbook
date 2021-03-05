@@ -42,9 +42,32 @@ Using `highlight.js`.
 
 See [Usage](https://highlightjs.org/usage/) instructions. There is some low-level code, but if you use Vue then you can skip that and use the code below from the Vue section of that guide.
 
-Remember to import the CSS styling or you won't see colors rendered.
+### Styling
 
-Approaches:
+Remember to import the CSS styling, or you won't see colors rendered.
+
+- `App.vue`
+```vue
+<script lang="ts">
+import Vue from "vue";
+
+import "highlight.js/styles/darcula.css";
+
+// ...
+</script>
+```
+
+Try out available themes on the [Demo](https://highlightjs.org/static/demo/) page of the docs.
+
+You can use autocomplete in VS Code with Ctrl+Space to find more style names - just add `.css` yourself after.
+
+Another one I like:
+
+```javascript
+import "highlight.js/styles/github-gist.css";
+```
+
+### Approaches
 
 - Autodetect language and dynamic code:
     ```vue
@@ -61,7 +84,7 @@ Approaches:
     
 I found that `autodetect` didn't handle markdown links well.
     
-Full examples:
+### Example
 
 - `components/Code.vue` - dynamic language, with a default.
     ```vue
@@ -72,7 +95,6 @@ Full examples:
     <script lang="ts">
     import Vue from "vue";
     import hljs from "highlight.js";
-    import "highlight.js/styles/darcula.css";
 
     Vue.use(hljs.vuePlugin);
 
