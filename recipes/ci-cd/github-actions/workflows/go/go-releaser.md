@@ -19,9 +19,9 @@ The Go Releaser action handles building assets attaching to a release. I need to
 - [GitHub Actions](https://goreleaser.com/ci/actions/) section
 
 
-## Sample
+## Samples
 
-- `release.yml` from the docs.
+- `release.yml` - from the docs.
     ```yaml
     name: goreleaser
 
@@ -53,25 +53,30 @@ The Go Releaser action handles building assets attaching to a release. I need to
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 - On new tag only.
-	```yaml
-	on:
-	  push:
-		tags:
-		  - 'v*'
-	```
-- Or on a condition. This flow recommend in the doc lets you run your entire workflow on every push but only release on a tag - perhaps checking event type is "tag" is similar would be more in keeping in GH Actions convention.
-	```yaml
-	- name: Run GoReleaser
-	  uses: goreleaser/goreleaser-action@v2
-	  if: startsWith(github.ref, 'refs/tags/')
-	  with:
-		version: latest
-		args: release --rm-dist
-	  env:
-		GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-	```
+    ```yaml
+    on:
+      push:
+        tags:
+          - 'v*'
+    ```
+- Or on a condition. 
+    ```yaml
+    steps:
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          version: latest
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+    
+That last flow recommend in the doc lets you run your entire workflow on every push but only release on a tag - perhaps checking event type is "tag" is similar would be more in keeping in GH Actions convention.
 
-Sample result on an [imgcat](https://github.com/trashhalo/imgcat/releases/tag/v1.2.0) release:
+## Example output
+
+See Assets section on the [imgcat@v1.2.0](https://github.com/trashhalo/imgcat/releases/tag/v1.2.0) release:
 
 ```
 checksums.txt
