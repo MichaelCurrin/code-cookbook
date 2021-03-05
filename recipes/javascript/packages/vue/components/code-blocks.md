@@ -44,40 +44,48 @@ See [Usage](https://highlightjs.org/usage/) instructions. There is some low-leve
 
 Remember to import the CSS styling or you won't see colors rendered.
 
-- `components/Code.vue`
+Approaches:
+
+- Autodetect language and dynamic code:
+    ```vue
+    <highlightjs autodetect :code="code" />
+    ```
+- Fixed language and literal code:
+    ```vue
+    <highlightjs language='javascript' code="var x = 5;" />
+    ```
+- Dynamic language and code.
+    ```vue
+    <highlightjs :language="language" :code="code" />
+    ```
+    
+I found that `autodetect` didn't handle markdown links well.
+    
+Full examples:
+
+- `components/Code.vue` - dynamic language, with a default.
     ```vue
     <template>
-      <div>
-        <highlightjs autodetect :code="code" />
-      </div>
+      <highlightjs :language="language" :code="code" />
     </template>
-    
+
     <script lang="ts">
     import Vue from "vue";
     import hljs from "highlight.js";
     import "highlight.js/styles/darcula.css";
-    
+
     Vue.use(hljs.vuePlugin);
+
+    const defaultLanguage = "markdown";
 
     export default Vue.extend({
       name: "Code",
       props: {
-        code: String,
-      },
+        code: { type: String, required: true },
+        language: { type: String, required: false, default: defaultLanguage },
+        },
     });
     </script>
     ```
-
-More examples:
-
-```vue
-<!-- bind to a data property named `code` -->
-<highlightjs autodetect :code="code" />
-
-<!-- or literal code works as well -->
-<highlightjs language='javascript' code="var x = 5;" />
-```
-
-If you wanted more control, you could make `language` a property to be passed and used in the component, maybe with a default if not set.
 
 {% endraw %}
