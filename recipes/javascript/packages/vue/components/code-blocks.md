@@ -1,13 +1,13 @@
 ---
 title: Code blocks
-description: Render code as monospaced and also with highlighting
+description: Render text as monospaced code block and also with highlighting
 ---
 
 {% raw %}
 
 ## Basic
 
-Using `pre` and `code` tags together.
+Using `pre` and `code` tags together. Note that this does not apply any syntax highlighting - it will all be one color.
 
 - `components/Pre.vue`
     ```vue
