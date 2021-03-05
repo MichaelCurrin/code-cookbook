@@ -1,13 +1,13 @@
 ---
-title: Code snippets
-description: Render code and monospaced and also with highlighting
+title: Code blocks
+description: Render code as monospaced and also with highlighting
 ---
 
 {% raw %}
 
 ## Basic
 
-Using `pre` and `code`.
+Using `pre` and `code` tags together.
 
 - `components/Pre.vue`
     ```vue
@@ -25,9 +25,8 @@ Using `pre` and `code`.
     </script>
     ```
 
-Note we use `slot` above so we can pass content inside the element instead of a parameter.
 
-Usage:
+Then use as the `Pre` tag. Note we used `slot` above so we can pass content inside the element instead of a parameter.
 
 - `App.vue`
     ```vue
@@ -36,7 +35,8 @@ Usage:
     </template>
     ```
 
-## Highlighted
+
+## Highlight
 
 Using `highlight.js`.
 
