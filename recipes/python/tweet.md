@@ -4,6 +4,8 @@ Using [tweepy](https://pypi.org/project/tweepy/) package from `pypi`.
 
 See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-guide/) for more info on getting dev flow, approaches to auth and using how to do other things with Tweepy.
 
+See my [Tweet GitHub Actions](https://github.com/MichaelCurrin/tweet-github-actions) project as a template and demo.
+
 
 ## Sample files
 
@@ -46,7 +48,7 @@ See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-gui
         
     
     if __name__ == "__main__":
-        main(sys.argv[1:)
+        main(sys.argv[1:])
     ```
 
 
