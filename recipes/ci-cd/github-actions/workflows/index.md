@@ -1,10 +1,12 @@
 ---
+title: Workflows
 description: Samples, resources and instructions around run a GH Actions workflow
 ---
-# Workflows
 
-This section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together. Here are some highlights:
 
+The pages in this section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together. 
+
+Here are some highlights.
 
 ### What can do with GitHub Actions?
 
