@@ -32,7 +32,9 @@ That will do a shallow clone to fetch only one commit, so is more efficient.
 
 ### Tokens
 
-You **already** get GitHub auth token removed as part of post-job cleanup. So I guess looks like this param can be used to stop the field being set all.
+You can prevent your credentials from being persisted across multiple commands _within_ the workflow.
+
+You **already** get GitHub auth token removed as part of post-job cleanup. So either way, your details are not persisted after the job run. I've seen this param recommended to set to avoid persisting after the job, but I don't think that can happen anyway.
 
 From the docs:
 
