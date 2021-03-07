@@ -4,6 +4,10 @@ Using [tweepy](https://pypi.org/project/tweepy/) package from `pypi`.
 
 See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-guide/) for more info on getting dev flow, approaches to auth and using how to do other things with Tweepy.
 
+- `requirements.txt`
+    ```
+    tweepy~=3.10
+    ```
 - `tweet.py
     ```python
     import os
