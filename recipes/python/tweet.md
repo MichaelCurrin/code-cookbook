@@ -10,6 +10,6 @@ See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-gui
 See my [Tweet GitHub Actions](https://github.com/MichaelCurrin/tweet-gh-actions-py) project as a template and demo.
 
 - `requirements.txt`
-- `tweet.py
+- `tweet.py`
 
 Follow the `README.md` file to run locally.
