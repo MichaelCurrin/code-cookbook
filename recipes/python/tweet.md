@@ -24,7 +24,7 @@ See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-gui
 
     def main(args):
         """
-        Command line entrypoint to post a tweet message to Twitter.
+        Command-line entrypoint to post a tweet message to Twitter.
         """
         if not args:
             print("Provide a message on the CLI as the first argument.")
