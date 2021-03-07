@@ -4,6 +4,9 @@ Using [tweepy](https://pypi.org/project/tweepy/) package from `pypi`.
 
 See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-guide/) for more info on getting dev flow, approaches to auth and using how to do other things with Tweepy.
 
+
+## Sample files
+
 - `requirements.txt`
     ```
     tweepy~=3.10
@@ -45,3 +48,14 @@ See my [Python Twitter Guide](https://michaelcurrin.github.io/python-twitter-gui
     if __name__ == "__main__":
         main(sys.argv[1:)
     ```
+
+
+## Usage
+
+Recommended - run this in a virtual environment using Python 3.
+
+```sh
+$ pip install -r requirements.txt
+$ export CONSUMER_KEY=abc CONSUMER_SECRET=def ACCESS_KEY=ghi ACCESS_SECRET=jkl
+$ python tweet.py
+```
