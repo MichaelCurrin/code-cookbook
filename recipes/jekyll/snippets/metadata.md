@@ -16,16 +16,16 @@ A variable can also be set at the start as `github_url` using `capture` or anoth
 
 - `metadata.md`
     ```liquid
-    - Repo: [{{ site.github_username }}{{ site.baseurl }} ![Repo stars](https://img.shields.io/github/stars/{{ site.github_username }}{{ site.baseurl }}?style=social)](https://github.com/{{ site.github_username }}{{ site.baseurl }})
-    - Author: [{{ site.github_username }}](https://github.com/{{ site.github_username }})
-    - Documentation: [GitHub docs](https://github.com/{{ site.github_username }}{{ site.baseurl }}/tree/master/docs/)
-    - Contribute: [Github contributing doc](https://github.com/{{ site.github_username }}{{ site.baseurl }}/blob/master/CONTRIBUTING.md)
+    - Repo: [{{ site.repository_nwo }} ![Repo stars](https://img.shields.io/github/stars/{{ site.repository_nwo }}?style=social)]({{ site.repository_url }})
+    - Author: [{{ site.owner_name }}]({{ site.owner_url }})
+    - Documentation: [Docs directory on GitHub]({{ site.repository_url }}/tree/master/docs/)
+    - Contribute: [Contributing doc]({{ site.repository_url }}/blob/master/CONTRIBUTING.md)
     ```
     
 A fork to take the user to a page where the repo can be forked.
 
 ```liquid
-[Fork this repo](https://github.com/{{ site.github_username }}{{ site.baseurl }}/fork)
+[Fork this repo]({{ site.repository_url }}/fork)
 ```
 
 e.g. `https://github.com/MichaelCurrin/code-cookbook/fork`
