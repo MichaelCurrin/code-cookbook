@@ -24,7 +24,29 @@ logo: ruby
       - run: ruby hello.rb
     ```
 
-### Cache dependencies
+### Install dependencies 
+
+From the docs:
+
+> runs 'bundle install' and caches installed gems automatically
+
+
+- `main.yml`
+    ```yaml
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+
+      - run: bundle exec ruby hello.rb
+    ```
+
+### Install and cache gems
+
+This is the same as above but is more verbose.
 
 [![actions - cache](https://img.shields.io/static/v1?label=actions&message=cache&color=blue&logo=github)](https://github.com/actions/cache)
 
