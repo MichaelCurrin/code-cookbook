@@ -4,7 +4,7 @@
 ## Resources
 
 - [ESLint](https://eslint.org/) homepage.
-- [ESlint](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/format-and-lint/eslint.html) page on my Dev Cheatsheets.
+- [ESlint](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/format-and-lint/eslint/) page on my Dev Cheatsheets.
 
 
 ## Samples
