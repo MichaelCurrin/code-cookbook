@@ -10,7 +10,7 @@ logo: ruby
 
 ### Basic
 
-[![actions - setup-ruby](https://img.shields.io/static/v1?label=actions&message=setup-ruby&color=blue&logo=github)](https://github.com/actions/setup-ruby)
+[![actions - setup-ruby](https://img.shields.io/static/v1?label=actions&message=setup--ruby&color=blue&logo=github)](https://github.com/actions/setup-ruby)
 
 - `main.yml`
     ```yaml
