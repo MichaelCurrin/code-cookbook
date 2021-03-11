@@ -1,4 +1,8 @@
-# Metadata
+---
+title: Repo metadata
+description: Display info about the current site's repo and author
+---
+
 
 {% raw %}
 
@@ -13,6 +17,8 @@ This can be used an includes file and used anywhere on your site - as long it is
 This assumes `site.baseurl` is like `/repo-name`, to avoid storing repo name separately. This won't work for Netlify projects though where baseurl is not set. Consider using the GitHub Metadata plugin, which is lighter than GitHub Pages plugin.
 
 A variable can also be set at the start as `github_url` using `capture` or another string approach.
+
+<!-- TODO update in Resources includes and move to theme -->
 
 - `metadata.md`
     ```liquid
