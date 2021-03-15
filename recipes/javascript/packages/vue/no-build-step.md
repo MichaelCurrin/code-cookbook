@@ -85,18 +85,20 @@ Using the low-level [FranckFreiburger/vue3-sfc-loader](https://github.com/Franck
 
 >  Vue3 Single File Component loader. Load `.vue` files directly from your html/js. No node.js environment, no (webpack) build step. 
 
-Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/project/editor/AqPyBr).
+Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/project/editor/AqPyBr). Warning `@next` is even more bleeding-edge than `@latest` and to so avoid risk of buggy releases, I've changed to `@latest`.
+
+### HTML
 
 - `index.html`
     ```html
     <!DOCTYPE html>
     <html>
-        
+
     <head>
-      <script src="https://unpkg.com/vue@next"></script>
+      <script src="https://unpkg.com/vue@latest"></script>
       <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader"></script>
     </head>
-        
+
     <body>
       <div id="app"></div>
 
@@ -106,39 +108,48 @@ Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/
             vue: Vue,
           },
           getFile(url) {
-            return fetch(url).then(response => response.ok ? response.text() : Promise.reject(response));
+            return fetch(url).then(resp =>
+              resp.ok ? resp.text() : Promise.reject(resp)
+            );
           },
           addStyle(styleStr) {
-            const style = document.createElement('style');
+            const style = document.createElement("style");
             style.textContent = styleStr;
-            const ref = document.head.getElementsByTagName('style')[0] || null;
+            const ref = document.head.getElementsByTagName("style")[0] || null;
             document.head.insertBefore(style, ref);
           },
           log(type, ...args) {
             console.log(type, ...args);
-          }
+          },
         };
 
         const { loadModule, version } = window["vue3-sfc-loader"];
 
         const app = Vue.createApp({
           components: {
-            'my-component': Vue.defineAsyncComponent(() => loadModule('./myComponent.vue', options)),
+            "my-component": Vue.defineAsyncComponent(() =>
+              loadModule("./myComponent.vue", options)
+            ),
           },
-          template: `Hello <my-component></my-component> <sub>from vue3-sfc-loader v${ version }</sub>`
+          template: `Hello <my-component></my-component> <sub>from vue3-sfc-loader v${version}</sub>`,
         });
 
-        app.mount('#app');
+        app.mount("#app");
+
       </script>
+
     </body>
     </html>
     ```
+
+### Component
+
 - `myComponent.vue`
     ```vue
     <template>
       <span class="example">{{ msg }}</span>
     </template>
-    
+
     <script>
       export default {
         data () {
