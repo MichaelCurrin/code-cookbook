@@ -1,10 +1,9 @@
 ---
 title: No build step
-description: How to add Vue.js to your frontend - no Vue CLI or build step needed
+description: How to add Vue.js to your frontend as plain JS and HTML - without a build step or using Node, Webpack or Vue CLI
 ---
 
 {% raw %}
-
 
 ## Approaches
 
