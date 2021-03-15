@@ -33,7 +33,7 @@ description: Setup minimum values
 
 ## Notes
 
-- See info on the `html` tag's [lang](https://www.w3schools.com/tags/att_lang.asp) attribute.
+- See info on the global [lang](https://www.w3schools.com/tags/att_lang.asp) attribute, which is used on the `html` element.
 - The character encoding set by `char` must appear as **early** as possible in `head` such as first. You'll get a browser warning if you omit it.
 - No visible content yet.
 - It has basic metadata and language settings.
