@@ -43,7 +43,7 @@ export default {
 
 ## JSPM sample
 
-One approach is to avoid SFCs altogether.
+One approach is to avoid SFCs altogether. The component is set as HTML + Vue syntax on an element and then Vue is initialized against that element.
 
 From the Vue.js example in [JSPM Sandbox](https://jspm.org/sandbox).
 
@@ -90,7 +90,7 @@ The reference to `container.innerHTML` operates on the element with `id="contain
 
 ## Vue3 SFC loader sample
 
-This approach loads SFCs dynamically on the frontend.
+This approach loads SFCs dynamically on the frontend. Note use of `.vue` file in a callback function.
 
 Using the low-level [FranckFreiburger/vue3-sfc-loader](https://github.com/FranckFreiburger/vue3-sfc-loader) library. Note SFC is Single-File Component.
 
