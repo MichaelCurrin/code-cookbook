@@ -5,6 +5,17 @@ description: How to add Vue.js to your frontend as plain JS and HTML - without a
 
 {% raw %}
 
+
+## Loading Production Vue
+
+From [Without Build Tools](https://v3.vuejs.org/guide/tooling/deployment.html#without-build-tools) on the Production deployment gude on the Vue docs.
+
+> If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. This can be found in the Installation guide.
+
+- Development mode: `https://jspm.dev/vue/dist/vue.js` - with dev tools.
+- Production mode: `https://jspm.dev/vue/dist/vue.min.js` - minified build.
+
+
 ## Approaches
 
 If you want the full dev experience with Node and Vue CLI, then you would use [vue-loader](https://vue-loader.vuejs.org/) to process your `.vue` files. 
@@ -47,7 +58,7 @@ This uses the ES Module syntax so you get to reference Vue by URL on JSPM CDN, r
         <script type="importmap">
         {
           "imports": {
-            "vue": "https://jspm.dev/vue/dist/vue"
+            "vue": "https://jspm.dev/vue/dist/vue.js"
           }
         }
         </script>
