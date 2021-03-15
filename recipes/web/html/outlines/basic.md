@@ -1,9 +1,10 @@
 ---
 title: Basic
-description: This example focuses on using the minimum values, with most being in the `head`.
+description: Setup minimum values
 ---
 
-The character encoding must appear as early as possible in `head`. You'll get a browser warning if you omit it.
+
+## Template
 
 - `index.html`
     ```html
@@ -20,12 +21,24 @@ The character encoding must appear as early as possible in `head`. You'll get a 
 
         <link rel="stylesheet" href="styles.css">
 
+        <script defer src="main.js"></script>
     </head>
 
     <body>
-        <script src="main.js" async defer></script>
-
     </body>
 
     </html>
     ```
+
+
+## Notes
+
+- See info on the `html` tag's [lang](https://www.w3schools.com/tags/att_lang.asp) attribute.
+- The character encoding set by `char` must appear as **early** as possible in `head` such as first. You'll get a browser warning if you omit it.
+- No visible content yet.
+- It has basic metadata and language settings.
+- CSS and JS assets are setup.
+- JS script tag.
+    - Loading JS using `defer` attributes means it will get loaded **after** the body, even though it is setup in the `head`. You could take out `defer` attribute and put the `script` tag in the `body` rather.
+    - Scripts setup with `defer` will load in a predictable order.
+    - You could use `async` instead if you had something which can be loaded independently of the body (either before or after it) and independently of the other resources.
