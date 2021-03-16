@@ -72,7 +72,7 @@ An [import map](https://wicg.github.io/import-maps/) is used to set CDNs and pos
         <script type="module">
         import Vue from 'vue';
 
-        container.innerHTML = `<p>{{ message }}</p>`;
+        container.innerHTML = '<p>{{ message }}</p>';
 
         new Vue({
           el: '#container',
@@ -163,7 +163,11 @@ Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/
     </html>
     ```
 
+It is weird to set `version` using `${version}` here - rather make `version` set under `data` and then use it as `{{ version }}`.
+
 ### Component
+
+Here we bind two data fields - one two HTML and one to CSS.
 
 - `myComponent.vue`
     ```vue
