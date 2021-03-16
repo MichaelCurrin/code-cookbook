@@ -26,6 +26,14 @@ See also [MichaelCurrin/vue-quickstart](https://github.com/MichaelCurrin/vue-qui
 
 But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow some samples below. These don't need a server-side build step to compile SFC files.
 
+Note that the setup for the examples below are not modern. This is the way in Vue 3 from [docs](https://v3.vuejs.org/api/application-api.html#component).
+
+```javascript
+import { createApp } from 'vue'
+
+const app = createApp({})
+```
+
 
 ## Template in script tag
 
@@ -76,8 +84,10 @@ An [import map](https://wicg.github.io/import-maps/) is used to set CDNs and pos
 
         new Vue({
           el: '#container',
-          data: {
-            message: 'Hello Vue.js!'
+          data() {
+            return {
+              message: 'Hello Vue.js!'
+            }
           }
         });
 
@@ -96,6 +106,8 @@ new Vue({
   template: `<p>{{ message }}</p>`
 })
 ```
+
+Also, using `app.mount` as below it more typical for mounting on an element than setting `el`. And means the app can be created without that element existing. See [Getting Started](https://v3.vuejs.org/guide/introduction.html#getting-started) and [Root component](https://v3.vuejs.org/guide/instance.html#the-root-component).
 
 
 ## Vue3 SFC loader sample
