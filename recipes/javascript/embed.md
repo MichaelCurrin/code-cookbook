@@ -66,6 +66,13 @@ Or you could add a JS event on the HTML element:
 <code onload="codeblock('about.md')"></code>
 ```
 
-Note that the example here only displays a code snippet in monospace but plain black and white. You'll want to use a library like [highlight.js](https://highlightjs.org/) if you want language-specific highlighting.
+Note that the example here only displays a code snippet in monospace but plain black and white. 
 
-In the case of a Jekyll site, you might known the language when you setup your code fence blocks or `highlight` Liquid tag.
+You'll want to use a library like [highlight.js](https://highlightjs.org/) if you want language-specific highlighting like:
+
+```html
+<pre><code id="target" class="markdown"></code></pre>
+```
+
+In the case of a Jekyll site, you might know the language when you setup your code fence blocks or `highlight` Liquid tag.
+
