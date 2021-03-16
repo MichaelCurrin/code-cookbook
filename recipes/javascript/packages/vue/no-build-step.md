@@ -45,9 +45,11 @@ export default {
 
 One approach is to avoid SFCs altogether. The component is set as HTML + Vue syntax on an element and then Vue is initialized against that element.
 
-From the Vue.js example in [JSPM Sandbox](https://jspm.org/sandbox).
+From the Vue.js example in [JSPM Sandbox](https://jspm.org/sandbox), which is no longer there.
 
 This uses the ES Module syntax so you get to reference Vue by URL on JSPM CDN, rather than as a script tag.
+
+An [import map](https://wicg.github.io/import-maps/) is used to set CDNs and possibly lock versions. But I found the import did not actually work as `vue` when I ran this myself.
 
 - `index.html`
     ```html
