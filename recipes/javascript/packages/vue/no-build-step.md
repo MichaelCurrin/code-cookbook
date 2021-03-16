@@ -89,6 +89,14 @@ An [import map](https://wicg.github.io/import-maps/) is used to set CDNs and pos
 
 The reference to `container.innerHTML` operates on the element with `id="container"`.
 
+I recommend against this and rather doing this, which is the Vue way.
+
+```javascript
+new Vue({
+  template: `<p>{{ message }}</p>`
+})
+```
+
 
 ## Vue3 SFC loader sample
 
