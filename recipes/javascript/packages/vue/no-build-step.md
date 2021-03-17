@@ -1,9 +1,11 @@
 ---
 title: No build step
-description: How to add Vue.js to your frontend as plain JS and HTML - without a build step or using Node, Webpack or Vue CLI
+description: How to add Vue to your frontend as plain JS and HTML
 ---
 
 {% raw %}
+
+Here is how to add Vue to your site - without a build step. You don't need Vue CLI, Webpack or even Node.
 
 
 ## Loading Production Vue
@@ -34,8 +36,19 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
+## Templates and performance
 
-## Template in script tag
+A warning on performance from the [Production deployment](https://v3.vuejs.org/guide/tooling/deployment.html#pre-compiling-templates) doc.
+
+> When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly.
+>
+> This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.
+
+
+
+## Examples
+
+### Set template in script tag
 
 Normally you set `template` tag in a `.vue` file.
 
@@ -48,8 +61,7 @@ export default {
 };
 ```
 
-
-## JSPM sample
+### JSPM sample
 
 One approach is to avoid SFCs altogether. The component is set as HTML + Vue syntax on an element and then Vue is initialized against that element.
 
@@ -109,8 +121,7 @@ new Vue({
 
 Also, using `app.mount` as below it more typical for mounting on an element than setting `el`. And means the app can be created without that element existing. See [Getting Started](https://v3.vuejs.org/guide/introduction.html#getting-started) and [Root component](https://v3.vuejs.org/guide/instance.html#the-root-component).
 
-
-## Vue3 SFC loader sample
+### Vue3 SFC loader sample
 
 This approach loads SFCs dynamically on the frontend. Note use of `.vue` file in a callback function.
 
@@ -120,7 +131,7 @@ Using the low-level [FranckFreiburger/vue3-sfc-loader](https://github.com/Franck
 
 Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/project/editor/AqPyBr). Warning `@next` is even more bleeding-edge than `@latest` and to so avoid risk of buggy releases, I've changed to `@latest`.
 
-### HTML
+#### HTML
 
 - `index.html`
     ```html
@@ -177,7 +188,7 @@ Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/
 
 It is weird to set `version` using `${version}` here - rather make `version` set under `data` and then use it as `{{ version }}`.
 
-### Component
+#### Component
 
 Here we bind two data fields - one two HTML and one to CSS.
 
