@@ -10,7 +10,7 @@ description: A guide to the user-generated GitHub auth token for use in workflow
 
 ### Security
 
-- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read or write to _all_ your repos. Both in GH workflows and outside - such as doing a `curl` request on their machine to the GitHub API with your token in the URL or paylad.
+- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read and write to _all_ your repos. Both in GH workflows and outside - such as doing a `curl` request on their machine to the GitHub API with your token in the URL or paylad.
 - Unfortunately, the documentation for many actions recommends this Access Token option.
 - But, you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.
 - Fortunately, GitHub does remove the token values from log output and restricts PRs of forks from using tokens.
