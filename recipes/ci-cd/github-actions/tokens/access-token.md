@@ -24,6 +24,13 @@ description: A guide to the user-generated GitHub auth token for use in workflow
 - If you use the same token across many repos, you'll invalidate them all at once and will have to go and update the Secrets section on GH for each. To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be _functionally the same_, each with access to write to _all_ your public repos and not just one repo.
 
 
+## Scopes
+
+See [Scopes for OAuth Apps](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) in the docs to see meanings forthe scope choices available.
+
+> `public_repo` - Limits access to public repositories. That includes read/write access to code...
+
+
 ## Name of the token
 
 This is known a "Personal Access Token" or "PAT" or "authentication token".
@@ -108,7 +115,6 @@ env:
 ## Using an access token directly
 
 For cloning or pulling a private repo, or doing restricted actions such as push.
-
 
 ### Manual
 
