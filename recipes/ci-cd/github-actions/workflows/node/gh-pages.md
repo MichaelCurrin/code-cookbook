@@ -87,6 +87,8 @@ on:
     branches: master
 ```
 
+To cover using specific versions of NPM or caching of packages, see the NPM and Yarn guides within my GH Actions section.
+
 
 ## Alternatives
 
