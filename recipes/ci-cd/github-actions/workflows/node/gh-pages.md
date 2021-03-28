@@ -18,9 +18,7 @@ This flow is ideal for a Jekyll site. Or a React or Vue app, or any other app th
 
 ## Sample
 
-The example below uses Yarn.
-
-The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue app you can setup the site to be on a subpath for GH Pages.
+Here we build the app with Yarn (or you could use NPM instead) - note that Yarn and Node come standard in the environment. At the end, we commit the output directory to the `gh-pages` branch.
 
 - `main.yml`
     ```yaml
@@ -68,6 +66,8 @@ The `NODE_ENV` environment variable is set to `production` to ensure a productio
 
 
 ## Notes
+
+The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue app you can setup the site to be on a subpath for GH Pages.
 
 We want avoid actually deploying code on a PR and rather wait until code is merged to master. So we used a conditional statement to skip the deploy step for PR events.
 
