@@ -28,9 +28,14 @@ The `NODE_ENV` environment variable is set to `production` to ensure a productio
 
     on:
       push:
-        branches: master
+        branches: main
+        paths-ignore:
+          - "**.md"
+
       pull_request:
-        branches: master
+        branches: main
+        paths-ignore:
+          - "**.md"
 
     jobs:
       build-deploy:
@@ -72,13 +77,25 @@ if: ${{ github.event_name != 'pull_request' }}
 
 Or you could check if the event is a tag (or release), if you don't want to deploy without a tag.
 
+If your project is a markdown-based app, then use this instead for triggers.
+
+```yaml
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+```
+
 
 ## Alternatives
 
-Have a build/test job and a deploy job separately would be nice
+Have a build/test job and a deploy job separately would be nice.
+
 The downside of using two jobs is that you need extra code to save the build output from the one job and then open it in the second job. Because by default, nothing is persisted across jobs.
 
 Or you have two workflow files. The one does just a build. And the deploy workflow does a build and deploy.
+
 But then you have to duplicate and maintain install/test/build steps in both. And you probably want to be efficent and adjust your conditions to prevent both flows from running at once. The build one then only needs to run on a PR and the deploy one needs to run on master.
 
 {% endraw %}
