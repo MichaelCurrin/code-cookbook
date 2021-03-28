@@ -1,7 +1,7 @@
 ---
+title: GitHub Pages deploy
 description: Deploy a GH Pages app using GH Actions and NPM/Yarn
 ---
-# GitHub Pages deploy
 
 {% raw %}
 
@@ -22,7 +22,7 @@ Here we build the app with Yarn (or you could use NPM instead) - note that Yarn 
 
 - `main.yml`
     ```yaml
-    name: GH Pages Deploy
+    name: GH Pages deploy
 
     on:
       push:
