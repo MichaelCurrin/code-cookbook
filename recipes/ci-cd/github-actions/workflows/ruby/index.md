@@ -10,7 +10,7 @@ logo: ruby
 
 ### Basic
 
-[![actions - setup-ruby](https://img.shields.io/static/v1?label=actions&message=setup--ruby&color=blue&logo=github)](https://github.com/actions/setup-ruby)
+[![actions - setup-ruby](https://img.shields.io/static/v1?label=actions&message=setup-ruby&color=blue&logo=github)](https://github.com/actions/setup-ruby)
 
 - `main.yml`
     ```yaml
@@ -26,6 +26,10 @@ logo: ruby
 
 ### Install dependencies 
 
+Using the Ruby one instead of the Actions one.
+
+[![ruby - setup-ruby](https://img.shields.io/static/v1?label=ruby&message=setup-ruby&color=blue&logo=github)](https://github.com/ruby/setup-ruby)
+
 From the docs, if you use `bundle-cache`, that means gems will be already for you (using `bundle install` and they will even be cached between builds. You can remove that option if you have no gems to install.
 
 - `main.yml`
@@ -35,14 +39,22 @@ From the docs, if you use `bundle-cache`, that means gems will be already for yo
         uses: actions/checkout@v2
 
       - name: Setup Ruby 💎
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
           bundler-cache: true
 
-      - name: Test by Ruby script
+      - name: Test my Ruby script
         run: bundle exec ruby hello.rb
     ```
+
+Pass options as environment variables on the job or step.
+
+```yaml
+env:
+  BUNDLE_JOBS: 4
+  BUNDLE_RETRY: 3
+```
 
 ### Install using cache action
 
