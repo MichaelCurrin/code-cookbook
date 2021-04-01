@@ -1,10 +1,12 @@
 # Jekyll in a container
 
-Related recipe, including info on where the image comes from - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
+Related recipe - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
+
+This flow runs a **Docker container**. If you don't want to use Docker, see [Jekyll Ruby Action][], which is a light approach.
+
+[Jekyll Ruby Action]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/ruby-action.md %}
 
 {% raw %}
-
-This flow runs a **Docker container**.
 
 It runs Jekyll inside a container that is run as a binary (using `docker` CLI but no `Dockerfile` needed). So it can be used as a drop-in replacement for running `jekyll` directly.
 
@@ -41,8 +43,8 @@ Based on [jekyll.yml](https://github.com/actions/starter-workflows/blob/main/ci/
             run: |
               docker run \
                 -v ${{ github.workspace }}:/srv/jekyll \
-                jekyll/builder:4 \
-                /bin/bash -c 'chmod 777 /srv/jekyll && jekyll build --future'
+                jekyll/builder:4.2 \
+                /bin/bash -c 'chmod 777 /srv/jekyll && bundle exec jekyll build --future'
 
           - name: Deploy to GH Pages 🚀
             if: ${{ github.event_name != 'pull_request' }}
@@ -52,13 +54,11 @@ Based on [jekyll.yml](https://github.com/actions/starter-workflows/blob/main/ci/
               publish_dir: _site
     ```
 
+You can use `jekyll COMMAND` or `bundle exec jekyll COMMAND`. The latter is probably safer, using the project Jekyll instead of the global Jekyll (at least global inside the container).
 
-## Links
+Change the image tag to `4.2` or whatever your project Jekyll is. Though, if you use `bundle exec jekyll COMMAND` then the container's Jekyll doesn't even get used - you're just using it as a Ruby container that installs gems. So you could use the general `4` tag or switch to a Ruby image that also installs gems.
 
-See my Jekyll GH Actions Quickstart template project which demonstrates how to build a minimal site. It has a GH Actions flow which uses Docker + Jekyll in one step and GH Pages deploy in the last step.
-
-- [![MichaelCurrin - jekyll-gh-actions-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-gh-actions-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart)
-- [Live demo](https://michaelcurrin.github.io/jekyll-gh-actions-quickstart/) website.
+See [jekyll/builder](https://hub.docker.com/r/jekyll/builder/tags?page=1&ordering=last_updated) image tags available.
 
 
 ## About the approach
@@ -101,11 +101,15 @@ See related notes below.
 
 ### Permissions note
 
-Note use of `chmod 777` for the directory (not for the files in it). So that the container can write a lockfile to the directory.
+Note use of `chmod 777` for the directory (not for the files in it).
+
+If this is _not_ included, then the container logs that it is installing gems which fails because of no permissions to write to `Gemfile.lock`.
 
 ```
 There was an error while trying to write to `/srv/jekyll/Gemfile.lock`. It is
 ```
+
+I don't know how this works though. The entry-point command given to the container is only meant to run after the docker has setup gems internally.
 
 ### Volume note
 
