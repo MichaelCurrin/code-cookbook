@@ -45,9 +45,11 @@ Run the commands below on your **host** machine.
 - Steps are based on the Jekyll Docker repo's [docs](https://github.com/envygeeks/jekyll-docker#readme) and an article titled [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/).
 - Using a `Dockerfile` file and docker compose (with volumes) might more convenient (less to type) than using the Jekyll container executable approach here. Maybe using `make` instead (though that is not standard on Windows). Note that `Dockerfile` is useful if you need to add Node.js to your container and you can still use volumes so you can edit code on the host. See the end of this guide.
 - On this page below are low-level commands which means more to type (or paste) each time but they don't rely on any configs like `Dockerfile`, so are easy to experiment with.
-- For using container steps in CI, see the [GH Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build.md %}) page relating to Jekyll.
-- The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persised outside the container. But you should leave out the flag when you want to perist gems inside the container.
+- For using container steps in CI, see the [Jekyll on GH Actions][] recipes.
+- The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persisted outside the container. But you should leave out the flag when you want to perist gems inside the container.
 - We use the `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
+
+[Jekyll on GH Actions]: ({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %})
 
 ### Create new site
 
@@ -148,7 +150,7 @@ $ docker exec -it blog bash
 ## Use with a Dockerfile
 > How to use the Jekyll image in a Dockerfile
 
-Using the Jekyll container as a binary in the previous sections might be too limiting. 
+Using the Jekyll container as a binary in the previous sections might be too limiting.
 
 In this sample below, we include Node and Jekyll images together and install SQLite.
 
