@@ -19,8 +19,11 @@ You can also use these commands in a CI flow if you want, which is actually wher
 Here links to images on the Docker Hub website under the [jekyll](https://hub.docker.com/u/jekyll) user profile. The standard image will be used in the next sections but you can change it out.
 
 - [jekyll/jekyll](https://hub.docker.com/r/jekyll/jekyll) image - standard.
+    > The standard images (`jekyll/jekyll`) include a default set of "dev" packages, along with **Node.js**, and other stuff that makes Jekyll easy. It also includes a bunch of default gems that the community wishes us to maintain on the image.
 - [jekyll/builder](https://hub.docker.com/r/jekyll/builder) image - includes tools.
+    > The builder image comes with extra stuff that is not included in the standard image, like `lftp`, `openssh` and other extra packages meant to be used by people who are deploying their Jekyll builds to another server with a CI.
 - [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
+    > The minimal image skips all the extra gems, all the extra dev dependencies and leaves a very small image to download. This is intended for people who do not need anything extra but Jekyll.
 
 
 ## Set Jekyll version
