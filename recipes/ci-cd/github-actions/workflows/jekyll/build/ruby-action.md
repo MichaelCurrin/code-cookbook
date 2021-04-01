@@ -1,4 +1,7 @@
-# Use Ruby action and Bundler
+---
+title: Use Ruby action
+description: Use a Ruby action to setup Ruby and gems and then add your run command
+---
 
 {% raw %}
 
