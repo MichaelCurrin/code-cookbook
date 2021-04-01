@@ -1,6 +1,6 @@
 # Jekyll in a container
 
-Related recipe - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
+Related recipe, including info on where the image comes from - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
 
 {% raw %}
 
