@@ -31,10 +31,8 @@ Here links to images on the Docker Hub website under the [jekyll](https://hub.do
 Set an environment variable on your host machine.
 
 ```sh
-export JEKYLL_VERSION=4
+export JEKYLL_VERSION=4.2
 ```
-
-Note that only `3.8` and `4` or higher are available, while `3.9` is not. See [tags](https://hub.docker.com/r/jekyll/jekyll/tags?page=1&ordering=last_updated).
 
 The appropriate Jekyll image will be downloaded when running a command below - you don't have to download it explicitly.
 
