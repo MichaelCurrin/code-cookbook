@@ -1,8 +1,11 @@
 ---
+title: Jekyll
 logo: jekyll
 description: How to run a Jekyll site in a container
 ---
-# Jekyll
+
+Related recipe - [Jekyll in a container on GitHub Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/container.md %}).
+
 
 ## Purpose
 
