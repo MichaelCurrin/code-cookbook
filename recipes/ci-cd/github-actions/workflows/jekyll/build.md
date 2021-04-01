@@ -1,7 +1,7 @@
 ---
-description: Build a Jekyll site in GH Actions
+title: Build and deploy
+description: Build a Jekyll site with GH Actions and then publish as a GH Pages site
 ---
-# Build
 
 {% raw %}
 
