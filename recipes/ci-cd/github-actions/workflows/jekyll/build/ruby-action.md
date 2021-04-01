@@ -1,7 +1,7 @@
 # Use Ruby action and Bundler
 
 {% raw %}
- 
+
 Here we setup a Ruby environment using the `setup-ruby` action. A param is passed to it so that it installed gems with Bundler and even caches them for you.
 
 See the [GH Actions Ruby][] section for more info.
@@ -50,8 +50,8 @@ See the [GH Actions Ruby][] section for more info.
 
 Replace the Build command `make build` if you prefer.
 
-Why use this this approach? This is a great generic approach, rather than being tied to using an action which is built around Jekyll or Jekyll + GH Pages. This Ruby action does the job well, it resusable across non-Jekyll projects and it will probably be simpler and better maintained than some Jekyll-specific one. Seeing as the Ruby one has wider appeal to community than a Jekyll solution.
+Why use this this approach? This is a great generic approach, rather than being tied to using an action which is built around Jekyll or Jekyll + GH Pages. This Ruby action does the job well, it reusable across non-Jekyll projects and it will probably be simpler and better maintained than some Jekyll-specific one. Seeing as the Ruby one has wider appeal to community than a Jekyll solution.
 
 {% endraw %}
 
-[GH Actions Ruby]: {{ site.baseurl }}{% recipes/ci-cd/github-actions/workflows/ruby/index.md %}
+[GH Actions Ruby]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/index.md %}
