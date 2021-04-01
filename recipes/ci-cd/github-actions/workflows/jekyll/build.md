@@ -119,7 +119,7 @@ It has with Ruby and Jekyll inside container which is run as a binary (using `do
               docker run \
                 -v ${{ github.workspace }}:/srv/jekyll \
                 jekyll/builder:4 \
-                /bin/bash -c 'jekyll build --future'
+                /bin/bash -c 'chmod 777 /srv/jekyll && jekyll build --future'
                 
           - name: Deploy to GH Pages 🚀
             if: ${{ github.event_name != 'pull_request' }}
@@ -159,15 +159,9 @@ My additions:
 - Use Jekyll version `4` instead of `latest` for more control.
 - Add GH Pages at the end to persist on `gh-pages` branch. I've also setup this deploy step only runs on the main branch, not feature branches.
 
-##### Bash command note
+##### Permissions note
 
-Here is the original command from the starter.
-
-I don't think the `chmod` bit is actually needed, unless for some reason you have files in your repo which do not have read access, which would be weird. Note that when setting up a Jekyll site that none of the files have to be made executable, so I don't think executable permissions does anything useful here.
-
-```
-/bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
-```
+Note use of `chmod 777`. Otherwise you get an error that `Gemfile.lock` is not writeable.
 
 ##### Volume note
 
