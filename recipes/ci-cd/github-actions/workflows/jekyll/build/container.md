@@ -1,5 +1,7 @@
 # Jekyll in a container
 
+Related recipe - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
+
 {% raw %}
 
 This flow runs a **Docker container**
