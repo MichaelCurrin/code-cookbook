@@ -1,5 +1,5 @@
 ---
-title: CirleCI
+title: CircleCI
 logo: circleci
 ---
 
