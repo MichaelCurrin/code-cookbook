@@ -25,6 +25,8 @@ Here links to images on the Docker Hub website under the [jekyll](https://hub.do
 - [jekyll/minimal](https://hub.docker.com/r/jekyll/minimal) image - very minimal image.
     > The minimal image skips all the extra gems, all the extra dev dependencies and leaves a very small image to download. This is intended for people who do not need anything extra but Jekyll.
 
+You can run `docker pull IMAGE_NAME` if you want to explicitly download or update the image names above. Though you don't have to. Use the Dockerfile or non-Dockerfile approaches below will download the tag for you if it is missing.
+
 
 ## Set Jekyll version
 
@@ -37,9 +39,11 @@ export JEKYLL_VERSION=4.2.0
 The appropriate Jekyll image will be downloaded when running a command below - you don't have to download it explicitly.
 
 
-## Usage
+## Run Jekyll container directly
 
-Run the commands below on your **host** machine.
+Run the commands below on your **host** machine. Here we use a Docker image to make a container and pass commands to it, without using a Dockerfile. This is light approach.
+
+The docker command is just long to write, you probably want to use an alias, `Makefile`, `docker-compose.yml` or similar to make that easier to call.
 
 ### Notes
 
@@ -149,14 +153,23 @@ $ docker exec -it blog bash
 ```
 
 
-## Use with a Dockerfile
-> How to use the Jekyll image in a Dockerfile
+## Setup Jekyll with a Dockerfile
+> How to use a Jekyll image in a Dockerfile
 
-Using the Jekyll container as a binary in the previous sections might be too limiting.
+If you have more complex setup steps, then Jekyll through a container directly as above might be too limiting.
 
-In this sample below, we include Node and Jekyll images together and install SQLite.
+For example, you might want to install Postgres, Go or Python using `apt-get`, `apk` or `curl`. See a few samples below.
 
-Here installing SQLite using `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
+The `jekyll/builder` image already comes with Ruby, Bundle, Jekyll and even Node, so you don't have to install those. Below we use `jekyll/jekyll` and add Node to it.
+
+### Node, Jekyll and SQLite (APK)
+
+Here we do the following:
+
+1. Use Node image (you could leave this out if you want).
+2. Use Jekyll image.
+3. Install SQLite using a package manager. (Replace with another `apk` package if you want).
+    - Here we use `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
 ```Dockerfile
 FROM node:14
@@ -166,7 +179,15 @@ RUN apk update
 RUN apk add sqlite
 ```
 
-If you do want to use `apt-get`, you must use it _before_ `jekyll`, otherwise it will not be found. I don't know why - the Jekyll image seems to do something to remove use of `apt-get`.
+### Node, SQLite (APT) and Jekyll 
+
+Here we do the following:
+
+1. Use Node image.
+2. Install SQLite using a package manager.
+    - Here we `apt-get`.
+    - Warning: If you do want to use `apt-get` with the Jekyll image, you must use the `apt-get` command _before_ `jekyll`, otherwise it will not be found. I don't know why - the Jekyll image seems to do something to remove use of `apt-get`.
+4. Use Jekyll image.
 
 ```Dockerfile
 FROM node:14
@@ -178,33 +199,47 @@ RUN apt-get install -y \
 FROM jekyll/jekyll
 ```
 
-If you prefer to install Node with a command rather than an image. You might get an old version like v10. You'll need to add a registry if you want 12 or 14.
+### Node (APT) and Jekyll
+
+If you prefer to install Node with a package manager rather than an image. You might get an old version like v10. You'll need to add a registry if you want 12 or 14.
 
 ```Dockerfile
 RUN apt-get update
 RUN apt-get install -y \
   node.js
+  
+FROM jekyll/jekyll
 ```
+
+### Entry point
 
 When you use the Jekyll image in Dockerfile, you lose the entry point, so the container will do nothing.
 
-You can add the steps from the image's Dockerfile.
+Here we add the entrypoint, based on image's underlying Dockerfile.
 
 ```Dockerfile
+FROM jekyll/jekyll:4.2.0
+
 CMD ["jekyll", "--help"]
 ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
 ```
 
-If you don't provide any arguments, it just shows the Jekyll command help.
-
 See the [entrypoint](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/copy/all/usr/jekyll/bin/entrypoint) script in the repo. It seems when I run the container, if you command starts with `jekyll` then it will run the `bundle install` steps for you but not if you do something else.
+
+If you don't provide any arguments, the container will show the Jekyll command help.
+
+### Build
+
+Use a Dockerfile as setup above.
 
 ```sh
 $ docker build --rm -t my_app:latest .
 ```
 
+Then make an container from the image.
+
 ```sh
-$ docker run foo
+$ docker run my_app
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
 jekyll 4.2.0 -- Jekyll is a blog-aware, static site generator in Ruby
 
@@ -214,7 +249,7 @@ Usage:
 ...
 ```
 
-Start dev server:
+Start a dev server:
 
 ```sh
 $ docker run --rm \
