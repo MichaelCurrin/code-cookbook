@@ -56,9 +56,11 @@ Based on [jekyll.yml](https://github.com/actions/starter-workflows/blob/main/ci/
 
 You can use `jekyll COMMAND` or `bundle exec jekyll COMMAND`. The latter is probably safer, using the project Jekyll instead of the global Jekyll (at least global inside the container).
 
-Change the image tag to `4.2` or whatever your project Jekyll is. Though, if you use `bundle exec jekyll COMMAND` then the container's Jekyll doesn't even get used - you're just using it as a Ruby container that installs gems. So you could use the general `4` tag or switch to a Ruby image that also installs gems.
+Make sure that the image tag Jekyll version matches the Jekyll version in `Gemfile`. Though, you could even leave Jekyll out of `Gemfile`, but I wouldn't recommend it, so you can still run it outside a container.
 
-See [jekyll/builder](https://hub.docker.com/r/jekyll/builder/tags?page=1&ordering=last_updated) image tags available.
+See [jekyll/builder tags](https://hub.docker.com/r/jekyll/builder/tags?page=1&ordering=last_updated) available.
+
+If you want to use say Jekyll `4.3` in your Gemfile and the Docker image tag is not available, you could use `bundle exec jekyll build` as the command passed to the container. To ensure the project Jekyll gets used, instead of the container's global Jekyll.
 
 
 ## About the approach
