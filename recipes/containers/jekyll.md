@@ -31,7 +31,7 @@ Here links to images on the Docker Hub website under the [jekyll](https://hub.do
 Set an environment variable on your host machine.
 
 ```sh
-export JEKYLL_VERSION=4.2
+export JEKYLL_VERSION=4.2.0
 ```
 
 The appropriate Jekyll image will be downloaded when running a command below - you don't have to download it explicitly.
