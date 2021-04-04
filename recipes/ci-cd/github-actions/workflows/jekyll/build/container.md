@@ -1,6 +1,6 @@
 # Jekyll in a container
 
-Related recipe - [Jekyll in a container]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}).
+Related recipe - [Jekyll]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}) in the Container section.
 
 This flow runs a **Docker container**. If you don't want to use Docker, see [Jekyll Ruby Action][], which is a light approach.
 
