@@ -6,6 +6,8 @@ description: How to run a Jekyll site in a container
 
 Related recipe - [Jekyll in a container on GitHub Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/container.md %}).
 
+{% raw %}
+
 
 ## Purpose
 
@@ -228,18 +230,22 @@ See the [entrypoint](https://github.com/envygeeks/jekyll-docker/blob/master/repo
 
 If you don't provide any arguments, the container will show the Jekyll command help.
 
-### Build
+### Build and run
 
-Use a Dockerfile as setup above.
+Use the container built on a Dockerfile as setup above.
+
+We use `rm` here to delete the container each time as we don't care about persisting any data in the container. And if you don't use the flag, then you'll end up creating a whole of lot of identical containers everytime you run `docker run` or `docker build`, which you'll have to cleanup later.
 
 ```sh
 $ docker build --rm -t my_app:latest .
 ```
 
-Then make an container from the image.
+Then make a container from the image. Make sure to use `-v` or `--volume` as below, to persist build output outside the container, where you can use it.
+
+Test Jekyll runs and displays help.
 
 ```sh
-$ docker run my_app
+$ docker run --rm my_app
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
 jekyll 4.2.0 -- Jekyll is a blog-aware, static site generator in Ruby
 
@@ -256,7 +262,40 @@ $ docker run --rm \
   -p 4000:4000 \
   --volume "$PWD:/srv/jekyll" \
   my_app \
-  jekyll serve
+  jekyll serve --trace
+```
+
+Build site:
+
+```sh
+$ docker run --rm \
+  -p 4000:4000 \
+  --volume "$PWD:/srv/jekyll" \
+  my_app \
+  jekyll build --trace
 ```
 
 Rather than chaining two commands at the end using `&&`, rather use two `docker run` commands such as one for your NPM install and one for `jekyll serve` which handles gems for you.
+
+To test the command works on a Jekyll site, you can leave out the config and just make a homepage.
+
+- `index.md`
+    ```liquid
+    ---
+    title: Homepage
+    ---
+
+    # {{ page.title }}
+
+    Hello, world!
+    ```
+Then the result:
+
+- `_site/index.html`
+    ```html
+    <h1 id="homepage">Homepage</h1>
+
+    <p>Hello, world!</p>
+    ```
+    
+{% endraw %}
