@@ -43,7 +43,7 @@ Based on [jekyll.yml](https://github.com/actions/starter-workflows/blob/main/ci/
             run: |
               docker run \
                 -v ${{ github.workspace }}:/srv/jekyll \
-                jekyll/builder:4.2 \
+                jekyll/builder:4.2.0 \
                 /bin/bash -c 'chmod 777 /srv/jekyll && bundle exec jekyll build --future'
 
           - name: Deploy to GH Pages 🚀
