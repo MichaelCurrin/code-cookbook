@@ -93,6 +93,8 @@ $ ls _site/
 $ ls vendor/bundle/ruby/2.7.0/gems/
 ```
 
+Tip - if your Jekyll version in `Gemfile` differs from the version of the image, then you should make them the same. If you want to use say Jekyll `4.3` in your Gemfile and the Docker image tag is not available, you could use `bundle exec jekyll build` as the command passed to the container. To ensure the project Jekyll gets used, instead of the container's global Jekyll.
+
 ### Run dev server
 
 This one command will install gems to your host's `vendor` directory using `bundle install`, then start a dev server.
