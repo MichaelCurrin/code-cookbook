@@ -67,16 +67,15 @@ $ docker run --rm \
 ```
 
 ```
+Unable to find image 'jekyll/jekyll:4.2.0' locally
+4.2.0: Pulling from jekyll/jekyll
+...
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
-Running bundle install in /srv/jekyll...
-  Bundler: Fetching gem metadata from https://rubygems.org/..........
-  Bundler: Fetching gem metadata from https://rubygems.org/.
-  Bundler: Resolving dependencies...
-  Bundler: Using public_suffix 4.0.6
+Running bundle install in /srv/jekyll... 
 ...
 ```
 
-As you can see, that creates installs gems using Bundler after setting up the files.
+As you can see from above, that container installs gems using Bundler, after setting up the Jekyll template files including `Gemfile`.
 
 ### Build site
 
