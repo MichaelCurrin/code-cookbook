@@ -3,6 +3,9 @@ title: Sonic Pi
 description: "A code-based music creation and performance tool".
 ---
 
+I did a blog post on [Coding and Music](https://michaelcurrin.github.io/coding-blog/2020/05/12/coding-and-music.html) covering this and similar tools.
+
+
 ## What is Sonic Pi?
 
 - [Homepage](https://sonic-pi.net/)
