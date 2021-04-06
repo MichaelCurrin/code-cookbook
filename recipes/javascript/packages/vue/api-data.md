@@ -9,6 +9,75 @@ Point your Vue app at an API that is public, that you created, or at a static JS
 
 ## Samples
 
+### Vue Router
+
+From [Data fetching](https://router.vuejs.org/guide/advanced/data-fetching.html) in the Vue Router docs.
+
+Fetching after navigating to page.
+
+Using `created` - we fetch the data when the view is created and the page is being viewed.
+
+Using `watch` - we call the method again if the route changes.
+
+The `if` statement with in the `getPost` callback is to make sure this request is the last one we did, discard otherwise
+
+```vue
+<template>
+  <div class="post">
+    <div v-if="loading" class="loading">
+      Loading...
+    </div>
+
+    <div v-if="error" class="error">
+      {{ error }}
+    </div>
+
+    <div v-if="post" class="content">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+    </div>
+  </div>
+</template>
+```
+
+```javascript
+export default {
+  data () {
+    return {
+      loading: false,
+      post: null,
+      error: null
+    }
+  },
+  created () {
+    this.fetchData()
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    fetchData () {
+      this.error = this.post = null
+      this.loading = true
+      const fetchedId = this.$route.params.id
+      
+      // Your fetching logic here.
+      getPost(fetchedId, (err, post) => {
+        if (this.$route.params.id !== fetchedId) {
+          return
+        }
+        this.loading = false
+        if (err) {
+          this.error = err.toString()
+        } else {
+          this.post = post
+        }
+      })
+    }
+  }
+}
+```
+
 ### Bitcoin
 
 Here we use a Bitcoin prices API, from the Vue 2 docs cookbook on [Using Axios to Consume APIs](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html). Except using the browser's builtin `fetch` function.
