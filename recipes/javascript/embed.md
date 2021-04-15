@@ -56,7 +56,7 @@ See [Fetch](https://javascript.info/fetch) tutorial.
 
 ## Extending
 
-If you had multiple elements, you could use classes on them and use a JS `for` loop to process each, instead of relying on known an ID. 
+If you had multiple elements, you could use classes on them and use a JS `for` loop to process each, instead of relying on known an ID.
 
 Or you could even use a data attribute so the element knows what its file should be.
 
@@ -66,7 +66,7 @@ Or you could add a JS event on the HTML element:
 <code onload="codeblock('about.md')"></code>
 ```
 
-Note that the example here only displays a code snippet in monospace but plain black and white. 
+Note that the example here only displays a code snippet in monospace but plain black and white.
 
 You'll want to use a library like [highlight.js](https://highlightjs.org/) if you want language-specific highlighting like:
 
@@ -74,5 +74,4 @@ You'll want to use a library like [highlight.js](https://highlightjs.org/) if yo
 <pre><code id="target" class="markdown"></code></pre>
 ```
 
-In the case of a Jekyll site, you might know the language when you setup your code fence blocks or `highlight` Liquid tag.
-
+In the case of a Jekyll site, you might know the language when you set up your code fence blocks or `highlight` Liquid tag.

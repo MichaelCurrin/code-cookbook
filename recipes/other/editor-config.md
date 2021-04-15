@@ -1,6 +1,6 @@
 ---
 title: EditorConfig
-description: How to setup a `.editorconfig` file for your project
+description: How to set up a `.editorconfig` file for your project
 ---
 
 

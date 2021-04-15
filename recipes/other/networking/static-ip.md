@@ -7,7 +7,7 @@ description: Setup a static IP on your home network on Linux
 
 Setup a predictable IP address for your machine so you can connect to it reliably from other machines such as with SSH. Or even if you want to run a public server.
 
-For example, setup as a fixed `192.168.1.10` IP. So you can connect with:
+For example, set up as a fixed `192.168.1.10` IP. So you can connect with:
 
 ```sh
 ssh michael@192.168.1.10
@@ -153,7 +153,7 @@ PING google.com (172.217.170.78) 56(84) bytes of data.
 
 ## Conclusion
 
-You now have a static IP address setup on your machine.
+You now have a static IP address set up on your machine.
 
 You can disconnect from the network (such leaving or turning off) and when you connect again, you'll get the same predictable network IP.
 

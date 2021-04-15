@@ -1,14 +1,14 @@
 ---
-description: How to setup your machine and GitHub profile to allow access by SSH
+description: How to set up your machine and GitHub profile to allow access by SSH
 ---
 # GitHub SSH access
 
-How to setup SSH on your machine from scratch and configure SSH access on your GitHub account
+How to set up SSH on your machine from scratch and configure SSH access on your GitHub account
 
 
 ## Why
 
-If you setup GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`, unlike the usual **HTTP(* accesd method, which is less secure.
+If you set up GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`, unlike the usual **HTTP(* accesd method, which is less secure.
 
 e.g.
 

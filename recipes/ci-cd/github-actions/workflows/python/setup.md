@@ -1,5 +1,5 @@
 ---
-description: How to setup one or more Python versions in your GH Actions environment
+description: How to set up one or more Python versions in your GH Actions environment
 ---
 # Setup
 

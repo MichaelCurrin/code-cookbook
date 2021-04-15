@@ -3,7 +3,7 @@ title: Python
 description: Using Python and the Tweepy package to post a tweet
 ---
 
-Here we setup a short Python script which can be run locally or using GH Actions to post a tweet to your Twitter account.
+Here we set up a short Python script which can be run locally or using GH Actions to post a tweet to your Twitter account.
 
 
 ## Example

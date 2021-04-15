@@ -3,7 +3,7 @@
 
 ## Multiple containers
 
-Say you have this setup for two containers in a repo.
+Say you have this set up for two containers in a repo.
 
 - `backend/`
     - `Dockerfile`
@@ -20,7 +20,7 @@ Here is the content to tie the containers together:
 - `common.yml`
     ```yaml
     version: '2'
-    
+
     services:
       base:
         build: .

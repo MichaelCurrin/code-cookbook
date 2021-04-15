@@ -20,7 +20,7 @@ From [Without Build Tools](https://v3.vuejs.org/guide/tooling/deployment.html#wi
 
 ## Approaches
 
-If you want the full dev experience with Node and Vue CLI, then you would use [vue-loader](https://vue-loader.vuejs.org/) to process your `.vue` files. 
+If you want the full dev experience with Node and Vue CLI, then you would use [vue-loader](https://vue-loader.vuejs.org/) to process your `.vue` files.
 
 > vue-loader is a loader for webpack that allows you to author Vue components in a format called Single-File Components (SFCs):
 
@@ -28,7 +28,7 @@ See also [MichaelCurrin/vue-quickstart](https://github.com/MichaelCurrin/vue-qui
 
 But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow some samples below. These don't need a server-side build step to compile SFC files.
 
-Note that the setup for the examples below are not modern. This is the way in Vue 3 from [docs](https://v3.vuejs.org/api/application-api.html#component).
+Note that the set up for the examples below are not modern. This is the way in Vue 3 from [docs](https://v3.vuejs.org/api/application-api.html#component).
 
 ```javascript
 import { createApp } from 'vue'
@@ -75,7 +75,7 @@ An [import map](https://wicg.github.io/import-maps/) is used to set CDNs and pos
     ```html
     <!DOCTYPE html>
     <html>
-    
+
     <head>
         <script type="importmap">
         {
@@ -127,7 +127,7 @@ This approach loads SFCs dynamically on the frontend. Note use of `.vue` file in
 
 Using the low-level [FranckFreiburger/vue3-sfc-loader](https://github.com/FranckFreiburger/vue3-sfc-loader) library. Note SFC is Single-File Component.
 
->  Vue3 Single File Component loader. Load `.vue` files directly from your html/js. No node.js environment, no (webpack) build step. 
+>  Vue3 Single File Component loader. Load `.vue` files directly from your html/js. No node.js environment, no (webpack) build step.
 
 Based on the README.md and the linked [pen](https://codepen.io/franckfreiburger/project/editor/AqPyBr). Warning `@next` is even more bleeding-edge than `@latest` and to so avoid risk of buggy releases, I've changed to `@latest`.
 

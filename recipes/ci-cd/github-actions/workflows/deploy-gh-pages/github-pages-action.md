@@ -22,7 +22,7 @@ This action also has many stars so that adds to my confidence in its quality and
 
 This action supports all 3 token types for getting permissions to commit to your branch.
 
-I highly recommend `GITHUB_TOKEN` as set below. It requires zero setup and is the most secure (no human can see the token value not even you, and unlike the personal access token the GitHub token only has access to _one repo_ and not all of them). 
+I highly recommend `GITHUB_TOKEN` as set below. It requires zero set up and is the most secure (no human can see the token value not even you, and unlike the personal access token the GitHub token only has access to _one repo_ and not all of them).
 
 You do not need to modify your Secrets. You can copy and paste the code below exactly as it is, then GH Actions will create and substitute a secret token for you in each run.
 

@@ -6,7 +6,7 @@ description: How to run Terraform using a container approach
 
 ## Dockerfile example
 
-I use this at work to setup a certain version of Terraform. Note that `apt` does not provide Terraform.
+I use this at work to set up a certain version of Terraform. Note that `apt` does not provide Terraform.
 
 I copy the entire git repo into the image.
 

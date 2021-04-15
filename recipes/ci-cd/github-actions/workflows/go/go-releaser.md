@@ -7,7 +7,7 @@ description: And action to build and release assets for a Go project
 
 This action helps build your Go application for several platforms in your CI.
 
-Note you should still setup Go in workflow, using `setup-go` as per the doc's example below. 
+Note you should still set up Go in workflow, using `setup-go` as per the doc's example below.
 
 The Go Releaser action handles building assets attaching to a release. I need to look more into the action docs to see how it knows what to release.
 
@@ -59,7 +59,7 @@ The Go Releaser action handles building assets attaching to a release. I need to
         tags:
           - 'v*'
     ```
-- Or on a condition. 
+- Or on a condition.
     ```yaml
     steps:
       - name: Run GoReleaser
@@ -71,7 +71,7 @@ The Go Releaser action handles building assets attaching to a release. I need to
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
-    
+
 That last flow recommend in the doc lets you run your entire workflow on every push but only release on a tag - perhaps checking event type is "tag" is similar would be more in keeping in GH Actions convention.
 
 ## Example output

@@ -6,7 +6,7 @@ title: Setup Go
 
 Repo: [actions/setup-go](https://github.com/actions/setup-go)
 
-> Set up your GitHub Actions workflow with a specific version of Go 
+> Set up your GitHub Actions workflow with a specific version of Go
 
 
 ## Samples
@@ -35,7 +35,7 @@ Run actions/setup-go@v2
 Setup go stable version spec 1.15
 Found in cache @ /opt/hostedtoolcache/go/1.15.6/x64
 Added go to the path
-Successfully setup go version 1.15
+Successfully set up go version 1.15
 go version go1.15.6 linux/amd64
 
 go env

@@ -6,13 +6,13 @@ description: Workflows for running Yarn on GitHub Actions
 
 {% raw %}
 
-GH Actions already setups Node and Yarn for you. If you want more customization, you can use an action to setup Node or Yarn.
+GH Actions already setups Node and Yarn for you. If you want more customization, you can use an action to set up Node or Yarn.
 
 ## Samples
 
 ### Simple
 
-The GH docs recommend installing with Yarn using Setup Node action and frozen lockfile flag. 
+The GH docs recommend installing with Yarn using Setup Node action and frozen lockfile flag.
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ See the Yarn section of the [Cache]({{ site.baseurl }}{% link code-cookbook/ci-c
 
 This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
 
-This action doesn't just setup Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
+This action doesn't just set up Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
 
 For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit :🤷‍♂️ . So just use the [Simple](simple.md) flow above or the [Basic]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}) page.
 

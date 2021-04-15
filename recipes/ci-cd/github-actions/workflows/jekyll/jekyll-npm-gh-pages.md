@@ -30,7 +30,7 @@ It is low-level in working with tools - it may not be efficient compared with us
         with:
           persist-credentials: false
     ```
-- Steps to setup and use cache for Yarn and Bundler. These are just copied as is - see the [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) section of this Cookbook for more info.
+- Steps to set up and use cache for Yarn and Bundler. These are just copied as is - see the [Cache](/recipes/ci-cd/github-actions/workflows/cache.md) section of this Cookbook for more info.
     ```yaml
     steps:
       # checkout...
@@ -39,7 +39,7 @@ It is low-level in working with tools - it may not be efficient compared with us
       - name: "Cache: Get yarn cache directory path"
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-       
+
       - name: "Cache: Set up yarn cache"
         uses: actions/cache@v2
         id: yarn-cache

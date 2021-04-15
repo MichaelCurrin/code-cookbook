@@ -10,7 +10,7 @@ description: A repo-scoped Github tokens useful for automated deploys
 
 - A deploy key is an SSH public key.
 - The token must be be generated **manually** using the local command-line.
-- It takes more effort to setup than the other steps.
+- It takes more effort to set up than the other steps.
 - Use it in an action using this:
     ```yaml
     ${{ secrets.DEPLOY_KEY }}

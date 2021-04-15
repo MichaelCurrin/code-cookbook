@@ -7,7 +7,7 @@ description: Basic web servers with Deno
 Run the examples below using network permissions allowed.
 
 ```sh
-$ deno run --allow-net server.ts 
+$ deno run --allow-net server.ts
 ```
 
 Note the flag must be _before_ the path, not at the end.
@@ -22,9 +22,9 @@ From [post](https://medium.com/@nikhilsharmarockstar21/getting-started-with-deno
 - `server.ts`
     ```typescript
     import { serve } from "https://deno.land/std@0.58.0/http/server.ts";
-    
+
     const APP_PORT = 8000;
-    
+
     const s = serve({ port: APP_PORT });
     console.log(`http://localhost:${APP_PORT}/`);
 
@@ -95,10 +95,10 @@ Simple server from the `README.md` of the [abc](https://deno.land/x/abc) package
 - `server.ts`
     ```typescript
     import { Application } from "https://deno.land/x/abc@v1.2.4/mod.ts";
-    
+
     const APP_PORT = 8080;
     const app = new Application();
-    
+
     console.log(`http://localhost:${APP_PORT}/`);
 
     app.get("/hello", (c) => {
@@ -111,7 +111,7 @@ Below are adapted from the [examples](https://deno.land/x/abc@v1.2.4/examples) d
 
 ### Static
 
-This setup serves file in the static `build` directory.
+This set up serves file in the static `build` directory.
 
 You can leave out the `cors` section if you don't need it.
 
@@ -123,17 +123,17 @@ You can leave out the `cors` section if you don't need it.
     const APP_PORT = 8080;
 
     const app = new Application();
-    
+
     app.static("/", "build", cors())
       .start({ port: APP_PORT });
-  
+
     console.log(`Server listening on http://localhost:${APP_PORT}`);
     ```
-    
+
 In the case of `app.static`, you must as file permissions.
 
 ```sh
-$ deno run --allow-net --allow-read static.ts 
+$ deno run --allow-net --allow-read static.ts
 ```
 
 Then view as:
@@ -151,11 +151,11 @@ Notes based on [Static files](https://deno.land/x/abc/docs/static_files.md) in A
         ```
 - Static file
     - Make `index.html` available as `/`.
-    - Code 
+    - Code
         ```typescript
         app.file("/", "public/index.html");
         ```
-- Combine both of the above. 
+- Combine both of the above.
     - Serve both a directory of static assets and a short path for the `index.html` page as `/`.
     - Code
         ```typescript

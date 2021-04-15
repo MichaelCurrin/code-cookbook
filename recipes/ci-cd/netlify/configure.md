@@ -1,12 +1,12 @@
 # Configure
-> How to setup a Netlify build using the UI or a config file
+> How to set up a Netlify build using the UI or a config file
 
 
 ## Why use a config file
 
 You don't need a config file. You can configure values in the UI including build command and output directory.
 
-But for repeatable builds (across Netlify accounts or sites) and for keeping the value in version control, a config file in your repo is great. It will override the UI options. 
+But for repeatable builds (across Netlify accounts or sites) and for keeping the value in version control, a config file in your repo is great. It will override the UI options.
 
 Note that either way you don't need to specify an install command or caching dependencies - Netlify will do this for you based on the presence of a package file - Gemfile or yarn.lock file for example.
 
@@ -23,7 +23,7 @@ See Netlify's docs:
 
 ## Netlify config file
 
-Netlify's config file is `netlify.toml`. 
+Netlify's config file is `netlify.toml`.
 
 It should be at the root of the repo. Indentation should be two spaces. Just push your `master` branch from your machine or edit on GitHub and a Netlify build will run using your config settings.
 
@@ -53,7 +53,7 @@ The minimum config two params under `[build]` as below.
   publish = "out_dir"
 ```
 
-Note you could use `./foo` as the publish directory if you want to be more verbose 
+Note you could use `./foo` as the publish directory if you want to be more verbose
 
 ### Jekyll prod build
 

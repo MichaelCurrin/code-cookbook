@@ -8,7 +8,7 @@ description: Deploy your static output directory on the GH Pages branch
 Action:
 
 - [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages) - `JamesIves/github-pages-deploy-action`
-    >  This GitHub Action will automatically deploy your project to GitHub Pages. It can be configured to push your production-ready code into any branch you'd like, including `gh-pages` and `docs`. It can also handle cross repository deployments too. 
+    >  This GitHub Action will automatically deploy your project to GitHub Pages. It can be configured to push your production-ready code into any branch you'd like, including `gh-pages` and `docs`. It can also handle cross repository deployments too.
 
 ## Usage
 
@@ -57,7 +57,7 @@ on: push
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -112,34 +112,34 @@ on:
   push:
     branches:
       - master
-      
+
 jobs:
   install-and-test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
-        
+
     steps:
       - uses: actions/checkout@master
-      
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Install
         run: yarn install
         env:
           CI: true
-          
+
       - name: Test
         run: yarn test
 
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -156,7 +156,7 @@ jobs:
 
 Notes:
 
-- This could can be setup to only run the deploy after tests pass.
+- This could can be set up to only run the deploy after tests pass.
 - This could also be adjusted test can run on any branch, but _deploy_ only on master pushes.
 
 {% endraw %}

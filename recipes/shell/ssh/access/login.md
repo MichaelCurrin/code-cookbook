@@ -3,7 +3,7 @@
 
 ## Login
 
-Set hostname from `/etc/hosts` or the IP address. Use is optional if you've setup your configs.
+Set hostname from `/etc/hosts` or the IP address. Use is optional if you've set up your configs.
 
 ```sh
 $ ssh user@hostname

@@ -39,6 +39,6 @@ description: Setup minimum values
 - It has basic metadata and language settings.
 - CSS and JS assets are setup.
 - JS script tag.
-    - Loading JS using `defer` attributes means it will get loaded **after** the body, even though it is setup in the `head`. You could take out `defer` attribute and put the `script` tag in the `body` rather.
-    - Scripts setup with `defer` will load in a predictable order.
+    - Loading JS using `defer` attributes means it will get loaded **after** the body, even though it is set up in the `head`. You could take out `defer` attribute and put the `script` tag in the `body` rather.
+    - Scripts set up with `defer` will load in a predictable order.
     - You could use `async` instead if you had something which can be loaded independently of the body (either before or after it) and independently of the other resources.

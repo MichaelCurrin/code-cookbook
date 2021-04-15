@@ -1,7 +1,7 @@
 # Styling
 
 
-From example in the [Vue 2 Cookbook docs](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html), setup as inline style on the page itself.
+From example in the [Vue 2 Cookbook docs](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html), set up as inline style on the page itself.
 
 ```cs
 body {

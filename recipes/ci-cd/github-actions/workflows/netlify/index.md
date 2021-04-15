@@ -28,9 +28,9 @@ We are going to use GH Actions on a daily schedule to trigger that build.
 
 ## How to setup
 
-1. In Netlify, go to site preferences and find an existing (secret) build hook URL for your site. 
+1. In Netlify, go to site preferences and find an existing (secret) build hook URL for your site.
     - A sample URL is like: `https://api.netlify.com/build_hooks/abcdef12345abcdef12345`
-    - When you do a _POST_ request that URL without any data in the payload, your site will build. 
+    - When you do a _POST_ request that URL without any data in the payload, your site will build.
     - If you want, you can test the snippet by running it locally and then checking your deploys in Netlify.
 1. Copy the ID portion of the snippet you get.
     - e.g. `abcdef12345abcdef12345`
@@ -43,7 +43,7 @@ We are going to use GH Actions on a daily schedule to trigger that build.
     - Go to _Actions_ tab of your repo and create a new workflow - at the top click _set up an workflow yourself_.
     - Or create a file file with path `.github/workflows/netlify.yml`.
 1. Copy and paste the content from the workflow file below.
-1. Now wait for your workflow to run at the specified time. 
+1. Now wait for your workflow to run at the specified time.
     - Find it logged on the Actions tab.
     - Find it logged in your Netlify deploys - as "Deploy triggered by build hook: hook1".
 
@@ -84,7 +84,7 @@ You can trigger your build manually at any time using the following approaches:
 
 ### Workflow dispatch in GH Actions
 
-Expand the workflow above to allow manual builds through GitHub. For example, if you want to check that your workflow and secret are setup correctly.
+Expand the workflow above to allow manual builds through GitHub. For example, if you want to check that your workflow and secret are set up correctly.
 
 ```yaml
 on:

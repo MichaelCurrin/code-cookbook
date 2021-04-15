@@ -43,7 +43,7 @@ Be sure to set the config as:
 github_username: MyUsername
 ```
 
-You do not have to set your repo name in the config. Jekyll will find the repo name (from the `git remote` setup when you cloned or pushed the repo) and make that available as `site.baseurl`, always with a leading forward slash.
+You do not have to set your repo name in the config. Jekyll will find the repo name (from the `git remote` set up when you cloned or pushed the repo) and make that available as `site.baseurl`, always with a leading forward slash.
 
 e.g. `/code-cookbook`
 

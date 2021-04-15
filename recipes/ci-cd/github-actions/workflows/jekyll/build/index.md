@@ -11,9 +11,9 @@ After you have a workflow building successful, you can configure your repo's Set
 
 ### Why use GitHub Actions for Jekyll?
 
-Note that if you setup a Jekyll site on GitHub, such as with a config and a homepage, GitHub can build the site and serve it for you. No GitHub Actions needed. And only one branch is needed.
+Note that if you set up a Jekyll site on GitHub, such as with a config and a homepage, GitHub can build the site and serve it for you. No GitHub Actions needed. And only one branch is needed.
 
-That approach without GitHub Actions is much simpler. The downside is that you are forced to use the plugins and Jekyll version setup by GitHub. And you can't mix in Node or Python or whatever in your build flow. With GitHub Actions, you get control of that. Plus better logging on failed builds.
+That approach without GitHub Actions is much simpler. The downside is that you are forced to use the plugins and Jekyll version set up by GitHub. And you can't mix in Node or Python or whatever in your build flow. With GitHub Actions, you get control of that. Plus better logging on failed builds.
 
 ### Related Cookbook sections
 

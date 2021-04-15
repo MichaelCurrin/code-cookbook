@@ -115,7 +115,7 @@ Sample from the docs:
 
 It looks like this depends on a lockfile existing. I don't like to commit that - perhaps `package.json` can be used instead.
 
-The docs actually use `npm ci` which delete `node_modules`, so I've setup `npm install` here instead.
+The docs actually use `npm ci` which delete `node_modules`, so I've set up `npm install` here instead.
 
 
 ### Matrix

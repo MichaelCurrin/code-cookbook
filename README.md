@@ -27,7 +27,7 @@
 
 ## Documentation
 
-To setup and run this project (or your fork), see the project docs:
+To set up and run this project (or your fork), see the project docs:
 
 <div align="center">
 

@@ -8,7 +8,7 @@ description: Deploy a GH Pages app using GH Actions and NPM/Yarn
 
 ## About
 
-This guide covers how to setup two things in one workflow:
+This guide covers how to set up two things in one workflow:
 
 1. Test and build your app. On any push or PR.
 2. Persist the results on the `gh-pages` branch (so they can served using GH Pages). But on a push to `master` only.
@@ -67,7 +67,7 @@ Here we build the app with Yarn (or you could use NPM instead) - note that Yarn 
 
 ## Notes
 
-The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue app you can setup the site to be on a subpath for GH Pages.
+The `NODE_ENV` environment variable is set to `production` to ensure a production build is done. For example, in a Vue app you can set up the site to be on a subpath for GH Pages.
 
 We want avoid actually deploying code on a PR and rather wait until code is merged to master. So we used a conditional statement to skip the deploy step for PR events.
 

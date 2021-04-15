@@ -1,11 +1,11 @@
 ---
 title: Use Ruby action
-description: Use a Ruby action to setup Ruby and gems and then add your run command
+description: Use a Ruby action to set up Ruby and gems and then add your run command
 ---
 
 {% raw %}
 
-Here we setup a Ruby environment using the `setup-ruby` action. A param is passed to it so that it installed gems with Bundler and even caches them for you.
+Here we set up a Ruby environment using the `setup-ruby` action. A param is passed to it so that it installed gems with Bundler and even caches them for you.
 
 See the [GH Actions Ruby][] section for more info.
 

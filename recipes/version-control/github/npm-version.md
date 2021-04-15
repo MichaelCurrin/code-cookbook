@@ -21,7 +21,7 @@ $ git fetch --tags && npm version minor && git push --follow-tags
 
 ### Package commands
 
-Or setup your `package.json`:
+Or set up your `package.json`:
 
 ```json
 {

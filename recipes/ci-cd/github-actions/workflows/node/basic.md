@@ -81,4 +81,4 @@ The assumption here is that the tests will be run against compiled JS files, so 
 
 This workflow uses `actions/checkout`, a standard action for cloning the repo in a workflow run.
 
-Note that **no** Node or Yarn action was used here - the default environment will setup Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.
+Note that **no** Node or Yarn action was used here - the default environment will set up Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.

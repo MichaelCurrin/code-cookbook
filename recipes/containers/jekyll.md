@@ -77,7 +77,7 @@ Unable to find image 'jekyll/jekyll:4.2.0' locally
 4.2.0: Pulling from jekyll/jekyll
 ...
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
-Running bundle install in /srv/jekyll... 
+Running bundle install in /srv/jekyll...
 ...
 ```
 
@@ -158,7 +158,7 @@ $ docker exec -it blog bash
 ## Setup Jekyll with a Dockerfile
 > How to use a Jekyll image in a Dockerfile
 
-If you have more complex setup steps, then Jekyll through a container directly as above might be too limiting.
+If you have more complex set up steps, then Jekyll through a container directly as above might be too limiting.
 
 For example, you might want to install Postgres, Go or Python using `apt-get`, `apk` or `curl`. See a few samples below.
 
@@ -181,7 +181,7 @@ RUN apk update
 RUN apk add sqlite
 ```
 
-### Node, SQLite (APT) and Jekyll 
+### Node, SQLite (APT) and Jekyll
 
 Here we do the following:
 
@@ -209,7 +209,7 @@ If you prefer to install Node with a package manager rather than an image. You m
 RUN apt-get update
 RUN apt-get install -y \
   node.js
-  
+
 FROM jekyll/jekyll
 ```
 
@@ -232,7 +232,7 @@ If you don't provide any arguments, the container will show the Jekyll command h
 
 ### Build and run
 
-Use the container built on a Dockerfile as setup above.
+Use the container built on a Dockerfile as set up above.
 
 We use `rm` here to delete the container each time as we don't care about persisting any data in the container. And if you don't use the flag, then you'll end up creating a whole of lot of identical containers everytime you run `docker run` or `docker build`, which you'll have to cleanup later.
 
@@ -297,5 +297,5 @@ Then the result:
 
     <p>Hello, world!</p>
     ```
-    
+
 {% endraw %}
