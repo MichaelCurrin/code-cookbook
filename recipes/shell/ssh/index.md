@@ -36,4 +36,4 @@ $ nano ~/.ssh/config
 
 ### Deploys
 
-To create an SSH deploy key and use it for GitHub actions, see the [Deploy key](/recipes/ci-cd/github-actions/tokens/deploy-key.md) of the CI/CD Github Actions section of this project.
+To create an SSH deploy key and use it for GitHub actions, see the [Deploy key](/recipes/ci-cd/github-actions/tokens/deploy-key.md) of the CI/CD GitHub Actions section of this project.

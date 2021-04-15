@@ -38,7 +38,7 @@ Some themes support social handles.
 
 ### Description note
 
-If you leave the description blank and publish to Github Pages, it will take your Git
+If you leave the description blank and publish to GitHub Pages, it will take your Git
 repo's description. At least the way the theme is setup.
 
 ```yaml
@@ -83,7 +83,7 @@ For URL, include **protocol** and **no** trailing forward slash.
 
 This value is ignored usually - it only applied for a prod build, that is:
 
-- When deploying to Github Pages.
+- When deploying to GitHub Pages.
 - When wetting JEKYLL_ENV='production' as an environment variable locally or on Netlify.
 
 It is recommended to set this at least for the canonical tag to be aware of the full domain,
@@ -93,12 +93,12 @@ as that is recommended but not required for use by crawlers.
 url: "https://michaelcurrin.github.io"
 ```
 
-If using Github Pages as a project site (`USERNAME.github.io/my-project`),
+If using GitHub Pages as a project site (`USERNAME.github.io/my-project`),
 this should be a forwardslash and the name of your repo - e.g. `"/my-project"`
 
 Your site will be served from this URL so all URLs on the page should relative to this too.
 
-If using a Github Pages as a user site (`USERNAME.github.io/`), or using Netlify, this can be empty.
+If using a GitHub Pages as a user site (`USERNAME.github.io/`), or using Netlify, this can be empty.
 
 ```yaml
 baseurl: "/jekyll-blog-demo"

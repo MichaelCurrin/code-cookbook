@@ -2,7 +2,7 @@
 
 Marketplace - [super-linter](https://github.com/marketplace/actions/super-linter?version=v2.0.0).
 
-Lint multiple languages at once without configuring or installing- just add a Github Action and push.
+Lint multiple languages at once without configuring or installing- just add a GitHub Action and push.
 
 See the Wiki on the repo and the [Disable linters](https://github.com/github/super-linter/blob/master/docs/disabling-linters.md) page in the docs.
 

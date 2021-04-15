@@ -7,7 +7,7 @@ description: How to build a Jekyll static site using GH Actions
 
 ### Resources
 
-- [Github Actions CI](https://jekyllrb.com/docs/continuous-integration/github-actions/) - a tutorial I wrote for the Jekyll docs.
+- [GitHub Actions CI](https://jekyllrb.com/docs/continuous-integration/github-actions/) - a tutorial I wrote for the Jekyll docs.
 - [jekyll-actions-quickstart](https://michaelcurrin.github.io/jekyll-actions-quickstart/) project site of mine including resources
 
 

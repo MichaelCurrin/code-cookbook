@@ -45,7 +45,7 @@ Note the `GITHUB_` is a reserved prefix in workflows so custom token names can't
 
 ## About
 
-- Create manually this at the Github **account** level, then and use for one or more repos.
+- Create manually this at the GitHub **account** level, then and use for one or more repos.
 - Uses
     - Can be used in actions
     - For other cases such as manual or automated REST requests, if you put it in your URL or enter as your password. The PAT is actually _necessary_ if you use two-factor authenticator or single sign-on (otherwise you have to enter those a number on the command-line).
@@ -58,7 +58,7 @@ Note the `GITHUB_` is a reserved prefix in workflows so custom token names can't
 
 _**Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs._
 
-Github will also scan to find accidentally committed secrets - [doc](https://help.github.com/en/github/administering-a-repository/about-secret-scanning).
+GitHub will also scan to find accidentally committed secrets - [doc](https://help.github.com/en/github/administering-a-repository/about-secret-scanning).
 
 
 ## How to use an access token in a workflow

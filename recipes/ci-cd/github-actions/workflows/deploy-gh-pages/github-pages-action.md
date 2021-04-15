@@ -7,7 +7,7 @@ description: A generic action which builds a GH Pages and works great with Jekyl
 
 Action:
 
-- [Github Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages`
+- [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action) - `peaceiris/actions-gh-pages`
 
 This action will publish a target build directory as a `gh-pages` branch with a commit and it will serve it on GH Pages.
 

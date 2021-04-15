@@ -15,7 +15,7 @@ Files:
 
 Both exist on your machine.
 
-The public and private keys work together with encryption algorithms. Your public key can be added to authorized keys on another machine or on Github account. So that host will allow a machine to connect if its public key matches what is has stored, but the connecting machine must also have the appropriate private key which is used in the connection but not sent directly.
+The public and private keys work together with encryption algorithms. Your public key can be added to authorized keys on another machine or on GitHub account. So that host will allow a machine to connect if its public key matches what is has stored, but the connecting machine must also have the appropriate private key which is used in the connection but not sent directly.
 
 
 ## View SSH keys
@@ -45,7 +45,7 @@ Simple:
 $ ssh-keygen -t rsa
 ```
 
-As recommended by [Github doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to Github repos via SSH.
+As recommended by [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to GitHub repos via SSH.
 
 
 ```sh
@@ -57,7 +57,7 @@ Flags:
 - `-t rsa`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
 - `-b 4096`: Specifies the number of bits in the key to create
 - `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
-- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by Github docs or rather use `"$USER@$HOSTNAME"` as it is specific to your machine.
+- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by GitHub docs or rather use `"$USER@$HOSTNAME"` as it is specific to your machine.
 
 See also [page](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) in the `git` docs but this doesn't add much to what is covered above.
 

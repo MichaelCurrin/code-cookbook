@@ -3,11 +3,11 @@ title: Tokens cheatsheet
 description: Instructions to set a GitHub token for CI builds
 ---
 
-A Github Action needs permissions to push to your `gh-pages` branch - so you must provide a token.
+A GitHub Action needs permissions to push to your `gh-pages` branch - so you must provide a token.
 
 Here are the approaches, from simplest to most complex to manage. A summary is provided.
 
-- [Github token]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/tokens/github-token.md %})
+- [GitHub token]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/tokens/github-token.md %})
 	- API key scoped to a single repo.
 	- Auto-generated for a GH workflow - low effort.
 	- Very secure - you never have to copy or even view the value.
