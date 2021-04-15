@@ -16,7 +16,7 @@ That will have the following GitHub URLs:
 - Raw content as a plain text for machines to read: [raw.githubusercontent.com/MichaelCurrin/jekyll-blog-demo/master/about.md](https://raw.githubusercontent.com/MichaelCurrin/jekyll-blog-demo/master/about.md).
 
 ### Target output
-Setup the target code snippet element with empty text.
+Set up the target code snippet element with empty text.
 
 ```html
 <pre><code id="target"></code></pre>

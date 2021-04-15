@@ -59,7 +59,7 @@ Note use of `GITHUB_TOKEN` near the end.
             with:
               ruby-version: ${{ env.RUBY_VERSION }}
 
-          - name: Setup cache for Bundler
+          - name: Set up cache for Bundler
             id: cache
             uses: actions/cache@v2
             with:

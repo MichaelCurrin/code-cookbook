@@ -14,7 +14,7 @@ description: How to install Python and Python packages on GH Actions
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'

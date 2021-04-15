@@ -12,7 +12,7 @@ GH Actions already setups Node and Yarn for you. If you want more customization,
 
 ### Simple
 
-The GH docs recommend installing with Yarn using Setup Node action and frozen lockfile flag.
+The GH docs recommend installing with Yarn using Set up Node action and frozen lockfile flag.
 
 ```yaml
 steps:

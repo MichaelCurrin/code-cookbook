@@ -33,7 +33,7 @@ Sample usage based on the docs.
           - name: Checkout 🛎
             uses: actions/checkout@v2
 
-          - name: Setup Ruby 💎
+          - name: Set up Ruby 💎
             uses: ruby/setup-ruby@v1
             with:
               ruby-version: 2.7

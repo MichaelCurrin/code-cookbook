@@ -28,11 +28,11 @@ Here we use the [denolib/setup-deno](https://github.com/denolib/setup-deno) acti
     ```yaml
     steps:
       - uses: actions/checkout@v2
-      
+
       - uses: denolib/setup-deno@v2
         with:
           deno-version: v1.x
-          
+
       - run: |
           deno --version
           deno run https://deno.land/std/examples/welcome.ts
@@ -44,7 +44,7 @@ Here we use the [denolib/setup-deno](https://github.com/denolib/setup-deno) acti
 
 This will:
 
-- Setup Deno in the environment...
+- Set up Deno in the environment...
 - Use Deno to check formatting and run tests.
 
 What's missing is a step build the app - to compile TS to JS and bundle as a single JS file (or binary). That would be useful for distributing a package or making a GH Pages site.
@@ -109,10 +109,10 @@ See [denolib/setup-deno](https://github.com/denolib/setup-deno).
             deno: ["v1.x", "nightly"]
 
         steps:
-          - name: Setup repo
+          - name: Set up repo
             uses: actions/checkout@v2
 
-          - name: Setup Deno
+          - name: Set up Deno
             uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
             with:
               deno-version: ${{ matrix.deno }}
@@ -123,7 +123,7 @@ See [denolib/setup-deno](https://github.com/denolib/setup-deno).
           - name: Run Tests
             run: deno test -A --unstable
     ```
-    
+
 A variation without the matrix strategy. And using v2 instead of a commit hash.
 
 - `deno.yml`
@@ -143,10 +143,10 @@ A variation without the matrix strategy. And using v2 instead of a commit hash.
         runs-on: ubuntu-latest
 
         steps:
-          - name: Setup repo
+          - name: Set up repo
             uses: actions/checkout@v2
 
-          - name: Setup Deno
+          - name: Set up Deno
             uses: denolib/setup-deno@v2
             with:
               deno-version: v1.x

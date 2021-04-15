@@ -1,4 +1,4 @@
-# Install gems and run 
+# Install gems and run
 
 Using an action owned by `ruby` account. Don't confuse with action of same name  owned by `actions` account.
 
@@ -12,7 +12,7 @@ From the action's docs, if you use `bundle-cache`, that means gems will be alrea
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Setup Ruby 💎
+      - name: Set up Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'

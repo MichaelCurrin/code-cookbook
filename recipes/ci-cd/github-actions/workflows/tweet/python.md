@@ -13,7 +13,7 @@ See **Tweet GitHub Actions** as a simple template repo that you can use.
 [![MichaelCurrin - tweet-gh-actions-py](https://img.shields.io/static/v1?label=MichaelCurrin&message=tweet-gh-actions-py&color=blue&logo=github)](https://github.com/MichaelCurrin/tweet-gh-actions-py)
 
 
-## Setup scripts
+## Set up scripts
 
 See [Tweet][] in the Python section this project for file below.
 
@@ -27,7 +27,7 @@ Add files to your repo:
 
 ## Configure workflow
 
-Setup a workflow to handle:
+Set up a workflow to handle:
 
 - Python
 - Python packages

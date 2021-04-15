@@ -1,5 +1,5 @@
 ---
-title: Setup Go
+title: Set up Go
 ---
 
 {% raw %}
@@ -32,7 +32,7 @@ Sample output:
 ```
 Run actions/setup-go@v2
 
-Setup go stable version spec 1.15
+Set up go stable version spec 1.15
 Found in cache @ /opt/hostedtoolcache/go/1.15.6/x64
 Added go to the path
 Successfully set up go version 1.15
@@ -108,7 +108,7 @@ Based on [iron-go-project](https://github.com/ironpeakservices/iron-go-project/b
           echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
           echo "Using Go version ${{ steps.vars.outputs.go_version }}"
 
-      - name: Setup Go
+      - name: Set up Go
         uses: actions/setup-go@v2
         with:
           go-version: ${{ steps.vars.outputs.go_version }}
@@ -132,7 +132,7 @@ How to run against multiple Go version. Based on the action's doc.
 
         steps:
           - uses: actions/checkout@v2
-          - name: Setup go
+          - name: Set up go
             uses: actions/setup-go@v1
             with:
               go-version: ${{ matrix.go }}

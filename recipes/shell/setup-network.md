@@ -1,4 +1,4 @@
-# Setup network
+# Set up network
 
 If you want to communicate between two machines on a network.
 

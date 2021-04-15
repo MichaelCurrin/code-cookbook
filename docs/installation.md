@@ -15,7 +15,7 @@ $ git clone git@github.com:MichaelCurrin/code-cookbook.git
 $ cd code-cookbook
 ```
 
-## Setup hooks
+## Set up hooks
 
 ```sh
 $ make hooks

@@ -28,7 +28,7 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
         steps:
         - uses: actions/checkout@v2
 
-        # Setup .npmrc file to publish to npm
+        # Set up .npmrc file to publish to npm
         - uses: actions/setup-node@v1
           with:
             node-version: '12.x'
@@ -55,7 +55,7 @@ See also [About packaging with GitHub Actions](https://docs.github.com/en/free-p
         steps:
         - uses: actions/checkout@v2
 
-        # Setup .npmrc file to publish to GitHub Packages
+        # Set up .npmrc file to publish to GitHub Packages
         - uses: actions/setup-node@v1
           with:
             node-version: '12.x'

@@ -20,7 +20,7 @@ If you don't have it installed, got to the [iTerm2](https://www.iterm2.com/index
 
 I don't know what support is like outside of macOS.
 
-### Setup script
+### Set up script
 
 We're going to use a script in the AppleScript format here. But, don't worry – I've done all the research and testing so now you only have to configure the first line and leave the rest as is.
 

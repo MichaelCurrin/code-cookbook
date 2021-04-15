@@ -11,7 +11,7 @@ It works well if you have a static site like made with Hugo or Jekyll, or a web 
 Netlify will build and serve your site for you on `my-app.netlify.app` - you can change the subdomain to anything not already taken.
 
 
-## Setup a site
+## Set up a site
 
 1. Create an account on Netlify.
 2. Create a new site - select a repo GitHub (or BitBucket or GitLab).

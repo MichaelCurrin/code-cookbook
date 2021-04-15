@@ -1,6 +1,6 @@
 ---
 title: Basic
-description: Setup minimum values
+description: Set up minimum values
 ---
 
 

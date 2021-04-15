@@ -14,7 +14,7 @@ Create a repo which has at least these files:
 - `entrypoint.sh`
     - Shell script with your core logic. This could reference other TypeScript or Python scripts for example.
 - `Dockerfile`
-    - Setup dependencies for your action.
+    - Set up dependencies for your action.
 
 
 ## Contents

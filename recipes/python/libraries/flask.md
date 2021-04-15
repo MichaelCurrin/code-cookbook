@@ -5,7 +5,7 @@ This section assumes familiarity with the [Flask](https://flask.palletsprojects.
 
 ## Make a CSV downloadable
 
-Setup your application.
+Set up your application.
 
 ```python
 from flask import make_response
@@ -65,7 +65,7 @@ Some config options:
 - `CACHE_DEFAULT_TIMEOUT`. The default **timeout** (expiry time) that is used if no timeout is specified. Unit of time is **seconds**. You can set timeout on individual functions to override this.
 - `CACHE_THRESHOLD` - The **maximum number of items** the cache will store before it starts deleting some. Used only for SimpleCache and FileSystemCache.
 
-Setup your application.
+Set up your application.
 
 ```python
 import datetime

@@ -56,7 +56,7 @@ It is low-level in working with tools - it may not be efficient compared with us
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
     ```
-- Setup NodeJS (and Yarn) and Ruby.
+- Set up NodeJS (and Yarn) and Ruby.
     ```yaml
     steps:
       # ...
@@ -69,12 +69,12 @@ It is low-level in working with tools - it may not be efficient compared with us
         uses: actions/setup-ruby@v1
         with: { ruby-version: '2.7.1' }
     ```
-- Setup node packages and gems and do the yarn build. NPM could be used here too.
+- Set up node packages and gems and do the yarn build. NPM could be used here too.
     ```yaml
     steps:
       # ...
 
-      - name: Setup dependencies
+      - name: Set up dependencies
         run: |
           yarn install --frozen-lockfile
           bundle config set path vendor/bundle

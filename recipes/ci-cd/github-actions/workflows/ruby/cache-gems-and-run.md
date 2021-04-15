@@ -15,12 +15,12 @@ Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-    
-      - name: Setup Ruby 💎
+
+      - name: Set up Ruby 💎
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7'
-          
+
       - name: Get cached gems
         uses: actions/cache@v2
         with:
@@ -33,7 +33,7 @@ Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby
         run: |
           bundle config set path vendor/bundle
           bundle install --jobs 4 --retry 3
-          
+
       - name: Run
         run: bundle exec ruby hello.rb
     ```

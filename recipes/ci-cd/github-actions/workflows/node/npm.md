@@ -10,13 +10,13 @@ See the GH docs page on [Using Node.js with GitHub Actions](https://docs.github.
 To build a Node app (such as React or Vue) and serve it with GH Pages, see the [Deploy GH Pages]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}) section of this cookbook site.
 
 
-## Setup Node action
+## Set up Node action
 
 Note that the action environment **already** include Node.js, but using `actions/setup-node` gives more control.
 
-See [Setup Node.js Environment](https://github.com/marketplace/actions/setup-node-js-environment) action.
+See [Set up Node.js Environment](https://github.com/marketplace/actions/setup-node-js-environment) action.
 
-> Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH
+> Set up a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH
 
 ### Options
 
@@ -27,7 +27,7 @@ Sample from GH Actions recommendation. Note that `v2` does not work but `v2.1.1`
 - `main.yml`
     ```yaml
     steps:
-      - name: Setup Node.js environment
+      - name: Set up Node.js environment
         uses: actions/setup-node@v2-beta
         with:
           # Set always-auth in npmrc
@@ -67,7 +67,7 @@ I created this based on the other samples.
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
@@ -95,7 +95,7 @@ Sample from the docs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
@@ -154,11 +154,11 @@ This sample comes from the docs and is similar to the default covered in the exa
     ```
 
 
-### Setup Node action default
+### Set up Node action default
 
 From the GitHub Action samples:
 
-- [Setup Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
+- [Set up Node action](https://github.com/marketplace/actions/setup-node-js-environment) - `actions/setup-node`
 
 - `main.yml`
     ```yaml

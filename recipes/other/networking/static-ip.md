@@ -1,11 +1,11 @@
 ---
-description: Setup a static IP on your home network on Linux
+description: Set up a static IP on your home network on Linux
 ---
 # Static IP
 
 ## About
 
-Setup a predictable IP address for your machine so you can connect to it reliably from other machines such as with SSH. Or even if you want to run a public server.
+Set up a predictable IP address for your machine so you can connect to it reliably from other machines such as with SSH. Or even if you want to run a public server.
 
 For example, set up as a fixed `192.168.1.10` IP. So you can connect with:
 

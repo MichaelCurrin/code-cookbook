@@ -3,7 +3,7 @@
 See [Codepen demo](https://codepen.io/michaelcurrin/pen/ExKorNd)
 
 
-## Setup steps
+## Set up steps
 
 Based on [tutorial](https://idratherbewriting.com/documentation-theme-jekyll/mydoc_tables.html#jquery-datatables) for Jekyll.
 

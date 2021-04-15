@@ -155,7 +155,7 @@ $ docker exec -it blog bash
 ```
 
 
-## Setup Jekyll with a Dockerfile
+## Set up Jekyll with a Dockerfile
 > How to use a Jekyll image in a Dockerfile
 
 If you have more complex set up steps, then Jekyll through a container directly as above might be too limiting.

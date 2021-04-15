@@ -25,7 +25,7 @@ Here are the approaches, from simplest to most complex to manage. A summary is p
 
 Three tokens are supported by GitHub Actions.
 
-| Token            | Private repo | Public repo | Protocol | Setup       |
+| Token            | Private repo | Public repo | Protocol | Set up      |
 | ---------------- | :----------: | :---------: | -------- | ----------- |
 | `github_token`   |      ✅️       |      ✅️      | HTTPS    | Unnecessary |
 | `deploy_key`     |      ✅️       |      ✅️      | SSH      | Necessary   |
