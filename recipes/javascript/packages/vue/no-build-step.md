@@ -28,7 +28,7 @@ See also [MichaelCurrin/vue-quickstart](https://github.com/MichaelCurrin/vue-qui
 
 But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow some samples below. These don't need a server-side build step to compile SFC files.
 
-Note that the set up for the examples below are not modern. This is the way in Vue 3 from [docs](https://v3.vuejs.org/api/application-api.html#component).
+Note that the setup for the examples below are not modern. This is the way in Vue 3 from [docs](https://v3.vuejs.org/api/application-api.html#component).
 
 ```javascript
 import { createApp } from 'vue'
