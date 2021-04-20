@@ -5,11 +5,13 @@
 
 ## Functional component
 
+Note from React 17 you don't need to import `React` at the top of the file.
+
 ```jsx
-import React from "react";
+import { useState } from "react";
 
 export default function Toggle(props) {
-  const [isHidden, setIsHidden] = React.useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   const showHide = () => {
     setIsHidden(!isHidden);
