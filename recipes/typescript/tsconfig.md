@@ -23,3 +23,4 @@ You don't need a config for all projects if you are happy with the defaults.
 - VS Code Extensions.
     - [vsc-extension-quickstart](https://github.com/MichaelCurrin/vsc-extension-quickstart/blob/master/tsconfig.json)
     - [auto-commit-msg](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/tsconfig.json)
+- [JavaScript Bundling Quickstarts](https://github.com/MichaelCurrin/javascript-bundling-quickstarts/tree/master/quickstarts) - there are a few TS projects with "typscript" in the name and those have minimal TS configs.
