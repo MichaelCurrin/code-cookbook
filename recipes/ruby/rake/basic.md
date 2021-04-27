@@ -56,11 +56,11 @@ See the [Rakefile format](https://ruby.github.io/rake/doc/rakefile_rdoc.html) tu
     # ...
     ```
 
-### Wikipedia
+### Compile C - from Wikipedia
 
 From the [Rake](https://en.m.wikipedia.org/wiki/Rake_(software)) page on Wikipedia.
 
-Compile a Hello Worls program in C.
+Compile a Hello World program in C.
 
 ```ruby
 file 'hello.o' => 'hello.c' do
@@ -72,7 +72,7 @@ file 'hello' => 'hello.o' do
 end
 ```
 
-Rules
+Rules:
 
 ```ruby
 rule '.o' => '.c' do |t|
