@@ -36,22 +36,6 @@ Manage a static site project built with Jekyll.
       sh "JEKYLL_ENV=production bundle exec jekyll build --trace"
     end
     ```
-    
-### Default
-
-Both approaches here work.
-
-According to the [rake](https://github.com/ruby/rake) repo docs, default is setup as:
-
-```sh
-$ task default: %w[install]
-```
-
-While following the style of other tasks, I arrived at this:
-
-```ruby
-$ task :default => [:install]
-```
 
 
 ## Usage
@@ -89,4 +73,33 @@ Use an alias.
 $ rake serve
 $ # OR
 $ rake s
+```
+
+
+## Notes
+
+### Rake dependency
+
+In your docs, you might want to list `rake` as a system dependency, like Ruby.
+
+You can add `rake` to a `Gemfile` like this. Though you would need an alternative to `rake` to install it, or perhaps the version only matters for some commands not specific to the installing.
+
+```sh
+gem 'rake', '~> 13.0'
+```
+
+### Default
+
+Both approaches here work.
+
+According to the [rake](https://github.com/ruby/rake) repo docs, default is setup as:
+
+```sh
+$ task default: %w[install]
+```
+
+While following the style of other tasks, I arrived at this:
+
+```ruby
+$ task :default => [:install]
 ```
