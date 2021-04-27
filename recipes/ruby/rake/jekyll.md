@@ -2,11 +2,12 @@
 
 Manage a static site project built with Jekyll.
 
+
 ## Setup
 
 - `Rakefile`
     ```ruby
-    task :default => [:install]
+    task default: %w[install]
 
     desc "Install and build"
     task :all => [:install, :build]
@@ -36,6 +37,23 @@ Manage a static site project built with Jekyll.
     end
     ```
     
+### Default
+
+Both approaches here work.
+
+According to the [rake](https://github.com/ruby/rake) repo docs, default is setup as:
+
+```sh
+$ task default: %w[install]
+```
+
+While following the style of other tasks, I arrived at this:
+
+```ruby
+$ task :default => [:install]
+```
+
+
 ## Usage
 
 ### Show tasks
