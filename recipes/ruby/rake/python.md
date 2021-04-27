@@ -1,6 +1,6 @@
-# Rake for Python
+# Python project
 
-I'd rather use `make` as it is not specific to Ruby and would make more sense to me for a Python project I found. But anyway here is a `Rakefile` from a Python project and I wanted to save it as a reference.
+I'd rather use `make` for Python, as it is not specific to Ruby and would make more sense to me. But anyway here is a `Rakefile` from a Python project I found and I wanted to save it as a reference.
 
 - `Rakefile`
     ```ruby
