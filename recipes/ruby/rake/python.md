@@ -3,7 +3,7 @@
 I'd rather use `make` as it is not specific to Ruby and would make more sense to me for a Python project. But anyway here is a `Rakefile` from a Python project and I wanted to save it as a reference.
 
 - `Rakefile`
-    ```rake
+    ```ruby
     task :clean => [:clean_pyc, :clean_build, :clean_dist]
 
     task :clean_pyc do
