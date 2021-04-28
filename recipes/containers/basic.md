@@ -11,7 +11,7 @@ Make is useful for Makefile commands.
 Git is useful if you want to work with your git repo even just to check what has changed or see history.
 
 - `Dockerfile`.
-    ```Dockerfile
+    ```docker
     FROM ubuntu
     
     RUN apt install -q -y \
