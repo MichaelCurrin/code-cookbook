@@ -6,14 +6,14 @@ description: Recipes for Visual Studio Code IDE
 
 ## Share settings
 
-If you have VS Code and VS Code [Insiders](https://code.visualstudio.com/insiders/) installed but only want to manage one `settings.json` file:
+If you have VS Code _and_ [VS Code Insiders](https://code.visualstudio.com/insiders/) installed, but only want to manage one `settings.json` file, you can delete the Insiders on and point it at the main one.
 
 ### macOS
 
 ```sh
-$ rm ~/Library/Application\ Support/Code\ -\ Insiders/User/settings.json
-$ ln -s ~/Library/Application\ Support/Code/User/settings.json \
-    ~/Library/Application\ Support/Code\ -\ Insiders/User/settings.json
+$ rm "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
+$ ln -s "$HOME/Library/Application Support/Code/User/settings.json" \
+   "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
 ```
 
 
@@ -86,6 +86,19 @@ Override colors, regardless of the theme.
 }
 ```
 
+Here is a setup for orange activity bar and tile bar, with black text.
+
+```json
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#e4b533",
+    "activityBar.foreground": "#0c1616",
+    "titleBar.activeBackground": "#e4b533",
+    "titleBar.activeForeground": "#0c1616"
+  }
+}
+```
+
 If you only want to override colors for a specific theme.
 
 ```json
@@ -103,5 +116,3 @@ OR
 Install the [Window Colors](https://marketplace.visualstudio.com/items?itemName=stuart.unique-window-colors) extension.
 
 > This extension gives each new VS Code window a unique color based on a hash of the root directory name when it is opened. It does this by immediately writing three colors to the following settings in .vscode/settings.json...
-
-
