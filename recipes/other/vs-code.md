@@ -50,7 +50,6 @@ Open the command-prompt and click _Preferences: Open Settings (JSON)_.
 
 
 
-
 ## Change appearance
 
 Open your _Settings_ from the menu in the top left.
@@ -72,8 +71,6 @@ The default is `Default Dark+` but there a lot to choose from.
 ```
 
 ### Color customizations
-
-Install the [Window Colors](https://marketplace.visualstudio.com/items?itemName=stuart.unique-window-colors) extension.
 
 Or set this in a settings file.
 
@@ -100,4 +97,11 @@ If you only want to override colors for a specific theme.
   }
 }
 ```
+
+OR
+
+Install the [Window Colors](https://marketplace.visualstudio.com/items?itemName=stuart.unique-window-colors) extension.
+
+> This extension gives each new VS Code window a unique color based on a hash of the root directory name when it is opened. It does this by immediately writing three colors to the following settings in .vscode/settings.json...
+
 
