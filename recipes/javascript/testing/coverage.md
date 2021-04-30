@@ -1,5 +1,4 @@
-# Coverag
-
+# Coverage
 
 
 ## nyc
@@ -32,24 +31,30 @@ From [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master
 
 This project compiles TypeScript to `out` and runs against there. But you could use some other test directory.
 
-```json
-{
-  "scripts": {
-    "test:unit": "cd out && mocha --recursive",
-    "test": "npm run test:unit",
-    "test:coverage": "nyc npm test",
-    "test:report": "nyc report --reporter=lcov"
-  },
-  
-  "devDependencies": {
-    "mocha": "^8.3.2",
-    "nyc": "^15.1.0"
-}
-```
+- `package.json`
+    ```json
+    {
+      "scripts": {
+        "test:unit": "cd out && mocha --recursive",
+        "test": "npm run test:unit",
+        "test:coverage": "nyc npm test",
+        "test:report": "nyc report --reporter=lcov"
+      },
+
+      "devDependencies": {
+        "mocha": "^8.3.2",
+        "nyc": "^15.1.0"
+    }
+    ```
+- `.gitignore`
+    ```
+    .nyc_output/
+    coverage/
+    ```
 
 Then run:
 
-- Just tests, no coverage.
+- Tests with no coverage.
     ```sh
     $ npm run test:coverage
     ```
@@ -70,7 +75,7 @@ $ nyc --reporter=lcov --reporter=text-summary ava
 
 See [Common Configuration Options](https://github.com/istanbuljs/nyc#common-configuration-options)
 
-Or
+Or see output of:
 
 ```sh
 $ npx nyc --help
