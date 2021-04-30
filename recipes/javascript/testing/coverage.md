@@ -3,7 +3,7 @@
 
 ## nyc
 
-[istanbuljs/nyc](https://github.com/istanbuljs/nyc)
+Repo: [istanbuljs/nyc](https://github.com/istanbuljs/nyc)
 
 ### Standard setup
 
