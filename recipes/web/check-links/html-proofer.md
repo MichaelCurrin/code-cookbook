@@ -158,9 +158,10 @@ Defaults to `:info` but you set `:debug`, `:info`, `:warn`, `:error`.
 
 Provided one or more URLs to substitute with an escaped regex pattern and a value to use.
 
-```
---url-swap REGEX:VALUE
-```
+> A hash containing key-value pairs of `RegExp => String`. It transforms URLs that match `RegExp` into `String` via `gsub`.
+
+- `--url-swap REGEX:VALUE`
+- `--url-swap REGEX:VALUE,REGEX:VALUE,REGEX:VALUE,...`
 
 Example from the docs:
 
