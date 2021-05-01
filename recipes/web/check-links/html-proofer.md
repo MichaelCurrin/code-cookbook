@@ -22,11 +22,11 @@ For use in GitHub Actions, see my [HTML Proofer][] recipe in the GH Actions sect
 
 ### Install gem globally
 
-This is if you are going to reuse across your projects or are going to use in CI.
-
 ```sh
 $ gem install html-proofer --user-install
 ```
+
+This is if you are going to reuse across your projects or are going to use in CI. You'll get the latest version available.
 
 ### Install gem in project
 
