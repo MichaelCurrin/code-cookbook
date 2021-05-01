@@ -1,18 +1,22 @@
 ---
+title: GitHub Actions
 logo: githubactions
 ---
-# GitHub Actions
-
 
 ## How to get started
 
-For options and syntax around workflow files, see my [GitHub Actions](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/) cheatsheet guide.
+For options and syntax around workflow files, see my [GitHub Actions][] cheatsheet guide.
 
 Here are some places to start to get into workflow file samples.
 
-- [Basic generic workflow](workflows/basic.md)
+- [Basic generic workflow][]
     - A sample which covers the minimum fields
-- [Basic node workflow](workflows/node/basic.md)
+- [Basic node workflow][]
     - Simple sample of running a Node.js app pipeline.
-- [Workflows](workflows/) section
+- [Workflows][] section
     - See sample workflows across programming languages.
+
+[GitHub Actions]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/
+[Basic generic workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/basic.md %}
+[Basic node workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
+[Workflows]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/index.md %}

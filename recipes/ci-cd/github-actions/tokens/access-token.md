@@ -10,7 +10,7 @@ description: A guide to the user-generated GitHub auth token for use in workflow
 
 ### Security
 
-- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read and write to _all_ your repos. Both in GH workflows and outside - such as doing a `curl` request on their machine to the GitHub API with your token in the URL or paylad.
+- This is the **least** secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read and write to _all_ your repos. Both in GH workflows and outside - such as doing a `curl` request on their machine to the GitHub API with your token in the URL or payload.
 - Unfortunately, the documentation for many actions recommends this Access Token option.
 - But, you can try swap this out in your workflow and use `GITHUB_TOKEN` instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.
 - Fortunately, GitHub does remove the token values from log output and restricts PRs of forks from using tokens.
@@ -66,7 +66,7 @@ GitHub will also scan to find accidentally committed secrets - [doc](https://hel
 ### 1. Create token
 
 1. Go to **Personal Access Tokens** section.
-    - Shortcut URL: [https://github.com/settings/tokens](https://github.com/settings/tokens)
+    - Shortcut URL: [github.com/settings/tokens](https://github.com/settings/tokens)
     - Navigation:
         1. Go to your GitHub profile.
         1. Go to **Developer Settings**
@@ -82,7 +82,7 @@ GitHub will also scan to find accidentally committed secrets - [doc](https://hel
 1. Go to your repository's **Settings*
 1. Go to **Secrets** tab.
 1. **Create** a secret.
-    - Use an appropriate name - see [Token names](#token-names)
+    - Use an appropriate name - see [Name of the token](#name-of-the-token).
     - Past the value copied in the section above.
 
 ### 3. Use the token in a workflow

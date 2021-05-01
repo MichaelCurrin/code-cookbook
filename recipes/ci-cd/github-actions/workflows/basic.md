@@ -3,7 +3,9 @@ title: Basic
 description: Minimal workflows for GH Actions to get you started
 ---
 
-If you are a JS developer, see the [Basic Node](node/basic.md) section.
+If you are a JS developer, see the [Basic Node][] section.
+
+[Basic Node]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
 
 
 ## Samples
