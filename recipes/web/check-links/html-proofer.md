@@ -92,12 +92,18 @@ Checking 1022 external links...
 
 The output can get very long, so you might want to write to log files which are ignored.
 
-The tool prints `stdout` as a count of URLs and files (a few lines only). The `stdout` content is the actually check breakdown, which can very long. Plus if you have any bad flags, you'll see help output and errors there.
+The tool prints `stdout` as a count of URLs and files (a few lines only). The `stdout` content is the actually check breakdown, which can very long.
 
 Here, writing error output to `links.log`.
 
 ```sh
 $ htmlproofer --assume-extension _site 2> links.log
+```
+
+It looks like if you give bad flags, the error message is printed and nothing goes to the file, even when using:
+
+```
+... > success.log 2> fail.log
 ```
 
 
