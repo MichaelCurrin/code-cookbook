@@ -67,9 +67,9 @@ $ bundle exec htmlproofer --log-level :debug _site
 
 ## Workflow 
 
-This example persists the checker log as an uploaded file. This might make it easier to view rather than as a part of the long workflow log.
+This example persists the checker log (stdout and stderr) as an uploaded file. This might make it easier to view rather than as a part of the long workflow log.
 
-The article recommended setting continue on error so the check step doesn't stop the next from running. Or you can use a problem matcher to abort only on a fatal error.
+The article's recommended setting was continue on error so the check step doesn't stop the next from running. Or you can use a problem matcher to abort only on a fatal error.
 
 ```yaml
 jobs:
@@ -81,25 +81,24 @@ jobs:
     strategy:
       fail-fast: false
 
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
+  steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
 
-      - name: Set up Ruby 💎
-        uses: ruby/setup-ruby
-        with:
-          ruby-version: 2.7
-          bundle-cache: true
+    - name: Set up Ruby 💎
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+        bundler-cache: true
 
       - name: Build 🏗
         run: bundle exec jekyll build
 
       - name: Check for broken links
-        run: |
-          bundle exec htmlproofer --log-level :debug _site &> links.log
+        run: bundle exec htmlproofer --log-level :debug _site &> links.log
         continue-on-error: true
       
-      - name: Archive log links
+      - name: Archive checker log
         uses: actions/upload-artifact@v1
         with:
           name: links-check.log
