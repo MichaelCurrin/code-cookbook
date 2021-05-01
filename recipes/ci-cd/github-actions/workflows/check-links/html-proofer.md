@@ -9,7 +9,10 @@ The example here is targeted at a Jekyll static site and is based on this [blog 
 
 ## Resources
 
+- [Install gems and run][] - for setting up Ruby and gems on GH Actions.
 - [HTML proofer](https://github.com/gjtorikian/html-proofer) gem.
+
+[Install gems and run]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/install-gems-and-run.md %}
 
 
 ## Install
@@ -41,10 +44,8 @@ And install later locally or in CI as:
 $ bundle install
 ```
 
-Note that 
 
-
-## Shell commands 
+## Run tool
 
 ```sh
 $ bundle exec jekyll build
