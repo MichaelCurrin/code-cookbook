@@ -38,7 +38,13 @@ Use Bundler to add to your `Gemfile` and install it.
 $ bundle add html-proofer --group "test"
 ```
 
-Then later you can install it like this locally or in CI.
+Or add the following your `Gemfile` manually:
+
+```ruby
+gem "html-proofer", "~> 3.19", :group => :test
+```
+
+Then later you can install it like this, locally or in CI.
 
 ```sh
 $ bundle install
