@@ -1,6 +1,6 @@
 # GitHub Action - Markdown link check
 
-[GitHub Marketplace](https://github.com/marketplace/actions/markdown-link-check)
+- [GitHub Marketplace](https://github.com/marketplace/actions/markdown-link-check)
 
 
 ## Sample
