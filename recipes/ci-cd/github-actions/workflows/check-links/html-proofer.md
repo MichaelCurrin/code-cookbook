@@ -65,11 +65,11 @@ $ bundle exec htmlproofer --log-level :debug _site
 ```
 
 
-## Workflow 
+## Workflow
 
-This example persists the checker log (stdout and stderr) as an uploaded file. This might make it easier to view rather than as a part of the long workflow log.
+### Jekyll
 
-The article's recommended setting was continue on error so the check step doesn't stop the next from running. Or you can use a problem matcher to abort only on a fatal error.
+Set up Ruby and gems, build the site and then run the proofer on the build output.
 
 ```yaml
 jobs:
@@ -77,9 +77,6 @@ jobs:
     name: Check links
 
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
 
   steps:
     - name: Checkout 🛎️
@@ -104,3 +101,19 @@ jobs:
           name: links-check.log
           path: links.log
 ```
+
+This example persists the checker log (stdout and stderr) as an uploaded file. This might make it easier to view rather than as a part of the long workflow log.
+
+The article's recommended setting was [continue on error][], so the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
+
+[continue on error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
+
+### Non-Jekyll
+
+If not using Jekyll, then supply your own build command like
+
+```sh
+npm run build
+```
+
+And point the proofer at your `build` or `out` directory.
