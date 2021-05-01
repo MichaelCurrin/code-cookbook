@@ -1,9 +1,9 @@
 ---
+title: Ansible
 logo: ansible
 ---
-# Ansible
 
-Default config files in `/etc/ansible`:
+Default config files in the root `/etc/ansible/` directory:
 
-- [Config](config.md)
-- [Hosts](hosts.md)
+- [Config]({{ site.baseurl }}{% link recipes/ansible/config.md %})
+- [Hosts]({{ site.baseurl }}{% link recipes/ansible/hosts.md %})
