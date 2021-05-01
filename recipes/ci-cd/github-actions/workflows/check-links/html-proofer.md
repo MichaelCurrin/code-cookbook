@@ -1,119 +1,68 @@
 # HTML proofer
 
-This a Ruby-based solution for checking broken links.
+How to use a Ruby gem as a CLI tool to validate links in your static HTML, for both internal and external links.
 
-You can run this on any directory of static HTML files and do it locally or in CI.
-
-The example here is targeted at a Jekyll static site and is based on this [blog posts](https://clementbm.github.io/github%20action/jekyll/link%20checking/2020/05/31/automatically-validate-links-on-jekyll-website.html).
+For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfile`, see the [HTML Proofer][] page in the Web recipes.
 
 
-## Resources
-
-- [Install gems and run][] - for setting up Ruby and gems on GH Actions.
-- [HTML proofer](https://github.com/gjtorikian/html-proofer) gem.
-
-[Install gems and run]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/install-gems-and-run.md %}
+[HTML Proofer]: {{ site.baseurl }}{% link recipes/web/check-links/html-proofer.md %}
+[Automatically Validate Links on a Jekyll Website]: https://clementbm.github.io/github%20action/jekyll/link%20checking/2020/05/31/automatically-validate-links-on-jekyll-website.html)
 
 
-## Install
+## Samples
 
-### Global 
+Use a GH Actions workflow to set up Ruby and gems, build the site and then run the proofer on the build output.
 
-This is if you are going to reuse across your projects or are going to use in CI.
+### Jekyll site
 
-```sh
-$ gem install html-proofer --user-install
-```
+The example here is targeted at a Jekyll static site and is based on this blog post - [Automatically Validate Links on a Jekyll Website][].
 
-Or
+- `main.yml`
+    ```yaml
+    jobs:
+      check-links:
+        name: Check links
 
-### Project install
+        runs-on: ubuntu-latest
 
-This is for if you want to include in your project.
+        steps:
+          - name: Checkout 🛎️
+            uses: actions/checkout@v2
 
-Add to Gemfile initially with:
+          - name: Set up Ruby 💎
+            uses: ruby/setup-ruby@v1
+            with:
+                ruby-version: '2.7'
+                bundler-cache: true
 
-```sh
-$ bundle add html-proofer
-```
+          - name: Build 🏗
+              run: bundle exec jekyll build
 
-Maybe under dev dependencies.
+          - name: Check for broken links
+              run: bundle exec htmlproofer --log-level :debug _site &> links.log
+              continue-on-error: true
 
-And install later locally or in CI as:
+          - name: Archive checker log
+              uses: actions/upload-artifact@v1
+              with:
+              name: links-check.log
+              path: links.log
+    ```
 
-```sh
-$ bundle install
-```
+Notes:
 
+- The tool prints `stdout` as a count of URLs and files (a few lines only). The `stdout` content is the actually check breakdown, which can very long. Plus if you have any bad flags, you'll see help output and errors there.
+- This example persists the checker log as an uploaded file. This makes it easier to view rather than as a part of the long workflow log. Note that using `&>` will send both `stdout` and `stderr`, while using `&2` will send only `stderr`.
+- The article's recommended setting was to use [continue-on-error][]. This is so that the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
 
-## Run checks in the shell
-
-```sh
-$ bundle exec jekyll build
-```
-
-Drop the `bundle exec` bit if installed globally.
-
-```sh
-$ bundle exec htmlproofer _site
-```
-
-Set log level.
-
-```sh
-$ bundle exec htmlproofer --log-level :debug _site
-```
-
-
-## Workflow
-
-### Jekyll
-
-Set up Ruby and gems, build the site and then run the proofer on the build output.
-
-```yaml
-jobs:
-  checklinks:
-    name: Check links
-
-    runs-on: ubuntu-latest
-
-  steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v2
-
-    - name: Set up Ruby 💎
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-        bundler-cache: true
-
-      - name: Build 🏗
-        run: bundle exec jekyll build
-
-      - name: Check for broken links
-        run: bundle exec htmlproofer --log-level :debug _site &> links.log
-        continue-on-error: true
-      
-      - name: Archive checker log
-        uses: actions/upload-artifact@v1
-        with:
-          name: links-check.log
-          path: links.log
-```
-
-This example persists the checker log (stdout and stderr) as an uploaded file. This might make it easier to view rather than as a part of the long workflow log.
-
-The article's recommended setting was [continue on error][], so the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
-
-[continue on error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
+[continue-on-error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
 
 ### Non-Jekyll
 
 If not using Jekyll, then supply your own build command like
 
 ```sh
-npm run build
+$ npm run build
 ```
 
-And point the proofer at your `build` or `out` directory.
+And point the proofer tool at your build output directory.
