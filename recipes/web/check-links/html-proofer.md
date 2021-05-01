@@ -44,6 +44,10 @@ Then later you can install it like this locally or in CI.
 $ bundle install
 ```
 
+### Use with Docker
+
+See [html-proofer](https://hub.docker.com/r/klakegg/html-proofer) on Docker Hub.
+
 
 ## Usage
 
@@ -181,7 +185,7 @@ For this Cookbook site which is built on Jekyll, the subpath is `/code-cookbook/
 $ htmlproofer --url '\/code-cookbook\/:/' _site/
 ```
 
-## URL ignore
+### URL ignore
 
 e.g.
 
