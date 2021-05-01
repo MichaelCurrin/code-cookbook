@@ -100,6 +100,7 @@ Here, writing error output to `links.log`.
 $ htmlproofer --assume-extension _site 2> links.log
 ```
 
+
 ## Usage
 
 ```sh
@@ -121,6 +122,8 @@ Cleaner output and using `.` explicitly for clarity.
 ```sh
 $ cd _site && htmlproofer .
 ```
+
+If your site used a subpath like on GitHub Pages, then use the [URL swap](#url-swap) flag.
 
 You can also run against a file.
 
@@ -150,6 +153,34 @@ Set log level to debug.
 e.g. `--log-level :debug`
 
 Defaults to `:info` but you set `:debug`, `:info`, `:warn`, `:error`.
+
+### URL swap
+
+Provided one or more URLs to substitute with an escaped regex pattern and a value to use.
+
+```
+--url-swap REGEX:VALUE
+```
+
+Example from the docs:
+
+```sh
+$ htmlproofer --url-swap 'wow:cow,mow:doh'
+```
+
+For this Cookbook site which is built on Jekyll, the subpath is `/code-cookbook/` and this causes the internal URLs to all appear broken. So replace that with `/` as below.
+
+```sh
+$ htmlproofer --url '\/code-cookbook\/:/' _site/
+```
+
+## URL ignore
+
+e.g.
+
+```
+--url-ignore github.com
+```
 
 ### HTTP status ignore
 
