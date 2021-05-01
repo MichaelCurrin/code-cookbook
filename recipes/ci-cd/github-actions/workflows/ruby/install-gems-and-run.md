@@ -1,10 +1,12 @@
 # Install gems and run
 
-Using an action owned by `ruby` account. Don't confuse with action of same name  owned by `actions` account.
+Use an action to set up Ruby, Ruby gems and then run a Ruby script.
+
+This is using an action owned by the `ruby` GH account. Don't confuse with action of same name  owned by `actions` account.
 
 [![ruby - setup-ruby](https://img.shields.io/static/v1?label=ruby&message=setup-ruby&color=blue&logo=github)](https://github.com/ruby/setup-ruby)
 
-From the action's docs, if you use `bundle-cache`, that means gems will be already for you (using `bundle install` and they will even be cached between builds. You can remove that option if you have no gems to install.
+From the action's docs, if you use `bundle-cache` option, that means gems will be set up for you. It effectively does `bundle install` and then caches gems between builds. You can remove that option below, if you have no gems to install.
 
 - `main.yml`
     ```yaml
@@ -22,7 +24,7 @@ From the action's docs, if you use `bundle-cache`, that means gems will be alrea
         run: bundle exec ruby hello.rb
     ```
 
-Pass options as environment variables on the job or step.
+You can pass more options as environment variables, on the job or step.
 
 ```yaml
 env:
