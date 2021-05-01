@@ -20,8 +20,9 @@ The example here is targeted at a Jekyll static site and is based on this [blog 
 ### Global 
 
 This is if you are going to reuse across your projects or are going to use in CI.
+
 ```sh
-$ gem html-proofer
+$ gem install html-proofer --user-install
 ```
 
 Or
@@ -45,10 +46,21 @@ $ bundle install
 ```
 
 
-## Run tool
+## Run checks in the shell
 
 ```sh
 $ bundle exec jekyll build
+```
+
+Drop the `bundle exec` bit if installed globally.
+
+```sh
 $ bundle exec htmlproofer _site
+```
+
+Set log level.
+
+```sh
+$ bundle exec htmlproofer --log-level :debug _site
 ```
 
