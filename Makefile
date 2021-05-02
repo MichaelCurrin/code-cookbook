@@ -24,4 +24,4 @@ i serve-i:
 	bundle exec jekyll serve --trace --livereload --incremental
 
 build:
-	JEKYLL_ENV=production bundle exec jekyll build
+	JEKYLL_ENV=production bundle exec jekyll build --trace
