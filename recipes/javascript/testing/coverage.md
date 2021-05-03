@@ -73,7 +73,7 @@ Then run:
     ```sh
     $ npm run test:coverage
     ```
-- With coverage.
+- Tests, followed by CLI coverage report.
     ```sh
     $ npm run test:coverage
     ```
@@ -81,6 +81,19 @@ Then run:
     ```sh
     $ npm run test:report
     ```
+    
+Sample CLI report:
+
+```
+----------------------|---------|----------|---------|---------|-------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |   91.63 |    87.85 |   88.24 |   91.28 |                   
+ src                  |   62.16 |    33.33 |   44.44 |   62.16 |                   
+  prepareCommitMsg.ts |   62.16 |    33.33 |   44.44 |   62.16 | 75-126,139-142    
+ src/generate         |      97 |    96.83 |   95.24 |   96.91 |        
+ ...
+```
 
 ### Configuration
 
@@ -120,16 +133,12 @@ The default is to fail is any of those drop below 100%. You might like to be les
 
 From the CLI help for that subcommand:
 
-```
-  --branches              what % of branches must be covered?
-                                                           [number] [default: 0]
-  --functions             what % of functions must be covered?
-                                                           [number] [default: 0]
-  --lines                 what % of lines must be covered?[number] [default: 90]
-  --statements            what % of statements must be covered?
-                                                           [number] [default: 0]
-  --per-file              check thresholds per file   [boolean] [default: false]
-```
+Flag | Description | Default
+---  | --- | ---
+`--branches` | what % of branches must be covered? | `0`
+`--functions` | what % of functions must be covered? | `0`
+`--lines` | what % of lines must be covered? | `90`
+`--statements` | what % of statements must be covered? | `0`
 
 You can also set high and low [watermarks](https://github.com/istanbuljs/nyc/blob/master/README.md#high-and-low-watermarks).
 
