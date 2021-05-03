@@ -25,6 +25,21 @@ Then run:
 $ npm run coverage
 ```
 
+### Docs example setup
+
+From [Combining reports from multiple runs](https://github.com/istanbuljs/nyc/blob/master/README.md#combining-reports-from-multiple-runs).
+
+```json
+{
+  "scripts": {
+    "cover:unit": "nyc --silent npm run test:unit",
+    "cover:integration": "nyc --silent --no-clean npm run test:integration",
+    "cover:report": "nyc report --reporter=lcov --reporter=text",
+    "cover": "npm run cover:unit && npm run cover:integration && npm run cover:report"
+  }
+}
+```
+
 ### Auto Commit Message project setup
 
 From [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json)
@@ -69,10 +84,6 @@ Then run:
 
 ### Configuration
 
-```sh
-$ nyc --reporter=lcov --reporter=text-summary ava
-```
-
 See [Common Configuration Options](https://github.com/istanbuljs/nyc#common-configuration-options)
 
 Or see output of:
@@ -80,6 +91,34 @@ Or see output of:
 ```sh
 $ npx nyc --help
 ```
+
+For config filenames see [Configuration files](https://github.com/istanbuljs/nyc/blob/master/README.md#configuration-files) in the docs.
+
+Example of CLI config usage:
+
+> ... the following command executes ava, and indicates to `nyc` that it should output both an `lcov` (`lcov.info` + `html` report) and a text-summary coverage report.
+
+```sh
+$ nyc --reporter=lcov --reporter=text-summary ava
+```
+
+You might like to add  the`--silent` flag.
+
+### Check coverage
+
+Fail a check if coverage drops below any thresholds.
+
+> Check whether the JSON in nyc's output folder meets the thresholds provided
+
+```sh
+$ nyc check-coverage --lines 95
+```
+
+You can pass arguments as `--lines`, `--statements`, `--functions` and `--branches`.
+
+The default is to fail is any of those drop below 100%. You might like to be less strict at 80%.
+
+You can also set high and low [watermarks](https://github.com/istanbuljs/nyc/blob/master/README.md#high-and-low-watermarks).
 
 
 ## Istanbul
