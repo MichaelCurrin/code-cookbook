@@ -118,6 +118,19 @@ You can pass arguments as `--lines`, `--statements`, `--functions` and `--branch
 
 The default is to fail is any of those drop below 100%. You might like to be less strict at 80%.
 
+From the CLI help for that subcommand:
+
+```
+  --branches              what % of branches must be covered?
+                                                           [number] [default: 0]
+  --functions             what % of functions must be covered?
+                                                           [number] [default: 0]
+  --lines                 what % of lines must be covered?[number] [default: 90]
+  --statements            what % of statements must be covered?
+                                                           [number] [default: 0]
+  --per-file              check thresholds per file   [boolean] [default: false]
+```
+
 You can also set high and low [watermarks](https://github.com/istanbuljs/nyc/blob/master/README.md#high-and-low-watermarks).
 
 
