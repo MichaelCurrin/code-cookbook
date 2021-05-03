@@ -14,7 +14,7 @@ From the README:
     {
       "scripts": {
         "test": "mocha",
-        "coverage": "nyc npm run test"
+        "coverage": "nyc npm test"
       }
     }
     ```
