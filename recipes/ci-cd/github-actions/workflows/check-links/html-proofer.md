@@ -46,7 +46,6 @@ The example here is targeted at a Jekyll static site and is based on this blog p
 
           - name: Check for broken links 🧐🔗
             run: htmlproofer --log-level :debug _site 2> links.log
-            continue-on-error: true
 
           - name: Archive checker log 🗄
             uses: actions/upload-artifact@v1
@@ -64,17 +63,39 @@ Notes:
 - This example persists the checker log as an uploaded file.
     - This makes it easier to view rather than as a part of the long workflow log.
     - Note that using `&>` will send both `stdout` and `stderr` to the file log (and print nothing in the workflow log), while using `2>` will send only the URL checks on `stderr` to the file log and still print a summary numbers in the workflow log.
-- A recommended setting was to use [continue-on-error][].
-    - This is so that the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
 
-[continue-on-error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
+### Generic
 
-### Non-Jekyll
+Supply your own build command for the Build step. And point the proofer tool at your build output directory, like `build` or `out`.
 
-If not using Jekyll, then supply your own build command like
+```yaml
+steps:
+  # ...
 
-```sh
-$ npm run build
+  - name: Build 🏗
+    run: npm run build
+
+  - name: Check for broken links 🧐🔗
+    run: htmlproofer --log-level :debug build
 ```
 
-And point the proofer tool at your build output directory.
+
+## Handling errors
+
+The default behavior of the tool is to exit on an non-zero exit code on at least one URL error.
+
+This would swallow any fatal errors like bad flags, aborting the build and therefore stopping a deploy.
+
+But if you don't care about breaking links, especially if the testing is intermittent, then you can use the [continue-on-error][] field.
+
+e.g.
+
+```yaml
+- name: Check for broken links 🧐🔗
+  run: htmlproofer # ...
+  continue-on-error: true
+```
+
+This is so that the check step doesn't stop the workflow and mark it as failed.
+
+[continue-on-error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
