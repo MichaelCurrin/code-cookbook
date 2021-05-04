@@ -14,6 +14,10 @@ For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfil
 
 Use a GH Actions workflow to set up Ruby and gems, build the site and then run the proofer on the build output.
 
+You might want to run the checker every time you build your site on your main branch and on a PR (so you can block bad code from being merged). Or you might run on a schedule. See my [Workflow Builder][] for more info.
+
+[Workflow Builder]: https://michaelcurrin.github.io/workflow-builder/#triggers
+
 ### Jekyll site
 
 The example here is targeted at a Jekyll static site and is based on this blog post - [Automatically Validate Links on a Jekyll Website][].
@@ -65,6 +69,8 @@ Notes:
     - Note that using `&>` will send both `stdout` and `stderr` to the file log (and print nothing in the workflow log), while using `2>` will send only the URL checks on `stderr` to the file log and still print a summary numbers in the workflow log.
 
 ### Generic
+
+Here for project not based on Ruby or Jekyll, but still need Ruby set up.
 
 Supply your own build command for the Build step. And point the proofer tool at your build output directory, like `build` or `out`.
 
