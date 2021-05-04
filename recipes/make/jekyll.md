@@ -28,7 +28,7 @@ See my `Makefile` in my Jekyll projects [Jekyll Blog Demo](https://github.com/Mi
 See [Jekyll]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}) page in Containers section for more info.
 
 - `Dockerfile`
-    ```Dockerfile
+    ```docker
     FROM jekyll/jekyll:4
 
     CMD ["jekyll", "--help"]
