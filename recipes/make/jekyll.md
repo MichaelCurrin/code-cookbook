@@ -23,7 +23,6 @@ See my `Makefile` in my Jekyll projects [Jekyll Blog Demo](https://github.com/Mi
 		bundle exec jekyll serve --trace --livereload
 	```
 
-
 ### Container
 
 See [Jekyll]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}) page in Containers section for more info.
