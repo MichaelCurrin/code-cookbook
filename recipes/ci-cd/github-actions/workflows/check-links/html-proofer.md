@@ -38,17 +38,17 @@ The example here is targeted at a Jekyll static site and is based on this blog p
               ruby-version: '2.7'
               bundler-cache: true
 
-          - name: Install HTML Proofer
+          - name: Install HTML Proofer 🔧
             run: gem install html-proofer
 
           - name: Build 🏗
             run: bundle exec jekyll build
 
-          - name: Check for broken links
-            run: htmlproofer --log-level :debug _site &> links.log
+          - name: Check for broken links 🧐🔗
+            run: htmlproofer --log-level :debug _site 2> links.log
             continue-on-error: true
 
-          - name: Archive checker log
+          - name: Archive checker log 🗄
             uses: actions/upload-artifact@v1
             with:
               name: links-check.log
@@ -61,8 +61,11 @@ Notes:
     - Take out the `gem install GEM_NAME` step.
     - Change the _Check for broken links_ step to be `bundle exec htmlproofer ARGS`.
 - The tool prints `stdout` as a count of URLs and files (a few lines only). The `stdout` content is the actually check breakdown, which can very long.
-- This example persists the checker log as an uploaded file. This makes it easier to view rather than as a part of the long workflow log. Note that using `&>` will send both `stdout` and `stderr`, while using `&2` will send only `stderr`.
-- The article's recommended setting was to use [continue-on-error][]. This is so that the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
+- This example persists the checker log as an uploaded file.
+    - This makes it easier to view rather than as a part of the long workflow log.
+    - Note that using `&>` will send both `stdout` and `stderr` to the file log (and print nothing in the workflow log), while using `2>` will send only the URL checks on `stderr` to the file log and still print a summary numbers in the workflow log.
+- A recommended setting was to use [continue-on-error][].
+    - This is so that the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
 
 [continue-on-error]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
 
