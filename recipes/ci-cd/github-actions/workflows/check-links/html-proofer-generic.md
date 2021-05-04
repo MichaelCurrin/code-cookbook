@@ -1,20 +1,25 @@
-# HTML Proofer
+---
+title: HTML Proofer generic
+description: Install and run the `html-proofer` gem with a generic Ruby action setup
+---
 
 How to use a Ruby gem as a CLI tool to validate links in your static HTML, for both internal and external links.
 
 
 ## Related sections
 
-For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfile`, see the [HTML Proofer][] page in the Web recipes.
+- [HTML Proofer gem][] page in the Web recipes.
+    - For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfile`, see the
+- [HTML Proofer wrappers][]
 
-[HTML Proofer]: {{ site.baseurl }}{% link recipes/web/check-links/html-proofer.md %}
-
+[HTML Proofer gem]: {{ site.baseurl }}{% link recipes/web/check-links/html-proofer.md %}
+[HTML Proofer wrappers]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/check-links/html-proofer-wrappers.md %}
 
 ## Samples
 
 Use a GH Actions workflow to set up Ruby and gems, build the site and then run the proofer on the build output.
 
-You might want to run the checker every time you build your site on your main branch and on a PR (so you can block bad code from being merged). Or you might run on a schedule. See my [Workflow Builder][] for more info.
+You might want to run the checker every time you build your site on your main branch and on a PR (so you can block bad code from being merged). Or you might run on a schedule, maybe against an existing output directory on `gh-pages` branch instead of as a fresh build. See my [Workflow Builder][] for more info.
 
 [Workflow Builder]: https://michaelcurrin.github.io/workflow-builder/#triggers
 
@@ -46,7 +51,7 @@ The example here is targeted at a Jekyll static site and is based on this blog p
             run: gem install html-proofer
 
           - name: Build 🏗
-            run: bundle exec jekyll build
+            run: bundle exec jekyll build --trace
 
           - name: Check for broken links 🧐🔗
             run: htmlproofer --log-level :debug _site 2> links.log
