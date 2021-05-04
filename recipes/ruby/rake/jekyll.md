@@ -2,12 +2,12 @@
 
 Use `rake` to manage a static site project built with Jekyll.
 
-
-## Setup
-
-See [Make Jekyll][] recipe for an equivalent `Makefile` version of this `Rakefile`.
+See also [Make Jekyll][] recipe for an equivalent `Makefile` version of this `Rakefile`. Though `make` is not standard on Windows. While if you have Ruby, you probably have `rake` too, on any OS.
 
 [Make Jekyll]: {{ site.baseurl }}{% link recipes/make/jekyll.md %}
+
+
+## Setup
 
 - `Rakefile`
     ```ruby
@@ -108,14 +108,11 @@ gem 'rake', '~> 13.0'
 
 Both approaches give the same result.
 
-According to the [rake](https://github.com/ruby/rake) repo docs, default is setup as:
-
-```sh
-$ task default: %w[install]
-```
-
-While following the style of other tasks, I arrived at this:
-
-```ruby
-$ task :default => [:install]
-```
+- According to the [rake](https://github.com/ruby/rake) repo docs, a `default` task can be set as this. I don't know what that `%w` is about.
+    ```ruby
+    task default: %w[install]
+    ```
+- Following the style of other tasks in the `Rakefile` above, I arrived at this `default` task.
+    ```ruby
+    task :default => [:install]
+    ```
