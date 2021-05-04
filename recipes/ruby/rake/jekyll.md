@@ -1,9 +1,13 @@
 # Jekyll
 
-Manage a static site project built with Jekyll.
+Use `rake` to manage a static site project built with Jekyll.
 
 
 ## Setup
+
+See [Make Jekyll][] recipe for an equivalent `Makefile` version of this `Rakefile`.
+
+[Make Jekyll]: {{ site.baseurl }}{% link recipes/make/jekyll.md %}
 
 - `Rakefile`
     ```ruby
@@ -80,17 +84,29 @@ $ rake s
 
 ### Rake dependency
 
-In your docs, you might want to list `rake` as a system dependency, like Ruby.
+In your docs, you might want to list `rake` as a system dependency, like Ruby. This should hopefully be installed at the system or user level, but possibly an old version.
 
-You can add `rake` to a `Gemfile` like this. Though you would need an alternative to `rake` to install it, or perhaps the version only matters for some commands not specific to the installing.
+This can be installed globally with:
 
 ```sh
+$ gem install rake  # --user-install
+```
+
+Or:
+
+```sh
+$ gem update --user-install
+```
+
+You could add `rake` to a `Gemfile` like this. Though you end up with a circular flow where you use `rake` to setup `Gemfile` to get `rake`. Also, I need to check - does `rake` run the local `rake` like with `bundle exec rake`. If not, then don't bother setting up `rake` in Gemfile.
+
+```ruby
 gem 'rake', '~> 13.0'
 ```
 
 ### Default
 
-Both approaches here work.
+Both approaches give the same result.
 
 According to the [rake](https://github.com/ruby/rake) repo docs, default is setup as:
 
