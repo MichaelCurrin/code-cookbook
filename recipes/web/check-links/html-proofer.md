@@ -20,7 +20,7 @@ You can run this on any directory of static HTML files, locally or with CI.
 - [HTML Proofer GH Actions][] recipe in the GH Actions section.
 
 [Install gems and run]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/install-gems-and-run.md %}
-[HTML Proofer GH Actions]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/check-links/html-proofer.md %}
+[HTML Proofer GH Actions]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/check-links/html-proofer-generic.md %}
 
 
 ## Install
