@@ -2,10 +2,12 @@
 
 How to use a Ruby gem as a CLI tool to validate links in your static HTML, for both internal and external links.
 
+
+## Related sections
+
 For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfile`, see the [HTML Proofer][] page in the Web recipes.
 
 [HTML Proofer]: {{ site.baseurl }}{% link recipes/web/check-links/html-proofer.md %}
-[Automatically Validate Links on a Jekyll Website]: https://clementbm.github.io/github%20action/jekyll/link%20checking/2020/05/31/automatically-validate-links-on-jekyll-website.html)
 
 
 ## Samples
@@ -15,6 +17,8 @@ Use a GH Actions workflow to set up Ruby and gems, build the site and then run t
 ### Jekyll site
 
 The example here is targeted at a Jekyll static site and is based on this blog post - [Automatically Validate Links on a Jekyll Website][].
+
+[Automatically Validate Links on a Jekyll Website]: https://clementbm.github.io/github%20action/jekyll/link%20checking/2020/05/31/automatically-validate-links-on-jekyll-website.html)
 
 - `main.yml`
     ```yaml
@@ -34,11 +38,14 @@ The example here is targeted at a Jekyll static site and is based on this blog p
               ruby-version: '2.7'
               bundler-cache: true
 
+          - name: Install HTML Proofer
+            run: gem install html-proofer
+
           - name: Build 🏗
             run: bundle exec jekyll build
 
           - name: Check for broken links
-            run: bundle exec htmlproofer --log-level :debug _site &> links.log
+            run: htmlproofer --log-level :debug _site &> links.log
             continue-on-error: true
 
           - name: Archive checker log
