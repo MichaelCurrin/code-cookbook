@@ -57,6 +57,9 @@ The example here is targeted at a Jekyll static site and is based on this blog p
 
 Notes:
 
+- If you prefer to install `html-proofer` from gems in your `Gemfile`:
+    - Take out the `gem install GEM_NAME` step.
+    - Change the _Check for broken links_ step to be `bundle exec htmlproofer ARGS`.
 - The tool prints `stdout` as a count of URLs and files (a few lines only). The `stdout` content is the actually check breakdown, which can very long.
 - This example persists the checker log as an uploaded file. This makes it easier to view rather than as a part of the long workflow log. Note that using `&>` will send both `stdout` and `stderr`, while using `&2` will send only `stderr`.
 - The article's recommended setting was to use [continue-on-error][]. This is so that the check step doesn't stop the next from running. This would swallow any fatal errors like bad flags, instead of aborting the build.
