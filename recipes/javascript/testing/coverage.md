@@ -177,6 +177,40 @@ Then run:
 $ npm test:coverage
 ```
 
+### Collect coverage
+
+Note use of collect coverage setting. Rather than only collecting coverage metrics for scripts and specs that run, include untested files as part of the coverage stats.
+
+A solution from issue - [Jest is "stuck" on only generating coverage for tested files, instead of all files #8310](https://github.com/facebook/jest/issues/8310#issuecomment-703086603).
+
+```json
+{
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "collectCoverage": true,
+    
+    "verbose": true,
+    "testTimeout": 30000,
+    "roots": [
+      "<rootDir>/tests",
+      "<rootDir>/src"
+    ],
+    "testRegex": "((\\.|/*.)(test))\\.js?$",
+    
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }  
+}
+```
+
 
 ## Vue and Jest
 
