@@ -29,8 +29,19 @@ Result in the DOM:
 
 #### Icons
 
+Add checkbox.
+
 ```html
 <Button label="Submit" icon="pi pi-check" iconPos="right" />
+```
+
+Result in the DOM:
+
+```html
+<button type="button" class="p-button p-component" iconpos="right">
+    <span class="pi pi-check p-button-icon p-button-icon-left"></span>
+    <span class="p-button-label">Submit</span>
+</button>
 ```
 
 #### Events
