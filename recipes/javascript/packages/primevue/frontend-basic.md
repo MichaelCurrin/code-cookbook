@@ -69,8 +69,8 @@ Based on the [Setup](https://primefaces.org/primevue/showcase/#/setup) example f
 
 Notes:
 
-- I got warning loading the CSS unless I locked down to specific versions.
-- The component is loaded from [inputtext.min.js](https://unpkg.com/primevue@3.4.0/inputtext/inputtext.min.js).
+- I got content type warnings in the browser on loading the CSS, unless I locked down to specific versions like `@3.3.5`.
+- The component gets loaded from [inputtext.min.js](https://unpkg.com/primevue@3.4.0/inputtext/inputtext.min.js).
 - The original code uses `primevue.inputtext` but that gives an error. Looking at the script, it sets up on `this` so therefore I used `this.primevue.inputtext` and that worked.
 - Note that elements named like `Button` won't work because they get downcased in the DOM as `button`. Use `p-button` or `p-inputtext` works though and comes from the docs. 
 
