@@ -1,6 +1,7 @@
 # Components
 
-[Showcase](https://www.primefaces.org/primevue/showcase/)
+See [Showcase](https://www.primefaces.org/primevue/showcase/) in the docs for components.
+
 
 ## Samples
 
