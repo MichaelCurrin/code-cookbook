@@ -110,4 +110,17 @@ Note that the variables get set up implicitly and not by name. The CSS
 </body>
 ```
 
+
+## Deps file
+
+I had issues with the imports of ES Modules, unless I used import maps, which has limited support.
+
+I tried using this as `deps.js`, based on Deno, loading it in `main.js`. But the `utils` import doesn't happen in time so the other imports always fail.
+
+```javascript
+import "https://unpkg.com/primevue@3.4.0/utils/utils.esm.js";
+import "https://unpkg.com/primevue@3.4.0/ripple/ripple.esm.js";
+export { default as Button } from "https://unpkg.com/primevue@3.4.0/button/button.esm.js";
+```
+
 {% endraw %}
