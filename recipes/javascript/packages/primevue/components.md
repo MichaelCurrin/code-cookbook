@@ -13,25 +13,33 @@ Some info from the [Button](https://www.primefaces.org/primevue/showcase/#/butto
 import Button from 'primevue/button';
 ```
 
-Basic:
+#### Basic
 
 ```html
 <Button label="Submit" />
 ```
 
-Icons:
+Result in the DOM:
+
+```html
+<button type="button" class="p-button p-component">
+  <span class="p-button-label">Submit</span>
+</button>
+```
+
+#### Icons
 
 ```html
 <Button label="Submit" icon="pi pi-check" iconPos="right" />
 ```
 
-Events:
+#### Events
 
 ```html
 <Button label="Submit" @click="handleClick($event)"/>
 ```
 
-Labels:
+#### Labels
 
 ```html
 <Button label="Primary" />
