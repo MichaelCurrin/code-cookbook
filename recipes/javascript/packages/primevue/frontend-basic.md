@@ -2,12 +2,22 @@
 
 {% raw %}
 
-Here we add PrimeVue to the frontend using script and CSS.
+## ES Module approach
 
-Based on [Setup](https://primefaces.org/primevue/showcase/#/setup) example from the docs. I got warning loading the CSS unless I locked down to specific versions.
+See my PrimeVue project which uses ES Modules to allow `import` syntax. It doesn't use Node or build step.
+
+[![MichaelCurrin - primevue-frontend-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=primevue-frontend-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/primevue-frontend-quickstart)
+
+
+## Docs sample
+
+Here we add PrimeVue to the frontend using JavaScript and CSS.
+
+Based on the [Setup](https://primefaces.org/primevue/showcase/#/setup) example from the docs. Using Vue 3 and PrimeVue 3.
 
 - `index.html`
-    ```
+    ```html
+    <!DOCTYPE html>
     <html>
 
     <head>
@@ -27,7 +37,7 @@ Based on [Setup](https://primefaces.org/primevue/showcase/#/setup) example from 
         <div id="app">
             <p-inputtext v-model="val"></p-inputtext>
 
-            <h6>{{val}}</h6>
+            <h6>{{ val }}</h6>
         </div>
 
         <script>
@@ -56,5 +66,12 @@ Based on [Setup](https://primefaces.org/primevue/showcase/#/setup) example from 
 
     </html>
     ```
+
+Notes:
+
+- I got warning loading the CSS unless I locked down to specific versions.
+- The component is loaded from [inputtext.min.js](https://unpkg.com/primevue@3.4.0/inputtext/inputtext.min.js).
+- The original code uses `primevue.inputtext` but that gives an error. Looking at the script, it sets up on `this` so therefore I used `this.primevue.inputtext` and that worked.
+- Note that elements named like `Button` won't work because they get downcased in the DOM as `button`. Use `p-button` or `p-inputtext` works though and comes from the docs. 
 
 {% endraw %}
