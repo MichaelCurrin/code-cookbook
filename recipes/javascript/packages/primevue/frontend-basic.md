@@ -74,4 +74,40 @@ Notes:
 - The original code uses `primevue.inputtext` but that gives an error. Looking at the script, it sets up on `this` so therefore I used `this.primevue.inputtext` and that worked.
 - Note that elements named like `Button` won't work because they get downcased in the DOM as `button`. Use `p-button` or `p-inputtext` works though and comes from the docs. 
 
+
+## PrimeVue 2
+
+Before I figured out how to use PrimeVue 3 and ES Modules together, I got this working for PrimeVue 2 and Vue 2.
+
+Note that the variables get set up implicitly and not by name. The CSS
+
+```html
+<head>
+    <meta charset="utf-8">
+    <title>Button Demo</title>
+    
+    <link href="https://unpkg.com/primevue@2.4.1/resources/themes/saga-blue/theme.css"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/primevue@2.4.1/resources/primevue.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/primeicons@4.1.0/primeicons.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <button-styled label="Submit" />
+    </div>
+    
+    <script type="module">
+        import "https://unpkg.com/primevue@2.2.3/components/button/button.umd.js";
+        import "https://unpkg.com/vue@2";
+
+        new Vue({
+          components: {
+            'button-styled': button
+          }
+        }).$mount("#app");
+    </script>
+</body>
+```
+
 {% endraw %}
