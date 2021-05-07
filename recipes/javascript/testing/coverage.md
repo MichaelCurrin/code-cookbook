@@ -18,7 +18,12 @@ From the README:
       }
     }
     ```
-
+- `.gitignore`
+    ```
+    .nyc_output/
+    coverage/
+    ```
+    
 Then run:
 
 ```sh
@@ -61,11 +66,8 @@ This project compiles TypeScript to `out` and runs against there. But you could 
         "nyc": "^15.1.0"
     }
     ```
-- `.gitignore`
-    ```
-    .nyc_output/
-    coverage/
-    ```
+
+And set up `.gitignore` as in previous example.
 
 Then run:
 
@@ -153,6 +155,7 @@ On installing Istanbul:
 npm WARN deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
 npm WARN deprecated   npm i nyc
 ```
+
 
 ## Jest
 
