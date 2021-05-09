@@ -79,11 +79,9 @@ Pick from some of these sample files and add as `.editorconfig` in your project.
 
 I find this a good starting point for adding a file to a project and then refining it.
 
-#### Focus on 2-spaces
+#### Focus on 2 spaces
 
-Even if most of the files by count use 4 spaces, if  most of your file types use 2 spaces then use this.
-
-This handles shell, JS, Ruby, CSS, config files, etc. without setting them explicitly.
+Set the default to 2 spaces and then override certain files to 4 spaces.
 
 - `.editorconfig`
     ```ini
@@ -101,17 +99,20 @@ This handles shell, JS, Ruby, CSS, config files, etc. without setting them expli
     indent_size = 4
     ```
 
-The `Makefile` part is clearer on its own.
+Even if most of the files in a repo are markdown or HTML (needing 4 spaces), I find this setup elegant and useful for most of my projects. Since most file types actually do use 2 spaces (shell, JS, Ruby, CSS, JSON, YAML), but they get covered by `*` without having to name separately.
 
-Set the line length to `80` or `100` as you prefer. I can't see the difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like `10`.
+Notes
 
-```ini
-max_line_length = 80
-```
+- The `Makefile` part is clearer on its own. Take it out if you don't use a `Makefile`.
+- For Python projects, use `py` in the `html` section.
+- Set the max line length to `80` or `100`, as you like. I can't see a difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like `10`.
+    ```ini
+    max_line_length = 80
+    ```
 
-#### Focus on 4-spaces
+#### Focus on 4 spaces
 
-If most of your file types use 4-spaces, use this. I find this uncommon.
+If most of your file types use 4 spaces, use this. I find this uncommon.
 
 - `.editorconfig`
     ```ini
@@ -155,7 +156,7 @@ If you have other people contributing your project with a different choice of ID
 
 Optionally set the size. Though, PyLint CLI, the VS Code extensions and VS Code settings handle this fine without setting this.
 
-```
+```ini
 max_line_length = 80
 ```
 
