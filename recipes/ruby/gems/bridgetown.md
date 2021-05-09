@@ -38,3 +38,6 @@ Start the dev server.
 ```sh
 $ yarn start
 ```
+
+To get an idea of the site you'll generate, see my [bridgetown-quickstart](https://github.com/MichaelCurrin/bridgetown-quickstart) repo.
+
