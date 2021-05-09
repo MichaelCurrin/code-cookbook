@@ -1,5 +1,7 @@
 # Bridgetown
 
+## Related projects
+
 See [Bridgetown](https://michaelcurrin.github.io/dev-resources/resources/ruby/gems/bridgetown.html) resources.
 
 
@@ -45,3 +47,11 @@ $ yarn start
 
 To get an idea of the site you'll generate, see my [bridgetown-quickstart](https://github.com/MichaelCurrin/bridgetown-quickstart) repo.
 
+
+## Add plugin
+
+Add a plugin with the `bridgetown_plugins` group.
+
+```sh
+$ bundle add some-new-plugin -g bridgetown_plugins
+```
