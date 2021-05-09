@@ -5,6 +5,10 @@ See [Bridgetown](https://michaelcurrin.github.io/dev-resources/resources/ruby/ge
 
 ## Set up a new Bridgetown project
 
+Use the Bridgetown CLI to set up a new project, including sample content and dependencies.
+
+The advantage of this is that you can skip installing Bridgetown in your global gems, but you still get use Bridgetown to create a basic project for you so you can get running quickly.
+
 ### Requirements
 
 - Install Node and Yarn - see [instructions](https://gist.github.com/MichaelCurrin/bdc34c554fa3023ee81449eb77375fcb).
@@ -12,14 +16,14 @@ See [Bridgetown](https://michaelcurrin.github.io/dev-resources/resources/ruby/ge
 
 ### Steps
 
-The advantage of this is that you can skip installing Bridgetown in your global gems, but you still get use Bridgetown to create a basic project for you so you can get running quickly.
-
-Follow the steps to:
+Here's is what we'll do.
 
 1. Set up an initial project with a Gemfile only
 2. Configure Bundler to run the project scope without getting errors that you need root access.
 3. Use that to install a Bridgetown at the project level.
 4. Create a new Bridgetown project in the same directory (overwriting the temporary Gemfile).
+
+Run these in your shell.
 
 ```sh
 $ mkdir my-site
