@@ -1,10 +1,6 @@
 # Bridgetown
 
-
-## Resources
-
-- [Homepage](https://www.bridgetownrb.com/)
-- [Docs](https://www.bridgetownrb.com/docs)
+See [Bridgetown](https://michaelcurrin.github.io/dev-resources/resources/ruby/gems/bridgetown.html) resources.
 
 
 ## Set up a new Bridgetown project
