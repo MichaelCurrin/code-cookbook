@@ -21,10 +21,22 @@ Often you can follow a reciple without changing much and you'll have something w
 </div>
 
 
-## Featured topics
+## Quick access
+
+I use these often so it helps to have them on the homepage.
+
 
 - [Make][]
     - Sample `Makefile` files.
+- [EditorConfig][]
+    - Samples for a `.editorconfig` file.
+- [Jekyll][]
+    - Code snippets and configs.
+
+## Featured
+
+Highlights of this site.
+
 - [CI/CD][]
     - Many language-specific sample [workflows][] for GH Actions to test and deploy your app
     - Plus some _Netlify_ configs.
@@ -32,12 +44,11 @@ Often you can follow a reciple without changing much and you'll have something w
     - Recipes for `robots.txt` and `sitemap.xml` files.
 - [Shell][]
     - Usage help and examples for commands and patterns to use one or more commands to solve a real problem. Such as how to do find and replace using `find` or `sed` or how to clean up your git repo.
-- [Jekyll][]
-    - Code snippets and configs
 - [Containers][]
     - Commands and configs for using Docker and Kubernetes.
 
 
+[EditorConfig]: {{ site.baseurl }}{% link recipes/other/editor-config.md %}
 [Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
 [CI/CD]: {{ site.baseurl }}{% link recipes/ci-cd/index.md %}
 [Workflows]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/index.md %}
