@@ -1,7 +1,7 @@
 ---
+title: Go
 logo: go
 ---
-# Go
 
 
 ### Related sections
