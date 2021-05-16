@@ -28,8 +28,22 @@ Check for SSH keys - you'll get an error if the directory doesn't exist.
 $ ls -la ~/.ssh/
 ```
 
+View the _public_ key of the public-private pair.
+
 ```sh
 $ view ~/.ssh/id_rsa.pub
+```
+
+Or print the value.
+
+```sh
+$ cat ~/.ssh/id_rsa.pub
+```
+
+Copy to clipboard.
+
+```sh
+$ cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
 If the machine doesn't have an SSH key set, you'll have to generate one - see below.
@@ -37,15 +51,31 @@ If the machine doesn't have an SSH key set, you'll have to generate one - see be
 
 ## Generate keys
 
-Generate a new SSH key. Press enter when prompted to use the default location.
-
-Simple:
+Generate a new SSH key. Use the command below.
 
 ```sh
 $ ssh-keygen -t rsa
 ```
 
-As recommended by [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to GitHub repos via SSH.
+If this is your first SSH key on the current machine, you can leave the location as the default and press enter.
+
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key (~/.ssh/id_rsa):
+```
+
+That will use filenames as:
+
+```
+~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+```
+
+Or, enter a custom name like `id_rsa_abc` and press enter.
+
+You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key. 
+
+Alternate command, as recommended by [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to GitHub repos via SSH.
 
 ```sh
 $ ssh-keygen -t rsa -b 4096 -C COMMENT
