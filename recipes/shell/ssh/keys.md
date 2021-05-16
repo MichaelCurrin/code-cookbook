@@ -47,7 +47,6 @@ $ ssh-keygen -t rsa
 
 As recommended by [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to GitHub repos via SSH.
 
-
 ```sh
 $ ssh-keygen -t rsa -b 4096 -C COMMENT
 ```
@@ -59,7 +58,7 @@ Flags:
 - `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
 - `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by GitHub docs or rather use `"$USER@$HOSTNAME"` as it is specific to your machine.
 
-See also [page](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) in the `git` docs but this doesn't add much to what is covered above.
+See also this SSH Public Key [tutorial](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) on Git's docs, but that doesn't add much to what is covered above.
 
 
 ## Passphrase
