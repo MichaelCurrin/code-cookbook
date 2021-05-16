@@ -145,6 +145,12 @@ If you have other people contributing your project with a different choice of ID
     insert_final_newline = true
     ```
 
+Options for `end_of_line`:
+
+- `lf` - for Linux.
+- `cr` - for old macOS.
+- `crlf` - for Windows.
+
 ### Python
 
 - `.editorconfig`
