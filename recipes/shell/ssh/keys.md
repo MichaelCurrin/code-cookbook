@@ -28,7 +28,13 @@ Check for SSH keys - you'll get an error if the directory doesn't exist.
 $ ls -la ~/.ssh/
 ```
 
-View the _public_ key of the public-private pair.
+View the value of public key file. You'll want to copy this to a platform like GitHub to give yourself SSH access.
+
+```sh
+$ view PUBLIC_KEY
+```
+
+e.g.
 
 ```sh
 $ view ~/.ssh/id_rsa.pub
@@ -149,9 +155,13 @@ Samle output - ignore this.
 
 ### 2. Add key
 
-Add your SSH private key to the `ssh-agent`. 
+Add your SSH **private** key (without the suffix). to the `ssh-agent`. 
 
-If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+
+```sh
+$ ssh-add PRIVATE_KEY
+```
+e.g.
 
 ```sh
 $ ssh-add ~/.ssh/id_rsa
