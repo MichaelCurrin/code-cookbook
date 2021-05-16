@@ -51,7 +51,16 @@ If the machine doesn't have an SSH key set, you'll have to generate one - see be
 
 ## Generate keys
 
-Generate a new SSH key. Use the command below.
+Generate a new SSH key. 
+
+First navigate to the appropriate directory, to ensure the files get generated there.
+
+```sh
+$ mkdir ~/.ssh
+$ cd ~/.ssh
+```
+
+Use the command below.
 
 ```sh
 $ ssh-keygen -t rsa
@@ -90,6 +99,8 @@ Flags:
 
 See also this SSH Public Key [tutorial](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) on Git's docs, but that doesn't add much to what is covered above.
 
+Your SSH key won't be enabled yet - see [Add key to SSH agent](#add-key-to-ssh-agent) section.
+
 
 ## Passphrase
 
@@ -118,18 +129,29 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 [source](https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases)
 
 
-## Add key to agent
+## Add key to SSH agent
 
 Note that may not be necessary if the agent is already running and if you are using the default SSH key name.
+
+### 1. Start agent
 
 Start the `ssh-agent` in the background.
 
 ```sh
 $ eval "$(ssh-agent -s)"
+```
+
+Samle output - ignore this.
+
+```
 > Agent pid 59566
 ```
 
-Add your SSH private key to the `ssh-agent`. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+### 2. Add key
+
+Add your SSH private key to the `ssh-agent`. 
+
+If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
 
 ```sh
 $ ssh-add ~/.ssh/id_rsa
