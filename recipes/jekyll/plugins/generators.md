@@ -3,6 +3,8 @@ description: How to generate output pages based on YAML data
 ---
 # Generators
 
+{% raw %}
+
 
 ## Samples
 
@@ -53,10 +55,44 @@ This reads data from `_data/books.yml` and assigns frontmatter values `ongoing` 
       end
     end
     ```
+    
+### Create a page
 
-### Create pages
+This is inspired by the `jekyll-feed` plugin, which generates a `feed.xml` at your site root.
 
-Here we create a page for each category. Note there is actually a PR to make that built into Jekyll.
+See [generator.rb](https://github.com/jekyll/jekyll-feed/blob/master/lib/jekyll-feed/generator.rb) code in the `jekyll-feed` repo.
+
+Note use of `Jekyll::PageWithoutAFile`, since `my-file.html` does not yet exist. If you used `Jekyll::Page`, you would get a read error, as that is more suitable for reading a page like `about.md`.
+
+```ruby
+module SamplePlugin
+  class MyPageGenerator < Jekyll::Generator
+    safe true
+
+    def generate(site)
+      dir = '.'
+      name = 'my-file.html'
+
+      site.pages << Jekyll::PageWithoutAFile.new(site, site.source, dir, name).tap do |file|
+        file.content = '<p>abcdef ghji</p>'
+        file.data.merge!(
+          "layout"     => nil,
+          "sitemap"    => false,
+        )
+        file.output
+      end
+    end
+  end
+end
+```
+
+The layout here is `nil` but you can set the layout as the page layout for example. Then the content will be inserted in `{{ content }}` of the layout.
+
+### Create pages from categories
+
+Here we create a page for each category, as in the docs example. Note there is actually a PR to make that built into Jekyll.
+
+This makes a `CategoryPage` class that is subclassed from `Jekyll::Page` (which points to a page that exists).
 
 - `_plugins/sample-plugin.rb`
     ```ruby
@@ -112,3 +148,11 @@ Here we create a page for each category. Note there is actually a PR to make tha
           layout: category
           permalink: categories/:category/
     ```
+
+### Data page generator
+
+See [jekyll-datapage-generator.rb](https://github.com/avillafiorita/jekyll-datapage_gen/blob/master/lib/jekyll-datapage-generator.rb) of the `jekyll-datapage_gen` repo.
+
+That plugin will generate files for values in a data file - e.g. `_data/my-file.yml`.
+
+{% endraw %}
