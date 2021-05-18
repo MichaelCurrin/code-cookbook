@@ -10,9 +10,9 @@ Based on [Generators](https://jekyllrb.com/docs/plugins/generators/) section of 
 
 ### Outline
 
-> A generator is a subclass of Jekyll::Generator that defines a generate method, which receives an instance of Jekyll::Site. The return value of generate is ignored.
+> A generator is a subclass of `Jekyll::Generator` that defines a generate method, which receives an instance of Jekyll::Site. The return value of generate is ignored.
 
-The `initialize` method is not needed, but it is coverd here in case you need to override it.
+The `initialize` method is not needed, but it is covered here in case you need to override it.
 
 - `_plugins/reading.rb`
     ```ruby
