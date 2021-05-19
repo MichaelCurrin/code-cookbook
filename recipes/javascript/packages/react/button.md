@@ -23,11 +23,11 @@ function ButtonSample() {
       <br />
       <br />
       <button
-        className=${className}
+        className={className}
         id="status-button-input"
-        onClick=${onClick}
+        onClick={onClick}
       >
-        ${msg}
+        {msg}
       </button>
     </div>
   );
