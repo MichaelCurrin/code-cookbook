@@ -25,14 +25,14 @@ function TextSample() {
       <input
         id="name-input"
         placeholder="World"
-        value=${value}
-        onChange=${onChange}
+        value={value}
+        onChange={onChange}
       />
       
       <br />
       <br />
       
-      <div>${msg}</div>
+      <div>{msg}</div>
     </div>
   );
 }
