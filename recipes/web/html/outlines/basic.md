@@ -17,7 +17,7 @@ description: Set up minimum values
         <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
         <title>My Title</title>
-        <meta content="My description" name="description">
+        <meta name="description" content="My description">
 
         <link href="styles.css" rel="stylesheet">
 
