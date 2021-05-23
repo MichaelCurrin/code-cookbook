@@ -13,18 +13,23 @@ description: Set up minimum values
 
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
         <title>My Title</title>
-        <meta name="description" content="My description">
+        <meta content="My description" name="description">
 
-        <link rel="stylesheet" href="styles.css">
+        <link href="styles.css" rel="stylesheet">
 
         <script defer src="main.js"></script>
     </head>
 
     <body>
+        <div>
+            <h1>My heading</h1>
+
+            <p>My paragraph</p>
+        </div>
     </body>
 
     </html>
@@ -35,7 +40,6 @@ description: Set up minimum values
 
 - See info on the global [lang](https://www.w3schools.com/tags/att_lang.asp) attribute, which is used on the `html` element.
 - The character encoding set by `char` must appear as **early** as possible in `head` such as first. You'll get a browser warning if you omit it.
-- No visible content yet.
 - It has basic metadata and language settings.
 - CSS and JS assets are setup.
 - JS script tag.
