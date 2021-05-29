@@ -19,23 +19,23 @@ function TextSample() {
   return (
     <div>
       <label hmltfor="name-input"> Name: </label>
-      
+
       <span> </span>
-      
+
       <input
         id="name-input"
         placeholder="World"
         value={value}
         onChange={onChange}
       />
-      
+
       <br />
       <br />
-      
+
       <div>{msg}</div>
     </div>
   );
 }
 ```
 
-{% endraw %
+{% endraw %}
