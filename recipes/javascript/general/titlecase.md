@@ -29,23 +29,21 @@ export function title(value: string) {
 ## Test
 
 ```typescript
-describe("Generate commit message for a single changed file", function () {
-  describe("#title", function () {
-    it("converts to titlecase correctly", function () {
-      assert.strictEqual(title("h"), "H");
+describe("#title", function () {
+it("converts to titlecase correctly", function () {
+  assert.strictEqual(title("h"), "H");
 
-      assert.strictEqual(title("hello"), "Hello");
-    });
+  assert.strictEqual(title("hello"), "Hello");
+});
 
-    it("doesn't downcase uppercase letters", function () {
-      assert.strictEqual(title("Hello"), "Hello");
+it("doesn't downcase uppercase letters", function () {
+  assert.strictEqual(title("Hello"), "Hello");
 
-      assert.strictEqual(title("hELLo"), "HELLo");
-    });
+  assert.strictEqual(title("hELLo"), "HELLo");
+});
 
-    it("disallows empty string input", function () {
-      assert.throws(() => title(""));
-    });
-  });
+it("disallows empty string input", function () {
+  assert.throws(() => title(""));
+});
 });
 ```
