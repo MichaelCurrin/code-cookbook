@@ -2,7 +2,7 @@
 
 ## Get latest tag
 
-Get the most recent tag, whether on the current tag or not.
+Get the most recent tag, whether on the current tag or not. No commit reference is supplied but `HEAD` is implied.
 
 ```sh
 LAST_TAG=$(git describe --abbrev=0 --tags 2>/dev/null)
@@ -13,16 +13,16 @@ LAST_TAG=$(git describe --abbrev=0 --tags 2>/dev/null)
 
 ### Short
 
-If the given commit reference does _not_ have a tag on it, then this will give an error status.
+Thanks to `--exact-match ` flag - if the commit reference is tagged, you'll get details as usual. But if no tag is found, then it will give an error status.
 
 ```sh
-git describe --tags --exact-match HEAD
+git describe --tags --exact-match
 ```
 
 Here handling the status.
 
 ```sh
-git describe --tags  --exact-match  HEAD &> /dev/null \
+git describe --tags  --exact-match &> /dev/null \
   && echo 'Commit is tagged' \
   || echo 'Commit is NOT tagged'
 ```
