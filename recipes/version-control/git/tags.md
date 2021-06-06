@@ -23,9 +23,8 @@ Here handling the status.
 
 ```sh
 git describe --exact-match --tags HEAD &> /dev/null \
-  && echo 'Commit is tagged' || \
-  echo 'Commit is NOT tagged'
-Commit is tagged
+  && echo 'Commit is tagged' \
+  || echo 'Commit is NOT tagged'
 ```
 
 Note use of `>` will handles stdout, for the tag on a success. Otherwise you'd get:
@@ -35,7 +34,7 @@ v1.0.2
 Commit is tagged
 ```
 
-And `&>` handles stderr too, to handle the error message on not tag. Without it, you'd get:
+Then using `&>` handles stderr too, to handle the error message on not tag. Without it, you'd get:
 
 ```
 fatal: no tag exactly matches '9641372537f8025591b8808c6f9194f211062394'
