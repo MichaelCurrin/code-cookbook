@@ -16,13 +16,13 @@ LAST_TAG=$(git describe --abbrev=0 --tags 2>/dev/null)
 If the given commit reference does _not_ have a tag on it, then this will give an error status.
 
 ```sh
-git describe --exact-match HEAD
+git describe --tags --exact-match HEAD
 ```
 
 Here handling the status.
 
 ```sh
-git describe --exact-match --tags HEAD &> /dev/null \
+git describe --tags  --exact-match  HEAD &> /dev/null \
   && echo 'Commit is tagged' \
   || echo 'Commit is NOT tagged'
 ```
