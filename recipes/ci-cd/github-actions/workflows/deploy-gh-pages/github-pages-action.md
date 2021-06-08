@@ -34,7 +34,7 @@ Add this as a step in your workflow and set the last parameter to your build dir
 
 ```yaml
 steps:
-  - name: Deploy 🚀
+  - name: Deploy GitHub Pages 🚀
     uses: peaceiris/actions-gh-pages@v3
 
     with:
@@ -63,7 +63,7 @@ publish_branch: master
 Choose a repo for `external_repository`. Note use of `deploy_key` from that target repo, as `github_token` will probably not work.
 
 ```yaml
-- name: Deploy 🚀
+- name: Deploy GitHub Pages 🚀
   uses: peaceiris/actions-gh-pages@v3
 
   with:
