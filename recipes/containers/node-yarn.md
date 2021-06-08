@@ -1,14 +1,46 @@
 ---
-description: Add Yarn to a container
+title: Node and yarn
+description: Add Node or Yarn to a container
 ---
-# Yarn
 
-Rather than using a Node or Yarn image, this takes a standard image and adds to it.
 
-As an alternative, you can install Node and then use `npm i -g yarn`.
+## Node image
+
+Install Node image which apparently comes with Yarn already.
+- `Dockerfile`
+    ```docker
+    FROM node:12
+    ```
+
+## Node from Deb source
+
+Target Node version number.
+
+- `Dockerfile` - 
+    ```docker
+    FROM ubuntu
+    
+    RUN curl -sL "https://deb.nodesource.com/setup_12.x" | sudo -E bash -
+    RUN npm install -g yarn
+    ```
+
+## Latest Node from APT
 
 - `Dockerfile`
-    ```Dockerfile
+    ```docker
+    FROM ubuntu
+    
+    RUN apt install nodejs
+    RUN npm install -g yarn
+    ```
+   
+
+## Yarn from APT
+
+Set up a plain image then add Yarn to it using apt.
+
+- `Dockerfile`
+    ```docker
     FROM ubuntu
 
     ENV DEBIAN_FRONTEND=noninteractive
