@@ -1,5 +1,5 @@
 ---
-title: Node and yarn
+title: Node and Yarn
 description: Add Node or Yarn to a container
 ---
 
@@ -16,7 +16,7 @@ Install Node image which apparently comes with Yarn already.
 
 Target Node version number.
 
-- `Dockerfile` - 
+- `Dockerfile` 
     ```docker
     FROM ubuntu
     
