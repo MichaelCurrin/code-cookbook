@@ -86,11 +86,11 @@ The docs around Vue state management then go on to say that for large applicatio
 
 See [Facebook Flux](https://facebook.github.io/flux/) library, which is known for its use with React, as with Redux.
 
-> As we continue developing the convention, where components are never allowed to directly mutate state that belongs to a store but should instead dispatch events that notify the store to perform actions, we eventually arrive at the Flux architecture. 
+> As we continue developing the convention, where components are never allowed to directly mutate state that belongs to a store but should instead dispatch events that notify the store to perform actions, we eventually arrive at the Flux architecture.
 >
 > The benefit of this convention is we can record all state mutations happening to the store and implement advanced debugging helpers such as mutation logs, snapshots, and history re-rolls / time travel.
 
 See [Vuex](https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/vue/vuex.html) resources.
 
 
-{% end raw %}
+{% endraw %}
