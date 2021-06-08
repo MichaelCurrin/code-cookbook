@@ -1,5 +1,7 @@
 # Templating
 
+{% raw %}
+
 
 ## Web server wrapper
 
@@ -102,3 +104,5 @@ https://chart.googleapis.com/chart?
 ```
 
 See the [html/template](https://golang.org/pkg/html/template/) docs for more info.
+
+{% endraw %}
