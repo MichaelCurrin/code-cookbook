@@ -1,7 +1,7 @@
 # Web server
 
 
-## Basic
+## HTTP file server
 
 Similar to [FileServer example](https://golang.org/pkg/net/http/#example_FileServer).
 
@@ -22,7 +22,11 @@ func main() {
 ```
 
 
-## More detailed
+## Hello World
+
+Set up a web server that returns a greeting on the root endpoint.
+
+This script includes a request to the server too.
 
 Based on [Learn X in Y](https://learnxinyminutes.com/docs/go/).
 
@@ -56,7 +60,6 @@ func requestServer() {
 }
 
 func main() {
-
 	go func() {
 		// TCP address and interface (http.Handler).
 		err := http.ListenAndServe(":8080", pair{})

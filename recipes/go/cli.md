@@ -4,7 +4,7 @@ description: How to build a CLI tool that parses arguments
 # CLI
 
 
-## CLI package
+## The CLI package
 
 Repo: [urfave/cli](https://github.com/urfave/cli)
 
@@ -14,60 +14,66 @@ See also [video](https://youtu.be/i2p0Snwk4gc).
 
 ### Minimal
 
-```go
-package main
+- `main.go`
+    ```go
+    package main
 
-import (
-  "os"
+    import (
+        "os"
 
-  "github.com/urfave/cli/v2"
-)
+        "github.com/urfave/cli/v2"
+    )
 
-func main() {
-  (&cli.App{}).Run(os.Args)
-}
-```
+    func main() {
+        (&cli.App{}).Run(os.Args)
+    }
+    ```
 
 ### Greet
 
 - `greet.go`
-```go
-package main
+    ```go
+    package main
 
-import (
-  "fmt"
-  "log"
-  "os"
+    import (
+        "fmt"
+        "log"
+        "os"
 
-  "github.com/urfave/cli/v2"
-)
+        "github.com/urfave/cli/v2"
+    )
 
-func main() {
-  app := &cli.App{
-    Name: "greet",
-    Usage: "fight the loneliness!",
-    Action: func(c *cli.Context) error {
-      fmt.Println("Hello friend!")
-      return nil
-    },
-  }
+    func main() {
+        app := &cli.App{
+            Name: "greet",
+            Usage: "fight the loneliness!",
+            Action: func(c *cli.Context) error {
+                fmt.Println("Hello friend!")
+                return nil
+            },
+    }
 
-  err := app.Run(os.Args)
-  if err != nil {
-    log.Fatal(err)
-  }
-}
-```
+    err := app.Run(os.Args)
+        if err != nil {
+            log.Fatal(err)
+        }
+    }
+    ```
 
-Install and run it.
+Install it.
 
 ```sh
 $ go install
+```
+
+Run it.
+
+```sh
 $ greet
 Hello friend!
 ```
 
-Show help with `help` command or `--help` flag.
+View the help with `help` or `h`  command or the `--help` or `-h` flag.
 
 ```sh
 $ greet help
@@ -84,4 +90,44 @@ COMMANDS:
 
 GLOBAL OPTIONS
     --help, -h  show help (default: false)
+```
+
+
+## Flag package
+
+Set up an argument parser with `flag`.
+
+- `main.go`
+    ```go
+    import (
+        "flag"
+        "fmt"
+        "html/template"
+        "log"
+        "net/http"
+    )
+
+    var ADDRESS = flag.String("addr", ":8000", "http service address")
+
+    func main() {
+        fmt.Printf("Starting server on http://localhost%v/ ...\n", *ADDRESS)
+
+        // ...
+    }
+    ```
+
+e.g.
+
+```sh
+$ go run main.go -h
+```
+```
+Usage of .../main
+  -addr string
+        http service address (default ":8000")
+```
+
+```
+$ go run main.go
+$ go run main.go --addr :9000
 ```

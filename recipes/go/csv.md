@@ -19,9 +19,10 @@ This may not be efficient (the for loop and appending looks messy) but it works.
       "os"
       "strconv"
     )
-    
+
     func sum(row []string) string {
       sum := 0
+
       for _, s := range row {
         x, err := strconv.Atoi(s)
         if err != nil {
@@ -29,11 +30,13 @@ This may not be efficient (the for loop and appending looks messy) but it works.
         }
         sum += x
       }
+
       return strconv.Itoa(sum)
     }
-    
+
     func appendSum(rows [][]string) {
       rows[0] = append(rows[0], "SUM")
+
       for i := 1; i < len(rows); i++ {
         rows[i] = append(rows[i], sum(rows[i]))
       }
@@ -44,11 +47,13 @@ This may not be efficient (the for loop and appending looks messy) but it works.
       if err != nil {
         log.Fatal(err)
       }
+
       rows, err := csv.NewReader(f).ReadAll()
       f.Close()
       if err != nil {
         log.Fatal(err)
       }
+
       return rows
     }
 
@@ -57,19 +62,23 @@ This may not be efficient (the for loop and appending looks messy) but it works.
       if err != nil {
         log.Fatal(err)
       }
+
       err = csv.NewWriter(f).WriteAll(rows)
       f.Close()
       if err != nil {
         log.Fatal(err)
       }
     }
-    
+
     func main() {
       rows := read("sample.csv")
       appendSum(rows)
       write("output.csv", rows)
     }
     ```
+
+The CSV files:
+
 - `input.csv`
     ```
     C1,C2,C3,C4,C5
