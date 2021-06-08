@@ -65,8 +65,10 @@ Note chart type `qr` in the URL.
         if err != nil {
             log.Fatal("ListenAndServe:", err)
         }
-}
+    }
     ```
+
+Run it:
 
 ```sh
 $ go run main.go
