@@ -50,7 +50,7 @@ Note from action:
 Workflow file:
 
 ```yaml
-name: Build and Deploy
+name: Deploy GH Pages
 
 on: push
 
@@ -106,7 +106,7 @@ Uses:
 Workflow file:
 
 ```yaml
-name: Build and Deploy
+name: Deploy GH Pages
 
 on:
   push:
@@ -152,7 +152,6 @@ jobs:
           FOLDER: build
           BUILD_SCRIPT: yarn install && yarn build
 ```
-
 
 Notes:
 
