@@ -92,5 +92,52 @@ See [Facebook Flux](https://facebook.github.io/flux/) library, which is known fo
 
 See [Vuex](https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/vue/vuex.html) resources.
 
+### Simple store
+
+From the Vuex docs [Getting Started](https://next.vuex.vuejs.org/guide/) page.
+
+> just provide an initial state object, and some mutations:
+
+```javascript
+import { createApp } from 'vue'
+import { createStore } from 'vuex'
+
+// Create a new store instance.
+const store = createStore({
+  state () {
+    return {
+      count: 0
+    }
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+
+const app = createApp({ /* your root component */ })
+
+app.use(store)
+```
+
+> Now, you can access the state object as `store.state`, and trigger a state change with the `store.commit` method:
+
+```javascript
+store.commit('increment')
+
+console.log(store.state.count) // -> 1
+```
+
+> In a Vue component, you can access the store as this.$store. Now we can commit a mutation using a component method:
+
+```javascript
+methods: {
+  increment() {
+    this.$store.commit('increment')
+    console.log(this.$store.state.count)
+  }
+}
+```
 
 {% endraw %}
