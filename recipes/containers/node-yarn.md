@@ -3,14 +3,17 @@ title: Node and Yarn
 description: Add Node or Yarn to a container
 ---
 
-The examples here use the [ubuntu](https://hub.docker.com/_/ubuntu) Docker image.
+See also gists, not specific to Docker.
 
-See also [Install Node and NPM](https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba) gist, not specific to Docker.    
+- [Install Node and NPM](https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba) 
+- [Install Yarn and Node](https://gist.github.com/MichaelCurrin/bdc34c554fa3023ee81449eb77375fcb)
 
 
-## Node image
+## Use Node image
 
-Install Node image which apparently comes with Yarn already.
+Use the [node](https://hub.docker.com/_/node/) image from Docker hub.
+
+This includes Yarn already.
 
 - `Dockerfile`
     ```docker
@@ -20,7 +23,9 @@ Install Node image which apparently comes with Yarn already.
 
 ## Latest Node from APT
 
-APT already supports Node. But it might be some major versions behind, compared with the Deb file on the Node Source websit.
+Use the [ubuntu](https://hub.docker.com/_/ubuntu) image from Docker hub.
+
+APT already supports Node, but you'll only get a stable version which will behind the latest versions. See the next section to get a newer version of Node.
 
 - `Dockerfile`
     ```docker
