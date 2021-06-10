@@ -5,6 +5,8 @@ description: Add Node or Yarn to a container
 
 The examples here use the [ubuntu](https://hub.docker.com/_/ubuntu) Docker image.
 
+See also [Install Node and NPM](https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba) gist, not specific to Docker.    
+
 
 ## Node image
 
