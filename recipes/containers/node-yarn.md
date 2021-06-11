@@ -3,10 +3,7 @@ title: Node and Yarn
 description: Add Node or Yarn to a container
 ---
 
-See also gists, not specific to Docker.
-
-- [Install Node and NPM](https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba) 
-- [Install Yarn and Node](https://gist.github.com/MichaelCurrin/bdc34c554fa3023ee81449eb77375fcb)
+See [Node install](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/node/install.html) instructions.
 
 
 ## Use Node image
@@ -54,6 +51,7 @@ Based on [Installation instructions](https://github.com/nodesource/distributions
     RUN apt install -q -y curl
     
     RUN curl -sL "https://deb.nodesource.com/setup_14.x" | bash -
+    RUN apt update
     RUN apt -q -y install nodejs
     
     RUN npm install -g yarn
