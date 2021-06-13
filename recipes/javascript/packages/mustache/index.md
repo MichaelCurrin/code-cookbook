@@ -60,11 +60,11 @@ The `renderTemplate` function here is generic and can be used across projects.
       return `https://api.github.com/users/${username}/gists?per_page=${limit}`;
     }
 
-    function renderTemplate(targetElId, data) {
-      const template = document.getElementById('template').innerHTML;
+    function renderTemplate(templateId, data, targetId) {
+      const template = document.getElementById(templateId).innerHTML;
       const rendered = Mustache.render(template, data);
 
-      document.getElementById(targetElId).innerHTML = rendered;
+      document.getElementById(targetId).innerHTML = rendered;
     }
 
     async function renderGists(username) {
@@ -73,7 +73,7 @@ The `renderTemplate` function here is generic and can be used across projects.
 
       const resp = await fetch(url);
       const json = await resp.json();
-      renderTemplate('target', { gists: json });
+      renderTemplate('template', { gists: json }, 'target');
     }
     ```
 
