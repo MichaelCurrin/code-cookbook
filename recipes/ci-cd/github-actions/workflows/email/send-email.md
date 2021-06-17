@@ -31,6 +31,13 @@ steps:
       body: Build job of ${{ github.repository }} completed successfully!
 ```
 
+
+## Gmail use
+
+See [Gmail](https://github.com/marketplace/actions/send-email#gmail) instructions in the docs.
+
+
+## Username password
 > The parameters username and password are set as optional to support self-hosted runners access to on-premise infrastructure.
 > 
 > If you are accessing public email servers make sure you provide a username/password authentication through GitHub Secrets to make the email delivery secure.
