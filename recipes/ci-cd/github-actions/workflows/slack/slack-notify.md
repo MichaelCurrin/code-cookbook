@@ -8,6 +8,8 @@ description: A GitHub Action to send a message to a Slack channel
 This is currently the post popular action.
 
 
+{% raw %}
+
 ## Sample
 
 ```yaml
@@ -45,3 +47,5 @@ With all variables set:
     SLACK_USERNAME: rtCamp
     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 ```
+
+{% endraw %}
