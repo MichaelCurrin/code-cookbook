@@ -6,12 +6,13 @@ title: slack - GitHub Actions Slack integration
 
 {% raw %}
 
-Presumably you can put this at the end of your workflow and if a step before it has an error status then it will post to Slack.
-
 The `status` determines if it appears as a success or failure in Slack.
 
 ```yaml
 steps:
+  - name: Build
+    # Do stuff
+    
   - name: Post to Slack - error
     uses: act10ns/slack@v1
     if: failure()
