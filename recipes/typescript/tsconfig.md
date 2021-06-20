@@ -1,21 +1,85 @@
 # tsconfig
 
+Customize the `tsconfig.json` or `jsconfig.json` file (for plain JS projects).
+
 
 ## Resources
 
 - [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) in TS docs
+- [jsconfig.json reference](https://code.visualstudio.com/docs/languages/jsconfig) on VS Code docs.
 
 
 ## Recommended fields
 
-You don't need a config for all projects if you are happy with the defaults.
+You don't need a config, if you are happy with the system defaults.
 
+Here are some fields you can add.
+
+```json
+{
+  "compilerOptions": {
+    "strict": true
+  }
+}
 ```
-"strict": true
+
+### Module and target
+
+Modern:
+
+```json
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+}
+```
+
+Traditional:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6"
+  }
+}
+```
+
+### Paths
+
+Alias the `src` directory as `@`.
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
+}
+```
+
+### Include and exclude
+
+For a Vue project with tests.
+
+```json
+{
+  "compilerOptions": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.vue",
+      "tests/**/*.ts"
+    ]
+  }
+}
 ```
 
 
-## Files in repos
+## Sample files in repos
 
 - Vue apps.
     - [vue-typescript-quickstart](https://github.com/MichaelCurrin/vue-typescript-quickstart/blob/master/tsconfig.json) - a basic Vue TypeScript app.
