@@ -1,4 +1,4 @@
-# tsconfig
+# TS Config
 
 Customize the `tsconfig.json` or `jsconfig.json` file (for plain JS projects).
 
