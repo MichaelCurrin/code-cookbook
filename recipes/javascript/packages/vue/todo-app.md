@@ -2,7 +2,10 @@
 
 {% raw %}
 
-Sample from a [pen](https://codesandbox.io/s/vue-todo-list-app-with-single-file-component-vzkl3?file=/src/App.vue:0-1551) which is linked to from the [Single-File Componenet](https://v3.vuejs.org/guide/single-file-component.html#what-about-separation-of-concerns) docs.
+Sample from a [pen][] which is linked to from the [Single-File Component][] docs.
+
+[pen]: https://codesandbox.io/s/vue-todo-list-app-with-single-file-component-vzkl3?file=/src/App.vue:0-1551
+[Single-File Component]: https://v3.vuejs.org/guide/single-file-component.html#what-about-separation-of-concerns
 
 - `App.vue`
     ```vue
