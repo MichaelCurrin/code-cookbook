@@ -25,13 +25,14 @@ Often you can follow a reciple without changing much and you'll have something w
 
 I use these often so it helps to have them on the homepage.
 
-
+- [Vue][]
 - [Make][]
     - Sample `Makefile` files.
 - [EditorConfig][]
     - Samples for a `.editorconfig` file.
 - [Jekyll][]
     - Code snippets and configs.
+
 
 ## Featured
 
@@ -48,6 +49,7 @@ Highlights of this site.
     - Commands and configs for using Docker and Kubernetes.
 
 
+[Vue]: {{ site.baseurl }}{% link recipes/javascript/packages/vue/index.md %}
 [EditorConfig]: {{ site.baseurl }}{% link recipes/other/editor-config.md %}
 [Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
 [CI/CD]: {{ site.baseurl }}{% link recipes/ci-cd/index.md %}
