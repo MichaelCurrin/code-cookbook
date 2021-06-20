@@ -2,7 +2,7 @@
 
 {% raw %}
 
-```javasript
+```javascript
 const Counter = {
   data() {
     return {
