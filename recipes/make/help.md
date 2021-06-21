@@ -72,29 +72,34 @@ This is complex - I don't know why. I haven't tested yet but maybe something her
 
 	```
 
-### Sort and add colors
+### Two column help
+
+This will sort, split into two columsn and add colors. It expects a description to come after the command with double hash.
 
 - `Makefile`
 	```mk
-	.PHONY: virtualenv
-	virtualenv: $(PYTHON)
-	$(PYTHON):
-		$(VIRTUALENV) $(VENV)
-
-	clean: ## Destroy the virtual environment
-		rm -rf .venv
-
-	help: ## Show the help indications
-		@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	help: ## Show the commands and help
+		@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+            | sort \
+            | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	```
 
+Sample output (the left column is colored blue).
+
+```
+help                           Show the commands and help
+install                        ...
+```
 
 ### List targets and descriptions
 
 - `Makefile`
 	```mk
 	help: ## List targets & descriptions
-		@cat Makefile* | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+		@cat Makefile* \
+            | grep -E '^[a-zA-Z_-]+:.*?## .*$$' \
+            | sort \
+            | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 	id: ## Output BUILD_ID being used
 		@echo $(BUILD_ID)
