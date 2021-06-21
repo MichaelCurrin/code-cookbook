@@ -91,10 +91,20 @@ help                           Show the commands and help
 install                        ...
 ```
 
+### Some improvements on above
+
 If you want to support an alias line instead of ignoring completely, then add a space in the `[]` regex piece.
 
 ```
 s serve                        Start dev server
+```
+
+If you want to support targets _without_ comments, make `#` optional with `#?#?`. Or don't require them at all.
+
+Result pattern:
+
+```
+'^[a-zA-Z_ -]+:'
 ```
 
 ### List targets and descriptions
