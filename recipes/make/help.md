@@ -91,6 +91,12 @@ help                           Show the commands and help
 install                        ...
 ```
 
+If you want to support an alias line instead of ignoring completely, then add a space in the `[]` regex piece.
+
+```
+s serve                        Start dev server
+```
+
 ### List targets and descriptions
 
 - `Makefile`
