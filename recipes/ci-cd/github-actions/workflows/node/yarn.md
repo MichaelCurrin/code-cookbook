@@ -6,26 +6,35 @@ description: Workflows for running Yarn on GitHub Actions
 
 {% raw %}
 
-GH Actions already setups Node and Yarn for you. If you want more customization, you can use an action to set up Node or Yarn.
+GH Actions already setups Node and Yarn for you. You might get an old version of Node and Yarn though.
+
+This section covers how to set up one or more target versions of Node and Yarn and handle caching of NPM packages.
+
 
 ## Samples
 
 ### Simple
 
-The GH docs recommend installing with Yarn using Set up Node action and frozen lockfile flag.
+The GH docs recommend installing with Yarn using [Set up Node](https://github.com/actions/setup-node) action.
 
 ```yaml
 steps:
-- name: Use Node.js
+- name: Use Node.js ⚙️
   uses: actions/setup-node@v2
-
-- name: Install dependencies
+  with:
+    node-version: '14'
+    
+- name: Install dependencies 📦
   run: yarn install --frozen-lockfile
 ```
 
-The `--frozen-lockfile` flag is to prevent changes to the lockfile. Presumably this only makes a difference if you added a package to `package.json` without updating your lockfile locally, which means a CI install will install packages and change the lockfile each time, without saving it.
+This doesn't handle any cached dependencies though.
 
-Note that NPM doesn't have the flag and it NPM installs get by fine in CI.
+The Node version number is optional. See later sections on this page for a matrix of Node versions.
+
+The `--frozen-lockfile` flag is to prevent changes to the lockfile. Presumably this only makes a difference if you added a package to `package.json` without updating your lockfile locally, which means a CI install will install packages and change the lockfile each time, without saving it. Or maybe some transitive dependencies are allowed to upgrade on a fresh install, but not when using the lockf flag.
+
+Note that NPM doesn't have the flag and it NPM installs gets by fine in CI.
 
 ### Caching
 
@@ -53,7 +62,8 @@ For basic use of this action (like Node/Yarn test and no caching), it is an unne
         runs-on: ubuntu-latest
 
         steps:
-          - uses: actions/checkout@master
+          - name: Checkout
+            uses: actions/checkout@master
 
           - uses: borales/actions-yarn@v2.0.0
             with:
