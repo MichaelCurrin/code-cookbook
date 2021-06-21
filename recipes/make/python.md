@@ -14,7 +14,7 @@ See my [Makefile in py-project-template](https://github.com/MichaelCurrin/py-pro
 For MyPy, see [Mypy - Add to project](../python/mypy/add-to-project.md) guide in this cookbook project. <!-- FIXME jekyll link -->
 
 
-### Mypy and readthedocs 
+### Mypy and Read The Docs 
 
 From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 
@@ -35,7 +35,7 @@ From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 	docs:
 		cd docs && make html
 	```
-- `docs/Makefile` - build ReadTheDocs site with Sphinx.
+- `docs/Makefile` - build Read The Docs site with Sphinx.
 	```make
 	# Minimal makefile for Sphinx documentation
 	#
@@ -65,7 +65,6 @@ From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 clean:
 	find . -name '*.pyc' -delete
 ```
-
 
 ### Install, check and clean 
 
@@ -130,7 +129,7 @@ $ make run HOST=127.0.0.1 PORT=8000
 
 ### Environment variables
 
-Note here the virtual env directory is `.venv`.
+Note here the virtual env directory is `.venv`, though I prefer `venv`. Which is also the name of the Python `venv` module used.
 
 ```make
 VIRTUALENV = python3 -m venv
@@ -166,7 +165,6 @@ Temp directory is used for:
 foo:
 	mkdir $(TEMPDIR)/zopfli
 ```
-
 
 ### Linting
 
