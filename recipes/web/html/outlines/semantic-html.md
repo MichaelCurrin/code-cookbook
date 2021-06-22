@@ -8,6 +8,10 @@ description: Here the focus is on HTML5 elements in the body, like `section` and
 
 Read more in [HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp) guide.
 
+- [Main](https://www.w3schools.com/tags/tag_main.asp)
+    - The main content of the document. 
+    - Only _one_ on the page.
+    - The `main` element must NOT be a descendant of an `article`, `aside`, `footer`, `header`, or `nav` element.
 - **Section** - A thematic grouping of content, typically with a heading. A web page could normally be split into sections for introduction, content, and contact information.
 - **Article** - independent, self-contained content. It make sense on its own and it should be possible to distribute it independently of the site. e.g. forum post, blog post, newspaper article.
 - **Aside** - Defines some content aside from the content it is placed in. Like a sidebar.
@@ -49,36 +53,40 @@ Read more in [HTML Semantic Elements](https://www.w3schools.com/html/html5_seman
             <nav>
             </nav>
         </header>
+        
+        <main>
+            <h1></h1>
+            
+            <section>
+                <h2></h2>
 
-        <section>
-            <h2></h2>
+                <p></p>
+            </section>
 
-            <p></p>
-        </section>
+            <section>
+                <h2></h2>
 
-        <section>
-            <h2></h2>
+                <p></p>
+            </section>
 
-            <p></p>
-        </section>
+            <article>
+                <h2></h2>
 
-        <article>
-            <h2></h2>
+                <p></p>
+            </article>
 
-            <p></p>
-        </article>
+            <article>
+                <h2></h2>
 
-        <article>
-            <h2></h2>
+                <p></p>
+            </article>
 
-            <p></p>
-        </article>
+            <aside>
+            </aside>
 
-        <aside>
-        </aside>
-
-        <footer>
-        </footer>
+            <footer>
+            </footer>
+        </main>
     </body>
 
     </html>
