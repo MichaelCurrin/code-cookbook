@@ -32,7 +32,9 @@ Or use Deno, which handle JSX syntax already.
 
 From [React docs](https://reactjs.org/docs/add-react-to-a-website.html).
 
-You can add Babel Standalone as a package on your frontend. When it loads, it will compile your JSX code in place, without a servr-side compile stp.
+You can add Babel Standalone as a package on your frontend. 
+
+When it loads, it will **compile your JSX code in place**. No server-side compile step needed.
 
 1. Add this `<script>` tag to your page:
     ```html
@@ -57,7 +59,7 @@ Here we use [htm](https://www.npmjs.com/package/htm) NPM package.
 >
 > htm is JSX-like syntax in plain JavaScript - no transpiler necessary.
 
-This works on the frontend -  we use that package to render the a JSX-like string to plain JS, without actually using JSX. Note the backticks.
+This works on the frontend -  we use that package to render the a JSX-like string to plain JS, without actually using JSX. Note use of backticks. If you are used to JSX, it can be switch to this style, but you get used to it in an app you are working on without JSX.
 
 - [main.js](https://github.com/MichaelCurrin/preact-frontend-quickstart/blob/main/main.js) of Preact project, as per Preact docs.
 
