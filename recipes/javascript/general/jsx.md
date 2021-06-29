@@ -44,8 +44,6 @@ Warning from the JS console:
 
 > You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - [https://babeljs.io/docs/setup/](https://babeljs.io/docs/setup/)
 
-From my own testing, it looks like this approach does **not** work if you using ES Modules i.e. `type="module"` on your script. Perhaps using import map solves this, as you don't have to import by URL (but then still need `require`).
-
 #### How to set up
 
 1. Load the Babel package with `<script>` tag.
@@ -62,6 +60,18 @@ From my own testing, it looks like this approach does **not** work if you using 
         console.log('Your JSX here');
     </script>
     ```
+
+#### ES Modules compatibility
+
+From my own testing, it looks like this approach does **not** work if you using ES Modules i.e. `type="module"` on your script. 
+
+Even when using this before the script:
+
+```html
+<script type="module" src="https://ga.jspm.io/npm:babel-standalone@7.0.0-beta.3/babel.js"></script>
+```
+
+Perhaps using import map solves this, as you don't have to import by URL then. But then import from "react" won't work I guess and `require` won't run in the browser.
 
 ### Add HTM
 
