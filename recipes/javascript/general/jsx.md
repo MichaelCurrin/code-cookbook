@@ -1,5 +1,9 @@
 # JSX
 
+See also [JSX][] in my Dev Cheatsheets.
+
+[JSX]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/general/jsx.html
+
 
 ## Add JSX support to an app
 
