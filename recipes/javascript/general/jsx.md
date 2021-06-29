@@ -20,7 +20,10 @@ $ npm install babel-cli@6 babel-preset-react-app@3
 Run this against a `src` directory. This also works _without_ Babel installed, as it will download.
 
 ```sh
-$ npx babel --watch src --out-dir . --presets react-app/prod
+$ npx babel \
+  --watch src \
+  --out-dir . \
+  --presets react-app/prod
 ```
 
 Or use Deno, which handle JSX syntax already.
@@ -42,7 +45,7 @@ You can add Babel Standalone as a package on your frontend. When it loads, it wi
     <!-- OR -->
 
     <script type="text/babel">
-        console.log('Your JSX here')
+        console.log('Your JSX here');
     </script>
     ```
 
@@ -65,14 +68,20 @@ From HTM docs:
     import { render } from 'preact';
     import { html } from 'htm/preact';
 
-    render(html`<a href="/">Hello!</a>`, document.body);
+    render(
+      html`<a href="/">Hello!</a>`, 
+      document.body
+    );
     ```
 - React sample.
     ```javascript
     import ReactDOM from 'react-dom';
     import { html } from 'htm/react';
 
-    ReactDOM.render(html`<a href="/">Hello!</a>`, document.body);
+    ReactDOM.render(
+      html`<a href="/">Hello!</a>`,
+      document.body
+    );
     ```
 - Generic sample.
     ```javascript
@@ -93,11 +102,10 @@ e.g. [dev.jspm.io/htm/react](https://dev.jspm.io/htm/react) or [dev.jspm.io/htm@
 
 Currently React 17 is out but the URLs above only go to `react@16`.
 
-Look at available browser modules, with a forwardslash, [here](https://dev.jspm.io/htm/react).
+Look at available browser modules, with a forward slash, [here](https://dev.jspm.io/htm/react).
 
-Preact also has two, but one step further - there is a `standalone.module.js` file as per docs.
+For Preat, there is a highly-optimized single file version with both `htm` and `react`, as mentioned in the docs.
 
 ```javascript
-// just want htm + preact in a single file? there's a highly-optimized version of that:
 import { html, render } from 'https://unpkg.com/htm/preact/standalone.module.js'
 ```
