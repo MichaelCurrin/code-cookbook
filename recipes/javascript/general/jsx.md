@@ -44,6 +44,8 @@ Warning from the JS console:
 
 > You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - [https://babeljs.io/docs/setup/](https://babeljs.io/docs/setup/)
 
+From my own testing, it looks like this approach does **not** work if you using ES Modules i.e. `type="module"` on your script.
+
 #### How to set up
 
 1. Load the Babel package with `<script>` tag.
