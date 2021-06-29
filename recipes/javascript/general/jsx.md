@@ -32,20 +32,24 @@ Or use Deno, which handle JSX syntax already.
 
 From [React docs](https://reactjs.org/docs/add-react-to-a-website.html).
 
-You can add Babel Standalone as a package on your frontend. 
+You can add Babel Standalone as a package on your frontend. When it loads, it will compile your JSX code **in place**. No server-side compile step needed.
 
-When it loads, it will **compile your JSX code in place**. No server-side compile step needed.
+Warning from the docs:
 
-1. Add this `<script>` tag to your page:
+> This approach is fine for learning and creating simple demos. However, it makes your website **slow** and isn’t suitable for production.
+
+How to set up:
+
+1. Load the Babel package with `<script>` tag.
     ```html
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     ```
-2. Set up your JS to be recognized by Babel by setting `type`.
+2. Set up your JS to be recognized by Babel by setting `type` on your script.
     ```html
     <script src="main.js" type="text/babel"></script>
-
-    <!-- OR -->
-
+    ```
+    Or
+    ```html
     <script type="text/babel">
         console.log('Your JSX here');
     </script>
