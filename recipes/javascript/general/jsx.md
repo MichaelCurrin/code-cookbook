@@ -44,7 +44,7 @@ Warning from the JS console:
 
 > You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - [https://babeljs.io/docs/setup/](https://babeljs.io/docs/setup/)
 
-From my own testing, it looks like this approach does **not** work if you using ES Modules i.e. `type="module"` on your script.
+From my own testing, it looks like this approach does **not** work if you using ES Modules i.e. `type="module"` on your script. Perhaps using import map solves this, as you don't have to import by URL (but then still need `require`).
 
 #### How to set up
 
