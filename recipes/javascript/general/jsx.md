@@ -34,11 +34,17 @@ From [React docs](https://reactjs.org/docs/add-react-to-a-website.html).
 
 You can add Babel Standalone as a package on your frontend. When it loads, it will compile your JSX code **in place**. No server-side compile step needed.
 
+#### Warning
+
 Warning from the docs:
 
 > This approach is fine for learning and creating simple demos. However, it makes your website **slow** and isn’t suitable for production.
 
-How to set up:
+Warning from the JS console:
+
+> You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - [https://babeljs.io/docs/setup/](https://babeljs.io/docs/setup/)
+
+#### How to set up
 
 1. Load the Babel package with `<script>` tag.
     ```html
