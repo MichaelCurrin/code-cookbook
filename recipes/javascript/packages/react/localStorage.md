@@ -2,7 +2,7 @@
 
 ## Sample
 
-Using plain JS to get and set a value `localStorage`.
+Using plain JS to get and set a value `localStorage` as part of the browser's [Storage API](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/browser/storage.html).
 
 If the key is not present, the value will be `null`, so we use `??` to detect that and fallback to an empty string (to avoid a warning from `useState`).
 
