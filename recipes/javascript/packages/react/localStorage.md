@@ -26,15 +26,15 @@ function TextSample() {
 
       <input
         id="name-input"
-        value=${value}
-        onInput=${onInput}
+        value={value}
+        onInput={onInput}
         placeholder="World"
       />
 
       <br />
       <br />
 
-      <div>${value}</div>
+      <div>{value}</div>
     </div>
   );
 }
