@@ -22,6 +22,8 @@ To secure your data, you need a backend (like Node Express API or Serverless API
 
 ## Samples
 
+The one example I followed _also_ set `audience` as a parameter for `Auth0Provider`, using the app URL. But maybe this is not always needed as the basic example found doesn't use it.
+
 ### Basic
 
 From the NPM package's docs.
