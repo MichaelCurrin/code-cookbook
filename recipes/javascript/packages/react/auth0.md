@@ -26,25 +26,26 @@ To secure your data, you need a backend (like Node Express API or Serverless API
 
 From the NPM package's docs.
 
-Configure the SDK by wrapping your application (`App`) in `Auth0Provider`
+Configure the SDK by wrapping your application (`App` object) in `Auth0Provider`
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
-import App from './App';
+- `index.js`
+    ```jsx
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import { Auth0Provider } from '@auth0/auth0-react';
+    import App from './App';
 
-ReactDOM.render(
-  <Auth0Provider
-    domain="YOUR_AUTH0_DOMAIN"
-    clientId="YOUR_AUTH0_CLIENT_ID"
-    redirectUri={window.location.origin}
-  >
-    <App />
-  </Auth0Provider>,
-  document.getElementById('app')
-);
-```
+    ReactDOM.render(
+      <Auth0Provider
+        domain="YOUR_AUTH0_DOMAIN"
+        clientId="YOUR_AUTH0_CLIENT_ID"
+        redirectUri={window.location.origin}
+      >
+        <App />
+      </Auth0Provider>,
+      document.getElementById('app')
+    );
+    ```
 
 ### Login and logout
 
