@@ -11,7 +11,7 @@ This uses `auth0-react` NPM package.
 - [Auth0 React SDK for Single Page Apps](https://auth0.com/docs/libraries/auth0-react) page on the Auth0 docs. There are some useful examples here.
 
 
-## Hiding data
+## Securing your data
 
 Note that you can use React or vanilla JS to protect endpoints such that users cannot visit them unless they are logged in. 
 
@@ -30,7 +30,7 @@ From the NPM package's docs.
 
 Configure the SDK by wrapping your application (`App` object) in `Auth0Provider`
 
-- `index.js`
+- `index.jsx`
     ```jsx
     import React from 'react';
     import ReactDOM from 'react-dom';
@@ -53,7 +53,7 @@ Configure the SDK by wrapping your application (`App` object) in `Auth0Provider`
 
 My example that I set up and tested.
 
-Here using a frontend React setup, without Node and with `htm` library to handle JSX-like syntax.
+Here using a frontend React setup, without Node. Note use of of `htm` library to get something close to JSX syntax.
 
 - `index.html`
     ```html
