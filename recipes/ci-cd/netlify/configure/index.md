@@ -13,9 +13,9 @@ Note that either way you don't need to specify an install command or caching dep
 
 ### Resources
 
-See Netlify's docs:
+See Netlify's docs to configure builds
 
-- Configure builds
-    - [Get started](https://docs.netlify.com/configure-builds/get-started/)
-    - [File-based configuration](https://docs.netlify.com/configure-builds/file-based-configuration/)
-    - [YAML and JSON file support](https://docs.netlify.com/configure-builds/file-based-configuration/#json-and-yaml-configuration-files)
+- [Get started](https://docs.netlify.com/configure-builds/get-started/)
+- [File-based configuration](https://docs.netlify.com/configure-builds/file-based-configuration/)
+- [Common Configurations](https://docs.netlify.com/configure-builds/common-configurations/)
+- [YAML and JSON file support](https://docs.netlify.com/configure-builds/file-based-configuration/#json-and-yaml-configuration-files)
