@@ -7,73 +7,73 @@ No library like Vuex is needed here.
 
 {% raw %}
 
-Based on [Simple State Management from Scratch](https://v3.vuejs.org/guide/state-management.html#simple-state-management-from-scratch) in the Vue 3 docs.
+## Resources
+
+The example below is based on [Simple State Management from Scratch](https://v3.vuejs.org/guide/state-management.html#simple-state-management-from-scratch) in the Vue 3 docs.
 
 > ... if you have a piece of state that should be shared by multiple instances, you can use a reactive method to make an object reactive
 
-See [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html#declaring-reactive-state) method.
+See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html Vue method in the docs, as that is used below.
 
-Example:
 
-```html
-<div id="app-a">{{ sharedState.message }}</div>
+## Example
 
-<div id="app-b">{{ sharedState.message }}</div>
-```
+- Store JavaScript - set up store object with a debug attribute, a state attribute with our data in it and some methods that are used to set data on the state.
+    ```javascript
+    const store = {
+      debug: true,
 
-Set up store object with a debug attribute, a state attribute with our data in it and some methods that are used to set data on the state.
+      state: reactive({
+        message: 'Hello!'
+      }),
 
-```javascript
-const store = {
-  debug: true,
+      setMessageAction(newValue) {
+        if (this.debug) {
+          console.log('setMessageAction triggered with', newValue)
+        }
 
-  state: reactive({
-    message: 'Hello!'
-  }),
+        this.state.message = newValue
+      },
 
-  setMessageAction(newValue) {
-    if (this.debug) {
-      console.log('setMessageAction triggered with', newValue)
+      clearMessageAction() {
+        if (this.debug) {
+          console.log('clearMessageAction triggered')
+        }
+
+        this.state.message = ''
+      }
     }
+    ```
+- Vue file - Set up app using the store. Here we have two apps using the same store.
+    ```javascript
+    const appA = createApp({
+      data() {
+        return {
+          privateState: {},
+          sharedState: store.state
+        }
+      },
+      mounted() {
+        store.setMessageAction('Goodbye!')
+      }
+    })
+    appA.mount('#app-a')
 
-    this.state.message = newValue
-  },
+    const appB = createApp({
+      data() {
+        return {
+          privateState: {},
+          sharedState: store.state
+        }
+      }
+    })
+    appB.mount('#app-b')
+    ```
+- HTML:
+    ```html
+    <div id="app-a">{{ sharedState.message }}</div>
 
-  clearMessageAction() {
-    if (this.debug) {
-      console.log('clearMessageAction triggered')
-    }
-
-    this.state.message = ''
-  }
-}
-```
-
-Set up app using the store:
-
-```javascript
-const appA = createApp({
-  data() {
-    return {
-      privateState: {},
-      sharedState: store.state
-    }
-  },
-  mounted() {
-    store.setMessageAction('Goodbye!')
-  }
-})
-appA.mount('#app-a')
-
-const appB = createApp({
-  data() {
-    return {
-      privateState: {},
-      sharedState: store.state
-    }
-  }
-})
-appB.mount('#app-b')
-```
-
+    <div id="app-b">{{ sharedState.message }}</div>
+    ```
+    
 {% endraw %}
