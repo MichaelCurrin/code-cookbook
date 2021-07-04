@@ -44,7 +44,7 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html 
       }
     }
     ```
-- Vue file - Set up app using the store. Here we have two apps using the same store.
+- Vue file - Set up app using the store. Here we have two App components using the same store and mount them on different elements. These could be on the same or different pages.
     ```javascript
     const appA = createApp({
       data() {
