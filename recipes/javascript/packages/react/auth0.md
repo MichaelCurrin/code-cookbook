@@ -6,10 +6,13 @@ Integrate with auth0 service to allow user login and manage from the auth0 site.
 
 This uses `auth0-react` NPM package.
 
-- [Homepage](https://auth0.github.io/auth0-react/) - there are some useful examples here.
-- [auth0/auth0-react](https://github.com/auth0/auth0-react) repo.
-- [Auth0 React SDK for Single Page Apps](https://auth0.com/docs/libraries/auth0-react) page on the Auth0 docs. There are some useful examples here.
-
+- Auth0-React
+    - [Homepage](https://auth0.github.io/auth0-react/) - there are some useful examples here.
+    - [auth0/auth0-react](https://github.com/auth0/auth0-react) repo.
+- Auth0
+    - [Auth0 React SDK for Single Page Apps](https://auth0.com/docs/libraries/auth0-react) page on the Auth0 docs. There are some useful examples here.
+    - [React: Login ](https://auth0.com/docs/quickstart/spa/react) tutorial in the Auth0 docs.
+    
 
 ## Securing your data
 
@@ -128,6 +131,45 @@ Weirdly, the Auth0 objects cannot be unpacked in the import line as below, so yo
 ```javascript
 import { Auth0Provider, useAuth0 } from "https://dev.jspm.io/@auth0/auth0-react";
 // SyntaxError: import not found: useAuth0
+```
+
+### Call a protected API
+
+From [Calling an API](https://auth0.com/docs/quickstart/spa/react/02-calling-an-api) in the docs.
+
+> Once you configure Auth0Provider, you can easily get the access token using the getAccessTokenSilently() method from the useAuth0() custom React Hook wherever you need it.
+
+Add `useEffect` hook to your component.
+
+```jsx
+useEffect(() => {
+  const getUserMetadata = async () => {
+    const domain = "YOUR_DOMAIN";
+
+    try {
+      const accessToken = await getAccessTokenSilently({
+        audience: `https://${domain}/api/v2/`,
+        scope: "read:current_user",
+      });
+
+      const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+      const metadataResponse = await fetch(userDetailsByIdUrl, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const { user_metadata } = await metadataResponse.json();
+
+      setUserMetadata(user_metadata);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  getUserMetadata();
+}, []);
 ```
 
 {% endraw %}
