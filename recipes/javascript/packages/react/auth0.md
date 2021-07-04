@@ -123,10 +123,10 @@ Here using a frontend React setup, without Node and with `htm` library to handle
     );
     ```
 
-Weirdly, the Auth0 objects can't be unpacked in the import line. 
+Weirdly, the Auth0 objects cannot be unpacked in the import line as below, so you have to do it in two lines as above.
 
 ```javascript
-import Auth0Provider, useAuth0 from "https://dev.jspm.io/@auth0/auth0-react";
+import { Auth0Provider, useAuth0 } from "https://dev.jspm.io/@auth0/auth0-react";
 // SyntaxError: import not found: useAuth0
 ```
 
