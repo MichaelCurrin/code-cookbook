@@ -1,5 +1,7 @@
 # Vuex
 
+{% raw %}
+
 The docs around Vue state management then go on to say that for large applications you might need to use events to change the store, as in the Flux approach. which then leads to Vuex as the Vue approach.
 
 See [Facebook Flux](https://facebook.github.io/flux/) library, which is known for its use with React, as with Redux.
