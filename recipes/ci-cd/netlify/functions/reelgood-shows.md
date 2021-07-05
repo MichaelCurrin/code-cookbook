@@ -1,4 +1,4 @@
-# Shows
+# ReelGood shows
 
 Get shows from the ReelGood API.
 
