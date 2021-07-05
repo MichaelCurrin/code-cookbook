@@ -1,6 +1,6 @@
 # ReelGood shows
 
-Get shows from the ReelGood API.
+Get shows from the [ReelGood](https://reelgood.com) API.
 
 Using `axios` for requests.
 
