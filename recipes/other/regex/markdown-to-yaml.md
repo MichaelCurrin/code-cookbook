@@ -29,7 +29,7 @@ Notes:
 - The spaces at the start are optional but are used to indent the output
 - The space, dash and space and text at the end are optional.
 - The groups are captured with brackets and then used in the output using dollar sign substitution.
-- A limitation is that any lines without links such as headings or quotes are _not_ picked up, as the pattern becomes to complex. But fortunately, those lines will remain unaffected and stay in the output, since we are replacing lines in existing content and not generating fresh output.
+- A limitation is that any lines without links such as headings or quotes are _not_ picked up, as the pattern becomes to complex (also one needs multi-line context to differniate between a bullet point as a heading or as comment under a point). But fortunately, those lines will remain **unaffected** and stay in the output, since we are replacing lines in existing content and not generating fresh output.
 - You'll still need to to be a bit of clean-up, but this pattern does most of the repetitive work for you.
 
 ### Sample input
