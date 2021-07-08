@@ -20,15 +20,17 @@ This avoids having to enter your **password** each time your push, or if you pul
 
 You can also use the SSH URL for any **public** repos by other people if you want to clone them (you won't be able to push unless you are a collaborator though).
 
+## Steps
 
-## Generate keys
+### 1. Generate keys
 
-Follow the [install](install.md) guide to install SSH with APT.
+1. Follow the [Install SSH][] recipe to install SSH itself.
+2. Follow the [SSH keys][] recipe to generate a pair of SSH keys.
 
-Follow the [keys](keys.md) guide to generate a pair of SSH keys.
+[Install SSH]: {{ site.baseurl }}{% link recipes/shell/ssh/install.md %}
+[SSH keys]: {{ site.baseurl }}{% link recipes/shell/ssh/key.md %}
 
-
-## View keys
+### 2. View keys
 
 View your _public_ key - the one with `.pub` extension. Copy it as you'll need to paste it in the next section.
 
@@ -36,8 +38,7 @@ View your _public_ key - the one with `.pub` extension. Copy it as you'll need t
 $ view ~/.ssh/id_rsa.pub
 ```
 
-
-## Add key to GitHub
+### 3. Add key to GitHub
 
 1. Login to GitHub account.
 1. Go to the SSH keys page
@@ -49,5 +50,15 @@ $ view ~/.ssh/id_rsa.pub
 1. Give it title description of your username and host. e.g. `Michael Dell (Linux Lite)`. This can be renamed.
 1. Paste the public key copied from the previous section.
 
+Based on [tutorial](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) in the GitHub docs.
 
-Based on [source](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
+### 4. Use it
+
+Clone a public repo or one of your private repos using an SSH URL.
+
+e.g.
+
+```sh
+$ git clone git@github.com:MichaelCurrin/code-cookbook.git
+```
+
