@@ -1,4 +1,4 @@
-# Convert Text
+# Convert between file types
 
 Convert input data as CSV, JSON or YAML and output as CSV, JSON or YAML.
 
