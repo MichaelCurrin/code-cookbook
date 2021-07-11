@@ -28,7 +28,7 @@ You can also use the SSH URL for any **public** repos by other people if you wan
 2. Follow the [SSH keys][] recipe to generate a pair of SSH keys.
 
 [Install SSH]: {{ site.baseurl }}{% link recipes/shell/ssh/install.md %}
-[SSH keys]: {{ site.baseurl }}{% link recipes/shell/ssh/key.md %}
+[SSH keys]: {{ site.baseurl }}{% link recipes/shell/ssh/keys.md %}
 
 ### 2. View keys
 
