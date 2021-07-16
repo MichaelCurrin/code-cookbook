@@ -1,6 +1,6 @@
 # Markdown to YAML
 
-Specifically dealing with links, here I convert links from Markdown to YAML, so that it can be stored as data in my [Dev Resources](https://michaelcurrin.github.io/dev-resources/) site.
+Specifically dealing with links, here I convert links from Markdown to YAML, so that te value can be stored as data in my [Dev Resources](https://michaelcurrin.github.io/dev-resources/) site.
 
 {% raw %}
 
