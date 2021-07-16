@@ -23,6 +23,12 @@ Find:
 
 Replace:
 
+```
+  $1- title: $2
+  $1  url: $3
+  $1  description: $4
+```
+
 
 Notes:
 
@@ -32,7 +38,9 @@ Notes:
 - A limitation is that any lines without links such as headings or quotes are _not_ picked up, as the pattern becomes to complex (also one needs multi-line context to differniate between a bullet point as a heading or as comment under a point). But fortunately, those lines will remain **unaffected** and stay in the output, since we are replacing lines in existing content and not generating fresh output.
 - You'll still need to to be a bit of clean-up, but this pattern does most of the repetitive work for you.
 
-### Sample input
+## Samples
+
+### Input
 
 ```markdown
 - [ABC](https://abc.com)
@@ -47,7 +55,7 @@ Notes:
         - [Extra level of indenting](https://example.com)
 ```
 
-### Sample output
+### Output
 
 ```yaml
 - title: ABC
