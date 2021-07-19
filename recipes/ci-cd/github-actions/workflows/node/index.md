@@ -1,6 +1,6 @@
 ---
 title: Node.js
-logo: node-dot-js
+logo: nodedotjs
 description: Build, test and deploy using NPM or Yarn and GitHub Actions
 ---
 
