@@ -1,6 +1,6 @@
 ---
 title: Vue
-logo: vue-dot-js
+logo: vuedotjs
 ---
 
 See Vue on my other sites:
