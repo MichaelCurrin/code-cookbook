@@ -1,4 +1,8 @@
-# Basic
+---
+title: Basic
+description: A greeting example of using Netlify Functions
+---
+
 
 ## Files
 
@@ -12,7 +16,7 @@ Create these files then push to trigger a Netlify build.
     ```
 - `functions/hello.js`. (Or at `functions/hello/index.js` Or `functions/hello/hello.js`.)
     ```javascript
-    exports.handler = async function (event, context) {
+    exports.handler = async function (_event, _context) {
         return {
             statusCode: 200,
             body: JSON.stringify({ message: "Hello World" })
