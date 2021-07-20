@@ -1,14 +1,19 @@
 ---
+title: Netlify
 logo: netlify
 description: How to set up a Netlify site
 ---
-# Netlify
 
 I like using [netlify.com](https://netlify.com) to build and host many of my websites. If you aren't familiar, sign up for a free account and hook up one of your GitHub repos to deploy it.
 
 It works well if you have a static site like made with Hugo or Jekyll, or a web app like React or Vue.
 
 Netlify will build and serve your site for you on `my-app.netlify.app` - you can change the subdomain to anything not already taken.
+
+
+### Related
+
+- [Netlify](https://michaelcurrin.github.io/dev-resources/resources/ci-cd/netlify/) under Dev Resources.
 
 
 ## Set up a site
@@ -25,7 +30,9 @@ Push changes to your repo to automatically trigger a build.
 
 ## Configs
 
-See the [configure](configure.md) page for how to configure a Netlify build.
+See the [Configure][] section for how to configure a Netlify build.
+
+[Configure]: {{ site.baseurl }}{% link recipes/ci-cd/netlify/configure/index.md %}
 
 
 ## Netlify vs GH Actions
