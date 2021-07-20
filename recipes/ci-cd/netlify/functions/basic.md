@@ -4,7 +4,7 @@ description: A greeting example of using Netlify Functions
 ---
 
 
-## Files
+## Function setup
 
 Create these files then push to trigger a Netlify build.
 
@@ -25,6 +25,12 @@ Create these files then push to trigger a Netlify build.
         };
     }
     ```
+
+Using query parameters like `?myParam=foo`.
+
+```javascript
+const myParam = event.queryStringParameters.myParam;
+```
 
 
 ## Testing
