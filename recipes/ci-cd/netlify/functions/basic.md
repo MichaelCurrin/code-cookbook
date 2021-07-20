@@ -17,12 +17,15 @@ Create these files then push to trigger a Netlify build.
 - `functions/hello.js`. (Or at `functions/hello/index.js` Or `functions/hello/hello.js`.)
     ```javascript
     exports.handler = async function (_event, _context) {
+        const bodyData = { message: "Hello World" }
+        
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: "Hello World" })
+            body: JSON.stringify(bodyData)
         };
     }
     ```
+
 
 ## Testing
 
@@ -35,7 +38,6 @@ Then when deployed you query the Lambda at a path like `/.netlify/functions/hell
 
 Breakdown of the URL:
 
-- `/.netlify` - this is fixed.
-- `functions` is the directory you configured and used above.
+- `/.netlify/functions` - this is a fixed path and cannot be configured.
 - `hello` is based on the JS script name.
 
