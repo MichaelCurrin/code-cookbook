@@ -1,55 +1,38 @@
 # ReelGood shows
 
-Get shows from the [ReelGood](https://reelgood.com) API.
+Get shows from the [ReelGood](https://reelgood.com) API. Using `axios` for requests, based on Netlify docs.
 
-Using `axios` for requests.
+This is a simplified form of the Function I created in my [Netflix Assistant](https://github.com/MichaelCurrin/netflix-assistant) project.
 
-This is based on a Function I created in my [Netflix](https://github.com/MichaelCurrin/netflix-assistant/tree/master/functions) project.
 
-- `netlify/functions/shows/shows.js`
-    ```javascript
-    /**
-     * Shows Function.
-     *
-     * Note use of cache of computed data, to improve performance and
-     * reduce the number of hitss down against the external API we are consuming.
-     */
-    const axios = require("axios");
+## Files
 
-    const API_BASE_URL = "https://api.reelgood.com/v2";
+<!-- Something is weird in Jekyll if trying to indent this script under a bullet point -->
 
-    exports.handler = async function(event) {
-      const url = event.queryStringParameters.url;
+`netlify/functions/shows/shows.js`
 
-      if (!url) {
-        return {
-          statusCode: 400,
-          body: "Missing param: 'url'",
-        };
-      }
+```javascript
+const axios = require("axios");
 
-      if (!API_BASE_URL.startsWith(API_BASE_URL)) {
-        return {
-          statusCode: 400,
-          body: `Domain not allowed - only: ${API_BASE_URL}`,
-        };
-      }
+const API_BASE_URL = "https://api.reelgood.com/v2";
 
-      const res = await axios.get(url);
+exports.handler = async function(event) {
+  const url = event.queryStringParameters.url;
 
-      return {
-        statusCode: res.status,
-        body: JSON.stringify(res.data),
-        headers: { "Cache-Control": "public, s-maxage=1800" },
-      };
-    };
-    ```
-- `package.json`
-    ```json
-    {
-      "dependencies": {
-        "axios": "^0.21.1"
-      }
-    }
-    ```
+  return {
+    statusCode: res.status,
+    body: JSON.stringify(res.data)
+  };
+};
+```
     
+`package.json`
+
+```json
+{
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
+```
+
