@@ -1,18 +1,31 @@
 ---
+title: Customize
 description: How to use SCSS to set and override styles
 ---
-# Customize
+
+{% raw %}
 
 In Jekyll, you can use SCSS as a preprocessor - this helps for nest styles, handling variables and allowing imports.
 
-The way you apply it is using `.scss` files in the `assets/` and in `_sass/` (which is Jekyll's default SCSS directory). If you add an `@import` in assets, you'll get a compiled result that loads a file with `url()` and this loads as a separate request in the browser. If you do any imports within the `_sass` directory, you'll get your styling bundled in a single large file.
+The way you apply it is using `.scss` files in the `assets/` and in `_sass/` (Jekyll's default SCSS directory). 
+
+
+## Import notes
+
+### Import in assets
+
+If you add an `@import` in assets, you'll get a result that uses a `url()` call in the _browser_ to load additional CSS Files.
+
+### Import in SASS
+
+If you do any imports within the `_sass` directory, you'll get your styling bundled in a single large file. This file can be more easily compressed and browser only has to do one request, but if you only need one portion of the file you'll end up over-fetching.
 
 See [Assets](https://jekyllrb.com/docs/step-by-step/07-assets/) in step 7 of the tutorial in the Jekyll docs. And see my [Jekyll Blog Demo](https://github.com/MichaelCurrin/jekyll-blog-demo) repo which is the result of following the tutorial.
 
 Instructions below are collected from themes.
 
 
-## Minima theme
+## Minima theme styling guide
 
 How to customize a site using the [Minima](https://github.com/jekyll/minima) theme.
 
@@ -32,15 +45,15 @@ This will bundle the theme's SASS files with your own content to produce a singl
 Note you do not have to add to the `_sass` directory, just `assets`.
 
 - `assets/main.scss` simple example.
-  ```scss
-  ---
-  ---
+    ```scss
+    ---
+    ---
 
-  @import "minima";
+    @import "minima";
 
-  a {
-    color: blue;
-  }
+    a {
+      color: blue;
+    }
   ```
 - `assets/main.scss` with SASS overrides.
     ```scss
@@ -82,7 +95,7 @@ It is not clear from the docs, but it looks like in addition to the above, you m
 Example:
 
 - `assets/css/styles.scss`
-    ```
+    ```scss
     ---
     ---
 
@@ -97,10 +110,9 @@ Description:
 > - Directive to import the base styles (automatically loads overrides when available)
 
 
-## Architect theme
+## Architect themes tyling guide
 
 ### Latest
-
 
 - `assets/css/style.scss`
     ```scss
@@ -113,3 +125,5 @@ Description:
 Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
 
 _Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet._
+
+{% endraw %}
