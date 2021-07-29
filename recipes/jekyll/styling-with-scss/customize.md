@@ -25,10 +25,13 @@ Note the filename, frontmatter, import and then custom content.
 
 This will bundle the theme's SASS files with your own content to produce a single plain CSS `assets/main.css` file.
 
+1. Override the theme's SASS variables _before_ the theme is imported
+2. Load the theme from `_sass/minima.scss`.
+3. Then any custom styling using SASS or CSS>
 
-Example:
+Note you do not have to add to the `_sass` directory, just `assets`.
 
-- `assets/main.scss`
+- `assets/main.scss` simple example.
   ```scss
   ---
   ---
@@ -39,6 +42,20 @@ Example:
     color: blue;
   }
   ```
+- `assets/main.scss` with SASS overrides.
+    ```scss
+    ---
+    ---
+    $base-font-family: HelveticaNeu;
+    $brand-color: orange;
+
+    @import "minima";
+
+    h1 {
+      padding-bottom: 2px;
+      color: blue;
+    }
+    ```
 
 Here is the doc reference for Minima's SASS files:
 
