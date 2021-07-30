@@ -25,7 +25,7 @@ Here are some fields you can add.
 
 ### Module and target
 
-Modern:
+Using `import/export` and modern JS.
 
 ```json
 {
@@ -35,7 +35,7 @@ Modern:
 }
 ```
 
-Traditional:
+Using `require` to import and transpiling to ES6 (or ES5 if you prefer) from something newer like ES7.
 
 ```json
 {
