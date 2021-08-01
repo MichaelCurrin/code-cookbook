@@ -45,15 +45,19 @@ $ npm install jest -D
     ```
 - `src/__tests__/foo.test.js`
     ```javascript
-    const { foo } = require('../foo.js')
-
+    import { foo } from "../foo.js";
+    // OR
+    const { foo } = require('../foo.js');
+    
     test('Square a number successfully', () => {
       expect(foo(3)).toBe(9)
     })
     ```
     To group cases, use `describe` and `it` (which is an alias for `test`). You can also have 2 `describe` levels around `it`.
     ```javascript
-    describe("Hello.vue", () => {
+    import { foo } from "../foo.js";
+    
+    describe("#foo", () => {
       it("can square a number successfully", () => {
         expect(foo(3)).toEqual(9);
       });
