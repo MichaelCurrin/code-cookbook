@@ -23,3 +23,8 @@ Do any one of these to set `3.8`. Or a newer version.
 - Set `PYTHON_VERSION` as `3.8` in environment variables. The easiest is to do this on Netlify.
 - Set a Python version of 3.8 in your `Pipfile` if you use that instead of `requirements.txt`.
  
+Then when you build your site, you'll see output like:
+
+```
+3:18:05 PM: Python version set to 3.8
+```
