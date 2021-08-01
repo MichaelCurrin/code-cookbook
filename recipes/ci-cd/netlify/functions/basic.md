@@ -16,17 +16,20 @@ Create these files then push to trigger a Netlify build.
     ```
 - `functions/hello.js`. (Or at `functions/hello/index.js` Or `functions/hello/hello.js`.)
     ```javascript
-    exports.handler = async function (_event, _context) {
-        const bodyData = { message: "Hello World" }
+    exports.handler = function (event) {
+        const respData = {
+          message: "Hello World"
+          eventData: event
+        }
         
         return {
             statusCode: 200,
-            body: JSON.stringify(bodyData)
+            body: JSON.stringify(respData)
         };
     }
     ```
 
-Using query parameters like `?myParam=foo`.
+Use query parameters like `?myParam=foo`.
 
 ```javascript
 const myParam = event.queryStringParameters.myParam;
