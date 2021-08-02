@@ -53,15 +53,21 @@ $ npm install jest -D
       expect(foo(3)).toBe(9)
     })
     ```
-    To group cases, use `describe` and `it` (which is an alias for `test`). You can also have 2 `describe` levels around `it`.
+    To group cases, use `describe` and `it` (which is an alias for `test`).
     ```javascript
     import { foo } from "../foo.js";
     
-    describe("#foo", () => {
-      it("can square a number successfully", () => {
-        expect(foo(3)).toEqual(9);
+    describe("Square numbers", () => {
+      describe("#foo", () => {
+        it("can square a number successfully", () => {
+          expect(foo(3)).toEqual(9);
+        });
+
+        it("can throws an error on no input", () => {
+          expect(() => foo()).toThrow();
+        });
       });
-    });
+    })
     ```
 - `.eslintrc.js` - If you use ESLint, add to the config.
     ```javascript
