@@ -1,4 +1,4 @@
-# Install OS
+# OS
 
 Steps to follow to install a Linux operating system on a machine.
 
@@ -16,7 +16,7 @@ We use Linux Lite in this guide.
 
 For example, to download Linux Lite - go to the download page:
 
-- https://www.linuxliteos.com/download.php
+- [linuxliteos.com/download.php](https://www.linuxliteos.com/download.php)
 
 And click the download ISO button to save it to your Downloads directory.
 
@@ -29,7 +29,7 @@ Follow the USB or DVD instructions below.
 
 ### Write to USB
 
-#### Using GUI
+#### Use a GUI
 
 Create a bootable USB drive. Note that you should make sure there is nothing else on the drive.
 
@@ -37,7 +37,7 @@ Etcher is a GUI application allows you to create a bootable Live USB drive. You 
 
 - https://www.balena.io/etcher/
 
-#### Using the command-line
+#### Use the command-line
 
 Use the terminal on macOS or Linux.
 
