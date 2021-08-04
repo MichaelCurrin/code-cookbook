@@ -1,5 +1,6 @@
 ---
 title: VS Code
+logo: visualstudiocode
 description: Recipes for Visual Studio Code IDE
 ---
 
