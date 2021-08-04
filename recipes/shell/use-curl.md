@@ -1,14 +1,13 @@
-# Install application via curl
+# Use cURL
+> Install applications using cURL
 
 
 Install an application by running a remote script in the terminal. Download the script with `curl` and pass it to a shell to run.
 
 
-## Syntax
+## Command usage
 
-### curl
-
-Arguments:
+### Recommended flags
 
 | Flag               | Description                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -20,12 +19,12 @@ Arguments:
 
 ### Shell
 
-The examples later use `sh` or `bash` and some use `-` as an argument and some don't.
+There is no consistency in the instructions on documentation for applications. As you'll see in [Examples](#examples), some use `sh`, or `bash`. Some use `-` as an argument and some don't.
 
 | Flag | Description                                                                                                                                                                                                                                          |
 | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-E` | preserve environment variables.                                                                                                                                                                                                                      |
-| `-s` | _If  the  -s  option is present, or if no arguments remain after option processing, then commands are read from the standard input. This option allows the positional parameters to be set when invoking an interactive shell._ `curl ... | bash -s` |
+| `-s` | _If the `-s` option is present, or if no arguments remain after option processing, then commands are read from the standard input. This option allows the positional parameters to be set when invoking an interactive shell._ `curl ... | bash -s` |
 
 
 ## Examples
@@ -78,7 +77,7 @@ $ curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version [version]
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-#### DataDog
+#### Datadog
 
 ```sh
 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
