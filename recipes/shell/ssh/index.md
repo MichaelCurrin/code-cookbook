@@ -11,8 +11,9 @@ The least you need to know:
 
 ### Install
 
-See [install](install.md) page.
+See the [Install][] page.
 
+[Install]: {{ site.baseurl }}{% link recipes/shell/ssh/install.md %}
 
 ### Check current setup
 
@@ -37,3 +38,7 @@ $ nano ~/.ssh/config
 ### Deploys
 
 To create an SSH deploy key and use it for GitHub actions, see the [Deploy key](/recipes/ci-cd/github-actions/tokens/deploy-key.md) of the CI/CD GitHub Actions section of this project.
+
+### Related
+
+- [SSH](https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/) section of my Dev Cheatsheets project.
