@@ -10,7 +10,7 @@ See the README and docs directory of the projects here.
 - [generic-project-template](https://github.com/MichaelCurrin/generic-project-template) - for any programming language.
 
 
-### Docs site
+### Docs sites
 
 Build a docs site to host on GitHub Pages, Netlify or other sites.
 
@@ -47,3 +47,5 @@ Jekyll site themes generally don't have sidebars, but you can add one yourself. 
     - Uses VuePress, a Jamstack framework targeted at building static docs site using markdown.
     - VuePress used Vue internally, but you don't have to use Vue directly.
     - The sidebar is auto-generated based on pages.
+
+If you are interested in Hugo, see this [article](https://themefisher.com/hugo-documentation-themes/).
