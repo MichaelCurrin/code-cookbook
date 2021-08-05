@@ -39,7 +39,15 @@ function methods(obj) {
 }
 ```
 
-e.g.
+Usage:
+
+```javascript
+methods("")
+methods({})
+methods(Date.prototype)
+```
+
+Sample output:
 
 ```javascript
 methods('')
