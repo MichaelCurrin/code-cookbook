@@ -16,6 +16,10 @@ Build a docs site to host on GitHub Pages, Netlify or other sites.
 
 Here are a few of my projects which are relevant here, across different languages and frameworks.
 
+Docs sites may have many pages and nested in sections, so top of the screen nav is not enough. A sidebar works well for that and most of the options below support that well.
+
+Jekyll site themes generally don't have sidebars, but you can add one yourself. Or pick a theme like the docs one below to have that generated for you.
+
 - [gh-pages-no-jekyll](https://github.com/MichaelCurrin/gh-pages-no-jekyll)
     - The simplest approach. Write markdown or HTML pages and get a clean default theme for your site. No boilerplate like theme set up or configuration needed. So the focus is on content. This also makes it friendly for someone who is not a programmer but knows how to at least write markdown. This does actually use Jekyll but you don't have to think about it.
 - [simplest-jekyll](https://github.com/MichaelCurrin/simplest-jekyll)
@@ -42,3 +46,4 @@ Here are a few of my projects which are relevant here, across different language
     - The template takes care of the boilerplate code, so you just have to worry about theming and content.
     - Uses VuePress, a Jamstack framework targeted at building static docs site using markdown.
     - VuePress used Vue internally, but you don't have to use Vue directly.
+    - The sidebar is auto-generated based on pages.
