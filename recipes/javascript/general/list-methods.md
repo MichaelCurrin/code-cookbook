@@ -1,8 +1,11 @@
-# Methods
+# List methods
 
 List the methods available on an object.
 
 In Python you can just do `dir(obj)` but in JS you need to write your own function.
+
+
+From [How to list all methods of an object in JavaScript](https://flaviocopes.com/how-to-list-object-methods-javascript/) tutorial.
 
 
 ## Basic
