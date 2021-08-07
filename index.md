@@ -7,11 +7,9 @@ layout: home
 
 Welcome to **Code Cookbook**.
 
-This aims to have entire recipe to solve a problem. Such as a script or config or a few files which work together. And the recipes are based on real world code as much as possible, sometimes collecting from repos or docs.
+This aims to have an entire recipe to solve a problem. Such as a script or config, or a few files which work together. 
 
-This handles more complexity than a cheatsheet, which is more about one line to solve a problem.
-
-Often you can follow a reciple without changing much and you'll have something working. While a cheatsheet it more about syntax rules with some hello world example.
+And the recipes are based on real-world code as much as possible, collecting from repos or docs I encounter or from my own projects.
 
 <div align="center" style="padding-bottom: 1em;">
     <a href="{{ site.baseurl }}{% link recipes/index.md %}">
