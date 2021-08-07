@@ -35,7 +35,7 @@ You can run `docker pull IMAGE_NAME` if you want to explicitly download or updat
 Set an environment variable on your host machine.
 
 ```sh
-export JEKYLL_VERSION=4.2.0
+$ export JEKYLL_VERSION=4.2.0
 ```
 
 The appropriate Jekyll image will be downloaded when running a command below - you don't have to download it explicitly.
@@ -169,8 +169,8 @@ The `jekyll/builder` image already comes with Ruby, Bundle, Jekyll and even Node
 Here we do the following:
 
 1. Use Node image (you could leave this out if you want).
-2. Use Jekyll image.
-3. Install SQLite using a package manager. (Replace with another `apk` package if you want).
+1. Use Jekyll image.
+1. Install SQLite using a package manager. (Replace with another `apk` package if you want).
     - Here we use `apk`, the Alpine Linux package manager. That is used within the [jekyll Dockerfile](https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile). See [tutorial](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/).
 
 ```Dockerfile
@@ -186,10 +186,10 @@ RUN apk add sqlite
 Here we do the following:
 
 1. Use Node image.
-2. Install SQLite using a package manager.
+1. Install SQLite using a package manager.
     - Here we `apt-get`.
     - Warning: If you do want to use `apt-get` with the Jekyll image, you must use the `apt-get` command _before_ `jekyll`, otherwise it will not be found. I don't know why - the Jekyll image seems to do something to remove use of `apt-get`.
-4. Use Jekyll image.
+1. Use Jekyll image.
 
 ```Dockerfile
 FROM node:14
