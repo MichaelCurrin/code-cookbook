@@ -41,3 +41,10 @@ This project does not cover steps on install tools but rather how to use them.
 This project is partly based on a principle in the book [Steal like an artist](https://www.amazon.com/Steal-Like-Artist-Things-Creative/dp/0761169253) which recommends making a stash of things that resonate with you and you can use an inspiration. Whether music, pictures, code... Note the book discourages plagiarism but focuses on the idea that nothing is truthy original, so use pieces that you find and rework them and make them yours in something new. This Code Cookbook is my collection or stash, using links and credits as much as possible to repos and docs, so I can draw on trusted examples when I need a reference.
 
 -->
+
+
+## Recipes vs Cheatsheets
+
+This recipes site handles more complexity than a cheatsheet, which is more about one line to solve a problem.
+
+Often you can follow a reciple without changing much and you'll have something working. While a cheatsheet it more about syntax rules with some hello world example.
