@@ -1,10 +1,10 @@
 # Basic
 
-Some utilities to make developing inside a container easier. Especially when running in interactive shell mode.
+Some utilities to install, to make developing inside a container easier. Especially when running in interactive shell mode and you need to do something using familiar tools, without having to install in each container.
 
-You probably need only one if curl and wget since they are similar.
+Choose between `curl` and `wget`, since they are similar and you don't need both..
 
-Vim or nano are good if you need to view or edit a file.
+Using `vim` or `nano` is good if you need to view or edit a file.
 
 Make is useful for Makefile commands.
 
