@@ -23,3 +23,9 @@ Git is useful if you want to work with your git repo even just to check what has
         make \
         git
     ```
+
+You can also use `build-essential` package to get:
+
+- `make`
+- `gcc`
+- `g++`
