@@ -6,6 +6,8 @@ See [question] on StackOverflow.
 
 [question]: https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
 
+The examples here wait for a node to be rendered and then do something do it like append an element to it.
+
 
 ## Using animation frame
 
@@ -30,6 +32,21 @@ function onElementReady(el) {
   })
 )
 ```
+
+As recommended in [post](http://swizec.com/blog/how-to-properly-wait-for-dom-elements-to-show-up-in-modern-browsers/swizec/6663).
+
+```javascript
+function wait() {
+    if (!$("#element").size()) {
+        window.requestAnimationFrame(wait);
+    } else {
+        $("#element").doStuff();
+    }
+};
+```
+
+> in practice it only ever retries once. Because no matter what, by the next render frame, whether it comes in a 60th of a second, or a minute, the element will have been rendered.
+
 
  
 ## MutationObserver approach
@@ -89,4 +106,37 @@ const myElement = $("<div>hello world</div>")[0];
 observer.observe(document, config);
 
 $("body").append(myElement);
+```
+
+
+## ResizeObserver
+
+In one case, solutions like setTimeout or MutationObserver weren't totally realiable.
+
+- [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver)
+    > Implementations should, if they follow the specification, invoke resize events before paint and after layout.
+
+Te observer always fires after layout, thus we should be able to get the correct dimensions of the observed element. 
+
+As a bonus the observer already returns the dimensions of the element. Therefore we don't even need to call something like `offsetWidth` (even though it should work too).
+
+```javascript
+const resizeObserver = new ResizeObserver(entries => {
+  const lastEntry = entries.pop();
+
+  // alternatively use contentBoxSize here
+  const width = lastEntry.borderBoxSize.inlineSize;
+  const height = lastEntry.borderBoxSize.blockSize;
+
+  resizeObserver.disconnect();
+
+  console.log("width:", width, "height:", height);
+});
+
+const myElement = document.createElement("div");
+myElement.textContent = "test string";
+
+resizeObserver.observe(myElement);
+
+document.body.append(myElement);
 ```
