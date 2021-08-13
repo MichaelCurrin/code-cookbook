@@ -4,7 +4,7 @@ description: How to build a CLI tool that parses arguments
 # CLI
 
 
-## The CLI package
+## The Urfave CLI package
 
 Repo: [urfave/cli](https://github.com/urfave/cli)
 
@@ -93,7 +93,7 @@ GLOBAL OPTIONS
 ```
 
 
-## Flag package
+## The Flag package
 
 Set up an argument parser with `flag`.
 
@@ -131,3 +131,36 @@ Usage of .../main
 $ go run main.go
 $ go run main.go --addr :9000
 ```
+
+
+## MitchellH CLI package
+
+Using [mitchellh/cli](https://github.com/mitchellh/cli).
+
+- `main.go`
+    ```go
+    package main
+
+    import (
+        "log"
+        "os"
+
+        "github.com/mitchellh/cli"
+    )
+
+    func main() {
+        c := cli.NewCLI("app", "1.0.0")
+        c.Args = os.Args[1:]
+        c.Commands = map[string]cli.CommandFactory{
+            "foo": fooCommandFactory,
+            "bar": barCommandFactory,
+        }
+
+        exitStatus, err := c.Run()
+        if err != nil {
+            log.Println(err)
+        }
+
+        os.Exit(exitStatus)
+    }
+    ```
