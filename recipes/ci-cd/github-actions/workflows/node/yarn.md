@@ -41,7 +41,7 @@ steps:
   uses: actions/setup-node@v2
   with:
     node-version: '14'
-    
+
 - name: Install dependencies 📦
   run: yarn install --frozen-lockfile
 ```
@@ -78,7 +78,7 @@ For basic use of this action (like Node/Yarn test and no caching), it is an unne
     jobs:
       build:
         name: Build and test
-        
+
         runs-on: ubuntu-latest
 
         steps:
@@ -182,10 +182,10 @@ From [react-build-with-github-actions][] example app - just the install/test por
 
           - name: Install packages
             run: yarn install --frozen-lockfile
-         
+
           - name: Test
             run: yarn test
-            
+
             env:
               CI: true
     ```
@@ -195,7 +195,7 @@ I don't know what `CI` does here.
 I prefer having install and test steps separately.
 
 
-## GH Pags NPM packagse
+## GH Page NPM package
 
 Here we use the [gh-pages][] package NPM to deploy to GitHub Pages.
 
@@ -213,7 +213,7 @@ Set up commands and URL:
       "homepage" : "https://MichaelCurrin.github.io/my-app"
     }
     ```
-   
+
 Note `predeploy` it set up such that a build is always done before publishing.
 
 Add dev dependency:
@@ -224,14 +224,16 @@ $ yarn add --dev gh-pages
 
 Now at the end of the GH Actions CI, add a step:
 
-```
-- name: Install packages
-  run: yarn install --frozen-lockfile
+```yaml
+jobs:
+  build-deploy:
+    - name: Install packages
+    run: yarn install --frozen-lockfile
 
-- name: Deploy GitHub Pages 🚀
-  run: yarn deploy
-  env:
-    GH_TOKEN: ${{ secretes.GITHUB_TOKEN }}
+    - name: Deploy GitHub Pages 🚀
+    run: yarn deploy
+    env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 You don't need to generated and store the token manually. GitHub Actions will generate it for you on each run and no human has to read the value, keeping it secure.
