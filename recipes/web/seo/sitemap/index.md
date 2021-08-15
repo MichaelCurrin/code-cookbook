@@ -49,12 +49,12 @@ https://support.google.com/webmasters/answer/183668?hl=en
 
 ### Languages
 
-See [Tell Google about localized versions of your page](https://support.google.com/webmasters/answer/189077#sitemap)
+See [Tell Google about localized versions of your page](https://support.google.com/webmasters/answer/189077#sitemap).
 
 
 ## Sitemaps protocol
 
-See the [Protocol](https://www.sitemaps.org/protocol.html) page of the official [sitemaps.org]ghttps://www.sitemaps.org) site.
+See the [Protocol](https://www.sitemaps.org/protocol.html) page of the official [sitemaps.org](https://www.sitemaps.org) site.
 
 ### Fields
 
