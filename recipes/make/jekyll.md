@@ -12,16 +12,13 @@ description: Sample `Makefile` files for Jekyll projects
 		bundle config set --local path local vendor/bundle
 		bundle install
 
-	upgrade:
-		bundle update
-
 	s serve:
-		bundle exec jekyll serve --trace --livereload
+		bundle exec jekyll serve --trace
 	```
 
 ### Detailed
 
-This is based on the [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile) in Jekyll Blog Demo project.
+This is based on the [Makefile][] in my Jekyll Blog Demo project.
 
 - `Makefile`
     ```make
@@ -48,6 +45,8 @@ This is based on the [Makefile](https://github.com/MichaelCurrin/jekyll-blog-dem
     build:
         JEKYLL_ENV=production bundle exec jekyll build --trace
     ```
+
+[Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile)
 
 #### Rake
 
@@ -117,7 +116,7 @@ GOTO error
 
 Set up Jekyll to run in a container and use a `Makefile` to this easier to run. Those a Docker Compose file might be a more appropriate flow.
 
-See [Jekyll]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}) page in Containers section for more info.
+See [Jekyll][] page in Containers section for more info.
 
 - `Dockerfile`
     ```docker
@@ -160,3 +159,5 @@ Here we use a `make` variable set with the Docker `run` command and arguments, s
     build:
         $(DOCKER_RUN) jekyll build --trace
     ```
+
+[Jekyll]: {{ site.baseurl }}{% link recipes/containers/docker/jekyll.md %}
