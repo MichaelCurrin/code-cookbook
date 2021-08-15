@@ -1,9 +1,10 @@
 # Jekyll in a container
 
-Related recipe - [Jekyll]({{ site.baseurl }}{% link recipes/containers/jekyll.md %}) in the Container section.
+Related recipe - [Jekyll][] in the Container section.
 
 This flow runs a **Docker container**. If you don't want to use Docker, see [Jekyll Ruby Action][], which is a light approach.
 
+[Jekyll]: {{ site.baseurl }}{% link recipes/containers/docker/jekyll.md %}
 [Jekyll Ruby Action]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/ruby-action.md %}
 
 {% raw %}
@@ -12,7 +13,9 @@ It runs Jekyll inside a container that is run as a binary (using `docker` CLI bu
 
 Plus, the container takes care of Ruby and Jekyll dependencies and installing project gems. This `builder` image even includes **Node.js**.
 
-Based on [jekyll.yml](https://github.com/actions/starter-workflows/blob/main/ci/jekyll.yml) - a starter workflow provided by GitHub.
+Based on [jekyll.yml][] - a starter workflow provided by GitHub.
+
+[jekyll.yml]: https://github.com/actions/starter-workflows/blob/main/ci/jekyll.yml
 
 - `main.yml`
     ```yaml

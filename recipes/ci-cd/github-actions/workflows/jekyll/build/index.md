@@ -23,7 +23,7 @@ That approach without GitHub Actions is much simpler. The downside is that you a
 
 [GH Pages Actions]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/gh-pages-actions.md %}
 [Deploy GH Pages]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}
-[Jekyll container]: {{ site.baseurl }}{% link recipes/containers/jekyll.md %}
+[Jekyll container]: {{ site.baseurl }}{% link recipes/containers/docker/jekyll.md %}
 
 ### Demo site
 
