@@ -11,11 +11,28 @@ GH Actions already setups Node and Yarn for you. You might get an old version of
 This section covers how to set up one or more target versions of Node and Yarn and handle caching of NPM packages.
 
 
+## Homepage set up
+
+If you use GitHub Pages for your site hosting, you should set this up before using any CI flows. That way, your site will be served on the correct subpath, as React infers it.
+
+- `package.json`
+    ```json
+    {
+     "scripts": {
+      },
+      "homepage" : "https://MichaelCurrin.github.io/my-app/"
+    }
+    ```
+
+See [package.json][] in my React Quickstart to see it configured for [michaelcurrin.github.io/react-quickstart/](https://michaelcurrin.github.io/react-quickstart/).
+
+
+
 ## Samples
 
 ### Simple
 
-The GH docs recommend installing with Yarn using [Set up Node](https://github.com/actions/setup-node) action.
+The GH docs recommend installing with Yarn using [Set up Node][] action.
 
 ```yaml
 steps:
@@ -28,7 +45,7 @@ steps:
   run: yarn install --frozen-lockfile
 ```
 
-This doesn't handle any cached dependencies though.
+This won't handle any caching of dependencies though.
 
 The Node version number is optional. See later sections on this page for a matrix of Node versions.
 
@@ -40,15 +57,16 @@ Note that NPM doesn't have the flag and it NPM installs gets by fine in CI.
 
 Load cached dependencies.
 
-See the Yarn section of the [Cache]({{ site.baseurl }}{% link code-cookbook/ci-cd/github-actions/workflows/cache.md %) guide.
+See the Yarn section of the [Cache][] guide.
+
 
 ### GH Actions sample
 
-This uses the [GitHub Action for Yarn](https://github.com/marketplace/actions/github-action-for-yarn) action - `borales/actions-yarn`.
+This uses the [GitHub Action for Yarn][] action - `borales/actions-yarn`.
 
 This action doesn't just set up Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
 
-For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit :🤷‍♂️ . So just use the [Simple](simple.md) flow above or the [Basic]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}) page.
+For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit. So just use the [Simple][] flow above or the [Basic][] page.
 
 - `main.yml`
     ```yaml
@@ -58,7 +76,8 @@ For basic use of this action (like Node/Yarn test and no caching), it is an unne
 
     jobs:
       build:
-        name: Test
+        name: Build and test
+        
         runs-on: ubuntu-latest
 
         steps:
@@ -80,7 +99,7 @@ For basic use of this action (like Node/Yarn test and no caching), it is an unne
 
 ### React Yarn cache
 
-From this [post](https://spin.atomicobject.com/2020/01/20/github-actions-react-node/) about deploying React/Node to Heroku.
+From this [GitHub Actions React Node post][] about deploying React/Node to Heroku.
 
 This uses:
 
@@ -100,29 +119,36 @@ Workflow:
           NODE_ENV: test
 
         steps:
-        - name: Checkout
-          uses: actions/checkout@master
+          - name: Checkout
+              uses: actions/checkout@master
 
-        - name: Get yarn cache
-          id: yarn-cache
-          run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: Get yarn cache
+              id: yarn-cache
+              run: echo "::set-output name=dir::$(yarn cache dir)"
 
-        - uses: actions/cache@v1
-          with:
-            path: ${{ steps.yarn-cache.outputs.dir }}
-            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-yarn-
+            - uses: actions/cache@v1
+              with:
+                path: ${{ steps.yarn-cache.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
 
-        - uses: actions/setup-node@v1.1.0
-          with:
-            node-version: '10.x'
+            - name: Set up Node
+              uses: actions/setup-node@v1.1.0
+              with:
+                node-version: '10.x'
 
-        - run: yarn install
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
 
-        - run: yarn lint
-        - run: knex migrate:latest
-        - run: yarn test:server
+            - name: Lint
+              run: yarn lint
+
+            - name: Migrate
+              run: knex migrate:latest
+
+            - name: Test server
+              run: yarn test:server
 
       deploy:
         name: Deploy
@@ -133,7 +159,7 @@ Workflow:
 
 ## React Yarn
 
-From [react-build-with-github-actions](https://github.com/explooosion/react-build-with-github-actions) example app - just the install/test portion.
+From [react-build-with-github-actions][] example app - just the install/test portion.
 
 - `main.yml`
     ```yaml
@@ -148,15 +174,17 @@ From [react-build-with-github-actions](https://github.com/explooosion/react-buil
         steps:
           - uses: actions/checkout@master
 
-          - name: Use Node.js ${{ matrix.node-version }}
+          - name: Set up Node.js ${{ matrix.node-version }}
             uses: actions/setup-node@master
             with:
               node-version: ${{ matrix.node-version }}
 
-          - name: Install and Test
-            run: |
-              yarn install
-              yarn test
+          - name: Install packages
+            run: yarn install --frozen-lockfile
+         
+          - name: Test
+            run: yarn test
+            
             env:
               CI: true
     ```
@@ -166,9 +194,49 @@ I don't know what `CI` does here.
 I prefer having install and test steps separately.
 
 
-## Tips
+## GH Pags NPM packagse
 
-Output generated by `yarn` when doing a build that uses GitHub Pages in `PUBLIC_URL`.
+Here we use the [gh-pages][] package NPM to deploy to GitHub Pages.
+
+Set up commands and URL:
+
+- `package.json`:
+    ```json
+    {
+     "scripts": {
+       "build": "..."
+       "predeploy": "yarn build",
+       "deploy": "gh-pages -d build"
+      },
+
+      "homepage" : "https://MichaelCurrin.github.io/my-app"
+    }
+    ```
+   
+Note `predeploy` it set up such that a build is always done before publishing.
+
+Add dev dependency:
+
+```sh
+$ yarn add --dev gh-pages
+```
+
+Now at the end of the GH Actions CI, add a step:
+
+```
+
+- name: Install packages
+  run: yarn install --frozen-lockfile
+
+- name: Deploy GitHub Pages 🚀
+  run: yarn deploy
+  env:
+    GH_TOKEN: ${{ secretes.GITHUB_TOKEN }}
+```
+
+You don't need to generated and store the token manually. GitHub Actions will generate it for you on each run and no human has to read the value, keeping it secure.
+
+That flow is based on output generated by `yarn` when doing a build that uses GitHub Pages in `PUBLIC_URL`.
 
 ```
 The project was built assuming it is hosted at /react-create-app-quickstart/.
@@ -197,12 +265,14 @@ Find out more about deployment here:
   bit.ly/CRA-deploy
 ```
 
-An example of homepage value set in `package.json`:
-
-```json
-{
-  "homepage" : "http://myname.github.io/myapp"
-}
-```
-
 {% endraw %}
+
+[gh-pages]: https://www.npmjs.com/package/gh-pages
+[react-build-with-github-actions]: https://github.com/explooosion/react-build-with-github-actions
+[package.json]: https://github.com/MichaelCurrin/react-quickstart/blob/main/package.json
+[GitHub Action for Yarn]: https://github.com/marketplace/actions/github-action-for-yarn
+[GitHub Actions React Node post]: https://spin.atomicobject.com/2020/01/20/github-actions-react-node/
+[Set up Node]: https://github.com/actions/setup-node
+
+[Cache]: {{ site.baseurl }}{% link code-cookbook/ci-cd/github-actions/workflows/cache.md %}
+[Basic]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
