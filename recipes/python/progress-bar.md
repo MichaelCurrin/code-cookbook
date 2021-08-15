@@ -1,5 +1,6 @@
 # Progress bar
 
+{% raw %}
 
 ## Fish
 
@@ -17,14 +18,14 @@ $ pip install fish
 
 Test on the CLI:
 
-```sh
+```console
 $ python -m fish
- >))'> 
+ >))'>
 ```
 
 Fish:
 
-```
+```python
 import fish
 
 
@@ -46,36 +47,38 @@ Bird:
 - `app.py`
     ```python
     from fish import Bird
-    
-    
+
+
     bird = Bird()
 
     while True:
         bird.animate()
     ```
-    
+
 ```
-           ___       
-       _,-' ______   
-     .'  .-'  ____7  
-    /   /   ___7     
-  _|   /  ___7       
->(@)\ | ___7         
+           ___
+       _,-' ______
+     .'  .-'  ____7
+    /   /   ___7
+  _|   /  ___7
+>(@)\ | ___7
   \\/     \_____,.'__
-  '        _/''&;>*  
-  `'----\\` 
+  '        _/''&;>*
+  `'----\\`
 ```
-  
+
 There's also a duck.
 
 ```
-     _ 
+     _
 \. _(9>
- \==_) 
+ \==_)
   -'=
 ```
-  
-At a lower level:
+
+There's also an option to show a percentage rather than just a continuously moving animation that goes left and right across the screen until it is done.
+
+A recommendation to your own, at a lower level:
 
 ```python
 msg = f"\x1b[2K\r{fish}\r"
@@ -90,10 +93,11 @@ sys.stderr.write(msg)
 ```python
 import time
 
-
 import progressbar
 
 
 for i in progressbar.progressbar(range(100)):
     time.sleep(0.02)
 ```
+
+{% endraw %}
