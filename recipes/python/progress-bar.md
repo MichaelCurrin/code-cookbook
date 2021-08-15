@@ -85,3 +85,19 @@ At a lower level:
 msg = f"\x1b[2K\r{fish}\r"
 sys.stderr.write(msg)
 ```
+
+
+## Progressbar
+
+- [progressbar2](https://pypi.org/project/progressbar2/) on Pypi
+
+```python
+import time
+
+
+import progressbar
+
+
+for i in progressbar.progressbar(range(100)):
+    time.sleep(0.02)
+```
