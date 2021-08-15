@@ -4,6 +4,7 @@ description: Workflows for running Yarn on GitHub Actions
 ---
 # Yarn
 
+
 {% raw %}
 
 GH Actions already setups Node and Yarn for you. You might get an old version of Node and Yarn though.
@@ -11,7 +12,7 @@ GH Actions already setups Node and Yarn for you. You might get an old version of
 This section covers how to set up one or more target versions of Node and Yarn and handle caching of NPM packages.
 
 
-## Homepage set up
+## Homepage setup
 
 If you use GitHub Pages for your site hosting, you should set this up before using any CI flows. That way, your site will be served on the correct subpath, as React infers it.
 
@@ -204,7 +205,7 @@ Set up commands and URL:
     ```json
     {
      "scripts": {
-       "build": "..."
+       "build": "...",
        "predeploy": "yarn build",
        "deploy": "gh-pages -d build"
       },
@@ -224,7 +225,6 @@ $ yarn add --dev gh-pages
 Now at the end of the GH Actions CI, add a step:
 
 ```
-
 - name: Install packages
   run: yarn install --frozen-lockfile
 
