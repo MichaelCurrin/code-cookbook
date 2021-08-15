@@ -35,15 +35,11 @@ while churning:
 
 The bass:
 
-```
-">))'>"
-```
+    ">))'>"
 
 The salmon:
 
-```
-><{{{*>
-```
+    ><{{{*>
 
 Bird:
 
