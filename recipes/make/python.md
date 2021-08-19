@@ -19,7 +19,7 @@ For MyPy, see [Mypy - Add to project](../python/mypy/add-to-project.md) guide in
 From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 
 - `Makefile` - I am interested in the Mypy lines here.
-	```make
+	```makefile
 	test:
 		pytest --cov-report term-missing --cov=rich tests/ -vv
 		
@@ -36,7 +36,7 @@ From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 		cd docs && make html
 	```
 - `docs/Makefile` - build Read The Docs site with Sphinx.
-	```make
+	```makefile
 	# Minimal makefile for Sphinx documentation
 	#
 
@@ -174,4 +174,42 @@ foo:
 # Run spellcheck on comments and docstring.
 spell:  
 	@pylint --disable all --enable spelling --spelling-dict en_US --spelling-private-dict-file spell.txt my_app
+```
+
+
+### Full
+
+Based on [Redmine CLI](https://github.com/egegunes/redmine-cli/blob/master/Makefile).
+
+```makefile
+venv:
+	python3 -m venv venv
+
+install:
+	pip install -e .
+
+install-dev:
+	pip install -r requirements-dev.txt
+
+
+
+lint:
+	flake8 --max-line-length 88 abc/ tests/
+	isort -rc -c abc/ tests/
+
+test:
+	pytest
+
+coverage:
+	pytest --cov=abc
+
+
+clean:
+	rm -rf build dist *.egg-info venv
+
+bdist:
+	python3 setup.py sdist bdist_wheel
+
+upload:
+	twine upload dist/*
 ```
