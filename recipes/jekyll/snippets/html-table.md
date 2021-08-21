@@ -96,3 +96,18 @@ Set up your data like this:
 Then the same templating code in previous section is used.
 
 See [Table demo](https://michaelcurrin.github.io/fractal/table-demo.html) in the Fractal theme's site for a working example.
+
+
+## Code
+
+If you want to add codeblocks in your table, use `<code>` tag. Don't use `<pre>`, as then you text will stay on one line and will **not** wrap, leading to the table going off screen to the right.
+
+{% raw %}
+
+```liquid
+{% tablerow pair in row %}
+   <code>{{ pair[1] }}</code>
+{% endtablerow %}
+```
+
+{% endraw %}
