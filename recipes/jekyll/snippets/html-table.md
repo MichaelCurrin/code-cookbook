@@ -34,10 +34,12 @@ In the case of the _first_ row, that is the header, so the HTML `th` tag is used
 Otherwise use the `tablerow` tag, which makes generates `tr` with `td` inside it, saving you some code.
 
 - `_data/authors.csv`
+    ```
     First name,Last name,Age,Location
     John,Doe,35,United States
     Jane,Doe,29,France
     Jack,Hill,25,Australia
+    ```
 - `index.html`
     ```liquid
     ---
@@ -76,15 +78,15 @@ To solve this, either make sure your page is `.html`. Or for a `.md` page, makes
 e.g.
 
 - `index.md`
-```
----
----
+    ```liquid
+    ---
+    ---
 
-{% assign table_rows = site.data.authors %}
+    {% assign table_rows = site.data.authors %}
 
-{% include table.html table_rows=table_rows %}
+    {% include table.html table_rows=table_rows %}
 
-```
+    ```
 
 {% endraw %}
 
