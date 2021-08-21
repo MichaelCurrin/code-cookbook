@@ -1,19 +1,5 @@
 ---
 title: HTML table
-
-authors:
-  - 'First name': John
-    'Last name': Doe
-    Age: 35
-    Location: United States
-  - 'First name': Jane
-    'Last name': Doe
-    Age: 29
-    Location: France
-  - 'First name': Jack
-    'Last name': Hill
-    Age: 25
-    Location: Australia
 ---
 
 Read a CSV and render as a table.
@@ -23,6 +9,25 @@ This works also with a Liquid variable or a YAML or JSON file in `_data` too. Yo
 See also [Tabulate CSV Data](https://jekyllrb.com/tutorials/csv-to-table/) on the Jekyll docs.
 
 {% raw %}
+
+
+## HTML vs Markdown
+
+Warning - you may have indention issues inside a Markdown file - where indented lines get turned into codeblocks instead of HTML. 
+
+To solve this, either make sure your page is `.html`. Or for a `.md` page, makes sure your includes file HTML.
+
+e.g.
+
+- `index.md`
+    ```liquid
+    ---
+    authors:
+      # ...
+    ---
+
+   {% include table.html table_rows = page.authors %}
+    ```
 
 
 ## From CSV
@@ -69,27 +74,6 @@ Otherwise use the `tablerow` tag, which makes generates `tr` with `td` inside it
 
 Or make it into an includes file which you pass table row data.
 
-### HTML vs Markdown
-
-Warning - you may have indention issues inside a Markdown file - where indented lines get turned into codeblocks instead of HTML. 
-
-To solve this, either make sure your page is `.html`. Or for a `.md` page, makes sure your includes file HTML.
-
-e.g.
-
-- `index.md`
-    ```liquid
-    ---
-    ---
-
-    {% assign table_rows = site.data.authors %}
-
-    {% include table.html table_rows=table_rows %}
-
-    ```
-
-{% endraw %}
-
 
 ## From YAML
 
@@ -97,24 +81,18 @@ Here the data is set in the frontmatter as a variable. This could equally be in 
 
 Set up your data like this:
 
-```liquid
+- `index.md`
+    ```liquid
+    ---
+    authors:
+      # ...
+    ---
 
-authors:
-  - 'First name': John
-    'Last name': Doe
-    Age: 35
-    Location: United States
-  - 'First name': Jane
-    'Last name': Doe
-    Age: 29
-    Location: France
-  - 'First name': Jack
-    'Last name': Hill
-    Age: 25
-    Location: Australia
----
+   {% include table.html table_rows = page.authors %}
+    ```
 
-{% assign table_rows = page.authors %}
-```
+{% endraw %}
 
 Then the same templating code in previous section is used.
+
+See [Table demo](https://michaelcurrin.github.io/fractal/table-demo.html) in the Fractal theme's site for a working example.
