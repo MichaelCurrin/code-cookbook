@@ -4,6 +4,8 @@ Get shows from the [ReelGood](https://reelgood.com) API. Using `axios` for reque
 
 This is a simplified form of the Function I created in my [Netflix Assistant](https://github.com/MichaelCurrin/netflix-assistant) project.
 
+It has [shows.js](https://github.com/MichaelCurrin/netflix-assistant/blob/master/functions/shows.js) using Node. This is a wrapper on an API which blocks cross domain requests from a browser but allows server side (or serverless) requests fine. Note the Netlify config in the root specifies `functions` as the directory instead of `.netlify/functions`.
+
 
 ## Files
 
