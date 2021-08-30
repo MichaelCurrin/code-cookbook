@@ -1,22 +1,35 @@
-# GitHub Pages
+---
+title: GitHub Pages
+description: Use plain Git to build and push `gh-pages` branch
+---
 
-Deploy manually.
+Assumptions:
 
-Assuming `build` is your output. And you want to push to the root of the `gh-pages` branch.
+- You want to push to the root of the `gh-pages` branch.
+- Your GitHub repo is configured to serve the root of your `gh-pages` branch.
+- Your content to build against is in a subdirectory `book` - below for mdBook.
+- Output directory is `build`.
 
-This set up to work in a `Makefile`.
+Rather than adding to a `.sh` script, add to `Makefile`.
+
+- `Makefile
+    ```make
+    deploy:
+        git worktree add /tmp/build gh-pages
+
+        rm -rf /tmp/build/*
+        cp -rp build/* /tmp/build/
+
+        cd /tmp/book \
+            && git add -A \
+            && git commit -m "ci: deploy on $(shell date) by ${USER}" \
+            && git push origin gh-pages
+    ```
+    
+Then run this either locally or your CI steps such as on GitHub Actions
 
 ```sh
-deploy:
-	git worktree add /tmp/build gh-pages
-
-	rm -rf /tmp/build/*
-	cp -rp build/* /tmp/build/
-
-	cd /tmp/book \
-		&& git add -A \
-		&& git commit -m "Deployed on $(shell date) by ${USER}" \
-		git push origin gh-pages
+$ make deploy
 ```
 
-Copied from [guide](https://rust-lang.github.io/mdBook/continuous-integration.html).
+Based on [guide](https://rust-lang.github.io/mdBook/continuous-integration.html).
