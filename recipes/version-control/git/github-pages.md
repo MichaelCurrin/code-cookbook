@@ -15,10 +15,10 @@ Rather than adding to a `.sh` script, add to `Makefile`.
 - `Makefile
     ```make
     deploy:
-        git worktree add /tmp/build gh-pages
+        git worktree add /tmp/book gh-pages
 
-        rm -rf /tmp/build/*
-        cp -rp build/* /tmp/build/
+        rm -rf /tmp/book/*
+        cp -rp book/* /tmp/book/
 
         cd /tmp/book \
             && git add -A \
