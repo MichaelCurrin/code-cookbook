@@ -115,14 +115,13 @@ If you want to add codeblocks in your table, use `<code>` tag. Don't use `<pre>`
 
 ## Markdown
 
-If you have Markdown in your table content, like bold or backticks, add the `markdownify` filter.
-
+If you have Markdown in your table content, like bold or backticks, add the `markdownify` filter to render that. Warning - it will add a `p` tag around your text which might conflict with surrounding content.
 
 {% raw %}
 
 ```liquid
 {% tablerow pair in row %}
-    {{ pair[1]| | markdownify }}
+    {{ pair[1] | markdownify }}
 {% endtablerow %}
 ```
 
