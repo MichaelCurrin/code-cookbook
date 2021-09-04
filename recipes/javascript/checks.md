@@ -1,11 +1,12 @@
 ---
-description: Running checks against a Node.js app
+description: Run format, lint, and test checks using Node.js
 ---
 # Checks
 
-Reference for running linting and other test steps from an existing project.
+This works whether you will have the app run with Node in the browser.
 
-Some commands are for making changes locally and some are for running a check only - useful in a CI flow when you want logged output but don't actually want to make the commit as that makes more effort to set up and might not be suitable to apply.
+Some commands are for making changes and some are for running a check only (useful in a CI flow when you want logged output but don't actually want to make the commit as that makes more effort to set up and might not be suitable to apply).
+
 
 ## Samples
 
