@@ -1,4 +1,4 @@
 ---
-title: Ignore
+title: Ignore files
 description: Sample `.gitignore` files
 ---
