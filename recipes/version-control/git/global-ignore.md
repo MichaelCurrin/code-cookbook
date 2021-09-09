@@ -16,7 +16,7 @@ Note the quotes to _prevent_ tilde expansion in the shell. This makes it more re
 
 Or add the following to your `~/.gitconfig` config file directly, then save it.
 
-```toml
+```
 [core]
 	excludesfile = ~/.gitignore
 ```
