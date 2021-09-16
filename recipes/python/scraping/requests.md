@@ -2,26 +2,32 @@
 
 ## Get URLs on a page
 
-Request using `requests` Parse the response with `BeautifulSoup` package.
+Request using [requests](https://docs.python-requests.org/en/latest/) and parse the response with [BeautifulSoup4](https://beautiful-soup-4.readthedocs.io/en/latest/) package.
+
+Install packages:
 
 ```sh
-$ pip install requests BeautifulSoup
+$ pip install requests BeautifulSoup4
 ```
+
+Script to run:
 
 - `main.py`
     ```python
+    """
+    Get all links on page.
+    """
     import sys
 
     import requests
     from bs4 import BeautifulSoup
-
 
     OUT_PATH = "links.txt"
 
 
     def get_links(url):
         resp = requests.get(url)
-        soup = BeautifulSoup(data.text, "html.parser")
+        soup = BeautifulSoup(resp.text, "html.parser")
 
         return [link.get("href") for link in soup.find_all("a")]
 
@@ -31,7 +37,7 @@ $ pip install requests BeautifulSoup
         Main command-line entry-point.
         """
         if not args:
-            print(f"Usage: python {__name__} URL")
+            print(f"Usage: python {sys.argv[0]} URL")
 
             return
 
@@ -42,13 +48,15 @@ $ pip install requests BeautifulSoup
         print(f"Requesting: {url}")
         links = get_links(url)
 
-        print(f"Writing to ${OUT_PATH}")
+        print(f"Writing to {OUT_PATH}")
         with open(OUT_PATH, "w") as f_out:
-            f_out.write(links)
+            content = "\n".join(links)
+            f_out.write(content)
 
 
     if __name__ == "__main__":
-        main(sys.argv[1:]
+        main(sys.argv[1:])
+
     ```
 
 Sample usage:
@@ -57,3 +65,11 @@ Sample usage:
 $ python3 main.py example.com
 $ python3 main.py https://example.com
 ```
+
+Sample output:
+
+- `links.txt`
+    ```
+    https://www.iana.org/domains/example
+    ```
+    
