@@ -11,6 +11,15 @@ The release can have a title, body, and optionally any assets you want to attach
 
 This uses the [Create Release](https://github.com/actions/create-release) action and is based on the doc's example.
 
+Warning- this action is archived. The docs recommend:
+
+* [elgohr/Github-Release-Action](https://github.com/elgohr/Github-Release-Action)
+* [marvinpinto/action-automatic-releases](https://github.com/marvinpinto/action-automatic-releases)
+* [softprops/action-gh-release](https://github.com/softprops/action-gh-release)
+* [ncipollo/release-action](https://github.com/ncipollo/release-action)
+
+Sample:
+
 - `main.yml`
     ```yaml
     name: Create Release
