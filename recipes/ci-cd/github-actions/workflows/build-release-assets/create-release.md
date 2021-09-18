@@ -2,7 +2,10 @@
 
 {% raw %}
 
-Create a release in GitHub. A release is always associated with a tag, so the tag must exist or it will be created. The release can have a title, description, and optionally any assets you want to attach like compiled files for distribution.
+Create a release in GitHub. A release is always associated with a tag, so the tag must exist or it will be created. 
+
+The release can have a title, body, and optionally any assets you want to attach like compiled files for distribution.
+
 
 ## Create release 
 
@@ -35,17 +38,27 @@ This uses the [Create Release](https://github.com/actions/create-release) action
             with:
               tag_name: ${{ github.ref }}
               release_name: Release ${{ github.ref }}
-              body: |
-                Changes in this Release
-                - First Change
-                - Second Change
               draft: false
               prerelease: false
     ```
 
+I don't know what the point is of setting the body as that will change each time. Maybe if you have some changelog text file to read from. Otherwise go and edit the body of the created release.
+
+```yaml
+            with:
+              body: |
+                Changes in this Release
+                - First Change
+                - Second Change
+```
+
 ## GitHub Release Action
 
 [link](https://github.com/elgohr/Github-Release-Action)
+
+The docs and functionality are limited compared with the action covered above.
+
+Sample:
 
 ```yaml
     name: Create Release
@@ -68,6 +81,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           args: MyReleaseMessage
+
+The docs say this but probably not true as the other action uses the token fine.
 
 > Please note, that you can't use ${{ secrets.GITHUB_TOKEN }} as it isn't allowed to publish releases.
 
