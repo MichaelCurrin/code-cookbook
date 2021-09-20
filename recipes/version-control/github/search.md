@@ -35,6 +35,6 @@ Also note that these only cover where I am an _author_. Not a reviewer or commen
 
 - Closed Issues created by MichaelCurrin in public repos (these may have been resolved or not)
     - `is:issue is:closed author:MichaelCurrin -user:MichaelCurrin -user:2uinc sort:created-desc`
-- Merged Pull Requests created by MichaelCurrin in public repos
+- Merged Pull Requests created by MichaelCurrin in public repos of other users
     - `is:pr is:merged author:MichaelCurrin -user:MichaelCurrin -user:2uinc sort:created-desc`
     - [URL](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3AMichaelCurrin+-user%3AMichaelCurrin+-user%3A2uinc+sort%3Acreated-desc)
