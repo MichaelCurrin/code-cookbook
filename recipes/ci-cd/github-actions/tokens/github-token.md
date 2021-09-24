@@ -1,6 +1,6 @@
 ---
 title: GitHub Token
-description: A guide to using the secure `GITHUB_TOKEN` token in workflows
+description: A guide to using the secure auto-generated `GITHUB_TOKEN` token in workflows
 ---
 
 {% raw %}
@@ -11,7 +11,8 @@ description: A guide to using the secure `GITHUB_TOKEN` token in workflows
 - You can use it in actions only - not for API requests.
 - Read it in an action:
      ```yaml
-     ${{ secrets.GITHUB_TOKEN }}
+     env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      ````
 - Docs
     - [Authenticating with the GitHub Token](https://docs.github.com/en/actions/reference/authentication-in-a-workflow)
