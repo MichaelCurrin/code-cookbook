@@ -20,24 +20,37 @@ description: A guide to using the secure auto-generated `GITHUB_TOKEN` token in 
         - See the [Permissions](https://docs.github.com/en/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) section.
 
 
-## Example 
+## Use in workflow 
 
 The token will be available on each workflow run.
 
-```yaml
-jobs:
-  build-deploy:
-    steps:
-      # ...
-
-      - name: Deploy
-        run: # ...
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
 Use `env` to set as environment variable.
 
+e.g.
+
+```yaml
+steps:
+  # ...
+
+  - name: Deploy
+    run: # ...
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
 Or `with` to set as an argument to an Action. 
+
+e.g. 
+
+```yaml
+steps:
+  # ...
+
+  - name: Deploy to GitHub Pages 🚀
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: public
+```
 
 {% endraw %}
