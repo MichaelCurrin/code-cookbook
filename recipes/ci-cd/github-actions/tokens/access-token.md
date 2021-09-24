@@ -22,7 +22,7 @@ description: A guide to the user-generated GitHub auth token for use in workflow
 - You can regenerate a token at any time. This will invalidate any values for the same token which are in use and possibly compromised.
 - Then you have to go and update all the secrets of repos that use that same token. Which is typically just in a repo's workflow secrets or a local `.env` file for GH API use.
 - If you use the same token across many repos, you'll invalidate them all at once and will have to go and update the Secrets section on GH for each. To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be _functionally the same_, each with access to write to _all_ your public repos and not just one repo.
-
+- You can set an optional expiry time for the token such as 90 days. This makes it more secure but requires manually effort to regenerate and store the token when time is up.
 
 ## Scopes
 
@@ -40,7 +40,7 @@ Depending on the workflow, the token should be named something like one of these
 - `ACCESS_TOKEN`
 - `JEKYLL_PAT`
 
-Note the `GITHUB_` is a reserved prefix in workflows so custom token names can't start with that.
+Note the `GITHUB_` is a reserved prefix in workflows, so custom token names cannot start with that.
 
 
 ## About
@@ -50,7 +50,7 @@ Note the `GITHUB_` is a reserved prefix in workflows so custom token names can't
     - Can be used in actions
     - For other cases such as manual or automated REST requests, if you put it in your URL or enter as your password. The PAT is actually _necessary_ if you use two-factor authenticator or single sign-on (otherwise you have to enter those a number on the command-line).
 - Permissions are granted per token based on your choices.
-- Read it in action with this, or whatever name action uses:
+- Read it in action with this, or whatever name the action uses:
     ```yaml
     ${{ secrets.ACCESS_TOKEN }}
     ```
@@ -95,11 +95,14 @@ ${{ secrets.TOKEN_NAME }}
 
 e.g.
 
+Pass as an argument to an Action.
 
 ```yaml
 with:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 ```
+
+Set as an environment variable on the workflow, job, or step scope.
 
 ```yaml
 env:
@@ -135,6 +138,7 @@ https://<token>@github.com/USERNAME/REPO_NAME.git
 ```
 
 Or
+
 ```
 https://<token>:x-oauth-basic@github.com/USERNAME/REPO_NAME.git
 ```
