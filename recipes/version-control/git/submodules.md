@@ -1,18 +1,21 @@
 # Submodules
 
 
-```Makefile
-sm-setup:
-	git submodule init
-	git submodule update
+Here using `sm` to stand for submodule.
 
-sm-reset:
-	git submodule update --force
+- `Makefile
+    ```Makefile
+    sm-setup:
+        git submodule init
+        git submodule update
 
-wp-pull:
-	git submodule update --remote
-	git status my-submodule --short
+    sm-reset:
+        git submodule update --force
 
-sm-commit:
-	git commit my-submodule 
-```
+    sm-pull:
+        git submodule update --remote
+        git status my-submodule --short
+
+    sm-commit:
+        git commit my-submodule 
+    ```
