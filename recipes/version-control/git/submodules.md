@@ -1,10 +1,14 @@
 # Submodules
 
 
+## Makefile
+
 Here using `sm` to stand for submodule.
 
 - `Makefile
     ```Makefile
+    SUBMODULE_DIR = my-submodule
+    
     sm-setup:
         git submodule init
         git submodule update
@@ -14,8 +18,9 @@ Here using `sm` to stand for submodule.
 
     sm-pull:
         git submodule update --remote
-        git status my-submodule --short
+        git status $(SUBMODULE_DIR) --short
 
     sm-commit:
-        git commit my-submodule 
+        git commit $(SUBMODULE_DIR)
     ```
+
