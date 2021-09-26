@@ -1,19 +1,28 @@
 # Missing types
 
-What to do when MyPy complains that an installed library does not support types, because it lacks type annotations or stubs.
+Sometimes, MyPy will complains that it cannot do typechecks for installed package.
 
 > ... error: Cannot find implementation or library stub for module named '...'
 
-See [Missing imports](https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports) in the docs.
+See also [Missing imports](https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports) in the MyPu docs.
 
 
-## Missing type hints for standard library module
+## Missing type hints for built-in module
 
 1. Update and rerun MyPy.
-2. File a bug report.
+1. File a bug report.
 
 
 ## Missing type hints for third party library
+
+If the package you installed does not have type annotations built in, then you can do one of the following.
+
+- Upgrade the package.
+- Find stubs that someone wrote for the package and has shared.
+- Write your own, at least just for the portion of the package that you need.
+- Add an ignore configuration.
+
+Read on below to see those in more detail.
 
 ### Upgrade
 
