@@ -4,7 +4,7 @@ Based on [CloudCannon/aperture-jekyll-template robots.txt](https://github.com/Cl
 
 {% raw %}
 
-- `robots.txt
+- `robots.txt`
     ```liquid
     ---
     layout: null
