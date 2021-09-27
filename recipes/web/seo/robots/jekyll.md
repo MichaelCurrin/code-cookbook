@@ -1,17 +1,20 @@
-# Jekyll Robots
+# Jekyll
 
-Copied from: [CloudCannon/aperture-jekyll-template robots.txt](https://github.com/CloudCannon/aperture-jekyll-template/blob/master/robots.txt).
+Based on [CloudCannon/aperture-jekyll-template robots.txt](https://github.com/CloudCannon/aperture-jekyll-template/blob/master/robots.txt).
 
-```markdown
----
+{% raw %}
 
-layout: null
+- `robots.txt
+    ```liquid
+    ---
+    layout: null
+    sitemap: false
+    ---
 
-sitemap: false
+    User-agent: *
+    Disallow:
 
----
+    Sitemap: {{ 'sitemap.xml' | absolute_url }}
+    ```
 
-User-agent: *
-
-Sitemap: {{ site.url }}/sitemap.xml
-```
+{% endraw %}
