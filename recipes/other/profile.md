@@ -9,9 +9,14 @@ See also:
 ## Services
 
 - [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-- https://activity-graph.herokuapp.com/graph
+- [activity-graph.herokuapp.com/graph](https://activity-graph.herokuapp.com/graph)
+
 
 ## Commit graph
+
+This is like the grid that appears on your standard GH profile, except this is for a shorter time and as a line and not grid.
+
+I also feel like a graph of columns for each month or year would be nice and I've worked on that before but don't know if this service supports that.
 
 {% assign username = "MichaelCurrin" %}
 
