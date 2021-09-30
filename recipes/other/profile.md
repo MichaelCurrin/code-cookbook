@@ -4,8 +4,12 @@ Code snippets to add to your GitHub profile or website to display your Github ac
 
 See also:
 
-- [MichaelCurrin/MichaelCurrin](https://github.com/MichaelCurrin/MichaelCurrin)
+- [MichaelCurrin/MichaelCurrin](https://github.com/MichaelCurrin/MichaelCurrin) - my GH profile with a couple of graphs on it.
 
+## Services
+
+- [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+- https://activity-graph.herokuapp.com/graph
 
 ## Commit graph
 
