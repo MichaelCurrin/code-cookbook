@@ -12,7 +12,7 @@ See also:
 {% assign username = "MichaelCurrin" %}
 
 {% capture graph %}
-<img width="50%" src="https://activity-graph.herokuapp.com/graph?username={{ username }}&theme=github&hide_border=true"/> -->
+<img width="50%" src="https://activity-graph.herokuapp.com/graph?username={{ username }}&theme=github&hide_border=true"/>
 
 <img height="200em" src="https://activity-graph.herokuapp.com/graph?username={{ username }}&hide_border=true&theme=dracula" />
 {% endcapture %}
