@@ -5,7 +5,7 @@ Dealing with remotes in Git.
 
 ## Related
 
-- [Remotes(https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/git/remote.html) in Dev Cheatsheets.
+- [Remotes](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/git/remote.html) in Dev Cheatsheets.
 
 
 ## View
