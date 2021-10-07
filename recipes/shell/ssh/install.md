@@ -1,14 +1,14 @@
-# Install SSH
+# Install SSH service
 
+## Linux
 
-## Install OpenSSH
+### Install OpenSSH
 
 ```sh
 $ sudo apt-get install openssh-server openssh-client
 ```
 
-
-## Verify SSH service is running
+### Verify SSH service is running
 
 ```sh
 $ sudo systemctl status ssh
@@ -21,8 +21,7 @@ $ sudo systemctl enable ssh
 $ sudo systemctl start ssh
 ```
 
-
-## Configure
+### Configure
 
 You may need to allow port `22` for SSH to work.
 
