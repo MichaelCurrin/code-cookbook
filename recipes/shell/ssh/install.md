@@ -1,5 +1,14 @@
 # Install SSH service
 
+## Brew
+
+From [openssh](https://formulae.brew.sh/formula/openssh) formula.
+
+```sh
+$ brew install openssh
+```
+
+
 ## Linux
 
 ### Install OpenSSH
