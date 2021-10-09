@@ -1,4 +1,7 @@
-# Python
+---
+title: Python
+logo: python
+---
 
 
 ## With a Dockerfile
