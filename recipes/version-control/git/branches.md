@@ -4,6 +4,8 @@
 
 Here there is work on a feature branch `my-feat` which is not related to the feature. And this work is brought into the `main` branch, but without doing a merge or adding commits.
 
+The downside is that you may get conflicts and you'll lose history of the commits.
+
 ```sh
 $ git checkout main
 ```
@@ -33,3 +35,5 @@ $ git checkout .
 ```
 
 Finally, push your changes and bring the main changes into to the feature branch. The feature branch should have a small diff when viewed in a PR.
+
+Alternatively, take your feature branch and split it off as another feature branch, remove the pieces you don't want, then merge the branch back to main.
