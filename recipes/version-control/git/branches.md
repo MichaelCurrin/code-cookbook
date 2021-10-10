@@ -36,4 +36,7 @@ $ git checkout .
 
 Finally, push your changes and bring the main changes into to the feature branch. The feature branch should have a small diff when viewed in a PR.
 
-Alternatively, take your feature branch and split it off as another feature branch, remove the pieces you don't want, then merge the branch back to main.
+
+## Split of branch
+
+Alternatively, take your feature branch and split it off as another feature branch, remove the pieces you don't want, then merge the branch back to main. Though the first feature branch will appear as merged and PR will auto-merge on GitHub, unless you first force-push and rebase. Even then I am not sure if that will get the right result.
