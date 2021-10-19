@@ -3,9 +3,12 @@ description: How to build a CLI tool that parses arguments
 ---
 # CLI
 
+## Related
+
+- [Go CLI](https://michaelcurrin.github.io/dev-resources/resources/go/packages/cli/) resources.
+
 
 ## The Urfave CLI package
-
 
 From [V2 manual](https://github.com/urfave/cli/blob/master/docs/v2/manual.md#getting-started).
 
@@ -59,15 +62,15 @@ See also [video](https://youtu.be/i2p0Snwk4gc).
     }
     ```
 
-Install it.
+Install it:
 
 ```sh
 $ go install
 ```
 
-Run it.
+Run it:
 
-```sh
+```console
 $ greet
 Hello friend!
 ```
@@ -92,7 +95,7 @@ GLOBAL OPTIONS
 ```
 
 
-## The builtin flag package
+## The Flag package
 
 Set up an argument parser with `flag`.
 
