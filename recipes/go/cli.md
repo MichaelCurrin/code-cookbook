@@ -6,7 +6,6 @@ description: How to build a CLI tool that parses arguments
 
 ## The Urfave CLI package
 
-Repo: [urfave/cli](https://github.com/urfave/cli)
 
 From [V2 manual](https://github.com/urfave/cli/blob/master/docs/v2/manual.md#getting-started).
 
@@ -93,7 +92,7 @@ GLOBAL OPTIONS
 ```
 
 
-## The Flag package
+## The builtin flag package
 
 Set up an argument parser with `flag`.
 
@@ -134,8 +133,6 @@ $ go run main.go --addr :9000
 
 
 ## MitchellH CLI package
-
-Using [mitchellh/cli](https://github.com/mitchellh/cli).
 
 - `main.go`
     ```go
