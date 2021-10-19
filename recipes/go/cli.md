@@ -164,3 +164,45 @@ Using [mitchellh/cli](https://github.com/mitchellh/cli).
         os.Exit(exitStatus)
     }
     ```
+
+
+## Cobra package
+
+From [gopinath-langote/1build](https://github.com/gopinath-langote/1build).
+
+- `1build.go`
+    ```go
+    package main
+
+    import "github.com/gopinath-langote/1build/cmd"
+
+    func main() {
+        cmd.Execute()
+    }
+    ```
+- `cmd/root.go`
+    ```go
+    package cmd
+
+    import (
+        "github.com/spf13/cobra"
+    )
+
+    // Cmd cobra for root level
+    var Cmd = &cobra.Command{
+        // ...
+    }
+
+    // Execute entry-point for cobra app
+    func Execute() {
+        if err := Cmd.Execute(); err != nil {
+            fmt.Println(err)
+            utils.ExitError()
+        }
+    }
+
+    func init() {
+        // ...
+    }
+    ```
+    
