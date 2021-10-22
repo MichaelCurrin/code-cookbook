@@ -1,4 +1,4 @@
-# Lighthouse check
+# Lighthouse checks
 
 {% raw %}
 
@@ -11,7 +11,7 @@ Using
 - [GoogleChrome/lighthouse-ci](https://github.com/GoogleChrome/lighthouse-ci)
     > Automate running Lighthouse for every commit, viewing the changes, and preventing regressions
 
-Sample config. Node setup is optional if you want to use the default Node version in the environment.
+Sample config from the docs on GitHub. Node setup is optional if you want to use the default Node version in the environment.
 
 - `ci.yml` from  docs.
     ```yaml
@@ -32,10 +32,17 @@ Sample config. Node setup is optional if you want to use the default Node versio
             with:
               node-version: 14
 
-          - run: npm install
-          - run: npm install -g @lhci/cli@0.8.x
-          - run: npm run build
-          - run: lhci autorun
+          - name: Install dependencies
+            run: npm install
+
+          - name: Install LHCI
+            run: npm install -g @lhci/cli@0.8.x
+
+          - name: Build
+            run: npm run build
+
+          - name: Lighthouse CI:
+            run: lhci autorun
     ```
     
 Using `npx`.
@@ -68,26 +75,31 @@ From the docs.
     ```yaml
     name: Test Lighthouse Check
     
-    on: [pull_request]
+    on:
+      - pull_request
 
     jobs:
       lighthouse-check:
         runs-on: ubuntu-latest
         
         steps:
-          - uses: actions/checkout@master
+          - name: Checkout
+            uses: actions/checkout@master
           
-          - run: mkdir /tmp/artifacts
+          - name: Create artifacts dir
+            run: mkdir /tmp/artifacts
           
-          - name: Run Lighthouse
+          - name: Lighthouse checks
             uses: foo-software/lighthouse-check-action@master
             with:
               accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
               author: ${{ github.actor }}
+              
               awsAccessKeyId: ${{ secrets.LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID }}
               awsBucket: ${{ secrets.LIGHTHOUSE_CHECK_AWS_BUCKET }}
               awsRegion: ${{ secrets.LIGHTHOUSE_CHECK_AWS_REGION }}
               awsSecretAccessKey: ${{ secrets.LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY }}
+              
               branch: ${{ github.ref }}
               outputDirectory: /tmp/artifacts
               urls: 'https://www.foo.software,https://www.foo.software/contact'
