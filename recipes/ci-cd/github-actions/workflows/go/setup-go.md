@@ -52,15 +52,19 @@ Here is the Action with more steps around it.
 - `main.yml`
     ```yaml
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-go@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
           go-version: '^1.13.1'
 
-      - run: go version
+      - name: Show Go version
+        run: go version
 
-      - run: go run hello.go
+      - name: Greet
+        run: go run hello.go
     ```
 
 ### Load Go version dynamically
@@ -74,12 +78,14 @@ This stores `GO_VERSION=1.15` in a file that named using `$GITHUB_ENV`. That fil
 - `main.yml`
     ```yaml
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Get Go version
         run: echo "GO_VERSION=$(grep 'go \d\.' go.mod | cut -d ' ' -f 2)" >> $GITHUB_ENV
 
-      - uses: actions/setup-go@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
           go-version: ${{ env.GO_VERSION }}
     ```
@@ -122,7 +128,7 @@ How to run against multiple Go version. Based on the action's doc.
     ```yaml
     jobs:
       build:
-        runs-on: ubuntu-16.04
+        runs-on: ubuntu-latest
 
         strategy:
           matrix:
