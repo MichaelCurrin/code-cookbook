@@ -41,34 +41,37 @@ The downsides of this action are:
 
 I have a demo which uses this action here [MichaelCurrin/jekyll-actions-quickstart](https://github.com/MichaelCurrin/jekyll-actions-quickstart)
 
-Sample usage from the README.md. I updated to only handle push from master.
+Sample usage from the `README.md`. I modified to only handle push from the main branch.
+
+Use GitHub Actions' cache to shorten build times and decrease load on servers
 
 - `main.yml`
     ```yaml
-    name: Testing the GitHub Pages publication
+    name: GH Pages deploy
 
     on:
       push:
         branches:
-          - master
+          - main
 
     jobs:
       jekyll:
-        runs-on: ubuntu-16.04
+        runs-on: ubuntu-latest
 
         steps:
-        - uses: actions/checkout@v2
+        - name: Checkout
+          uses: actions/checkout@v2
 
-        # Use GitHub Actions' cache to shorten build times and decrease load on servers
-        - uses: actions/cache@v1
+        - name: Cache dependencies
+          uses: actions/cache@v1
           with:
             path: vendor/bundle
             key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
             restore-keys: |
               ${{ runner.os }}-gems-
 
-        # Standard usage
-        - uses:  helaili/jekyll-action@2.0.4
+        - name: Deploy to GitHub Pages
+          uses:  helaili/jekyll-action@2.0.4
           env:
             JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
     ```
