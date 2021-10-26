@@ -16,6 +16,12 @@ The example below is based on [Simple State Management from Scratch](https://v3.
 See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html) Vue method in the docs, as that is used below.
 
 
+## Persist
+
+If you want to persist values when revisiting the site, you can use local storage.
+
+Then instead of getting and setting on `this.state`, you could use `localStorage`. And using the store pattern, the rest of the app won't care how it's stored and will just have to interact with the store wrapper.
+
 ## Example
 
 - `store.js` - store in JavaScript. Set up a store object with a debug attribute, a state attribute with our data in it, and some methods that are used to set data on the state.
