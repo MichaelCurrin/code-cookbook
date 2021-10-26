@@ -20,6 +20,8 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html)
 
 - `store.js` - store in JavaScript. Set up a store object with a debug attribute, a state attribute with our data in it, and some methods that are used to set data on the state.
     ```javascript
+    import { reactive } from 'vue'
+
     const store = {
       debug: true,
 
@@ -43,9 +45,14 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html)
         this.state.message = ''
       }
     }
+
+    export default store
     ```
 - `App.vue` - Vue file. Set up app using the store. Here we have two App components using the same store and mount them on different elements. These could be on the same or different pages.
     ```javascript
+    import { createApp } from "vue"
+    import store from "./store.js"
+
     const appA = createApp({
       data() {
         return {
