@@ -3,7 +3,7 @@ title: Store pattern
 description: Manage state in Vue using a central store and plain JS
 ---
 
-No library like Vuex is needed here.
+You don't need a library like Vuex here - for simple cases you can implement your own store.
 
 {% raw %}
 
@@ -18,7 +18,7 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html)
 
 ## Example
 
-- Store JavaScript - set up store object with a debug attribute, a state attribute with our data in it and some methods that are used to set data on the state.
+- `store.js` - store in JavaScript. Set up a store object with a debug attribute, a state attribute with our data in it, and some methods that are used to set data on the state.
     ```javascript
     const store = {
       debug: true,
@@ -44,7 +44,7 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html)
       }
     }
     ```
-- Vue file - Set up app using the store. Here we have two App components using the same store and mount them on different elements. These could be on the same or different pages.
+- `App.vue` - Vue file. Set up app using the store. Here we have two App components using the same store and mount them on different elements. These could be on the same or different pages.
     ```javascript
     const appA = createApp({
       data() {
@@ -69,11 +69,15 @@ See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html)
     })
     appB.mount('#app-b')
     ```
-- HTML:
+- HTML page:
     ```html
-    <div id="app-a">{{ sharedState.message }}</div>
+    <div id="app-a">
+        {{ sharedState.message }}
+    </div>
 
-    <div id="app-b">{{ sharedState.message }}</div>
+    <div id="app-b">
+        {{ sharedState.message }}
+    </div>
     ```
     
 {% endraw %}
