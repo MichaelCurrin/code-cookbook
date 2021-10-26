@@ -13,7 +13,7 @@ The example below is based on [Simple State Management from Scratch](https://v3.
 
 > ... if you have a piece of state that should be shared by multiple instances, you can use a reactive method to make an object reactive
 
-See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html Vue method in the docs, as that is used below.
+See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html) Vue method in the docs, as that is used below.
 
 
 ## Example
