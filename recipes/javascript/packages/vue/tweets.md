@@ -1,16 +1,18 @@
-# Tweets
+---
+title: Tweets
+description: feed of tweets with Vue
+---
 
-A feed of tweets.
-
+Note this page focuses on the display of some tweet fixture data. You'll need to find other instructions for querying the Twitter API. And this is not recommended on the browser side because you'll expose your account's credentials, unless you do auth as the user.
 
 ## Sample
 
 Based on this [CodePen](https://codepen.io/jcfleetcomplete/pen/dyNOjoe). 
 
-I found tht because it uses PrimeVue, though its `paginator` setup does nothing so I am just interested in the Vue part after doing my cleanup.
+I found that because it uses PrimeVue, though its `paginator` setup does nothing so I am just interested in the Vue part after doing my cleanup.
 
 - `index.html`
-    ```
+    ```html
     <!DOCTYPE html>
     <html lang="en">
 
@@ -87,22 +89,22 @@ I found tht because it uses PrimeVue, though its `paginator` setup does nothing 
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">
-                <img :src="tweet.img" alt="Image">
+                <img src="tweet.img">
               </figure>
             </div>
 
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>{{tweet.name}}</strong> <small>{{tweet.handle}}</small>
+                  <strong>{{ tweet.name }}</strong> <small>{{ tweet.handle }}</small>
                   <br>
-                  {{tweet.tweet}}
+                  {{ tweet.tweet }}
                 </p>
               </div>
                 <div class="level-left">
                   <a class="level-item">
                     <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                    <span class="likes">{{tweet.likes}}</span>
+                    <span class="likes">{{ tweet.likes }}</span>
                   </a>
                 </div>
             </div>
