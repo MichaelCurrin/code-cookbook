@@ -16,6 +16,9 @@ Set up this Node script and run it.
 ```javascript 
 import { TwitterClient } from 'twitter-api-client';
 
+/**
+ * Return Twitter API client connection object.
+ */
 function setupConn() {
   const credentials = {
     apiKey: process.env.TWITTER_API_KEY,
@@ -24,15 +27,21 @@ function setupConn() {
     accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
   };
 
-  return new TwitterClient(...credentials)
+  return new TwitterClient(credentials);
 }
 
+/**
+ * Post a given message to Twitter as the authenticated user
+ */
 async function postTweet(api, message) {
   await api.tweets.statusesUpdate({ status: message });
 };
 
+/**
+ * Authenticate and post a tweet
+ */
 async function tweet(message) {
-  const api = setupConn()
+  const api = setupConn();
   await postTweet(api, message);
 }
 
@@ -45,6 +54,6 @@ async function tweet(message) {
 
 Ideas to extend:
 
-- randomize the message. 
-- take the message as a CLI parameter.
-- put this code behind a Node express serve or serverless function, where message comes in on the endpoint. Note you'll need to look up more advanced user-based auth if you want to tweet on behalf of a user on your app.
+- Randomize the message. 
+- Take the message as a CLI parameter.
+- Put this code behind a Node express serve or serverless function, where message comes in on the endpoint. Note you'll need to look up more advanced user-based auth if you want to tweet on behalf of a user on your app.
