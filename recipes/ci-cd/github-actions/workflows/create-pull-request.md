@@ -19,10 +19,8 @@ steps:
 All inputs are optional but you probably want to set some of these:
 
 - `title` for PR title.
-- `branch` for branch name.
-- `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommend `true`.	
-
-
+- `branch` for branch name to create.
+- `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommend `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.	
 
 
 ## No action and across repos
