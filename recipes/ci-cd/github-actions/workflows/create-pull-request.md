@@ -1,12 +1,15 @@
 # Create Pull Request
 
-{% raw %}
+See also [Commit][] workflows so you create a commit before a Pull Request.
 
+[Commit]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/commit.md %}
+
+
+{% raw %}
 
 ## Create Pull Request action
 
 - [Create Pull Request](https://github.com/marketplace/actions/create-pull-request) action
-
 
 Usage:
 
@@ -19,7 +22,7 @@ steps:
 All inputs are optional but you probably want to set some of these:
 
 - `title` for PR title.
-- `branch` for branch name to create.
+- `branch` for branch name to create. I don't know how to use this action or param if one is already on a branch using a commit step before.
 - `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommend `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.	
 
 
