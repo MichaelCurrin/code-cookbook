@@ -1,6 +1,8 @@
 # Create Pull Request
 
-See also [Commit][] workflows so you create a commit before a Pull Request.
+## Related 
+
+- [Commit][] workflows so you create a commit before a Pull Request.
 
 [Commit]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/commit.md %}
 
