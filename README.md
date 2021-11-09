@@ -1,26 +1,26 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusable code patterns which you can use as reference or copy to your project
 
-[![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
-[![Jekyll - 3.9](https://img.shields.io/badge/Jekyll-3.9-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/releases/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-[![MichaelCurrin - fractal](https://img.shields.io/static/v1?label=MichaelCurrin&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
+[![Jekyll - 3.9](https://img.shields.io/badge/Jekyll-3.9-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
+[![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
+[![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
 
 ## Preview
 
 <div align="center">
-    <a href="https://michaelcurrin.github.io/code-cookbook/">
-        <img src="/sample-topics.png" alt="Sample screenshot" title="Sample screenshot" width="300" />
-        <img src="/sample-docker.png" alt="Sample docker screenshot" title="Sample docker screenshot" width="300" />
+    <a href="https://michaelcurrin.github.io/code-cookbook/" title="Go to website">
+        <img src="/sample-topics.png" alt="Sample screenshot" width="400"/>
+        <img src="/sample-docker.png" alt="Sample docker screenshot" width="400" />
     </a>
 </div>
 
 <div align="center">
 
-[![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=green&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/)
+[![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=2ea44f&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/)
 
 </div>
 
@@ -31,7 +31,7 @@ To set up and run this project (or your fork), see the project docs:
 
 <div align="center">
 
-[![Docs](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/)
+[![Docs](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/ "Go to docs")
 
 </div>
 
@@ -42,7 +42,7 @@ Contributions are welcome. Please see the instructions:
 
 <div align="center">
 
-[![Contributing doc](https://img.shields.io/badge/View-Contributing_doc-blue?style=for-the-badge)](/CONTRIBUTING.md)
+[![Contributing doc](https://img.shields.io/badge/View-Contributing_doc-blue?style=for-the-badge)](/CONTRIBUTING.md "View contributing doc")
 
 </div>
 
