@@ -6,7 +6,7 @@ description: How to commit files during the CI flow - using a generic Action
 
 ## Related 
 
-- [Create Pull Request][] workflows so you can put your commit on a branch and PR.
+- [Create Pull Request][] workflows - some will commit for you so you don't need a separate commit step.
 
 [Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
