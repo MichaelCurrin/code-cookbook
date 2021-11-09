@@ -5,16 +5,17 @@ description: Sample Dockerfile and docker-compose files
 
 ## Dockerfile
 
-- `Dockerfile`
-    ```docker
-    FROM ubuntu
-    ```
+`Dockerfile`
+
+```docker
+FROM ubuntu
+```
     
     
 ## Docker compose
 
 - `docker-compose.yml`
-    ```
+    ```yaml
     webapp:
       image: examples/web
       ports:
@@ -23,14 +24,14 @@ description: Sample Dockerfile and docker-compose files
         - "/data"
     ```
 - `docker-compose.yml`
-    ```
+    ```yaml
     webapp:
       build: .
       environment:
         - DEBUG=1
     ```
 - `docker-compose.yml`
-    ```
+    ```yaml
     version: "3.8"
 
     services:
