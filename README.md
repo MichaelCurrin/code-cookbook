@@ -18,6 +18,8 @@
     </a>
 </div>
 
+<br>
+
 <div align="center">
 
 [![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=2ea44f&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/)
