@@ -3,6 +3,14 @@ title: Commit
 description: How to commit files during the CI flow - using a generic Action
 ---
 
+
+## Related 
+
+- [Create Pull Request][] workflows so you can put your commit on a branch and PR.
+
+[Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
+
+
 {% raw %}
 
 
@@ -12,7 +20,7 @@ Some situations when you might want to add/edit and commit files all during a si
 
 - Binary files for distribution.
     - Compiled file for C, Go, Rust, etc.
-    - An rchive file for a Ruby gem or VS Code Extension.
+    - An archive file for a Ruby gem or VS Code Extension.
     - A `dist` directory of JS files.
 - Static assets for serving on GH Pages.
     - Build with a static site generator like Jekyll, Hugo or Gatsby.
@@ -20,11 +28,14 @@ Some situations when you might want to add/edit and commit files all during a si
 - Doc changes in `README.md`.
     - Update a list of contributors. (A GH bot can handle this for you)
     - Update a table of contents.
+- Code changes.
+    - Perform lint fixes. 
+    - Perform package upgrades.
 
 
 ## Samples
 
-A placeholder step is used too modifies files in the workspace. Replace it with something more suitable. Such as building your app or applying lint and formatting fixes.
+A placeholder step is used to modify files in the workspace. Replace it with something more suitable. Such as building your app or applying lint and formatting fixes.
 
 ### No action
 
@@ -64,6 +75,8 @@ This uses a branch that already exists (whether a feature branch or `master`), s
 
 ### Use the Publish to GitHub action
 
+Use this action to commit and push your changes to either the current branch or a given branch. If on another branch, you'll need an action to make a [Pull Request][Create Pull Request].
+
 See [push-new-files-back-to-master](https://github.com/marketplace/actions/push-new-files-back-to-master) Action in the GH Marketplace.
 
 > A GitHub Action to push any local file changes, including new files, back to supplied branch name.
@@ -95,7 +108,7 @@ BRANCH_NAME: main
 
 If you look at the code in the action, this is what is does (excluding validating variables and working with GitHub LFS).
 
-I've refactored it below.
+I've refactored it and added below:
 
 - `entrypoint.sh`
     ```sh
@@ -128,7 +141,7 @@ The rebase might not do be useful if you are already up to date, unless there is
 
 This will only work if the branch already exists, as it does not use `-b` in checkout.
 
-For comparison, there is a similar action dedicated to GitHub Pages but it uses TypeScript and has a lot more files.
+For comparison, there is a similar action dedicated to GitHub Pages, but it uses TypeScript and has a lot more files.
 
 - [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
