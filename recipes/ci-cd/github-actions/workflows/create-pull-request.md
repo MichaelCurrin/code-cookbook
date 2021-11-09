@@ -2,7 +2,7 @@
 
 ## Related 
 
-- [Commit][] workflows so you create a commit before a Pull Request.
+- [Commit][] workflows so you create a commit without a Pull Request, such as if you want to commit on the main branch.
 
 [Commit]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/commit.md %}
 
@@ -12,6 +12,11 @@
 ## Create Pull Request action
 
 - [Create Pull Request](https://github.com/marketplace/actions/create-pull-request) action
+   > A GitHub action to create a pull request for changes to your repository in the actions workspace.
+
+If you use this action, you don't need a separate step to commit first as this handles it for you.
+
+> The changes will be automatically committed to a new branch and a pull request created.
 
 Usage:
 
@@ -24,13 +29,13 @@ steps:
 All inputs are optional but you probably want to set some of these:
 
 - `title` for PR title.
-- `branch` for branch name to create. I don't know how to use this action or param if one is already on a branch using a commit step before.
+- `branch` for branch name to create. 
 - `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommend `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.	
 
 
 ## No action and across repos
 
-Hit the GitHub API to create a PR. 
+Here we hit the GitHub API to create a PR. We don't actually make the commit or branch here - just the PR itself.
 
 Note that here we are targeting a different repo to the current repo, so need a token to be specified.
 
