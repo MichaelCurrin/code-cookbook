@@ -41,8 +41,6 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
         steps:
           - name: Checkout 🛎️
             uses: actions/checkout@master
-            with:
-              persist-credentials: false
 
           - name: Install 🔧
             run: npm install
@@ -59,7 +57,14 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
 
 - Steps for Yarn:
     ```yaml
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+
         steps:
+          - name: Checkout 🛎️
+            uses: actions/checkout@master
+
           - name: Install 🔧
             run: yarn install
 
@@ -74,6 +79,23 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
     ```
 
 The assumption here is that the tests will be run against compiled JS files, so test is after build. But you could reverse those for some projects.
+
+## NPX
+
+If you want to run a CLI package without installing it, you can use `npx` like this:
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+        
+      - name: Lint 🧐
+        run: npx eslint .
+```
 
 
 ## Actions used
