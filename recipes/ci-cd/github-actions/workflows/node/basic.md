@@ -24,7 +24,9 @@ You can of course leave out a step if it does not make sense for your app, but h
 If you prefer using `yarn` you can use it here and in the next section.
 
 
-## Workflow sample
+## Samples
+
+### Standrd NPM sample
 
 Add to your repo locally or using GitHub UI. Use any filename but the directory is important as `.github/workflows`.
 
@@ -55,7 +57,9 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
             run: npm test
     ```
 
-- Steps for Yarn:
+### Standad Yarn sample
+
+- `main.yml`
     ```yaml
     jobs:
       build:
@@ -80,7 +84,7 @@ Add to your repo locally or using GitHub UI. Use any filename but the directory 
 
 The assumption here is that the tests will be run against compiled JS files, so test is after build. But you could reverse those for some projects.
 
-## NPX
+### NPX sample
 
 If you want to run a CLI package without installing it, you can use `npx` like this:
 
@@ -95,6 +99,9 @@ jobs:
         
       - name: Lint 🧐
         run: npx eslint .
+        
+      - name: Check for updates 🧐
+        run: npx npm-check-updates
 ```
 
 
