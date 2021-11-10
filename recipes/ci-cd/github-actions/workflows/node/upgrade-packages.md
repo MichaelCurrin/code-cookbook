@@ -1,6 +1,6 @@
 ---
 title: Upgrade packages
-description: Upgrade NPM packages and make a PR with the changes
+description: Upgrade outdated NPM packages and make a PR with the lockfile changes
 ---
 
 The aim of this workflow is to upgrade dependencies in `package-lock.json`. 
@@ -15,11 +15,11 @@ This could be run on a schedule or on a manual trigger.
 ## Steps in the workflow
 
 1. Set up Node
-1. Attempt to upgrade packages.
-1. Check if there is anything to commit.
+1. Check for outdated packages.
+1. Upgrade packages.
 1. Commit to a branch and create a PR.
 
-Once than then review the PR changes.
+That should trigger a GH notification. Then you can review the PR changes yourself.
 
 Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9). It created a lockfile but ideally one would be updated.
 
@@ -83,7 +83,7 @@ jobs:
 
 TODO: 
 
-- Only create PR on something to commit.
+- Only create PR on something to commit / upgrade.
 - Add Yarn support.
 - Add cron schedule.
 - Add branch name based on datetime maybe.
