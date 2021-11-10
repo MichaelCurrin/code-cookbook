@@ -14,7 +14,7 @@ This could be run on a schedule or on a manual trigger.
 
 Once than then review the PR changes.
 
-### CI
+### Verify result with CI
 
 And ideally you have GH Actions or similar set up to run CI checks against your PR. This lets you keep your current process of quality control and keeps the automatic upgrade flow from doing too too much.
 
