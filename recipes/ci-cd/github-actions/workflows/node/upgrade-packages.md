@@ -3,10 +3,16 @@ title: Upgrade packages
 description: Upgrade NPM packages and make a PR with the changes
 ---
 
+The aim of this workflow is to upgrade dependencies in `package-lock.json`. 
+
+The advantage is to stay up to date within the semvar restrictions in `package.json`, such that you get new direct and sub-dependencies (avoiding bugs and vulnerabilities).
+
+While taking the manual effort out of running manual tasks (upgrading locally, committing and checking if checks pass).
+
 This could be run on a schedule or on a manual trigger.
 
 
-## Steps
+## Steps in the workflow
 
 1. Set up Node
 1. Attempt to upgrade packages.
@@ -17,9 +23,12 @@ Once than then review the PR changes.
 
 Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9). It created a lockfile but ideally one would be updated.
 
-### Verify result with CI
 
-And ideally you have GH Actions or similar set up to run CI checks against your PR. This lets you keep your current process of quality control and keeps the automatic upgrade flow from doing too too much.
+## Verify result with CI
+
+This flow only upgrades the packages and puts it in your a branch and PR - then you use your own CI to verify.
+
+ideally you have GH Actions or similar set up to run CI checks against your PR. This lets you keep your current process of quality control and keeps the automatic upgrade flow from doing too too much.
 
 e.g.
 
