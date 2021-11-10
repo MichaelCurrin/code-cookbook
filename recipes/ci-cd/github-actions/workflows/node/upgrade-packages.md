@@ -15,7 +15,7 @@ This could be run on a schedule or on a manual trigger.
 
 Once than then review the PR changes.
 
-Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9).
+Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9). It created a lockfile but ideally one would be updated.
 
 ### Verify result with CI
 
