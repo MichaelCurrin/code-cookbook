@@ -52,7 +52,6 @@ Sample from GH Actions recommendation. Note that `v2` does not work but `v2.1.1`
           version: # optional
     ```
 
-
 ## Samples
 
 ### Basic
@@ -87,9 +86,9 @@ Note this uses `setup-node@2` while some of the other samples below are behind.
 
 You can reduce build time if dependencies are cached between builds.
 
-There are two recommended approaches here. Add a separate caching step, or use on built-in to the `setup-node` action.
+There are two recommended approaches here. Both require `package-lock.json` to be in version control.
 
-Built-in, based on [doc](https://github.com/actions/setup-node#caching-packages-dependencies):
+Built-in to `setup-node`, based on [doc](https://github.com/actions/setup-node#caching-packages-dependencies):
 
 - `main.yml` 
     ```yaml
@@ -133,7 +132,7 @@ Use a separate `cache` action, based on GH docs:
         run: npm install
     ```
 
-For the ache action, it looks like this depends on a lockfile existing. I don't like to commit that - perhaps `package.json` can be used instead.
+For the cache action, it looks like this depends on a lockfile existing. I don't like to commit that - perhaps `package.json` can be used instead.
 
 The docs actually use `npm ci` which will _delete_ `node_modules`, so I've set up `npm install` here instead.
 
