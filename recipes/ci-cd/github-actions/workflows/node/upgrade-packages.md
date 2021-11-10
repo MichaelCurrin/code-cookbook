@@ -5,6 +5,7 @@ description: Upgrade NPM packages and make a PR with the changes
 
 This could be run on a schedule or on a manual trigger.
 
+
 ## Steps
 
 1. Set up Node
@@ -13,6 +14,8 @@ This could be run on a schedule or on a manual trigger.
 1. Commit to a branch and create a PR.
 
 Once than then review the PR changes.
+
+Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9).
 
 ### Verify result with CI
 
