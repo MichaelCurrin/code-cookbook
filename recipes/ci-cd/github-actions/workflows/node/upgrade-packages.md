@@ -3,13 +3,16 @@ title: Upgrade packages
 description: Upgrade outdated NPM packages and make a PR with the lockfile changes
 ---
 
-The aim of this workflow is to upgrade dependencies in `package-lock.json`. 
+The aim of these recipes is to upgrade dependencies in `package-lock.json`. 
+
+This could be run on a schedule or on a manual trigger.
+
+## Why?
 
 The advantage is to stay up to date within the semvar restrictions in `package.json`, such that you get new direct and sub-dependencies (avoiding bugs and vulnerabilities).
 
 While taking the manual effort out of running manual tasks (upgrading locally, committing and checking if checks pass).
 
-This could be run on a schedule or on a manual trigger.
 
 
 ## Steps in the workflow
