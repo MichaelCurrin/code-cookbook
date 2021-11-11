@@ -24,9 +24,7 @@ While taking the manual effort out of running manual tasks (upgrading locally, c
 
 That should trigger a GH notification. Then you can review the PR changes yourself.
 
-Here's a PR I created when testing: [vue-quickstart #9][]. It created a lockfile but ideally one would be updated.
 
-[vue-quickstart #9]: https://github.com/MichaelCurrin/vue-quickstart/pull/9
 [Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
 
@@ -40,6 +38,10 @@ Notes:
 ### Basic
 
 Here using a minimal approach.
+
+Here's a PR I created when testing this: [vue-quickstart #9][]. It created a lockfile in this case but ideally one would be updated instead.
+
+[vue-quickstart #9]: https://github.com/MichaelCurrin/vue-quickstart/pull/9
 
 - `upgrade-packages.yml`
     ```yaml
@@ -105,6 +107,8 @@ In this one:
     - Packages not yet installed will appear as `MISSING`. This is fine. 
     - If you have packages installed already and loaded from cache (whether from the old or new `package.json` file, then the `npm install` and `npm update` will have less to do (at least when there is cache against the lockfile).
 
+_Warning: untested_
+
 - `upgrade-packages.yml`
     ```yaml
     name: Upgrade NPM packages
@@ -168,6 +172,8 @@ Note we use [npm-check-updates][] which does _not_ actually install packages.
 
 [npm-check-updates][]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html
 
+_Warning: untested_
+
 - `update-packages.yml`
     ```yaml
     steps:
@@ -195,6 +201,10 @@ Note we use [npm-check-updates][] which does _not_ actually install packages.
         if: ${{ steps.vars.outputs.outdated != '' }}
         uses: peter-evans/create-pull-request@v3
     ```
+
+TODO
+
+- Avoid capturing output because that probably loses colors. Rather use `-e 2` error mode and check status. `if ncu -e 2; then ...`
 
 See [Package versions][] cheatsheet for more info on tools for upgrading.
 
