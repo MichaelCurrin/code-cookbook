@@ -17,11 +17,15 @@ This could be run on a schedule or on a manual trigger.
 1. Set up Node
 1. Check for outdated packages.
 1. Upgrade packages.
-1. Commit to a branch and create a PR.
+1. Commit to a branch and create a PR. See [Create Pull Request][]
 
 That should trigger a GH notification. Then you can review the PR changes yourself.
 
-Here's a PR I created when testing: [#9 in vue-quickstart](https://github.com/MichaelCurrin/vue-quickstart/pull/9). It created a lockfile but ideally one would be updated.
+Here's a PR I created when testing: [vue-quickstart #9][]. It created a lockfile but ideally one would be updated.
+
+
+[vue-quickstart #9]: https://github.com/MichaelCurrin/vue-quickstart/pull/9
+[Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
 
 ## Verify result with CI
