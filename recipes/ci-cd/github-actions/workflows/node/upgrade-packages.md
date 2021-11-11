@@ -5,14 +5,18 @@ description: Upgrade outdated NPM packages and make a PR with the lockfile chang
 
 The aim of these recipes is to upgrade dependencies in `package-lock.json`. 
 
+
 This could be run on a schedule or on a manual trigger.
 
 ## Why?
 
-The advantage is to stay up to date within the semvar restrictions in `package.json`, such that you get new direct and sub-dependencies (avoiding bugs and vulnerabilities).
+The advantage is to stay up to date within the semvar restrictions in `package.json`, such that you get updated direct dependencies and indirect dependencies. Thus avoiding bugs and vulnerabilities. 
 
 While taking the manual effort out of running manual tasks (upgrading locally, committing and checking if checks pass).
 
+Especially useful if you frequently have to use dependabot to patch very nested indirect dependencies and upgrading a higher-level dependency reduces this.
+
+This also effectively patches eagerly to newer versions even _before_ any vulnerabilities in old versions are discovered.
 
 
 ## Steps in the workflow
