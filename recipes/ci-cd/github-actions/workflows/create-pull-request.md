@@ -32,6 +32,21 @@ All inputs are optional but you probably want to set some of these:
 - `branch` for branch name to create. 
 - `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommended as `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.	
 
+The docs recommend using a fix branch name, rather than one that is unique, to avoid to many branches/PRs.
+
+With options:
+
+```yaml
+steps:
+  - name: Create Pull Request
+    uses: peter-evans/create-pull-request@v3
+    with: 
+      title: My PR title
+      commit-message: My commit message
+      branch: my-branch-name
+      delete-branch: true
+```
+
 
 ## No action and across repos
 
