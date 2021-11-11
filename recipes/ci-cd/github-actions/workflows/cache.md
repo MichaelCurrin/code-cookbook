@@ -39,7 +39,27 @@ Based on the [Examples](https://github.com/actions/cache/blob/master/examples.md
 
 From the [Node - NPM](https://github.com/actions/cache/blob/master/examples.md#node---npm) examples.
 
-#### Simple
+See [NPM workflow][] recipes.
+
+
+### Built-in
+
+Use the cache option on `setup-node` action:
+
+- `main.yml`
+    ```yaml
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+    ```
+    
+#### Use cache action
 
 The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.npmjs.com/cli/cache#cache) in the docs NPM docs.
 
@@ -60,7 +80,7 @@ The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.
 
 Make sure to use `npm install` and not `npm ci` - the latter will **delete** any `node_modules` directory that was retrieved from the cache and so will delete the point of using this Cache Action.
 
-#### Using NPM config
+#### Use NPM config
 
 > If using npm config to retrieve the cache directory, ensure you run `actions/setup-node` first to ensure your npm version is correct.
 
@@ -114,23 +134,13 @@ A simple example.
 
 ### Ruby
 
-Based on [Ruby - Bundler](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler) example.
+- You get cache already when using `setup-ruby` action.
+- Or you can use `cache` for more control.
 
-- `main.yml`
-    ```yaml
-    steps:
-      - name: Get cached gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+See [Ruby workflow][] recipes.
 
-      - name: Install gems
-        run: |
-          bundle config set path vendor/bundle
-          bundle install --jobs 4 --retry 3
-    ```
 
 {% endraw %}
+
+[Ruby workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/index.md %}
+[NPM workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/npm.md %}
