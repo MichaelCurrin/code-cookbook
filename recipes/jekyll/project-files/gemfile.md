@@ -9,32 +9,25 @@ description: Sample content for the `Gemfile` file in a Jekyll project.
 Install Jekyll 3, Minima theme and a plugin:
 
 ```ruby
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'jekyll', '~> 3.9'
-gem 'minima', '~> 2.0'
+gem "jekyll", "~> 3.9"
+gem "kramdown-parser-gfm", "~> 1.1"  # Required for Jekyll 3.9 (not 3.8 or 4)
+gem "webrick", "~> 1.7"  # Ruby 3 support
+
+gem "minima", "~> 2.0"
 
 group :jekyll_plugins do
-  gem 'jekyll-feed', '~> 0.6'
+  gem "jekyll-feed", "~> 0.6"
 end
 ```
 
-For Jekyll 4, use one of these styles depending on how fixed you want to be.
+For Jekyll 4, use one of these styles depending on how fixed you want to be. You can also omit `"kramdown-parser-gfm"`.
 
 ```ruby
-gem 'jekyll', '~> 4.0.1'
-gem 'jekyll', '~> 4.0'
-gem 'jekyll', '~> 4'
-```
-
-For Jekyll 3.9, you're also going to need the Kramdown parser. From the `jekyll new` output:
-
-```ruby
-gem "jekyll", "~> 3.9.1"
-
-# kramdown v2 ships without the gfm parser by default. If you're using
-# kramdown v1, comment out this line.
-gem "kramdown-parser-gfm"
+gem "jekyll", "~> 4.0.1"
+gem "jekyll", "~> 4.0"
+gem "jekyll", "~> 4"
 ```
 
 
