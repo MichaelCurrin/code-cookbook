@@ -1,15 +1,18 @@
 # Makefile
 
-See also:
 
-- Make section of this Recipe project
+## Related
+
+- [Make][] recipes
 - [Make](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/make/) section of Dev Cheatsheets project
-- Jekyll template repo's [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile)
+- [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile) in my Jekyll template repo
+
+[Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
 
 
 ## Samples
 
-Be sure to use tab indentation.
+Be sure to use **tab** indentation.
 
 The help command will include lines starting with text or with empty lines - so ignoring indented lines. Perhaps this could be ignore tabs instead, but then add logic for keeping indent comments if needed.
 
@@ -17,7 +20,7 @@ The help command will include lines starting with text or with empty lines - so 
 	```makefile
 	default: install
 
-	help:
+	h help:
 		@egrep '^\S|^$$' Makefile
 
 	install:
