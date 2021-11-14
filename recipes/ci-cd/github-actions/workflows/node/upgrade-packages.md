@@ -97,7 +97,7 @@ So just change `npm` commands to use `yarn`.
 
 See [Yarn][] recipe for more help.
 
-[Yarn]: {{ site.baseul }}{% link recipes/ci-cd/github-actions/workflows/node/yarn.md %}
+[Yarn]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/yarn.md %}
 
 
 ### Advanced
