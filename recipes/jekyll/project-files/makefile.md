@@ -16,34 +16,37 @@ Be sure to use **tab** indentation.
 
 The help command will include lines starting with text or with empty lines - so ignoring indented lines. Perhaps this could be ignore tabs instead, but then add logic for keeping indent comments if needed.
 
-- Base
-	```makefile
-	default: install
+Base:
 
-	h help:
-		@egrep '^\S|^$$' Makefile
+```makefile
+default: install
 
-	install:
-		bundle config --local path vendor/bundle
-		bundle install
+h help:
+    @egrep '^\S|^$$' Makefile
 
-	s serve:
-		bundle exec jekyll serve --trace --livereload
+install:
+    bundle config --local path vendor/bundle
+    bundle install
 
-	build:
-		JEKYLL_ENV=production bundle exec jekyll build --trace
-	```
-- Additions - note `serve` has an extra param so instead of serving on subpath, we serve on root for GitHub Pages "User" site or Netlify.
-	```makefile
-	upgrade:
-		bundle update
+s serve:
+    bundle exec jekyll serve --trace --livereload
 
-        s serve:
-		bundle exec jekyll serve --trace --livereload --baseurl ''
+build:
+    JEKYLL_ENV=production bundle exec jekyll build --trace
+```
 
-	build-dev:
-		bundle exec jekyll build
+Additions - note `serve` has an extra param so instead of serving on subpath, we serve on root for GitHub Pages "User" site or Netlify.
 
-	build-prod:
-		JEKYLL_ENV=production bundle exec jekyll build
-	```
+```makefile
+upgrade:
+    bundle update
+
+s serve:
+    bundle exec jekyll serve --trace --livereload --baseurl ''
+
+build-dev:
+    bundle exec jekyll build
+
+build-prod:
+    JEKYLL_ENV=production bundle exec jekyll build
+```
