@@ -22,7 +22,7 @@ Base:
 default: install
 
 h help:
-    @egrep '^\S|^$$' Makefile
+    @grep '^[a-z]' Makefile
 
 install:
     bundle config --local path vendor/bundle
