@@ -84,6 +84,8 @@ So just change `npm` commands to use `yarn`.
 - `upgrade-packages.yml`
     ```yaml
     steps:
+      # ...
+
       - name: Check for outdated packages
         run: |
           OUTDATED_OUTPUT=$(yarn outdated) || true
@@ -121,6 +123,7 @@ _Warning: untested_
 
     on:
       workflow_dispatch:
+
       schedule:
         - cron:  "0 0 * * 0"
 
@@ -140,11 +143,11 @@ _Warning: untested_
               node-version: '16.x'
               cache: 'npm'
 
-          - name: Check for outdated packages
+          - name: Check for outdated packages 🔍
             run: |
               OUTDATED=$(npm outdated) || true
 
-              if [[ -z $OUTDATED ]]; then
+              if [[ -z "$OUTDATED" ]]; then
                 echo 'Nothing to upgrade'
               else
                 echo 'Found outdated packages:'
@@ -153,11 +156,11 @@ _Warning: untested_
 
               echo "::set-output name=outdated::$OUTDATED"
 
-          - name: Upgrade packages
+          - name: Upgrade packages ⏫
             if: ${{ steps.vars.outputs.outdated != '' }}
             run: npm update
 
-          - name: Commit and create PR
+          - name: Commit and create PR 🔀
             if: ${{ steps.vars.outputs.outdated != '' }}
             uses: peter-evans/create-pull-request@v3
             with:
