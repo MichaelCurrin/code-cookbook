@@ -106,14 +106,16 @@ See [Yarn][] recipe for more help.
 
 In this one:
 
-- Run manually and on schedule (weekly).
+- Two run options
+    - Manual
+    - On a schedule (weekly on a Sunday a midnight here).
 - we make sure the upgrade and PR steps are only attempts _if_ there is something to upgrade
 - We also set custom inputs on the PR step.
 - Use use cache to improve performance
     - Packages not yet installed will appear as `MISSING`. This is fine.
     - If you have packages installed already and loaded from cache (whether from the old or new `package.json` file, then the `npm install` and `npm update` will have less to do (at least when there is cache against the lockfile).
 
-_Warning: untested_
+Here is a
 
 {% raw %}
 
@@ -144,6 +146,7 @@ _Warning: untested_
               cache: 'npm'
 
           - name: Check for outdated packages 🔍
+            id: vars
             run: |
               OUTDATED=$(npm outdated) || true
 
@@ -157,7 +160,7 @@ _Warning: untested_
               echo "::set-output name=outdated::$OUTDATED"
 
           - name: Upgrade packages ⏫
-            if: ${{ steps.vars.outputs.outdated != '' }}
+            if: ${{ steps.outdated.outputs.outdated != '' }}
             run: npm update
 
           - name: Commit and create PR 🔀
@@ -194,6 +197,7 @@ _Warning: untested_
         run: npm install -g npm-check-packages
 
       - name: Check for outdated packages
+        id: vars
         run: |
           OUTDATED=$(ncu)
 
