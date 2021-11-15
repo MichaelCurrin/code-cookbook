@@ -3,14 +3,14 @@ title: Upgrade packages
 description: Upgrade outdated NPM packages and make a PR with the lockfile changes
 ---
 
-The aim of these recipes is to upgrade dependencies in `package-lock.json`. 
+The aim of these recipes is to upgrade dependencies in `package-lock.json`.
 
 
 This could be run on a schedule or on a manual trigger.
 
 ## Why?
 
-The advantage is to stay up to date within the semvar restrictions in `package.json`, such that you get updated direct dependencies and indirect dependencies. Thus avoiding bugs and vulnerabilities. 
+The advantage is to stay up to date within the semantic versioning restrictions in `package.json`, such that you get updated direct dependencies and indirect dependencies. Thus avoiding bugs and vulnerabilities.
 
 While taking the manual effort out of running manual tasks (upgrading locally, committing and checking if checks pass).
 
@@ -90,10 +90,10 @@ So just change `npm` commands to use `yarn`.
 
       - name: Upgrade packages
         run: yarn upgrade
-        
+
       - name: Commit and create PR
         uses: peter-evans/create-pull-request@v3
-    ```  
+    ```
 
 See [Yarn][] recipe for more help.
 
@@ -108,10 +108,12 @@ In this one:
 - we make sure the upgrade and PR steps are only attempts _if_ there is something to upgrade
 - We also set custom inputs on the PR step.
 - Use use cache to improve performance
-    - Packages not yet installed will appear as `MISSING`. This is fine. 
+    - Packages not yet installed will appear as `MISSING`. This is fine.
     - If you have packages installed already and loaded from cache (whether from the old or new `package.json` file, then the `npm install` and `npm update` will have less to do (at least when there is cache against the lockfile).
 
 _Warning: untested_
+
+{% raw %}
 
 - `upgrade-packages.yml`
     ```yaml
@@ -164,6 +166,8 @@ _Warning: untested_
               commit-message: 'build(deps): upgrade NPM dependencies (automated)'
     ```
 
+{% endraw %}
+
 ### Aggressive upgrade
 
 Using `npm update` will only upgrade _within_ the semver version.
@@ -177,6 +181,8 @@ Note we use [npm-check-updates][] which does _not_ actually install packages.
 [npm-check-updates][]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html
 
 _Warning: untested_
+
+{% raw %}
 
 - `update-packages.yml`
     ```yaml
@@ -200,13 +206,15 @@ _Warning: untested_
       - name: Upgrade packages
         if: ${{ steps.vars.outputs.outdated != '' }}
         run: ncu -u
-        
+
       - name: Commit and create PR
         if: ${{ steps.vars.outputs.outdated != '' }}
         uses: peter-evans/create-pull-request@v3
     ```
 
-TODO
+{% endraw %}
+
+TODO:
 
 - Avoid capturing output because that probably loses colors. Rather use `-e 2` error mode and check status. `if ncu -e 2; then ...`
 
@@ -237,4 +245,3 @@ The flow is intended for if you already have a lockfile, so that it can updated.
 NPM CLI will update the lockfile. But the `package.json` won't be affected.
 
 But Yarn will _also_ update the version in `package.json`.
-
