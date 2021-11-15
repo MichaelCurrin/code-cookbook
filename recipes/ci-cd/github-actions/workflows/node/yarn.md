@@ -17,9 +17,10 @@ This section covers how to set up one or more target versions of Node and Yarn a
 If you use GitHub Pages for your site hosting, you should set this up before using any CI flows. That way, your site will be served on the correct subpath, as React infers it.
 
 - `package.json`
-    ```json
+    ```json5
     {
      "scripts": {
+       // ...
       },
       "homepage" : "https://MichaelCurrin.github.io/my-app/"
     }
@@ -37,10 +38,10 @@ The GH docs recommend installing with Yarn using [Set up Node][] action.
 
 ```yaml
 steps:
-- name: Use Node.js ⚙️
+- name: Set up Node.js ⚙️
   uses: actions/setup-node@v2
   with:
-    node-version: '14'
+    node-version: '16.x'
 
 - name: Install dependencies 📦
   run: yarn install --frozen-lockfile
@@ -58,7 +59,16 @@ Note that NPM doesn't have the flag and it NPM installs gets by fine in CI.
 
 Load cached dependencies.
 
-See the Yarn section of the [Cache][] guide.
+```yaml
+steps:
+- name: Set up Node.js ⚙️
+  uses: actions/setup-node@v2
+  with:
+    node-version: '16.x'
+    cache: 'yarn'
+```
+
+See also Yarn section of the [Cache][] guide.
 
 
 ### GH Actions sample
@@ -67,7 +77,7 @@ This uses the [GitHub Action for Yarn][] action - `borales/actions-yarn`.
 
 This action doesn't just set up Yarn, it actually runs the commands that you pass to it (except you say have to use `install` instead of `yarn install`).
 
-For basic use of this action (like Node/Yarn test and no caching), it is an unnecessary dependency and I don't see the benefit. So just use the [Simple][] flow above or the [Basic][] page.
+For basic use of this action (like Node/Yarn test and no caching), it seems like an unnecessary action and I don't see the benefit. So just use the [Simple][] flow above or the [Basic][] page.
 
 - `main.yml`
     ```yaml
