@@ -26,7 +26,9 @@ If you prefer using `yarn` you can use it here and in the next section.
 
 ## Samples
 
-### Standrd NPM sample
+See [NPM][] recipes for using `setup-node` action for more controlled setup of Node, rather than below where the default Node for the environment is used.
+
+### Standard NPM sample
 
 Add to your repo locally or using GitHub UI. Use any filename but the directory is important as `.github/workflows`.
 
@@ -110,4 +112,7 @@ jobs:
 
 This workflow uses `actions/checkout`, a standard action for cloning the repo in a workflow run.
 
-Note that **no** Node or Yarn action was used here - the default environment will set up Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [node](node.md) sample's matrix area for more info.
+Note that **no** Node or Yarn action was used here - the default environment will set up Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [NPM][] recipes for using a matrix.
+
+
+[NPM]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/npm.md %}
