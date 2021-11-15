@@ -115,7 +115,7 @@ In this one:
     - Packages not yet installed will appear as `MISSING`. This is fine.
     - If you have packages installed already and loaded from cache (whether from the old or new `package.json` file, then the `npm install` and `npm update` will have less to do (at least when there is cache against the lockfile).
 
-Here is a
+Here is a sample (using Yarn) - [PR #129](https://github.com/MichaelCurrin/badge-generator/pull/129).
 
 {% raw %}
 
@@ -167,8 +167,8 @@ Here is a
             if: ${{ steps.vars.outputs.outdated != '' }}
             uses: peter-evans/create-pull-request@v3
             with:
-              title: 'Upgrade NPM packages (automated)'
-              branch: 'deps-upgrade-npm-packages-automated'
+              title: 'build(deps): Upgrade NPM packages (automated)'
+              branch: 'build-deps-upgrade-npm-packages-automated'
               commit-message: 'build(deps): upgrade NPM dependencies (automated)'
     ```
 
