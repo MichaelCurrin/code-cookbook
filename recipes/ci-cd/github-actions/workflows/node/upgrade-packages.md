@@ -26,7 +26,7 @@ This also effectively patches eagerly to newer versions even _before_ any vulner
 ### What the workflows do
 
 1. Set up Node
-1. Check for outdated packages.
+1. Check for outdated packages that are still within the semvar restrictions (so hopefully no breaking changes in your app).
 1. Upgrade packages.
 1. Commit to a branch and create a PR. See [Create Pull Request][]
 
@@ -40,7 +40,7 @@ That should trigger a GH notification. Then you can review the PR changes yourse
 1. Pick one of the samples below, depending on basic/advanced and Node/Yarn.
 1. Run the workflow manually on GH or on a schedule (such as weekly). 
 1. Review the PR. 
-1. If your usual CI test and build checks are passing, merge the PR.
+1. If your usual CI test and build checks are passing, merge the PR. Or the close PR, then consider making up manual changes or just accept the old versions.
 
 
 ## Samples
