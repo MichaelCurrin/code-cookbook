@@ -169,7 +169,7 @@ Here is a sample (using Yarn) - [PR #129](https://github.com/MichaelCurrin/badge
             with:
               title: 'build(deps): Upgrade NPM packages (automated)'
               branch: 'build-deps-upgrade-npm-packages-automated'
-              commit-message: 'build(deps): upgrade NPM dependencies (automated)'
+              commit-message: 'build(deps): upgrade NPM packages (automated)'
     ```
 
 {% endraw %}
@@ -184,7 +184,7 @@ If you want to upgrade outside the restriction, at the risk of getting breaking 
 
 Note we use [npm-check-updates][] which does _not_ actually install packages.
 
-[npm-check-updates][]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html
+[npm-check-updates]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html
 
 _Warning: untested_
 
