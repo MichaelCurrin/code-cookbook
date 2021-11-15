@@ -3,10 +3,10 @@ title: Upgrade packages
 description: Upgrade outdated NPM packages and make a PR with the lockfile changes
 ---
 
-The aim of these recipes is to upgrade dependencies in `package-lock.json`.
+The aim of these recipes is to upgrade your NPM dependencies in versioned lock files (like `package-lock.json` and `yarn.lock`). On a schedule or on a manual trigger.
 
+How to use the samples here? Run the workflow manually on GH or on a schedule (such as weekly). Review the PR. Then merge it if your usual CI test and build checks are passing. No need to touch the local command-line.
 
-This could be run on a schedule or on a manual trigger.
 
 ## Why?
 
@@ -19,7 +19,7 @@ Especially useful if you frequently have to use dependabot to patch very nested 
 This also effectively patches eagerly to newer versions even _before_ any vulnerabilities in old versions are discovered.
 
 
-## Steps in the workflow
+## What the workflows do
 
 1. Set up Node
 1. Check for outdated packages.
