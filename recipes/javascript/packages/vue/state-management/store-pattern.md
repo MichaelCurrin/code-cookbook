@@ -7,24 +7,70 @@ You don't need a library like Vuex here - for simple cases you can implement you
 
 {% raw %}
 
-## Resources
 
-The example below is based on [Simple State Management from Scratch](https://v3.vuejs.org/guide/state-management.html#simple-state-management-from-scratch) in the Vue 3 docs.
+## Store in state variable
 
-> ... if you have a piece of state that should be shared by multiple instances, you can use a reactive method to make an object reactive
+This value will persist when switching views, that is it. The value will get lost if you do anything else. See [Persist in storage](#persist-in-storage) below for alternate approach.
 
-See also the [reactive](https://v3.vuejs.org/guide/reactivity-fundamentals.html) Vue method in the docs, as that is used below.
+### Repo username
 
+Here a form is used to enter a username of a repo. This is stored in the state and accessed on multiple views.
 
-## Persist
+- `src/store.js`
+    ```javascript
+    const DEFAULT_USERNAME = "MichaelCurrin"
+    
+    const store = {
+      debug: true,
 
-If you want to persist values when revisiting the site, you can use local storage.
+      state: reactive({
+        repoUsername: DEFAULT_USERNAME,
+      }),
 
-Then instead of getting and setting on `this.state`, you could use `localStorage`. And using the store pattern, the rest of the app won't care how it's stored and will just have to interact with the store wrapper.
+      setRepoUsername(value: string) {
+        if (this.debug) {
+          console.debug(`Storing repo username: ${value}`);
+        }
 
-## Example
+        this.state.repoUsername = value;
+      },
+    };
 
-- `store.js` - store in JavaScript. Set up a store object with a debug attribute, a state attribute with our data in it, and some methods that are used to set data on the state.
+    export default store;
+    ```
+- `MyVue.vue` - some page on the site. Read a value using by getting it from `state` on the `store`. Or you could make and use `getRepoUsername` instead.
+    ```vue
+    <script>
+    import store from "@/store";
+    
+    export default {
+      data() {
+        return {
+          username: store.state.repoUsername,
+        },
+      },
+      methods: {
+        submit() {
+          store.setRepoUsername(this.username);
+        }
+      }
+    }
+    </script>
+    ```
+    
+From my testing, if you only have on App instance then you can leave out reactive:
+
+```javascript
+const store = {
+  state: {
+    repoUsername: DEFAULT_USERNAME,
+  },
+}
+```
+ 
+### Message
+
+- `src/store.js` - Set up a store object with a debug attribute and a state attribute with our data in it. Plus some methods that are used to set data on the state.
     ```javascript
     import { reactive } from 'vue'
 
@@ -54,7 +100,7 @@ Then instead of getting and setting on `this.state`, you could use `localStorage
 
     export default store
     ```
-- `App.vue` - Vue file. Set up app using the store. Here we have two App components using the same store and mount them on different elements. These could be on the same or different pages.
+- `App.vue` - Vue file. Set up app using the store. For demostration, here we actually have two App components using the same store and mount them on different elements. These could be on the same or different pages.
     ```javascript
     import { createApp } from "vue"
     import store from "./store.js"
@@ -93,4 +139,54 @@ Then instead of getting and setting on `this.state`, you could use `localStorage
     </div>
     ```
     
+    
+## Persist in storage
+
+Here we store a value in local storage. This has the following benefits:
+
+- Persist across page views (navigating)
+- Persist across reloading the page or closing and opening the browser
+- State is available across tabs and windows for the current browser, though only for the current domain.
+
+Then instead of getting and setting on `this.state`, you could use `localStorage`. And using the store pattern, the rest of the app won't care how it's stored and will just have to interact with the store wrapper.
+
+### Repo username
+
+I found that when using a `state` attribute on `store`, there would be a lag that means that the value is not used when switching views.
+
+Even when using `reactive`:
+
+```javascript
+const store = {
+  state: reactive({
+    repoUsername: localStorage.getItem("repoUsername")
+  }),
+  
+  // setRepoUsername...
+```
+
+So I left out `state` completely and that works. It was also suggested on this [thread](https://stackoverflow.com/questions/51015101/how-to-make-data-from-localstorage-reactive-in-vue-js) to no try and make it reactive. I guess because Vue can't check when the value is updated - the value is only known when doing a `getItem` call.
+
+```javascript
+const store = {
+  getRepoUsername() {
+    return localStorage.getItem('repoUsername')
+  },
+
+  /**
+   * Store a repository username. e.g. 'MyUsername'.
+   */
+  setRepoUsername(value: string) {
+    if (this.debug) {
+      console.debug(`Storing repo username: ${value}`);
+    }
+
+    localStorage.setItem('repoUsername', value)
+  },
+```
+
+### TodoMVC
+
+See also the [TodoMVC](https://v3.vuejs.org/examples/todomvc.html) example in the docs, which uses `localStorage`.
+
 {% endraw %}
