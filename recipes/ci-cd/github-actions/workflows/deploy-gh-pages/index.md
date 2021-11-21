@@ -12,3 +12,13 @@ These generic flows work for anything with an output directory, including:
 - Single-Page Applications - anything in Node.js or Yarn that creates a build such as React or Vue.js
 
 See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide on use of tokens.
+
+### Related
+
+- [Build and deploy - Jekyll][] section.
+- [GH Pages Deploy - Node][] page.
+- [MkDocs][] section.
+
+[Build and deploy - Jekyll]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %}
+[GH Pages Deploy - Node]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/gh-pages.md %}
+[MkDocs]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/mkdocs/index.md %}
