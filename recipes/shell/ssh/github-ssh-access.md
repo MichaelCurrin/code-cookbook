@@ -8,7 +8,8 @@ How to set up SSH on your machine from scratch and configure SSH access on your 
 
 ## Why
 
-If you set up GitHub SSH access, then you can clone, push or pull using an SSH repo URL. Note the URL does not start with `https`, unlike the usual **HTTP(* accesd method, which is less secure.
+If you set up GitHub SSH access, then you can clone, push or pull using an SSH-style URL. Note the URL does not start with `https`, unlike the usual **HTTP** access method, which is less secure as it needs a password or token.
+Using SSH means you allow an SSH key-pair for a specific device, unlike a password or token which can be reused anywhere.
 
 e.g.
 
@@ -16,7 +17,7 @@ e.g.
 $ git clone git@github.com:MichaelCurrin/code-cookbook.git
 ```
 
-This avoids having to enter your **password** each time your push, or if you pull a private repo. And this is especially useful if **2FA** is setup.
+This avoids having to enter your **password** each time your push, or if you pull a private repo. And this is especially useful if **2FA** is setup as you would have to add your code from Google Authenticator or similar on every push.
 
 You can also use the SSH URL for any **public** repos by other people if you want to clone them (you won't be able to push unless you are a collaborator though).
 
