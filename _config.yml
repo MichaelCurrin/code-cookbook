@@ -18,13 +18,11 @@ header_pages:
   - about.md
 
 exclude:
-  - bin/
   - docs/
   - hooks/
   - vendor/
   - CONTRIBUTING.md
   - Gemfile
-  - Gemfile.lock
   - LICENSE
   - Makefile
   - README.md
