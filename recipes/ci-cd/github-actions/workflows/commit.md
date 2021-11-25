@@ -1,6 +1,6 @@
 ---
 title: Commit
-description: How to commit files during the CI flow - using a generic Action
+description: How to commit and push files during the CI flow 
 ---
 
 
@@ -39,7 +39,9 @@ A placeholder step is used to modify files in the workspace. Replace it with som
 
 ### No action
 
-A simple way to commit any changes on the current branch. This is slightly verbose but not too long. You know exactly what it is doing and it is easy to customize.
+A simple way to commit any changes on the current branch and push changes.
+
+This is slightly verbose but not too long. You know exactly what it is doing and it is easy to customize.
 
 - `main.yml`
     ```yaml
@@ -54,13 +56,13 @@ A simple way to commit any changes on the current branch. This is slightly verbo
         id: git-check
         run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
 
-      - name: Commit changes
+      - name: Commit and push changes
         if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --global user.name 'Automated Publisher'
           git config --global user.email 'actions@users.noreply.github.com'
           git commit -am "Commit message..."
-          
+
           git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push
     ```
