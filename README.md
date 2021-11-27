@@ -1,6 +1,7 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusable code patterns which you can use as reference or copy to your project
 
+[![GH Pages Deploy](https://github.com/MichaelCurrin/code-cookbook/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/code-cookbook/actions?query=workflow:"GH+Pages+Deploy")
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
