@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Create an action | Code Cookbook</title>
+
+    <meta property="og:title" content="Create an action" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Create an action" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/actions/create.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/actions/create.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/actions/create.html",
+    "headline":    "Create an action",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/actions/create.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/actions/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>Create an action</span>
+        </h1>
+
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/">
+    CI/CD
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
+    GitHub Actions
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/actions/">
+    Actions
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/actions/create.html" class="underline">
+                Create an action
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <p>If you can’t find an action on the GitHub Marketplace that meets your needs and you’re not happy to write commands in the workflow steps, you can write you own action. This will be reusable for yourself and others across repos and so is a neat way to package your logic.</p>
+
+<p>Note this page is not for beginners as it involves detailed knowledge about Actions and adding a public repo to be used in workflows. Before making an action, consider if an existing action or a multi-step workflow will solve your need.</p>
+
+<p>There are Docker and JavaScript action types. This page focuses on the former.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>Create a repo which has at least these files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">README.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">entrypoint.sh</code>
+    <ul>
+      <li>Shell script with your core logic. This could reference other TypeScript or Python scripts for example.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Dockerfile</code>
+    <ul>
+      <li>Set up dependencies for your action.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="contents">Contents</h2>
+
+<p>Example <code class="language-plaintext highlighter-rouge">Dockefile</code> contents with placeholder values:</p>
+
+<div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> debian:9.5-slim</span>
+
+<span class="k">RUN </span>apt update
+<span class="k">RUN </span>apt <span class="nb">install</span> <span class="nt">-yq</span> PACKAGE
+
+<span class="k">LABEL</span><span class="s"> "com.github.actions.name"="My Name"</span>
+<span class="k">LABEL</span><span class="s"> "com.github.actions.description"="My description"</span>
+<span class="k">LABEL</span><span class="s"> "com.github.actions.color"="green"</span>
+<span class="k">LABEL</span><span class="s"> "com.github.actions.icon"="truck"</span>
+
+<span class="k">LABEL</span><span class="s"> "repository"="http://github.com/USERNAME/REPO_NAME"</span>
+<span class="k">LABEL</span><span class="s"> "homepage"="https://github.com/USERNAME/REPO_NAME"</span>
+<span class="k">LABEL</span><span class="s"> "maintainer"="USERNAME &lt;foo@bar.com&gt;"</span>
+
+<span class="k">ADD</span><span class="s"> entrypoint.sh /entrypoint.sh</span>
+<span class="k">RUN </span><span class="nb">chmod</span> +x /entrypoint.sh
+<span class="k">ENTRYPOINT</span><span class="s"> ["/entrypoint.sh"]</span>
+</code></pre></div></div>
+
+<p>The metadata might be more appropriate in <code class="language-plaintext highlighter-rouge">action.yml</code> as covered in the docs. See <a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions">Metadata syntax</a>.</p>
+
+<p>You might want to add more packages or do some set up around folders and installing dependencies (like node packages or gems).</p>
+
+<h2 id="releasing">Releasing</h2>
+
+<p>I am not familiar with how to get an action on the marketplace. Read this <a href="https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace">doc</a>.</p>
+
+<p>But you can use <em>any</em> action repo that is public (including your own) in a workflow, if it just exists on GitHub and is valid in its format</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">my-user/my-repo-action@v1</span>
+</code></pre></div></div>
+
+<p>Repos are typically named with <code class="language-plaintext highlighter-rouge">-action</code> at the end.</p>
+
+<p>Tagging using semvar convention helps ensure safety for using your action. See <a href="https://docs.github.com/en/actions/creating-actions/about-actions#using-release-management-for-actions">Release management</a>.</p>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

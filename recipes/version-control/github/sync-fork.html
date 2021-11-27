@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Sync fork | Code Cookbook</title>
+
+    <meta property="og:title" content="Sync fork" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Sync fork" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="How to bring your forked GH repo in line with the original repo, without a merge commit" />
+    <meta property="og:description" content="How to bring your forked GH repo in line with the original repo, without a merge commit" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/version-control/github/sync-fork.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/version-control/github/sync-fork.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "How to bring your forked GH repo in line with the original repo, without a merge commit",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/version-control/github/sync-fork.html",
+    "headline":    "Sync fork",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/version-control/github/sync-fork.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/version-control/github/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>Sync fork</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>How to bring your forked GH repo in line with the original repo, without a merge commit</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/version-control/">
+    Version control
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/version-control/github/">
+    GitHub
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/version-control/github/sync-fork.html" class="underline">
+                Sync fork
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <h2 id="shell-commands">Shell commands</h2>
+
+<p>See explanation in the later sections. Here is the code.</p>
+
+<p>My example flow:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:MichaelCurrin/birdseye.git
+<span class="nv">$ </span><span class="nb">cd </span>birdseye
+<span class="nv">$ </span>git remote add upstream git@github.com:alexmojaki/birdseye.git
+<span class="nv">$ </span>git fetch upstream master
+<span class="nv">$ </span>git reset <span class="nt">--hard</span> upstream/master
+<span class="nv">$ </span>git push origin master
+</code></pre></div></div>
+
+<ul>
+  <li>Where this is my fork: <code class="language-plaintext highlighter-rouge">MichaelCurrin/birdseye</code></li>
+  <li>This is the “upstream” repo added as remote: <code class="language-plaintext highlighter-rouge">alexmojaki/birdseye</code>.</li>
+  <li>And <code class="language-plaintext highlighter-rouge">master</code> is the default branch. Alternatively one could check what the current branch is when doing the initial clone. Note that the upstream might change to <code class="language-plaintext highlighter-rouge">dev</code> or <code class="language-plaintext highlighter-rouge">main</code> etc. and delete <code class="language-plaintext highlighter-rouge">master</code>, when you still use <code class="language-plaintext highlighter-rouge">master</code>.</li>
+</ul>
+
+<p>That could be redone using variables:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ REPO_NAME</span><span class="o">=</span>birdseye
+<span class="nv">$ FORK_USER</span><span class="o">=</span>MichaelCurrin
+<span class="nv">$ UPSTREAM_USER</span><span class="o">=</span>alexmojaki
+<span class="nv">$ BRANCH</span><span class="o">=</span>master
+</code></pre></div></div>
+
+<p>Note - you might want to also run <code class="language-plaintext highlighter-rouge">git status</code> and remove untracked files.</p>
+
+<p>This can also be done with:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clean <span class="nt">-d</span>
+</code></pre></div></div>
+
+<h2 id="background">Background</h2>
+
+<p>An annoyance with forking a repo on GitHub is that yours can go out of sync with the original (“upstream”) when commits are made to it. And it is best to update your fork to be in sync with upstream, before making any contributions to the fork on a feature branch based off on your <code class="language-plaintext highlighter-rouge">master</code>.</p>
+
+<p>You can make a Pull Request from upstream to your fork, either by hand or using a GH Action. Unfortunately, this introduces a <strong>merge commit</strong> (even if you use the squash or rebase PR options). Which is out of place in your commit history as it is a commit that does not exist on the “upstream” and therefore it would add noise if you tried to contribute a change which includes this commit. Also you’ll see your repo tell you that your branch is 1 commit ahead of upstream, even though the content is identical.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Use git on the command-line to bring your fork up to speed.</p>
+
+<p>This can be done using the <em>git merge</em> command, but there is a small risk of commit histories looking different. Such as if the upstream repo had <em>all</em> commits rebased so email address could be updated - I’ve had this experience before. Or if you happen to have made any local commits on master.</p>
+
+<p>I recommend the <code class="language-plaintext highlighter-rouge">git reset</code> option rather. This will not try and do a merge between the two repos but will update your <code class="language-plaintext highlighter-rouge">master</code> branch HEAD to point to the same commit as the fork’s latest commit - regardless of if your fork is ahead or behind.</p>
+
+<p>Warning: You will lose any unsaved file changes locally. And the force push will overwrite any changes on your fork which differ from the upstream.</p>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

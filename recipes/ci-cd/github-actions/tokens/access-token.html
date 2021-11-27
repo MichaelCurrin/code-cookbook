@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Access Token | Code Cookbook</title>
+
+    <meta property="og:title" content="Access Token" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Access Token" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="A guide to the user-generated GitHub auth token for use in workflows" />
+    <meta property="og:description" content="A guide to the user-generated GitHub auth token for use in workflows" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/tokens/access-token.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/tokens/access-token.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "A guide to the user-generated GitHub auth token for use in workflows",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/tokens/access-token.html",
+    "headline":    "Access Token",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/tokens/access-token.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/tokens/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>Access Token</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>A guide to the user-generated GitHub auth token for use in workflows</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/">
+    CI/CD
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
+    GitHub Actions
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/">
+    Tokens cheatsheet
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/access-token.html" class="underline">
+                Access Token
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            
+<h2 id="warnings">Warnings</h2>
+
+<h3 id="security">Security</h3>
+
+<ul>
+  <li>This is the <strong>least</strong> secure option - if the value is retrieved such as from your logs or by a malicious plugin or action, someone has access to read and write to <em>all</em> your repos. Both in GH workflows and outside - such as doing a <code class="language-plaintext highlighter-rouge">curl</code> request on their machine to the GitHub API with your token in the URL or payload.</li>
+  <li>Unfortunately, the documentation for many actions recommends this Access Token option.</li>
+  <li>But, you can try swap this out in your workflow and use <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> instead and see if the Action supports it. Or read the README.md of the action to see what tokens it supports.</li>
+  <li>Fortunately, GitHub does remove the token values from log output and restricts PRs of forks from using tokens.
+    <ul>
+      <li>Note from the Secrets settings tab of a repo:
+        <blockquote>
+          <p>Secrets are not passed to workflows that are triggered by a pull request from a fork. <a href="https://docs.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets">Learn more</a>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="generating">Generating</h3>
+
+<ul>
+  <li>You can regenerate a token at any time. This will invalidate any values for the same token which are in use and possibly compromised.</li>
+  <li>Then you have to go and update all the secrets of repos that use that same token. Which is typically just in a repo’s workflow secrets or a local <code class="language-plaintext highlighter-rouge">.env</code> file for GH API use.</li>
+  <li>If you use the same token across many repos, you’ll invalidate them all at once and will have to go and update the Secrets section on GH for each. To avoid this, you can create multiple secrets, each named after a repo. However, they will still all be <em>functionally the same</em>, each with access to write to <em>all</em> your public repos and not just one repo.</li>
+  <li>You can set an optional expiry time for the token such as 90 days. This makes it more secure but requires manually effort to regenerate and store the token when time is up.</li>
+</ul>
+
+<h2 id="scopes">Scopes</h2>
+
+<p>See <a href="https://docs.github.com/en/developers/apps/scopes-for-oauth-apps">Scopes for OAuth Apps</a> in the docs to see meanings forthe scope choices available.</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">public_repo</code> - Limits access to public repositories. That includes read/write access to code…</p>
+</blockquote>
+
+<h2 id="name-of-the-token">Name of the token</h2>
+
+<p>This is known a “Personal Access Token” or “PAT” or “authentication token”.</p>
+
+<p>Depending on the workflow, the token should be named something like one of these:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ACCESS_TOKEN</code></li>
+  <li><code class="language-plaintext highlighter-rouge">JEKYLL_PAT</code></li>
+</ul>
+
+<p>Note the <code class="language-plaintext highlighter-rouge">GITHUB_</code> is a reserved prefix in workflows, so custom token names cannot start with that.</p>
+
+<h2 id="about">About</h2>
+
+<ul>
+  <li>Create manually this at the GitHub <strong>account</strong> level, then and use for one or more repos.</li>
+  <li>Uses
+    <ul>
+      <li>Can be used in actions</li>
+      <li>For other cases such as manual or automated REST requests, if you put it in your URL or enter as your password. The PAT is actually <em>necessary</em> if you use two-factor authenticator or single sign-on (otherwise you have to enter those a number on the command-line).</li>
+    </ul>
+  </li>
+  <li>Permissions are granted per token based on your choices.</li>
+  <li>Read it in action with this, or whatever name the action uses:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">${{ secrets.ACCESS_TOKEN }}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Docs - <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">Creating a Personal Access Token for the Command-line</a></li>
+</ul>
+
+<p><em><strong>Warning:</strong> Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.</em></p>
+
+<p>GitHub will also scan to find accidentally committed secrets - <a href="https://help.github.com/en/github/administering-a-repository/about-secret-scanning">doc</a>.</p>
+
+<h2 id="how-to-use-an-access-token-in-a-workflow">How to use an access token in a workflow</h2>
+
+<h3 id="1-create-token">1. Create token</h3>
+
+<ol>
+  <li>Go to <strong>Personal Access Tokens</strong> section.
+    <ul>
+      <li>Shortcut URL: <a href="https://github.com/settings/tokens">github.com/settings/tokens</a></li>
+      <li>Navigation:
+        <ol>
+          <li>Go to your GitHub profile.</li>
+          <li>Go to <strong>Developer Settings</strong></li>
+          <li>Go to the <strong>Personal Access Tokens</strong> section.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Create</strong> a token - or use one you generated before.
+    <ul>
+      <li>Give it a name like “GitHub Actions”</li>
+      <li>Give it has permissions to <code class="language-plaintext highlighter-rouge">public_repos</code> (or the entire <code class="language-plaintext highlighter-rouge">repo</code> scope for private repository). Necessary for the action
+to commit to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch.</li>
+    </ul>
+  </li>
+  <li><strong>Copy</strong> the token value.</li>
+</ol>
+
+<h3 id="2-set-the-token-in-secrets">2. Set the token in secrets</h3>
+
+<ol>
+  <li>Go to your repository’s <em>*Settings</em></li>
+  <li>Go to <strong>Secrets</strong> tab.</li>
+  <li><strong>Create</strong> a secret.
+    <ul>
+      <li>Use an appropriate name - see <a href="#name-of-the-token">Name of the token</a>.</li>
+      <li>Past the value copied in the section above.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="3-use-the-token-in-a-workflow">3. Use the token in a workflow</h3>
+
+<p>Format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>${{ secrets.TOKEN_NAME }}
+</code></pre></div></div>
+
+<p>e.g.</p>
+
+<p>Pass as an argument to an Action.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">with</span><span class="pi">:</span>
+  <span class="na">ACCESS_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.ACCESS_TOKEN }}</span>
+</code></pre></div></div>
+
+<p>Set as an environment variable on the workflow, job, or step scope.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">env</span><span class="pi">:</span>
+  <span class="na">JEKYLL_PAT</span><span class="pi">:</span> <span class="s">${{ secrets.JEKYLL_PAT }}</span>
+</code></pre></div></div>
+
+<h3 id="4-run-build">4. Run build</h3>
+
+<ul>
+  <li>Push to the repo, or</li>
+  <li>Go to your action and click rerun.</li>
+</ul>
+
+<h2 id="using-an-access-token-directly">Using an access token directly</h2>
+
+<p>For cloning or pulling a private repo, or doing restricted actions such as push.</p>
+
+<h3 id="manual">Manual</h3>
+
+<p>Use token in place of a password.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/USERNAME/REPO_NAME.git
+Username: &lt;token&gt;
+Password:
+</code></pre></div></div>
+
+<h3 id="automation">Automation</h3>
+
+<p>Use token as part of the URL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;token&gt;@github.com/USERNAME/REPO_NAME.git
+</code></pre></div></div>
+
+<p>Or</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;token&gt;:x-oauth-basic@github.com/USERNAME/REPO_NAME.git
+</code></pre></div></div>
+
+<h3 id="notes">Notes</h3>
+
+<p>From <a href="https://github.blog/2012-09-21-easier-builds-and-deployments-using-git-over-https-and-oauth/">blog post</a></p>
+
+<blockquote>
+  <p>Tokens should be treated as passwords. Putting the token in the clone URL will result in Git writing it to the .git/config file in plain text. Unfortunately, this happens for HTTP passwords, too.</p>
+</blockquote>
+
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

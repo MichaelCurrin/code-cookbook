@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>SSH keys | Code Cookbook</title>
+
+    <meta property="og:title" content="SSH keys" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="SSH keys" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/keys.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/keys.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/keys.html",
+    "headline":    "SSH keys",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/shell/ssh/keys.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/shell/ssh/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>SSH keys</span>
+        </h1>
+
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/shell/">
+    Shell
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/shell/ssh/">
+    SSH
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/shell/ssh/keys.html" class="underline">
+                SSH keys
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <p>SSH is about identity verification - proving who you are when starting a shell tunnel that needs to be secure.</p>
+
+<p>Note that this page assumes you followed the <a href="install.md">install</a> page to get SSH service running and the CLI commands available.</p>
+
+<h2 id="about-keys">About keys</h2>
+
+<p>SSH works using a combination of public and private keys.</p>
+
+<p>Files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id_rsa</code> - private key.</li>
+  <li><code class="language-plaintext highlighter-rouge">id_rsa.pub</code> - public key.</li>
+</ul>
+
+<p>Both exist on your machine.</p>
+
+<p>The public and private keys work together with encryption algorithms. Your public key can be added to authorized keys on another machine or on GitHub account. So that host will allow a machine to connect if its public key matches what is has stored, but the connecting machine must also have the appropriate private key which is used in the connection but not sent directly.</p>
+
+<h2 id="view-ssh-keys">View SSH keys</h2>
+
+<p>Even if SSH is installed, you don’t necessarily have keys setup.</p>
+
+<p>Check for SSH keys - you’ll get an error if the directory doesn’t exist.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span> ~/.ssh/
+</code></pre></div></div>
+
+<p>View the value of public key file. You’ll want to copy this to a platform like GitHub to give yourself SSH access.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>view PUBLIC_KEY
+</code></pre></div></div>
+
+<p>e.g.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>view ~/.ssh/id_rsa.pub
+</code></pre></div></div>
+
+<p>Or print the value.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> ~/.ssh/id_rsa.pub
+</code></pre></div></div>
+
+<p>Copy to clipboard.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> ~/.ssh/id_rsa.pub | pbcopy
+</code></pre></div></div>
+
+<p>If the machine doesn’t have an SSH key set, you’ll have to generate one - see below.</p>
+
+<h2 id="generate-keys">Generate keys</h2>
+
+<p>Generate a new SSH key.</p>
+
+<p>First navigate to the appropriate directory, to ensure the files get generated there.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> ~/.ssh
+<span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
+</code></pre></div></div>
+
+<p>Use the command below.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa
+</code></pre></div></div>
+
+<p>If this is your first SSH key on the current machine, you can leave the location as the default and press enter.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (~/.ssh/id_rsa):
+</code></pre></div></div>
+
+<p>That will use filenames as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+</code></pre></div></div>
+
+<p>Or, enter a custom name like <code class="language-plaintext highlighter-rouge">id_rsa_abc</code> and press enter.</p>
+
+<p>You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key.</p>
+
+<p>Alternate command, as recommended by <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub doc</a>, so you can push to GitHub repos via SSH.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096 <span class="nt">-C</span> COMMENT
+</code></pre></div></div>
+
+<p>Flags:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-t rsa</code>: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.</li>
+  <li><code class="language-plaintext highlighter-rouge">-b 4096</code>: Specifies the number of bits in the key to create</li>
+  <li><code class="language-plaintext highlighter-rouge">-f ~/.ssh/foo.key</code>: Specifies the filename of the key file.</li>
+  <li><code class="language-plaintext highlighter-rouge">-C COMMENT</code>: A comment added to the end to help identify. This could be <code class="language-plaintext highlighter-rouge">"your_email@example.com"</code> as recommended by GitHub docs or rather use <code class="language-plaintext highlighter-rouge">"$USER@$HOSTNAME"</code> as it is specific to your machine.</li>
+</ul>
+
+<p>See also this SSH Public Key <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key">tutorial</a> on Git’s docs, but that doesn’t add much to what is covered above.</p>
+
+<p>Your SSH key won’t be enabled yet - see <a href="#add-key-to-ssh-agent">Add key to SSH agent</a> section.</p>
+
+<h2 id="passphrase">Passphrase</h2>
+
+<p>Add a passphrase to your SSH key for added security.</p>
+
+<h3 id="set">Set</h3>
+
+<p>Optional set a passphrase when prompted the creation step.</p>
+
+<h3 id="update">Update</h3>
+
+<p>You can change the passphrase for an <em>existing</em> private key without regenerating the keypair by typing the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-p</span>
+<span class="c"># Start the SSH key creation process</span>
+<span class="o">&gt;</span> Enter file <span class="k">in </span>which the key is <span class="o">(</span>/Users/you/.ssh/id_rsa<span class="o">)</span>: <span class="o">[</span>Hit enter]
+<span class="o">&gt;</span> Key has comment <span class="s1">'/Users/you/.ssh/id_rsa'</span>
+<span class="o">&gt;</span> Enter new passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: <span class="o">[</span>Type new passphrase]
+<span class="o">&gt;</span> Enter same passphrase again: <span class="o">[</span>One more <span class="nb">time </span><span class="k">for </span>luck]
+<span class="o">&gt;</span> Your identification has been saved with the new passphrase.
+</code></pre></div></div>
+
+<p>If your key already has a passphrase, you will be prompted to enter it before you can change to a new passphrase.</p>
+
+<p><a href="https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases">source</a></p>
+
+<h2 id="add-key-to-ssh-agent">Add key to SSH agent</h2>
+
+<p>Note that may not be necessary if the agent is already running and if you are using the default SSH key name.</p>
+
+<h3 id="1-start-agent">1. Start agent</h3>
+
+<p>Start the <code class="language-plaintext highlighter-rouge">ssh-agent</code> in the background.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>ssh-agent <span class="nt">-s</span><span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Samle output - ignore this.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Agent pid 59566
+</code></pre></div></div>
+
+<h3 id="2-add-key">2. Add key</h3>
+
+<p>Add your SSH <strong>private</strong> key (without the suffix). to the <code class="language-plaintext highlighter-rouge">ssh-agent</code>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-add PRIVATE_KEY
+</code></pre></div></div>
+<p>e.g.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-add ~/.ssh/id_rsa
+</code></pre></div></div>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>EditorConfig | Code Cookbook</title>
+
+    <meta property="og:title" content="EditorConfig" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="EditorConfig" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="How to set up a `.editorconfig` file for your project" />
+    <meta property="og:description" content="How to set up a `.editorconfig` file for your project" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/other/editor-config.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/other/editor-config.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "How to set up a `.editorconfig` file for your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/other/editor-config.html",
+    "headline":    "EditorConfig",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/other/editor-config.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/other/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>EditorConfig</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>How to set up a <code class="language-plaintext highlighter-rouge">.editorconfig</code> file for your project</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/other/">
+    Other
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/other/editor-config.html" class="underline">
+                EditorConfig
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <h2 id="resources">Resources</h2>
+
+<p>See <a href="https://editorconfig.org/">editorconfig.org</a> homepage for info on what the file is, how use wildcard patterns and what properties are supported.</p>
+
+<p>See also the <a href="https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties">EditorConfig Properties</a> on the Wiki.</p>
+
+<h2 id="about">About</h2>
+
+<p>What is EditorConfig?</p>
+
+<blockquote>
+  <p>EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.</p>
+</blockquote>
+
+<p>The point of the editor config file is to set one in each repo so that when you or others edit in the repo in any coding environment that supports it, you’ll get the same settings.</p>
+
+<p>Note that this config intended to be a versioned file read by IDEs - I don’t think command-line tools use it and I don’t know if Vim or Nano etc. support it.</p>
+
+<h2 id="ide-support">IDE support</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">.editorconfig</code> file will actually only be used by your IDE if it supports it.</p>
+
+<p>GitHub and PyCharm don’t need an extension to support this.</p>
+
+<p>And for VS Code, you need an extension. I would highly recommend the <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig</a> extension as it is popular and I find it useful.</p>
+
+<p>You can even use that extension to generate config for you. Open the VS Code command prompt and run the <em>Generate .editorconfig</em> command, or right-click in your root directory and select the option from the droplist.</p>
+
+<h3 id="vs-code-notes">VS Code notes</h3>
+
+<p>Without using editor config, VS Code already lets you choose the indent level and tabs/spaces handling. You cannot set by file type though. It can infer from the current file, this can be annoying when creating a new JS file example and the indent level is set to 4 spaces until you override it or type it that way.</p>
+
+<p>When you use an editor config file and an extension in VS Code, then you get to set the indentation for all new and existing files. This takes preference over the VS Code’s inference.</p>
+
+<p>For using the Prettier extension, see the VS Code section of the <a href="/code-cookbook/recipes/javascript/format-and-lint/prettier.html">Prettier</a> page.</p>
+
+<h2 id="file-format">File format</h2>
+
+<p>Here is what the general syntax is like for a <code class="language-plaintext highlighter-rouge">.editorconfig</code> file.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="nn">[*]</span>
+<span class="py">foo</span> <span class="p">=</span> <span class="s">bar</span>
+
+<span class="nn">[*.foo]</span>
+<span class="c"># ...
+</span>
+<span class="nn">[*.{buzz,bazz}]</span>
+<span class="c"># ...
+</span>
+<span class="nn">[lib/**.js]</span>
+<span class="c"># ...
+</span>
+<span class="nn">[{*.gql,Makefile}]</span>
+<span class="c"># ...
+</span></code></pre></div></div>
+
+<p>Some like to put this at the top of the file before <code class="language-plaintext highlighter-rouge">root</code>.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># editorconfig.org
+</span></code></pre></div></div>
+
+<h2 id="samples">Samples</h2>
+
+<p>Pick from some of these sample files and add as <code class="language-plaintext highlighter-rouge">.editorconfig</code> in your project. Some are smaller pieces that can be combined as you mix languages.</p>
+
+<h3 id="own">Own</h3>
+
+<p>I find this a good starting point for adding a file to a project and then refining it.</p>
+
+<h4 id="focus-on-2-spaces">Focus on 2 spaces</h4>
+
+<p>Set the default to 2 spaces and then override certain files to 4 spaces.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="nn">[*]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+  <span class="nn">[*.{html,md}]</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+
+  <span class="nn">[Makefile]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Even if most of the files in a repo are markdown or HTML (needing 4 spaces), I find this setup elegant and useful for most of my projects. Since most file types actually do use 2 spaces (shell, JS, Ruby, CSS, JSON, YAML), but they get covered by <code class="language-plaintext highlighter-rouge">*</code> without having to name separately.</p>
+
+<p>Notes</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">Makefile</code> part is clearer on its own. Take it out if you don’t use a <code class="language-plaintext highlighter-rouge">Makefile</code>.</li>
+  <li>For Python projects, use <code class="language-plaintext highlighter-rouge">py</code> in the <code class="language-plaintext highlighter-rouge">html</code> section.</li>
+  <li>Set the max line length to <code class="language-plaintext highlighter-rouge">80</code> or <code class="language-plaintext highlighter-rouge">100</code>, as you like. I can’t see a difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like <code class="language-plaintext highlighter-rouge">10</code>.
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">max_line_length</span> <span class="p">=</span> <span class="s">80</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="focus-on-4-spaces">Focus on 4 spaces</h4>
+
+<p>If most of your file types use 4 spaces, use this. I find this uncommon.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="nn">[*]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+
+  <span class="nn">[*.{js,json}]</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+  <span class="nn">[Makefile]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>If your 2-space block below starts growing to handle shell, YAML and more, consider using the 2-space section covered above.</p>
+
+<h4 id="shared-projects">Shared projects</h4>
+
+<p>If you have other people contributing your project with a different choice of IDE, IDE configuration or OS, then you may want to extend these settings to include this:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*]</span>
+  <span class="c"># ...
+</span>  <span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
+  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+  <span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Options for <code class="language-plaintext highlighter-rouge">end_of_line</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">lf</code> - for Linux.</li>
+  <li><code class="language-plaintext highlighter-rouge">cr</code> - for old macOS.</li>
+  <li><code class="language-plaintext highlighter-rouge">crlf</code> - for Windows.</li>
+</ul>
+
+<h3 id="python">Python</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*.py]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Optionally set the size. Though, PyLint CLI, the VS Code extensions and VS Code settings handle this fine without setting this.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">max_line_length</span> <span class="p">=</span> <span class="s">80</span>
+</code></pre></div></div>
+
+<h3 id="two-spaces">Two spaces</h3>
+
+<p>If needed, also add this to the samples below.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+</code></pre></div></div>
+
+<h3 id="configs">Configs</h3>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{json,yml}]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h4 id="shell">Shell</h4>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.sh]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h4 id="javascript">JavaScript</h4>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.js]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,ts}]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,json}]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h4 id="ruby">Ruby</h4>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.rb]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h3 id="tabs">Tabs</h3>
+
+<h4 id="make">Make</h4>
+
+<p>Without EditorConfig settings, VS Code knows that a <code class="language-plaintext highlighter-rouge">Makefile</code> must have tabs only (running a file with spaces gives an error).</p>
+
+<p>But, if you use a <code class="language-plaintext highlighter-rouge">*</code> glob change it in your EditorConfig, then also need a section <code class="language-plaintext highlighter-rouge">Makefile</code>. The size is just for visibility in the IDE, not how it is stored.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[Makefile]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div></div>
+
+<p>See section at the start of this page on mixing <code class="language-plaintext highlighter-rouge">Makefile</code> with other extensions.</p>
+
+<h4 id="graphql">GraphQL</h4>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.gql]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div></div>
+
+<h3 id="markdown">Markdown</h3>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div></div>
+
+<h3 id="html">HTML</h3>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*]</span>
+<span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+</code></pre></div></div>
+
+<p>For Jekyll markdown support, you could add this. But only if you use the double space at the end of a line to signify a line break.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">false</span>
+</code></pre></div></div>
+
+<h3 id="jekyll">Jekyll</h3>
+
+<p>For a Jekyll project.</p>
+
+<p>Using HTML, Markdown, JSON, YAML, JS, Ruby, CSS, SCSS and Makefile. Only the first two are actually 4 spaces, so a glob for 2 spaces makes sense.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="nn">[*]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+  <span class="nn">[*.{md,html}]</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+
+  <span class="nn">[Makefile]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="generated">Generated</h3>
+
+<p>The VS Code EditorConfig extension can generate a file for you if you right-click on a file on a folder. It won’t create one if one already exists. You could also create them them at multiple levels if you need to.</p>
+
+<p>Here is output generated by the extension. Perhaps too verbose. Also I had to tweak the whitespace ones as below and VS Code does not honor those - it has its own IDE settings.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="nn">[*]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+  <span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="generic">Generic</h3>
+
+<p>Some devs like to set this before going into more formats. I don’t see it as needed. The final newline I handle in my global IDE settings, though other users might not.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*]</span>
+  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="demo">Demo</h3>
+
+<p>Based on the sample on the EditorConfig homepage.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># EditorConfig is awesome: https://EditorConfig.org
+</span>
+  <span class="c"># top-most EditorConfig file
+</span>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="c"># Unix-style newlines with a newline ending every file
+</span>  <span class="nn">[*]</span>
+  <span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
+  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+
+  <span class="c"># Matches multiple files with brace expansion notation
+</span>  <span class="c"># Set default charset
+</span>  <span class="nn">[*.{js,py}]</span>
+  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+
+  <span class="c"># 4 space indentation
+</span>  <span class="nn">[*.py]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+
+  <span class="c"># Tab indentation (no size specified)
+</span>  <span class="nn">[Makefile]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+
+  <span class="c"># Indentation override for all JS under lib directory
+</span>  <span class="nn">[lib/**.js]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+  <span class="c"># Matches the exact files either package.json or .travis.yml
+</span>  <span class="nn">[{package.json,.travis.yml}]</span>
+  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

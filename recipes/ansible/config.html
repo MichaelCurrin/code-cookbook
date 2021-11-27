@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Config | Code Cookbook</title>
+
+    <meta property="og:title" content="Config" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Config" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ansible/config.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ansible/config.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ansible/config.html",
+    "headline":    "Config",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ansible/config.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ansible/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>Config</span>
+        </h1>
+
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ansible/">
+    Ansible
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/ansible/config.html" class="underline">
+                Config
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ansible.cfg</code>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># config file for ansible -- https://ansible.com/
+</span>  <span class="c"># ===============================================
+</span>
+  <span class="c"># nearly all parameters can be overridden in ansible-playbook
+</span>  <span class="c"># or with command line flags. ansible will read ANSIBLE_CONFIG,
+</span>  <span class="c"># ansible.cfg in the current working directory, .ansible.cfg in
+</span>  <span class="c"># the home directory or /etc/ansible/ansible.cfg, whichever it
+</span>  <span class="c"># finds first
+</span>
+  <span class="nn">[defaults]</span>
+
+  <span class="c"># some basic default values...
+</span>
+  <span class="c">#inventory      = /etc/ansible/hosts
+</span>  <span class="c">#library        = /usr/share/my_modules/
+</span>  <span class="c">#module_utils   = /usr/share/my_module_utils/
+</span>  <span class="c">#remote_tmp     = ~/.ansible/tmp
+</span>  <span class="c">#local_tmp      = ~/.ansible/tmp
+</span>  <span class="c">#plugin_filters_cfg = /etc/ansible/plugin_filters.yml
+</span>  <span class="c">#forks          = 5
+</span>  <span class="c">#poll_interval  = 15
+</span>  <span class="c">#sudo_user      = root
+</span>  <span class="c">#ask_sudo_pass = True
+</span>  <span class="c">#ask_pass      = True
+</span>  <span class="c">#transport      = smart
+</span>  <span class="c">#remote_port    = 22
+</span>  <span class="c">#module_lang    = C
+</span>  <span class="c">#module_set_locale = False
+</span>
+  <span class="c"># plays will gather facts by default, which contain information about
+</span>  <span class="c"># the remote system.
+</span>  <span class="c">#
+</span>  <span class="c"># smart - gather by default, but don't regather if already gathered
+</span>  <span class="c"># implicit - gather by default, turn off with gather_facts: False
+</span>  <span class="c"># explicit - do not gather by default, must say gather_facts: True
+</span>  <span class="c">#gathering = implicit
+</span>
+  <span class="c"># This only affects the gathering done by a play's gather_facts directive,
+</span>  <span class="c"># by default gathering retrieves all facts subsets
+</span>  <span class="c"># all - gather all subsets
+</span>  <span class="c"># network - gather min and network facts
+</span>  <span class="c"># hardware - gather hardware facts (longest facts to retrieve)
+</span>  <span class="c"># virtual - gather min and virtual facts
+</span>  <span class="c"># facter - import facts from facter
+</span>  <span class="c"># ohai - import facts from ohai
+</span>  <span class="c"># You can combine them using comma (ex: network,virtual)
+</span>  <span class="c"># You can negate them using ! (ex: !hardware,!facter,!ohai)
+</span>  <span class="c"># A minimal set of facts is always gathered.
+</span>  <span class="c">#gather_subset = all
+</span>
+  <span class="c"># some hardware related facts are collected
+</span>  <span class="c"># with a maximum timeout of 10 seconds. This
+</span>  <span class="c"># option lets you increase or decrease that
+</span>  <span class="c"># timeout to something more suitable for the
+</span>  <span class="c"># environment.
+</span>  <span class="c"># gather_timeout = 10
+</span>
+  <span class="c"># Ansible facts are available inside the ansible_facts.* dictionary
+</span>  <span class="c"># namespace. This setting maintains the behaviour which was the default prior
+</span>  <span class="c"># to 2.5, duplicating these variables into the main namespace, each with a
+</span>  <span class="c"># prefix of 'ansible_'.
+</span>  <span class="c"># This variable is set to True by default for backwards compatibility. It
+</span>  <span class="c"># will be changed to a default of 'False' in a future release.
+</span>  <span class="c"># ansible_facts.
+</span>  <span class="c"># inject_facts_as_vars = True
+</span>
+  <span class="c"># additional paths to search for roles in, colon separated
+</span>  <span class="c">#roles_path    = /etc/ansible/roles
+</span>
+  <span class="c"># uncomment this to disable SSH key host checking
+</span>  <span class="c">#host_key_checking = False
+</span>
+  <span class="c"># change the default callback, you can only have one 'stdout' type  enabled at a time.
+</span>  <span class="c">#stdout_callback = skippy
+</span>
+
+  <span class="c">## Ansible ships with some plugins that require whitelisting,
+</span>  <span class="c">## this is done to avoid running all of a type by default.
+</span>  <span class="c">## These setting lists those that you want enabled for your system.
+</span>  <span class="c">## Custom plugins should not need this unless plugin author specifies it.
+</span>
+  <span class="c"># enable callback plugins, they can output to stdout but cannot be 'stdout' type.
+</span>  <span class="c">#callback_whitelist = timer, mail
+</span>
+  <span class="c"># Determine whether includes in tasks and handlers are "static" by
+</span>  <span class="c"># default. As of 2.0, includes are dynamic by default. Setting these
+</span>  <span class="c"># values to True will make includes behave more like they did in the
+</span>  <span class="c"># 1.x versions.
+</span>  <span class="c">#task_includes_static = False
+</span>  <span class="c">#handler_includes_static = False
+</span>
+  <span class="c"># Controls if a missing handler for a notification event is an error or a warning
+</span>  <span class="c">#error_on_missing_handler = True
+</span>
+  <span class="c"># change this for alternative sudo implementations
+</span>  <span class="c">#sudo_exe = sudo
+</span>
+  <span class="c"># What flags to pass to sudo
+</span>  <span class="c"># WARNING: leaving out the defaults might create unexpected behaviours
+</span>  <span class="c">#sudo_flags = -H -S -n
+</span>
+  <span class="c"># SSH timeout
+</span>  <span class="c">#timeout = 10
+</span>
+  <span class="c"># default user to use for playbooks if user is not specified
+</span>  <span class="c"># (/usr/bin/ansible will use current user as default)
+</span>  <span class="c">#remote_user = root
+</span>
+  <span class="c"># logging is off by default unless this path is defined
+</span>  <span class="c"># if so defined, consider logrotate
+</span>  <span class="c">#log_path = /var/log/ansible.log
+</span>
+  <span class="c"># default module name for /usr/bin/ansible
+</span>  <span class="c">#module_name = command
+</span>
+  <span class="c"># use this shell for commands executed under sudo
+</span>  <span class="c"># you may need to change this to bin/bash in rare instances
+</span>  <span class="c"># if sudo is constrained
+</span>  <span class="c">#executable = /bin/sh
+</span>
+  <span class="c"># if inventory variables overlap, does the higher precedence one win
+</span>  <span class="c"># or are hash values merged together?  The default is 'replace' but
+</span>  <span class="c"># this can also be set to 'merge'.
+</span>  <span class="c">#hash_behaviour = replace
+</span>
+  <span class="c"># by default, variables from roles will be visible in the global variable
+</span>  <span class="c"># scope. To prevent this, the following option can be enabled, and only
+</span>  <span class="c"># tasks and handlers within the role will see the variables there
+</span>  <span class="c">#private_role_vars = yes
+</span>
+  <span class="c"># list any Jinja2 extensions to enable here:
+</span>  <span class="c">#jinja2_extensions = jinja2.ext.do,jinja2.ext.i18n
+</span>
+  <span class="c"># if set, always use this private key file for authentication, same as
+</span>  <span class="c"># if passing --private-key to ansible or ansible-playbook
+</span>  <span class="c">#private_key_file = /path/to/file
+</span>
+  <span class="c"># If set, configures the path to the Vault password file as an alternative to
+</span>  <span class="c"># specifying --vault-password-file on the command line.
+</span>  <span class="c">#vault_password_file = /path/to/vault_password_file
+</span>
+  <span class="c"># format of string {{ ansible_managed }} available within Jinja2
+</span>  <span class="c"># templates indicates to users editing templates files will be replaced.
+</span>  <span class="c"># replacing {file}, {host} and {uid} and strftime codes with proper values.
+</span>  <span class="c">#ansible_managed = Ansible managed: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}
+</span>  <span class="c"># {file}, {host}, {uid}, and the timestamp can all interfere with idempotence
+</span>  <span class="c"># in some situations so the default is a static string:
+</span>  <span class="c">#ansible_managed = Ansible managed
+</span>
+  <span class="c"># by default, ansible-playbook will display "Skipping [host]" if it determines a task
+</span>  <span class="c"># should not be run on a host.  Set this to "False" if you don't want to see these "Skipping"
+</span>  <span class="c"># messages. NOTE: the task header will still be shown regardless of whether or not the
+</span>  <span class="c"># task is skipped.
+</span>  <span class="c">#display_skipped_hosts = True
+</span>
+  <span class="c"># by default, if a task in a playbook does not include a name: field then
+</span>  <span class="c"># ansible-playbook will construct a header that includes the task's action but
+</span>  <span class="c"># not the task's args.  This is a security feature because ansible cannot know
+</span>  <span class="c"># if the *module* considers an argument to be no_log at the time that the
+</span>  <span class="c"># header is printed.  If your environment doesn't have a problem securing
+</span>  <span class="c"># stdout from ansible-playbook (or you have manually specified no_log in your
+</span>  <span class="c"># playbook on all of the tasks where you have secret information) then you can
+</span>  <span class="c"># safely set this to True to get more informative messages.
+</span>  <span class="c">#display_args_to_stdout = False
+</span>
+  <span class="c"># by default (as of 1.3), Ansible will raise errors when attempting to dereference
+</span>  <span class="c"># Jinja2 variables that are not set in templates or action lines. Uncomment this line
+</span>  <span class="c"># to revert the behavior to pre-1.3.
+</span>  <span class="c">#error_on_undefined_vars = False
+</span>
+  <span class="c"># by default (as of 1.6), Ansible may display warnings based on the configuration of the
+</span>  <span class="c"># system running ansible itself. This may include warnings about 3rd party packages or
+</span>  <span class="c"># other conditions that should be resolved if possible.
+</span>  <span class="c"># to disable these warnings, set the following value to False:
+</span>  <span class="c">#system_warnings = True
+</span>
+  <span class="c"># by default (as of 1.4), Ansible may display deprecation warnings for language
+</span>  <span class="c"># features that should no longer be used and will be removed in future versions.
+</span>  <span class="c"># to disable these warnings, set the following value to False:
+</span>  <span class="c">#deprecation_warnings = True
+</span>
+  <span class="c"># (as of 1.8), Ansible can optionally warn when usage of the shell and
+</span>  <span class="c"># command module appear to be simplified by using a default Ansible module
+</span>  <span class="c"># instead.  These warnings can be silenced by adjusting the following
+</span>  <span class="c"># setting or adding warn=yes or warn=no to the end of the command line
+</span>  <span class="c"># parameter string.  This will for example suggest using the git module
+</span>  <span class="c"># instead of shelling out to the git command.
+</span>  <span class="c"># command_warnings = False
+</span>
+
+  <span class="c"># set plugin path directories here, separate with colons
+</span>  <span class="c">#action_plugins     = /usr/share/ansible/plugins/action
+</span>  <span class="c">#become_plugins     = /usr/share/ansible/plugins/become
+</span>  <span class="c">#cache_plugins      = /usr/share/ansible/plugins/cache
+</span>  <span class="c">#callback_plugins   = /usr/share/ansible/plugins/callback
+</span>  <span class="c">#connection_plugins = /usr/share/ansible/plugins/connection
+</span>  <span class="c">#lookup_plugins     = /usr/share/ansible/plugins/lookup
+</span>  <span class="c">#inventory_plugins  = /usr/share/ansible/plugins/inventory
+</span>  <span class="c">#vars_plugins       = /usr/share/ansible/plugins/vars
+</span>  <span class="c">#filter_plugins     = /usr/share/ansible/plugins/filter
+</span>  <span class="c">#test_plugins       = /usr/share/ansible/plugins/test
+</span>  <span class="c">#terminal_plugins   = /usr/share/ansible/plugins/terminal
+</span>  <span class="c">#strategy_plugins   = /usr/share/ansible/plugins/strategy
+</span>
+
+  <span class="c"># by default, ansible will use the 'linear' strategy but you may want to try
+</span>  <span class="c"># another one
+</span>  <span class="c">#strategy = free
+</span>
+  <span class="c"># by default callbacks are not loaded for /bin/ansible, enable this if you
+</span>  <span class="c"># want, for example, a notification or logging callback to also apply to
+</span>  <span class="c"># /bin/ansible runs
+</span>  <span class="c">#bin_ansible_callbacks = False
+</span>
+
+  <span class="c"># don't like cows?  that's unfortunate.
+</span>  <span class="c"># set to 1 if you don't want cowsay support or export ANSIBLE_NOCOWS=1
+</span>  <span class="c">#nocows = 1
+</span>
+  <span class="c"># set which cowsay stencil you'd like to use by default. When set to 'random',
+</span>  <span class="c"># a random stencil will be selected for each task. The selection will be filtered
+</span>  <span class="c"># against the `cow_whitelist` option below.
+</span>  <span class="c">#cow_selection = default
+</span>  <span class="c">#cow_selection = random
+</span>
+  <span class="c"># when using the 'random' option for cowsay, stencils will be restricted to this list.
+</span>  <span class="c"># it should be formatted as a comma-separated list with no spaces between names.
+</span>  <span class="c"># NOTE: line continuations here are for formatting purposes only, as the INI parser
+</span>  <span class="c">#       in python does not support them.
+</span>  <span class="c">#cow_whitelist=bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
+</span>  <span class="c">#              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
+</span>  <span class="c">#              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+</span>
+  <span class="c"># don't like colors either?
+</span>  <span class="c"># set to 1 if you don't want colors, or export ANSIBLE_NOCOLOR=1
+</span>  <span class="c">#nocolor = 1
+</span>
+  <span class="c"># if set to a persistent type (not 'memory', for example 'redis') fact values
+</span>  <span class="c"># from previous runs in Ansible will be stored.  This may be useful when
+</span>  <span class="c"># wanting to use, for example, IP information from one group of servers
+</span>  <span class="c"># without having to talk to them in the same playbook run to get their
+</span>  <span class="c"># current IP information.
+</span>  <span class="c">#fact_caching = memory
+</span>
+  <span class="c">#This option tells Ansible where to cache facts. The value is plugin dependent.
+</span>  <span class="c">#For the jsonfile plugin, it should be a path to a local directory.
+</span>  <span class="c">#For the redis plugin, the value is a host:port:database triplet: fact_caching_connection = localhost:6379:0
+</span>
+  <span class="c">#fact_caching_connection=/tmp
+</span>
+
+
+  <span class="c"># retry files
+</span>  <span class="c"># When a playbook fails a .retry file can be created that will be placed in ~/
+</span>  <span class="c"># You can enable this feature by setting retry_files_enabled to True
+</span>  <span class="c"># and you can change the location of the files by setting retry_files_save_path
+</span>
+  <span class="c">#retry_files_enabled = False
+</span>  <span class="c">#retry_files_save_path = ~/.ansible-retry
+</span>
+  <span class="c"># squash actions
+</span>  <span class="c"># Ansible can optimise actions that call modules with list parameters
+</span>  <span class="c"># when looping. Instead of calling the module once per with_ item, the
+</span>  <span class="c"># module is called once with all items at once. Currently this only works
+</span>  <span class="c"># under limited circumstances, and only with parameters named 'name'.
+</span>  <span class="c">#squash_actions = apk,apt,dnf,homebrew,pacman,pkgng,yum,zypper
+</span>
+  <span class="c"># prevents logging of task data, off by default
+</span>  <span class="c">#no_log = False
+</span>
+  <span class="c"># prevents logging of tasks, but only on the targets, data is still logged on the master/controller
+</span>  <span class="c">#no_target_syslog = False
+</span>
+  <span class="c"># controls whether Ansible will raise an error or warning if a task has no
+</span>  <span class="c"># choice but to create world readable temporary files to execute a module on
+</span>  <span class="c"># the remote machine.  This option is False by default for security.  Users may
+</span>  <span class="c"># turn this on to have behaviour more like Ansible prior to 2.1.x.  See
+</span>  <span class="c"># https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+</span>  <span class="c"># for more secure ways to fix this than enabling this option.
+</span>  <span class="c">#allow_world_readable_tmpfiles = False
+</span>
+  <span class="c"># controls the compression level of variables sent to
+</span>  <span class="c"># worker processes. At the default of 0, no compression
+</span>  <span class="c"># is used. This value must be an integer from 0 to 9.
+</span>  <span class="c">#var_compression_level = 9
+</span>
+  <span class="c"># controls what compression method is used for new-style ansible modules when
+</span>  <span class="c"># they are sent to the remote system.  The compression types depend on having
+</span>  <span class="c"># support compiled into both the controller's python and the client's python.
+</span>  <span class="c"># The names should match with the python Zipfile compression types:
+</span>  <span class="c"># * ZIP_STORED (no compression. available everywhere)
+</span>  <span class="c"># * ZIP_DEFLATED (uses zlib, the default)
+</span>  <span class="c"># These values may be set per host via the ansible_module_compression inventory
+</span>  <span class="c"># variable
+</span>  <span class="c">#module_compression = 'ZIP_DEFLATED'
+</span>
+  <span class="c"># This controls the cutoff point (in bytes) on --diff for files
+</span>  <span class="c"># set to 0 for unlimited (RAM may suffer!).
+</span>  <span class="c">#max_diff_size = 1048576
+</span>
+  <span class="c"># This controls how ansible handles multiple --tags and --skip-tags arguments
+</span>  <span class="c"># on the CLI.  If this is True then multiple arguments are merged together.  If
+</span>  <span class="c"># it is False, then the last specified argument is used and the others are ignored.
+</span>  <span class="c"># This option will be removed in 2.8.
+</span>  <span class="c">#merge_multiple_cli_flags = True
+</span>
+  <span class="c"># Controls showing custom stats at the end, off by default
+</span>  <span class="c">#show_custom_stats = True
+</span>
+  <span class="c"># Controls which files to ignore when using a directory as inventory with
+</span>  <span class="c"># possibly multiple sources (both static and dynamic)
+</span>  <span class="c">#inventory_ignore_extensions = ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
+</span>
+  <span class="c"># This family of modules use an alternative execution path optimized for network appliances
+</span>  <span class="c"># only update this setting if you know how this works, otherwise it can break module execution
+</span>  <span class="c">#network_group_modules=eos, nxos, ios, iosxr, junos, vyos
+</span>
+  <span class="c"># When enabled, this option allows lookups (via variables like {{lookup('foo')}} or when used as
+</span>  <span class="c"># a loop with `with_foo`) to return data that is not marked "unsafe". This means the data may contain
+</span>  <span class="c"># jinja2 templating language which will be run through the templating engine.
+</span>  <span class="c"># ENABLING THIS COULD BE A SECURITY RISK
+</span>  <span class="c">#allow_unsafe_lookups = False
+</span>
+  <span class="c"># set default errors for all plays
+</span>  <span class="c">#any_errors_fatal = False
+</span>
+  <span class="nn">[inventory]</span>
+  <span class="c"># enable inventory plugins, default: 'host_list', 'script', 'auto', 'yaml', 'ini', 'toml'
+</span>  <span class="c">#enable_plugins = host_list, virtualbox, yaml, constructed
+</span>
+  <span class="c"># ignore these extensions when parsing a directory as inventory source
+</span>  <span class="c">#ignore_extensions = .pyc, .pyo, .swp, .bak, ~, .rpm, .md, .txt, ~, .orig, .ini, .cfg, .retry
+</span>
+  <span class="c"># ignore files matching these patterns when parsing a directory as inventory source
+</span>  <span class="c">#ignore_patterns=
+</span>
+  <span class="c"># If 'true' unparsed inventory sources become fatal errors, they are warnings otherwise.
+</span>  <span class="c">#unparsed_is_failed=False
+</span>
+  <span class="nn">[privilege_escalation]</span>
+  <span class="c">#become=True
+</span>  <span class="c">#become_method=sudo
+</span>  <span class="c">#become_user=root
+</span>  <span class="c">#become_ask_pass=False
+</span>
+  <span class="nn">[paramiko_connection]</span>
+
+  <span class="c"># uncomment this line to cause the paramiko connection plugin to not record new host
+</span>  <span class="c"># keys encountered.  Increases performance on new host additions.  Setting works independently of the
+</span>  <span class="c"># host key checking setting above.
+</span>  <span class="c">#record_host_keys=False
+</span>
+  <span class="c"># by default, Ansible requests a pseudo-terminal for commands executed under sudo. Uncomment this
+</span>  <span class="c"># line to disable this behaviour.
+</span>  <span class="c">#pty=False
+</span>
+  <span class="c"># paramiko will default to looking for SSH keys initially when trying to
+</span>  <span class="c"># authenticate to remote devices.  This is a problem for some network devices
+</span>  <span class="c"># that close the connection after a key failure.  Uncomment this line to
+</span>  <span class="c"># disable the Paramiko look for keys function
+</span>  <span class="c">#look_for_keys = False
+</span>
+  <span class="c"># When using persistent connections with Paramiko, the connection runs in a
+</span>  <span class="c"># background process.  If the host doesn't already have a valid SSH key, by
+</span>  <span class="c"># default Ansible will prompt to add the host key.  This will cause connections
+</span>  <span class="c"># running in background processes to fail.  Uncomment this line to have
+</span>  <span class="c"># Paramiko automatically add host keys.
+</span>  <span class="c">#host_key_auto_add = True
+</span>
+  <span class="nn">[ssh_connection]</span>
+
+  <span class="c"># ssh arguments to use
+</span>  <span class="c"># Leaving off ControlPersist will result in poor performance, so use
+</span>  <span class="c"># paramiko on older platforms rather than removing it, -C controls compression use
+</span>  <span class="c">#ssh_args = -C -o ControlMaster=auto -o ControlPersist=60s
+</span>
+  <span class="c"># The base directory for the ControlPath sockets.
+</span>  <span class="c"># This is the "%(directory)s" in the control_path option
+</span>  <span class="c">#
+</span>  <span class="c"># Example:
+</span>  <span class="c"># control_path_dir = /tmp/.ansible/cp
+</span>  <span class="c">#control_path_dir = ~/.ansible/cp
+</span>
+  <span class="c"># The path to use for the ControlPath sockets. This defaults to a hashed string of the hostname,
+</span>  <span class="c"># port and username (empty string in the config). The hash mitigates a common problem users
+</span>  <span class="c"># found with long hostnames and the conventional %(directory)s/ansible-ssh-%%h-%%p-%%r format.
+</span>  <span class="c"># In those cases, a "too long for Unix domain socket" ssh error would occur.
+</span>  <span class="c">#
+</span>  <span class="c"># Example:
+</span>  <span class="c"># control_path = %(directory)s/%%h-%%r
+</span>  <span class="c">#control_path =
+</span>
+  <span class="c"># Enabling pipelining reduces the number of SSH operations required to
+</span>  <span class="c"># execute a module on the remote server. This can result in a significant
+</span>  <span class="c"># performance improvement when enabled, however when using "sudo:" you must
+</span>  <span class="c"># first disable 'requiretty' in /etc/sudoers
+</span>  <span class="c">#
+</span>  <span class="c"># By default, this option is disabled to preserve compatibility with
+</span>  <span class="c"># sudoers configurations that have requiretty (the default on many distros).
+</span>  <span class="c">#
+</span>  <span class="c">#pipelining = False
+</span>
+  <span class="c"># Control the mechanism for transferring files (old)
+</span>  <span class="c">#   * smart = try sftp and then try scp [default]
+</span>  <span class="c">#   * True = use scp only
+</span>  <span class="c">#   * False = use sftp only
+</span>  <span class="c">#scp_if_ssh = smart
+</span>
+  <span class="c"># Control the mechanism for transferring files (new)
+</span>  <span class="c"># If set, this will override the scp_if_ssh option
+</span>  <span class="c">#   * sftp  = use sftp to transfer files
+</span>  <span class="c">#   * scp   = use scp to transfer files
+</span>  <span class="c">#   * piped = use 'dd' over SSH to transfer files
+</span>  <span class="c">#   * smart = try sftp, scp, and piped, in that order [default]
+</span>  <span class="c">#transfer_method = smart
+</span>
+  <span class="c"># if False, sftp will not use batch mode to transfer files. This may cause some
+</span>  <span class="c"># types of file transfer failures impossible to catch however, and should
+</span>  <span class="c"># only be disabled if your sftp version has problems with batch mode
+</span>  <span class="c">#sftp_batch_mode = False
+</span>
+  <span class="c"># The -tt argument is passed to ssh when pipelining is not enabled because sudo
+</span>  <span class="c"># requires a tty by default.
+</span>  <span class="c">#usetty = True
+</span>
+  <span class="c"># Number of times to retry an SSH connection to a host, in case of UNREACHABLE.
+</span>  <span class="c"># For each retry attempt, there is an exponential backoff,
+</span>  <span class="c"># so after the first attempt there is 1s wait, then 2s, 4s etc. up to 30s (max).
+</span>  <span class="c">#retries = 3
+</span>
+  <span class="nn">[persistent_connection]</span>
+
+  <span class="c"># Configures the persistent connection timeout value in seconds.  This value is
+</span>  <span class="c"># how long the persistent connection will remain idle before it is destroyed.
+</span>  <span class="c"># If the connection doesn't receive a request before the timeout value
+</span>  <span class="c"># expires, the connection is shutdown. The default value is 30 seconds.
+</span>  <span class="c">#connect_timeout = 30
+</span>
+  <span class="c"># The command timeout value defines the amount of time to wait for a command
+</span>  <span class="c"># or RPC call before timing out. The value for the command timeout must
+</span>  <span class="c"># be less than the value of the persistent connection idle timeout (connect_timeout)
+</span>  <span class="c"># The default value is 30 second.
+</span>  <span class="c">#command_timeout = 30
+</span>
+  <span class="nn">[accelerate]</span>
+  <span class="c">#accelerate_port = 5099
+</span>  <span class="c">#accelerate_timeout = 30
+</span>  <span class="c">#accelerate_connect_timeout = 5.0
+</span>
+  <span class="c"># The daemon timeout is measured in minutes. This time is measured
+</span>  <span class="c"># from the last activity to the accelerate daemon.
+</span>  <span class="c">#accelerate_daemon_timeout = 30
+</span>
+  <span class="c"># If set to yes, accelerate_multi_key will allow multiple
+</span>  <span class="c"># private keys to be uploaded to it, though each user must
+</span>  <span class="c"># have access to the system via SSH to add a new key. The default
+</span>  <span class="c"># is "no".
+</span>  <span class="c">#accelerate_multi_key = yes
+</span>
+  <span class="nn">[selinux]</span>
+  <span class="c"># file systems that require special treatment when dealing with security context
+</span>  <span class="c"># the default behaviour that copies the existing context or uses the user default
+</span>  <span class="c"># needs to be changed to use the file system dependent context.
+</span>  <span class="c">#special_context_filesystems=nfs,vboxsf,fuse,ramfs,9p,vfat
+</span>
+  <span class="c"># Set this to yes to allow libvirt_lxc connections to work without SELinux.
+</span>  <span class="c">#libvirt_lxc_noseclabel = yes
+</span>
+  <span class="nn">[colors]</span>
+  <span class="c">#highlight = white
+</span>  <span class="c">#verbose = blue
+</span>  <span class="c">#warn = bright purple
+</span>  <span class="c">#error = red
+</span>  <span class="c">#debug = dark gray
+</span>  <span class="c">#deprecate = purple
+</span>  <span class="c">#skip = cyan
+</span>  <span class="c">#unreachable = red
+</span>  <span class="c">#ok = green
+</span>  <span class="c">#changed = yellow
+</span>  <span class="c">#diff_add = green
+</span>  <span class="c">#diff_remove = red
+</span>  <span class="c">#diff_lines = cyan
+</span>
+
+  <span class="nn">[diff]</span>
+  <span class="c"># Always print diff when running ( same as always running with -D/--diff )
+</span>  <span class="c"># always = no
+</span>
+  <span class="c"># Set how many context lines to show in diff
+</span>  <span class="c"># context = 3
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

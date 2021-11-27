@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Jekyll | Code Cookbook</title>
+
+    <meta property="og:title" content="Jekyll" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Jekyll" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="How to run a Jekyll site in a container" />
+    <meta property="og:description" content="How to run a Jekyll site in a container" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/jekyll.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/jekyll.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "How to run a Jekyll site in a container",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/jekyll.html",
+    "headline":    "Jekyll",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/containers/docker/jekyll.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/containers/docker/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+<span class="logo-medium"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Jekyll</title><path fill="currentColor" d="M8.073 24c-.348 0-.689-.063-1.02-.189-1.375-.525-2.104-2.02-1.726-3.402l-.015-.006.09-.226L12.399 2.01c.105-.27.057-.91.006-1.267-.016-.085-.016-.161.008-.24l.008-.023.006-.015V.458l.009-.019c.108-.292.45-.439 1.008-.439.673 0 1.602.21 2.551.573.797.307 1.523.689 2.033 1.075.602.45.842.854.707 1.2l-.031.045-.016.015c-.045.061-.09.12-.15.165-.314.271-.764.735-.84.945l-7.063 18.421-.016-.006c-.494.948-1.457 1.557-2.543 1.561H8.07l.003.006zm-2.187-3.718l-.02.05c-.447 1.201.162 2.557 1.364 3.018.271.105.551.154.837.154.971 0 1.83-.585 2.188-1.5l.027-.061 6.959-18.09c.146-.39.84-1.02.979-1.14l.016-.016c.012-.015.02-.015.02-.03 0-.06-.061-.27-.557-.645-.479-.36-1.154-.72-1.904-1.005-.868-.328-1.768-.539-2.368-.539-.39 0-.524.082-.545.126v.04c.016.104.147 1.035-.034 1.515l-6.962 18.12v.003zm8.95-11.507s-.964 1.109-1.843 1.509c-.88.398-1.529.293-2.32.756-.789.461-1.188 1.103-1.188 1.103L6.27 20.505c-.348.944.168 2.05 1.125 2.42.96.369 2.04-.12 2.412-1.056l5.029-13.094zM9.905 18.76c.104-.041.225 0 .266.105.042.104 0 .222-.105.264-.104.043-.225 0-.266-.104-.042-.097 0-.216.105-.265zm-1.014-1.802c-.152.068-.334 0-.397-.155-.07-.152 0-.334.154-.397.154-.07.335 0 .398.153.074.15.008.314-.155.39v.009zm.286-1.096c-.123-.288 0-.623.287-.758.285-.124.615 0 .75.285.121.289 0 .624-.285.757-.3.126-.629 0-.765-.285l.013.001zm2.426-2.258c.153-.074.335 0 .398.15.07.154 0 .336-.153.399-.155.07-.337 0-.399-.155-.074-.152 0-.334.154-.397v.003zm-1.293-1.379c.105-.042.226 0 .266.105.043.104 0 .226-.104.266-.104.042-.226 0-.265-.104-.044-.106.006-.227.103-.267zM13.681 1.14c.1-.261.993-.162 1.995.226.999.384 1.729.909 1.63 1.17-.104.264-.997.164-1.996-.221-1.005-.385-1.734-.91-1.632-1.176h.003z"/></svg></span>
+
+
+
+            <span>Jekyll</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>How to run a Jekyll site in a container</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/containers/">
+    Containers
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/containers/docker/">
+    Docker
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/containers/docker/jekyll.html" class="underline">
+                Jekyll
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <p>Related recipe - <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/jekyll/build/container.html">Jekyll in a container on GitHub Actions</a>.</p>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>Running Jekyll and Bundler using a container executable is useful for development across operating systems and also means you don’t have to worry about getting Ruby installed and setup. This makes it easier for other developers to use your project.</p>
+
+<p>You can also use these commands in a CI flow if you want, which is actually where initially found one of the commands.</p>
+
+<h2 id="images">Images</h2>
+
+<p>Here links to images on the Docker Hub website under the <a href="https://hub.docker.com/u/jekyll">jekyll</a> user profile. The standard image will be used in the next sections but you can change it out.</p>
+
+<ul>
+  <li><a href="https://hub.docker.com/r/jekyll/jekyll">jekyll/jekyll</a> image - standard.
+    <blockquote>
+      <p>The standard images (<code class="language-plaintext highlighter-rouge">jekyll/jekyll</code>) include a default set of “dev” packages, along with <strong>Node.js</strong>, and other stuff that makes Jekyll easy. It also includes a bunch of default gems that the community wishes us to maintain on the image.</p>
+    </blockquote>
+  </li>
+  <li><a href="https://hub.docker.com/r/jekyll/builder">jekyll/builder</a> image - includes tools.
+    <blockquote>
+      <p>The builder image comes with extra stuff that is not included in the standard image, like <code class="language-plaintext highlighter-rouge">lftp</code>, <code class="language-plaintext highlighter-rouge">openssh</code> and other extra packages meant to be used by people who are deploying their Jekyll builds to another server with a CI.</p>
+    </blockquote>
+  </li>
+  <li><a href="https://hub.docker.com/r/jekyll/minimal">jekyll/minimal</a> image - very minimal image.
+    <blockquote>
+      <p>The minimal image skips all the extra gems, all the extra dev dependencies and leaves a very small image to download. This is intended for people who do not need anything extra but Jekyll.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>You can run <code class="language-plaintext highlighter-rouge">docker pull IMAGE_NAME</code> if you want to explicitly download or update the image names above. Though you don’t have to. Use the Dockerfile or non-Dockerfile approaches below will download the tag for you if it is missing.</p>
+
+<h2 id="set-jekyll-version">Set Jekyll version</h2>
+
+<p>Set an environment variable on your host machine.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">JEKYLL_VERSION</span><span class="o">=</span>4.2.0
+</code></pre></div></div>
+
+<p>The appropriate Jekyll image will be downloaded when running a command below - you don’t have to download it explicitly.</p>
+
+<h2 id="run-jekyll-container-directly">Run Jekyll container directly</h2>
+
+<p>Run the commands below on your <strong>host</strong> machine. Here we use a Docker image to make a container and pass commands to it, without using a Dockerfile. This is light approach.</p>
+
+<p>The docker command is just long to write, you probably want to use an alias, <code class="language-plaintext highlighter-rouge">Makefile</code>, <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> or similar to make that easier to call.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>Steps are based on the Jekyll Docker repo’s <a href="https://github.com/envygeeks/jekyll-docker#readme">docs</a> and an article titled <a href="https://ddewaele.github.io/running-jekyll-in-docker/">Running Jekyll in Docker</a>.</li>
+  <li>Using a <code class="language-plaintext highlighter-rouge">Dockerfile</code> file and docker compose (with volumes) might more convenient (less to type) than using the Jekyll container executable approach here. Maybe using <code class="language-plaintext highlighter-rouge">make</code> instead (though that is not standard on Windows). Note that <code class="language-plaintext highlighter-rouge">Dockerfile</code> is useful if you need to add Node.js to your container and you can still use volumes so you can edit code on the host. See the end of this guide.</li>
+  <li>On this page below are low-level commands which means more to type (or paste) each time but they don’t rely on any configs like <code class="language-plaintext highlighter-rouge">Dockerfile</code>, so are easy to experiment with.</li>
+  <li>For using container steps in CI, see the <a href="({% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %})">Jekyll on GH Actions</a> recipes.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">--rm</code> flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persisted outside the container. But you should leave out the flag when you want to perist gems inside the container.</li>
+  <li>We use the <code class="language-plaintext highlighter-rouge">volume</code> flag so that we can mount the project in the container as <code class="language-plaintext highlighter-rouge">/srv/jekyll</code>. Any operations in the container like gems in <code class="language-plaintext highlighter-rouge">vendor</code> and output in <code class="language-plaintext highlighter-rouge">_site</code> are persisted on the host.</li>
+</ul>
+
+<h3 id="create-new-site">Create new site</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>my-blog
+<span class="nv">$ </span><span class="nb">cd </span>my-blog
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+  <span class="nt">-it</span> jekyll/jekyll:<span class="nv">$JEKYLL_VERSION</span> <span class="se">\</span>
+  jekyll new <span class="nb">.</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unable to find image 'jekyll/jekyll:4.2.0' locally
+4.2.0: Pulling from jekyll/jekyll
+...
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
+Running bundle install in /srv/jekyll...
+...
+</code></pre></div></div>
+
+<p>As you can see from above, that container installs gems using Bundler, after setting up the Jekyll template files including <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
+
+<h3 id="build-site">Build site</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+  <span class="nt">-it</span> jekyll/jekyll:<span class="nv">$JEKYLL_VERSION</span> <span class="se">\</span>
+  jekyll build <span class="nt">--trace</span>
+</code></pre></div></div>
+
+<p>Check the results on the host:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>_site/
+<span class="nv">$ </span><span class="nb">ls </span>vendor/bundle/ruby/2.7.0/gems/
+</code></pre></div></div>
+
+<p>Tip - if your Jekyll version in <code class="language-plaintext highlighter-rouge">Gemfile</code> differs from the version of the image, then you should make them the same. If you want to use say Jekyll <code class="language-plaintext highlighter-rouge">4.3</code> in your Gemfile and the Docker image tag is not available, you could use <code class="language-plaintext highlighter-rouge">bundle exec jekyll build</code> as the command passed to the container. To ensure the project Jekyll gets used, instead of the container’s global Jekyll.</p>
+
+<h3 id="run-dev-server">Run dev server</h3>
+
+<p>This one command will install gems to your host’s <code class="language-plaintext highlighter-rouge">vendor</code> directory using <code class="language-plaintext highlighter-rouge">bundle install</code>, then start a dev server.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> blog <span class="se">\</span>
+  <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+  <span class="nt">-p</span> 4000:4000 <span class="se">\</span>
+  <span class="nt">-it</span> jekyll/jekyll:<span class="nv">$JEKYLL_VERSION</span> <span class="se">\</span>
+  jekyll serve <span class="nt">--trace</span>
+</code></pre></div></div>
+
+<p>Then open in the browser:</p>
+
+<ul>
+  <li><a href="http://localhost:4000">localhost:4000</a></li>
+</ul>
+
+<p>Cancel to stop the container.</p>
+
+<p>The command above is from the docs, but I recommend adding <code class="language-plaintext highlighter-rouge">--rm</code> to remove the container and every time you run the command it will install gems. If you don’t use <code class="language-plaintext highlighter-rouge">--rm</code>, you’ll get an error on running the command again saying the name is in use and you need to remove or rename.</p>
+
+<p>Or leave out <code class="language-plaintext highlighter-rouge">--rm</code> and use this to start the stopped container again, which is quicker and shorter to type. It will skip installing gems though.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker start blog
+<span class="nv">$ </span>docker stop blog
+<span class="nv">$ </span>docker restart blog
+</code></pre></div></div>
+
+<p>You can also run the initial run command using <code class="language-plaintext highlighter-rouge">-d</code>. Unfortunately when doing that or running <code class="language-plaintext highlighter-rouge">start</code>, you can’t see the output so also need a log command. While run with <code class="language-plaintext highlighter-rouge">--rm</code> covers you for logging.</p>
+
+<h3 id="install-gems">Install gems</h3>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">bundle install</code> seems to run whenever a command is run in the container, so you don’t have to run it yourself.</p>
+
+<p>Note that the container must be running for <code class="language-plaintext highlighter-rouge">docker exec</code> to work. You don’t have to specify volume here as it is already in use.</p>
+
+<p>Here we install a theme, as recommended in the doc.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nt">-it</span> blog <span class="se">\</span>
+  gem <span class="nb">install </span>jekyll-theme-hydeout
+</code></pre></div></div>
+
+<p>Note use of <code class="language-plaintext highlighter-rouge">gem</code> as system-wide gems, since you are working in a dedicated container. Normally you’d use <code class="language-plaintext highlighter-rouge">bundle</code> for your project, outside a container.</p>
+
+<h3 id="start-interactive-shell">Start interactive shell</h3>
+
+<p>If you want to have a look at the state of files or maybe gems in the container, you can start the container interactive mode.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nt">-it</span> blog bash
+</code></pre></div></div>
+
+<h2 id="set-up-jekyll-with-a-dockerfile">Set up Jekyll with a Dockerfile</h2>
+<blockquote>
+  <p>How to use a Jekyll image in a Dockerfile</p>
+</blockquote>
+
+<p>If you have more complex set up steps, then Jekyll through a container directly as above might be too limiting.</p>
+
+<p>For example, you might want to install Postgres, Go or Python using <code class="language-plaintext highlighter-rouge">apt-get</code>, <code class="language-plaintext highlighter-rouge">apk</code> or <code class="language-plaintext highlighter-rouge">curl</code>. See a few samples below.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">jekyll/builder</code> image already comes with Ruby, Bundle, Jekyll and even Node, so you don’t have to install those. Below we use <code class="language-plaintext highlighter-rouge">jekyll/jekyll</code> and add Node to it.</p>
+
+<h3 id="node-jekyll-and-sqlite-apk">Node, Jekyll and SQLite (APK)</h3>
+
+<p>Here we do the following:</p>
+
+<ol>
+  <li>Use Node image (you could leave this out if you want).</li>
+  <li>Use Jekyll image.</li>
+  <li>Install SQLite using a package manager. (Replace with another <code class="language-plaintext highlighter-rouge">apk</code> package if you want).
+    <ul>
+      <li>Here we use <code class="language-plaintext highlighter-rouge">apk</code>, the Alpine Linux package manager. That is used within the <a href="https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/Dockerfile">jekyll Dockerfile</a>. See <a href="https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/">tutorial</a>.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> node:14</span>
+<span class="k">FROM</span><span class="s"> jekyll/jekyll</span>
+
+<span class="k">RUN </span>apk update
+<span class="k">RUN </span>apk add sqlite
+</code></pre></div></div>
+
+<h3 id="node-sqlite-apt-and-jekyll">Node, SQLite (APT) and Jekyll</h3>
+
+<p>Here we do the following:</p>
+
+<ol>
+  <li>Use Node image.</li>
+  <li>Install SQLite using a package manager.
+    <ul>
+      <li>Here we <code class="language-plaintext highlighter-rouge">apt-get</code>.</li>
+      <li>Warning: If you do want to use <code class="language-plaintext highlighter-rouge">apt-get</code> with the Jekyll image, you must use the <code class="language-plaintext highlighter-rouge">apt-get</code> command <em>before</em> <code class="language-plaintext highlighter-rouge">jekyll</code>, otherwise it will not be found. I don’t know why - the Jekyll image seems to do something to remove use of <code class="language-plaintext highlighter-rouge">apt-get</code>.</li>
+    </ul>
+  </li>
+  <li>Use Jekyll image.</li>
+</ol>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> node:14</span>
+
+<span class="k">RUN </span>apt-get update
+<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\
+</span>  sqlite
+
+<span class="k">FROM</span><span class="s"> jekyll/jekyll</span>
+</code></pre></div></div>
+
+<h3 id="node-apt-and-jekyll">Node (APT) and Jekyll</h3>
+
+<p>If you prefer to install Node with a package manager rather than an image. You might get an old version like v10. You’ll need to add a registry if you want 12 or 14.</p>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apt-get update
+<span class="k">RUN </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\
+</span>  node.js
+
+<span class="k">FROM</span><span class="s"> jekyll/jekyll</span>
+</code></pre></div></div>
+
+<h3 id="entry-point">Entry point</h3>
+
+<p>When you use the Jekyll image in Dockerfile, you lose the entry point, so the container will do nothing.</p>
+
+<p>Here we add the entrypoint, based on image’s underlying Dockerfile.</p>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> jekyll/jekyll:4.2.0</span>
+
+<span class="k">CMD</span><span class="s"> ["jekyll", "--help"]</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["/usr/jekyll/bin/entrypoint"]</span>
+</code></pre></div></div>
+
+<p>See the <a href="https://github.com/envygeeks/jekyll-docker/blob/master/repos/jekyll/copy/all/usr/jekyll/bin/entrypoint">entrypoint</a> script in the repo. It seems when I run the container, if you command starts with <code class="language-plaintext highlighter-rouge">jekyll</code> then it will run the <code class="language-plaintext highlighter-rouge">bundle install</code> steps for you but not if you do something else.</p>
+
+<p>If you don’t provide any arguments, the container will show the Jekyll command help.</p>
+
+<h3 id="build-and-run">Build and run</h3>
+
+<p>Use the container built on a Dockerfile as set up above.</p>
+
+<p>We use <code class="language-plaintext highlighter-rouge">rm</code> here to delete the container each time as we don’t care about persisting any data in the container. And if you don’t use the flag, then you’ll end up creating a whole of lot of identical containers everytime you run <code class="language-plaintext highlighter-rouge">docker run</code> or <code class="language-plaintext highlighter-rouge">docker build</code>, which you’ll have to cleanup later.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker build <span class="nt">--rm</span> <span class="nt">-t</span> my_app:latest <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Then make a container from the image. Make sure to use <code class="language-plaintext highlighter-rouge">-v</code> or <code class="language-plaintext highlighter-rouge">--volume</code> as below, to persist build output outside the container, where you can use it.</p>
+
+<p>Test Jekyll runs and displays help.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> my_app
+ruby 2.7.1p83 <span class="o">(</span>2020-03-31 revision a0c7c23c9c<span class="o">)</span> <span class="o">[</span>x86_64-linux-musl]
+jekyll 4.2.0 <span class="nt">--</span> Jekyll is a blog-aware, static site generator <span class="k">in </span>Ruby
+
+Usage:
+
+  jekyll &lt;subcommand&gt; <span class="o">[</span>options]
+...
+</code></pre></div></div>
+
+<p>Start a dev server:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">-p</span> 4000:4000 <span class="se">\</span>
+  <span class="nt">--volume</span> <span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+  my_app <span class="se">\</span>
+  jekyll serve <span class="nt">--trace</span>
+</code></pre></div></div>
+
+<p>Build site:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">-p</span> 4000:4000 <span class="se">\</span>
+  <span class="nt">--volume</span> <span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+  my_app <span class="se">\</span>
+  jekyll build <span class="nt">--trace</span>
+</code></pre></div></div>
+
+<p>Rather than chaining two commands at the end using <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, rather use two <code class="language-plaintext highlighter-rouge">docker run</code> commands such as one for your NPM install and one for <code class="language-plaintext highlighter-rouge">jekyll serve</code> which handles gems for you.</p>
+
+<p>To test the command works on a Jekyll site, you can leave out the config and just make a homepage.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.md</code>
+    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ---
+  title: Homepage
+  ---
+
+  # <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
+
+  Hello, world!
+</code></pre></div>    </div>
+    <p>Then the result:</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">_site/index.html</code>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"homepage"</span><span class="nt">&gt;</span>Homepage<span class="nt">&lt;/h1&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>Hello, world!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

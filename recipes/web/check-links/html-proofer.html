@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>HTML Proofer | Code Cookbook</title>
+
+    <meta property="og:title" content="HTML Proofer" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="HTML Proofer" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/web/check-links/html-proofer.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/web/check-links/html-proofer.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/web/check-links/html-proofer.html",
+    "headline":    "HTML Proofer",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/web/check-links/html-proofer.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/web/check-links/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>HTML Proofer</span>
+        </h1>
+
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/web/">
+    Web
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/web/check-links/">
+    Check links
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/web/check-links/html-proofer.html" class="underline">
+                HTML Proofer
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <p>How to use a Ruby gem as a CLI tool to validate links in your static HTML, for both internal and external links.</p>
+
+<p>You can run this on any directory of static HTML files, locally or with CI.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/gjtorikian/html-proofer">gjtorikian/html-proofer</a> gem on GitHub.</li>
+  <li><a href="https://rubygems.org/gems/html-proofer/">html-proofer gem</a> on RubyGems registry.</li>
+</ul>
+
+<h2 id="related-sections">Related sections</h2>
+
+<ul>
+  <li><a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/ruby/install-gems-and-run.html">Install gems and run</a> - generic recipe for setting up Ruby and gems on GH Actions.</li>
+  <li><a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/html-proofer-generic.html">HTML Proofer GH Actions</a> recipe in the GH Actions section.</li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<h3 id="install-gem-globally">Install gem globally</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem <span class="nb">install </span>html-proofer <span class="nt">--user-install</span>
+</code></pre></div></div>
+
+<p>This is if you are going to reuse across your projects or are going to use in CI. You’ll get the latest version available.</p>
+
+<h3 id="install-gem-in-project">Install gem in project</h3>
+
+<p>This is for if you want to include in your project.</p>
+
+<p>Use Bundler to add to your <code class="language-plaintext highlighter-rouge">Gemfile</code> and install it.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle add html-proofer <span class="nt">--group</span> <span class="s2">"test"</span>
+</code></pre></div></div>
+
+<p>Or add the following your <code class="language-plaintext highlighter-rouge">Gemfile</code> manually:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"html-proofer"</span><span class="p">,</span> <span class="s2">"~&gt; 3.19"</span><span class="p">,</span> <span class="ss">:group</span> <span class="o">=&gt;</span> <span class="ss">:test</span>
+</code></pre></div></div>
+
+<p>Then later you can install it like this, locally or in CI.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="use-with-docker">Use with Docker</h3>
+
+<p>See <a href="https://hub.docker.com/r/klakegg/html-proofer">html-proofer</a> on Docker Hub.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="1-build">1. Build</h3>
+
+<p>Create your HTML output as usual.</p>
+
+<p>e.g.</p>
+
+<ul>
+  <li>Jekyll site.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div>    </div>
+  </li>
+  <li>NPM app.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>npm run build
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="2-run-checks">2. Run checks</h3>
+
+<p>Run the tool against your output directory, like <code class="language-plaintext highlighter-rouge">_site</code> or <code class="language-plaintext highlighter-rouge">build</code>.</p>
+
+<h4 id="global-level">Global level</h4>
+
+<p>If you installed globally, then run:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmproofer _site
+</code></pre></div></div>
+
+<h4 id="project-level">Project level</h4>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>htmlproofer _site
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Running ["ScriptCheck", "LinkCheck", "ImageCheck"] on ["_site"] on *.html...
+
+
+Checking 1022 external links...
+</code></pre></div></div>
+
+<h2 id="write-to-log-files">Write to log files</h2>
+
+<p>The output can get very long, so you might want to write to log files which are ignored.</p>
+
+<p>The tool prints <code class="language-plaintext highlighter-rouge">stdout</code> as a count of URLs and files (a few lines only). The <code class="language-plaintext highlighter-rouge">stdout</code> content is the actually check breakdown, which can very long.</p>
+
+<p>Here, writing error output to <code class="language-plaintext highlighter-rouge">links.log</code>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer <span class="nt">--assume-extension</span> _site 2&gt; links.log
+</code></pre></div></div>
+
+<p>It looks like if you give bad flags, the error message is printed and nothing goes to the file, even when using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>... &gt; success.log 2&gt; fail.log
+</code></pre></div></div>
+
+<h2 id="usage-1">Usage</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer PATH <span class="o">[</span>options]
+</code></pre></div></div>
+
+<p>If you omit the <code class="language-plaintext highlighter-rouge">PATH</code>, then it uses <code class="language-plaintext highlighter-rouge">.</code> for the current directory instead.</p>
+
+<p>The docs recommend this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer _site
+</code></pre></div></div>
+
+<p>The output includes <code class="language-plaintext highlighter-rouge">_site</code> though.</p>
+
+<p>Cleaner output and using <code class="language-plaintext highlighter-rouge">.</code> explicitly for clarity.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>_site <span class="o">&amp;&amp;</span> htmlproofer <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>If your site used a subpath like on GitHub Pages, then use the <a href="#url-swap">URL swap</a> flag.</p>
+
+<p>You can also run against a file.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer _site/index.html
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>See <a href="https://github.com/gjtorikian/html-proofer#configuration">Configuration</a> in the docs.</p>
+
+<p>See also output from:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer <span class="nt">--help</span>
+</code></pre></div></div>
+
+<p>Some flag highlights are covered below.</p>
+
+<h3 id="log-level">Log level</h3>
+
+<p>Set log level to debug.</p>
+
+<p>e.g. <code class="language-plaintext highlighter-rouge">--log-level :debug</code></p>
+
+<p>Defaults to <code class="language-plaintext highlighter-rouge">:info</code> but you set <code class="language-plaintext highlighter-rouge">:debug</code>, <code class="language-plaintext highlighter-rouge">:info</code>, <code class="language-plaintext highlighter-rouge">:warn</code>, <code class="language-plaintext highlighter-rouge">:error</code>.</p>
+
+<h3 id="url-swap">URL swap</h3>
+
+<p>Provided one or more URLs to substitute with an escaped regex pattern and a value to use.</p>
+
+<blockquote>
+  <p>A hash containing key-value pairs of <code class="language-plaintext highlighter-rouge">RegExp =&gt; String</code>. It transforms URLs that match <code class="language-plaintext highlighter-rouge">RegExp</code> into <code class="language-plaintext highlighter-rouge">String</code> via <code class="language-plaintext highlighter-rouge">gsub</code>.</p>
+</blockquote>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--url-swap REGEX:VALUE</code></li>
+  <li><code class="language-plaintext highlighter-rouge">--url-swap REGEX:VALUE,REGEX:VALUE,REGEX:VALUE,...</code></li>
+</ul>
+
+<p>Example from the docs:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer <span class="nt">--url-swap</span> <span class="s1">'wow:cow,mow:doh'</span>
+</code></pre></div></div>
+
+<p>For this Cookbook site which is built on Jekyll, the subpath is <code class="language-plaintext highlighter-rouge">/code-cookbook/</code> and this causes the internal URLs to all appear broken. So replace that with <code class="language-plaintext highlighter-rouge">/</code> as below.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>htmlproofer <span class="nt">--url</span> <span class="s1">'\/code-cookbook\/:/'</span> _site/
+</code></pre></div></div>
+
+<h3 id="url-ignore">URL ignore</h3>
+
+<p>e.g.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--url-ignore github.com
+</code></pre></div></div>
+
+<h3 id="http-status-ignore">HTTP status ignore</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--http_status_ignore</code>
+    <blockquote>
+      <p>An array of numbers representing status codes to ignore.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>Defaults to empty array.</p>
+
+<p>e.g. <code class="language-plaintext highlighter-rouge">--http-status-ignore "999,401,404"</code></p>
+
+<h3 id="only-4xx">Only 4XX</h3>
+
+<p>Defaults to false.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--only-4xx</code>
+    <blockquote>
+      <p>Only reports errors for links that fall within the 4xx status code range.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="force-https">Force HTTPS</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--enforce-https</code>
+    <blockquote>
+      <p>Fails a link if it’s not marked as https.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="assume-extension">Assume extension</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--assume-extension</code>
+    <blockquote>
+      <p>Automatically add extension (e.g. <code class="language-plaintext highlighter-rouge">.html</code>) to file paths, to allow extensionless URLs</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>The docs recommend this for Jekyll.</p>
+
+<h3 id="external-and-internal-links">External and internal links</h3>
+
+<p>Even if you use the <code class="language-plaintext highlighter-rouge">link</code> tag to enforce local links at build time, it is still useful for the tool to check external links. In case you there are some case where you didn’t use <code class="language-plaintext highlighter-rouge">link</code>.</p>
+
+<p>Check internal links only.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--disable-external</code>
+    <blockquote>
+      <p>If true, does not run the external link checker, which can take a lot of time.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>Check external links only.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--external-only</code>
+    <blockquote>
+      <p>Only checks problems with external references.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="rakefile-setup">Rakefile setup</h2>
+
+<p>For a Jekyll site, the docs recommend the following for use with <code class="language-plaintext highlighter-rouge">rake</code> if you want go that route.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rakefile</code>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">require</span> <span class="s1">'html-proofer'</span>
+
+  <span class="n">task</span> <span class="ss">:test</span> <span class="k">do</span>
+    <span class="n">sh</span> <span class="s2">"bundle exec jekyll build"</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:assume_extension</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span>
+    <span class="no">HTMLProofer</span><span class="p">.</span><span class="nf">check_directory</span><span class="p">(</span><span class="s2">"_site"</span><span class="p">,</span> <span class="n">options</span><span class="p">).</span><span class="nf">run</span>
+  <span class="k">end</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Then run as:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rake <span class="nb">test</span>
+</code></pre></div></div>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

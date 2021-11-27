@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Yarn | Code Cookbook</title>
+
+    <meta property="og:title" content="Yarn" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Yarn" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Workflows for running Yarn on GitHub Actions" />
+    <meta property="og:description" content="Workflows for running Yarn on GitHub Actions" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/node/yarn.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/node/yarn.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Workflows for running Yarn on GitHub Actions",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/node/yarn.html",
+    "headline":    "Yarn",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/node/yarn.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/node/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+<span class="logo-medium"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Yarn</title><path fill="currentColor" d="M12 0C5.375 0 0 5.375 0 12s5.375 12 12 12 12-5.375 12-12S18.625 0 12 0zm.768 4.105c.183 0 .363.053.525.157.125.083.287.185.755 1.154.31-.088.468-.042.551-.019.204.056.366.19.463.375.477.917.542 2.553.334 3.605-.241 1.232-.755 2.029-1.131 2.576.324.329.778.899 1.117 1.825.278.774.31 1.478.273 2.015a5.51 5.51 0 0 0 .602-.329c.593-.366 1.487-.917 2.553-.931.714-.009 1.269.445 1.353 1.103a1.23 1.23 0 0 1-.945 1.362c-.649.158-.95.278-1.821.843-1.232.797-2.539 1.242-3.012 1.39a1.686 1.686 0 0 1-.704.343c-.737.181-3.266.315-3.466.315h-.046c-.783 0-1.214-.241-1.45-.491-.658.329-1.51.19-2.122-.134a1.078 1.078 0 0 1-.58-1.153 1.243 1.243 0 0 1-.153-.195c-.162-.25-.528-.936-.454-1.946.056-.723.556-1.367.88-1.71a5.522 5.522 0 0 1 .408-2.256c.306-.727.885-1.348 1.32-1.737-.32-.537-.644-1.367-.329-2.21.227-.602.412-.936.82-1.08h-.005c.199-.074.389-.153.486-.259a3.418 3.418 0 0 1 2.298-1.103c.037-.093.079-.185.125-.283.31-.658.639-1.029 1.024-1.168a.94.94 0 0 1 .328-.06zm.006.7c-.507.016-1.001 1.519-1.001 1.519s-1.27-.204-2.266.871c-.199.218-.468.334-.746.44-.079.028-.176.023-.417.672-.371.991.625 2.094.625 2.094s-1.186.839-1.626 1.881c-.486 1.144-.338 2.261-.338 2.261s-.843.732-.899 1.487c-.051.663.139 1.2.343 1.515.227.343.51.176.51.176s-.561.653-.037.931c.477.25 1.283.394 1.71-.037.31-.31.371-1.001.486-1.283.028-.065.12.111.209.199.097.093.264.195.264.195s-.755.324-.445 1.066c.102.246.468.403 1.066.398.222-.005 2.664-.139 3.313-.296.375-.088.505-.283.505-.283s1.566-.431 2.998-1.357c.917-.598 1.293-.76 2.034-.936.612-.148.57-1.098-.241-1.084-.839.009-1.575.44-2.196.825-1.163.718-1.742.672-1.742.672l-.018-.032c-.079-.13.371-1.293-.134-2.678-.547-1.515-1.413-1.881-1.344-1.997.297-.5 1.038-1.297 1.334-2.78.176-.899.13-2.377-.269-3.151-.074-.144-.732.241-.732.241s-.616-1.371-.788-1.483a.271.271 0 0 0-.157-.046z"/></svg></span>
+
+
+
+            <span>Yarn</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>Workflows for running Yarn on GitHub Actions</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/">
+    CI/CD
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
+    GitHub Actions
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/">
+    Workflows
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/node/">
+    Node.js
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/node/yarn.html" class="underline">
+                Yarn
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            
+<p>GH Actions already setups Node and Yarn for you. You might get an old version of Node and Yarn though.</p>
+
+<p>This section covers how to set up one or more target versions of Node and Yarn and handle caching of NPM packages.</p>
+
+<h2 id="homepage-setup">Homepage setup</h2>
+
+<p>If you use GitHub Pages for your site hosting, you should set this up before using any CI flows. That way, your site will be served on the correct subpath, as React infers it.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">package.json</code>
+    <pre><code class="language-json5">  {
+   "scripts": {
+     // ...
+    },
+    "homepage" : "https://MichaelCurrin.github.io/my-app/"
+  }
+</code></pre>
+  </li>
+</ul>
+
+<p>See <a href="https://github.com/MichaelCurrin/react-quickstart/blob/main/package.json">package.json</a> in my React Quickstart to see it configured for <a href="https://michaelcurrin.github.io/react-quickstart/">michaelcurrin.github.io/react-quickstart/</a>.</p>
+
+<h2 id="samples">Samples</h2>
+
+<h3 id="simple">Simple</h3>
+
+<p>The GH docs recommend installing with Yarn using <a href="https://github.com/actions/setup-node">Set up Node</a> action.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ⚙️</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16.x'</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies 📦</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="s">yarn install --frozen-lockfile</span>
+</code></pre></div></div>
+
+<p>This won’t handle any caching of dependencies though.</p>
+
+<p>The Node version number is optional. See later sections on this page for a matrix of Node versions.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">--frozen-lockfile</code> flag is to prevent changes to the lockfile. Presumably this only makes a difference if you added a package to <code class="language-plaintext highlighter-rouge">package.json</code> without updating your lockfile locally, which means a CI install will install packages and change the lockfile each time, without saving it. Or maybe some transitive dependencies are allowed to upgrade on a fresh install, but not when using the lockf flag.</p>
+
+<p>Note that NPM doesn’t have the flag and it NPM installs gets by fine in CI.</p>
+
+<h3 id="caching">Caching</h3>
+
+<p>Load cached dependencies.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ⚙️</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16.x'</span>
+    <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yarn'</span>
+</code></pre></div></div>
+
+<p>See also Yarn section of the <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/cache.html">Cache</a> guide.</p>
+
+<h3 id="gh-actions-sample">GH Actions sample</h3>
+
+<p>This uses the <a href="https://github.com/marketplace/actions/github-action-for-yarn">GitHub Action for Yarn</a> action - <code class="language-plaintext highlighter-rouge">borales/actions-yarn</code>.</p>
+
+<p>This action doesn’t just set up Yarn, it actually runs the commands that you pass to it (except you say have to use <code class="language-plaintext highlighter-rouge">install</code> instead of <code class="language-plaintext highlighter-rouge">yarn install</code>).</p>
+
+<p>For basic use of this action (like Node/Yarn test and no caching), it seems like an unnecessary action and I don’t see the benefit. So just use the [Simple][] flow above or the <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/node/basic.html">Basic</a> page.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">main.yml</code>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">CI</span>
+
+  <span class="na">on</span><span class="pi">:</span> <span class="s">push</span>
+
+  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">Build and test</span>
+
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
+
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">borales/actions-yarn@v2.0.0</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="na">cmd</span><span class="pi">:</span> <span class="s">install</span>
+
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">borales/actions-yarn@v2.0.0</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="na">cmd</span><span class="pi">:</span> <span class="s">build</span>
+
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">borales/actions-yarn@v2.0.0</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="na">cmd</span><span class="pi">:</span> <span class="s">test</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="react-yarn-cache">React Yarn cache</h3>
+
+<p>From this <a href="https://spin.atomicobject.com/2020/01/20/github-actions-react-node/">GitHub Actions React Node post</a> about deploying React/Node to Heroku.</p>
+
+<p>This uses:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">actions/checkout</code></li>
+  <li><code class="language-plaintext highlighter-rouge">actions/cache</code> - for a faster build</li>
+  <li><code class="language-plaintext highlighter-rouge">actions/setup-node</code></li>
+</ul>
+
+<p>Workflow:</p>
+
+<ul>
+  <li>main.yml
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="na">test</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span>
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="na">NODE_ENV</span><span class="pi">:</span> <span class="s">test</span>
+
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
+            <span class="s">uses</span><span class="err">:</span> <span class="s">actions/checkout@master</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Get yarn cache</span>
+            <span class="na">id</span><span class="pi">:</span> <span class="s">yarn-cache</span>
+            <span class="na">run</span><span class="pi">:</span> <span class="s">echo "::set-output name=dir::$(yarn cache dir)"</span>
+
+          <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v1</span>
+            <span class="na">with</span><span class="pi">:</span>
+              <span class="na">path</span><span class="pi">:</span> <span class="s">${{ steps.yarn-cache.outputs.dir }}</span>
+              <span class="na">key</span><span class="pi">:</span> <span class="s">${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}</span>
+              <span class="na">restore-keys</span><span class="pi">:</span> <span class="pi">|</span>
+                <span class="s">${{ runner.os }}-yarn-</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node</span>
+            <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v1.1.0</span>
+            <span class="na">with</span><span class="pi">:</span>
+              <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">10.x'</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+            <span class="na">run</span><span class="pi">:</span> <span class="s">yarn install --frozen-lockfile</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Lint</span>
+            <span class="na">run</span><span class="pi">:</span> <span class="s">yarn lint</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Migrate</span>
+            <span class="na">run</span><span class="pi">:</span> <span class="s">knex migrate:latest</span>
+
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test server</span>
+            <span class="na">run</span><span class="pi">:</span> <span class="s">yarn test:server</span>
+
+    <span class="na">deploy</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy</span>
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+      <span class="na">needs</span><span class="pi">:</span> <span class="s">test</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="react-yarn">React Yarn</h2>
+
+<p>From <a href="https://github.com/explooosion/react-build-with-github-actions">react-build-with-github-actions</a> example app - just the install/test portion.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">main.yml</code>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="na">install-and-test</span><span class="pi">:</span>
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+      <span class="na">strategy</span><span class="pi">:</span>
+        <span class="na">matrix</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">8.x</span><span class="pi">,</span> <span class="nv">10.x</span><span class="pi">,</span> <span class="nv">12.x</span><span class="pi">]</span>
+
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ${{ matrix.node-version }}</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@master</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="na">node-version</span><span class="pi">:</span> <span class="s">${{ matrix.node-version }}</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install packages</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">yarn install --frozen-lockfile</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">yarn test</span>
+
+          <span class="na">env</span><span class="pi">:</span>
+            <span class="na">CI</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>I don’t know what <code class="language-plaintext highlighter-rouge">CI</code> does here.</p>
+
+<p>I prefer having install and test steps separately.</p>
+
+<h2 id="gh-page-npm-package">GH Page NPM package</h2>
+
+<p>Here we use the <a href="https://www.npmjs.com/package/gh-pages">gh-pages</a> package NPM to deploy to GitHub Pages.</p>
+
+<p>Set up commands and URL:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">package.json</code>:
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"predeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yarn build"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d build"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nl">"homepage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://MichaelCurrin.github.io/my-app"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Note <code class="language-plaintext highlighter-rouge">predeploy</code> it set up such that a build is always done before publishing.</p>
+
+<p>Add dev dependency:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yarn add <span class="nt">--dev</span> gh-pages
+</code></pre></div></div>
+
+<p>Now at the end of the GH Actions CI, add a step:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-deploy</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install packages</span>
+    <span class="na">run</span><span class="pi">:</span> <span class="s">yarn install --frozen-lockfile</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy GitHub Pages 🚀</span>
+    <span class="na">run</span><span class="pi">:</span> <span class="s">yarn deploy</span>
+    <span class="na">env</span><span class="pi">:</span>
+        <span class="na">GH_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+</code></pre></div></div>
+
+<p>You don’t need to generated and store the token manually. GitHub Actions will generate it for you on each run and no human has to read the value, keeping it secure.</p>
+
+<p>That flow is based on output generated by <code class="language-plaintext highlighter-rouge">yarn</code> when doing a build that uses GitHub Pages in <code class="language-plaintext highlighter-rouge">PUBLIC_URL</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The project was built assuming it is hosted at /react-create-app-quickstart/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+To publish it at https://michaelcurrin.github.io/react-create-app-quickstart/ , run:
+
+  yarn add --dev gh-pages
+
+Add the following script in your package.json.
+
+    // ...
+    "scripts": {
+      // ...
+      "predeploy": "yarn build",
+      "deploy": "gh-pages -d build"
+    }
+
+Then run:
+
+  yarn run deploy
+
+Find out more about deployment here:
+
+  bit.ly/CRA-deploy
+</code></pre></div></div>
+
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

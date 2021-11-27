@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>Control panes 🍱 | Code Cookbook</title>
+
+    <meta property="og:title" content="Control panes 🍱" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Control panes 🍱" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="Send keyboard commands to all SSH panes at once, use iTerm2" />
+    <meta property="og:description" content="Send keyboard commands to all SSH panes at once, use iTerm2" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/control-panes.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/control-panes.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "Send keyboard commands to all SSH panes at once, use iTerm2",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/control-panes.html",
+    "headline":    "Control panes 🍱",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/shell/ssh/control-panes.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/shell/ssh/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>Control panes 🍱</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>Send keyboard commands to all SSH panes at once, use iTerm2</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/shell/">
+    Shell
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/shell/ssh/">
+    SSH
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/shell/ssh/control-panes.html" class="underline">
+                Control panes 🍱
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            <p>These scripts and instructions are for developers on macOS running iTerm2. They allow splitting the view into multiple planes for different servers. Using an iTerm2 feature, a command only needs to be entered once and the command can be sent to all panes at once.</p>
+
+<p>A use-case is when one needs to view Apache logs across say Prod 9 servers at once when debugging a Production bug or incident.</p>
+
+<p>The start of each script can be customized easily for connecting to any list of host machines.</p>
+
+<p>This guide is based on this tutorial: <a href="https://medium.com/@maharajamandy/ssh-to-multiple-hosts-in-split-panes-using-iterm2-f2c3353fbea2">SSH to Multiple Hosts in Split Panes Using iTerm2</a>.</p>
+
+<h2 id="installation-wrench">Installation :wrench:</h2>
+
+<h3 id="install-iterm2">Install iTerm2</h3>
+
+<p>If you don’t have it installed, got to the <a href="https://www.iterm2.com/index.html">iTerm2</a> homepage and download it from there.</p>
+
+<p>I don’t know what support is like outside of macOS.</p>
+
+<h3 id="set-up-script">Set up script</h3>
+
+<p>We’re going to use a script in the AppleScript format here. But, don’t worry – I’ve done all the research and testing so now you only have to configure the first line and leave the rest as is.</p>
+
+<p>Note that iTerm2 will <em>only</em> recognize files ending with <code class="language-plaintext highlighter-rouge">.scpt</code>. So <code class="language-plaintext highlighter-rouge">.applescript</code> will not work. But if you want syntax highlighting in your IDE, you can associate <code class="language-plaintext highlighter-rouge">.scpt</code> with <code class="language-plaintext highlighter-rouge">.applescript</code>.</p>
+
+<p>Create a script.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch</span> ~/Library/Application<span class="se">\ </span>Support/iTerm2/Scripts/my_script.scpt
+</code></pre></div></div>
+
+<p>Then add the content below as is:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">my_script.scpt</code>
+    <div class="language-applescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="k">set</span><span class="w"> </span><span class="nv">hostnames</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"foo.bar.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fizz.buzz.com"</span><span class="p">}</span><span class="w">
+
+  </span><span class="k">if</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"iTerm"</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="nv">running</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="k">tell</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"iTerm"</span><span class="w">
+      </span><span class="nv">create</span><span class="w"> </span><span class="na">window</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="nv">profile</span><span class="w">
+      </span><span class="k">tell</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="nb">tab</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="na">window</span><span class="w">
+        </span><span class="nb">select</span><span class="w">
+        </span><span class="k">tell</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="nv">session</span><span class="w">
+
+          </span><span class="c1">-- make the window fullscreen</span><span class="w">
+          </span><span class="k">tell</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"System Events"</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="na">key code</span><span class="w"> </span><span class="mi">36</span><span class="w"> </span><span class="nv">using</span><span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="nv">down</span><span class="w">
+          </span><span class="nv">split</span><span class="w"> </span><span class="nv">horizontally</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="nv">profile</span><span class="w">
+
+          </span><span class="k">set</span><span class="w"> </span><span class="nv">num_hosts</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">hostnames</span><span class="w">
+          </span><span class="k">repeat</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num_hosts</span><span class="w">
+            </span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="p">(</span><span class="nb">round</span><span class="w"> </span><span class="p">(</span><span class="nv">num_hosts</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w">
+              </span><span class="c1">-- move to lower split</span><span class="w">
+              </span><span class="k">tell</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"System Events"</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">keystroke</span><span class="w"> </span><span class="s2">"]"</span><span class="w"> </span><span class="nv">using</span><span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="nv">down</span><span class="w">
+            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w">
+              </span><span class="c1">-- split vertically</span><span class="w">
+              </span><span class="k">tell</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"System Events"</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">keystroke</span><span class="w"> </span><span class="s2">"d"</span><span class="w"> </span><span class="nv">using</span><span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="nv">down</span><span class="w">
+            </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+            </span><span class="nb">delay</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="nb">write</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="s2">"ssh "</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="nb">item</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">hostnames</span><span class="p">)</span><span class="w">
+          </span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+        </span><span class="k">end</span><span class="w"> </span><span class="k">tell</span><span class="w">
+      </span><span class="k">end</span><span class="w"> </span><span class="k">tell</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">tell</span><span class="w">
+  </span><span class="k">else</span><span class="w">
+    </span><span class="nb">activate</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"iTerm"</span><span class="w">
+  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="set-hosts">Set hosts</h3>
+
+<p>Replace the hostnames with your own list and add as many as you want. The list can have valid hosts where you have SSH access to, including host aliases in <code class="language-plaintext highlighter-rouge">/etc/hosts</code>/ or <code class="language-plaintext highlighter-rouge">~/.ssh/config</code>.</p>
+
+<h3 id="restart">Restart</h3>
+
+<p>Close and reopen iTerm2 to get your script loaded.</p>
+
+<h2 id="usage-runner">Usage :runner:</h2>
+
+<h3 id="control-multiple-panes-at-once-in-iterm2">Control multiple panes at once in iTerm2</h3>
+
+<ol>
+  <li>In iTerm2, open the Scripts menu and select your script.</li>
+  <li>To <strong>enable</strong> sending of keyboard input to all panes, press <kbd>CMD</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.</li>
+  <li>Enter commands to run for all panes. e.g. <code class="language-plaintext highlighter-rouge">ls</code> or <code class="language-plaintext highlighter-rouge">cd</code>.</li>
+  <li>Press the keys from step 2 to <strong>disable</strong>.</li>
+</ol>
+
+<h3 id="example">Example</h3>
+
+<p>How to tail Apache logs across servers :page_with_curl: :page_with_curl: :page_with_curl:</p>
+
+<ol>
+  <li>Follow the steps above for a group of servers which have Apache running on them.</li>
+  <li>Switch to a user with permissions to view Apache logs (owned by <code class="language-plaintext highlighter-rouge">admin</code> group). The <code class="language-plaintext highlighter-rouge">ubuntu</code> user was sufficient and let’s you avoid becoming <code class="language-plaintext highlighter-rouge">root</code> unnecessarily, but using that user no longer works so become <code class="language-plaintext highlighter-rouge">root</code>.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">sudo </span>su
+</code></pre></div>    </div>
+  </li>
+  <li>View the log files.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cd</span> /var/log/apache2
+ <span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-f</span> error.log
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>

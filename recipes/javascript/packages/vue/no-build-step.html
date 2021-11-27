@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <meta property="og:site_name" content="Code Cookbook" />
+
+    <title>No build step | Code Cookbook</title>
+
+    <meta property="og:title" content="No build step" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="No build step" />
+<meta name="generator" content="Jekyll v4.2.1" />
+
+<meta property="og:locale" content="en_US" />
+
+
+    <meta name="description" content="How to add Vue to your frontend as plain JS and HTML" />
+    <meta property="og:description" content="How to add Vue to your frontend as plain JS and HTML" />
+<meta name="author" content="Michael Currin" />
+
+
+
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/vue/no-build-step.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/vue/no-build-step.html" />
+
+
+<script type="application/ld+json">
+{
+    "name":        "Code Cookbook",
+    "description": "How to add Vue to your frontend as plain JS and HTML",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/vue/no-build-step.html",
+    "headline":    "No build step",
+    "@type":       "WebSite",
+    "@context":    "https://schema.org",
+    "author": {
+        "@type":"Person",
+        "name": "Michael Currin"
+    }
+}
+</script>
+<link rel="stylesheet" href="/code-cookbook/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://michaelcurrin.github.io/code-cookbook/feed.xml" title="Code Cookbook" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9PSVN5DS"></script>
+    <script>
+        window['ga-disable-G-ED9PSVN5DS'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ED9PSVN5DS');
+    </script></head>
+<body>
+<header class="site-header" role="banner">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/code-cookbook/">
+            Code Cookbook
+        </a><nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path
+                                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="trigger"><a class="page-link" href="/code-cookbook/">
+                                Home
+                            </a><a class="page-link" href="/code-cookbook/recipes/">
+                                Recipes
+                            </a><a class="page-link" href="/code-cookbook/about.html">
+                                About
+                            </a></div>
+            </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/javascript/packages/vue/no-build-step.md">
+    📝 <span>Edit page</span>
+</a>
+
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/javascript/packages/vue/">
+    ➕ <span>Add page</span>
+</a>
+
+
+            
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            
+
+
+            <span>No build step</span>
+        </h1>
+
+        
+            <blockquote>
+                <p>How to add Vue to your frontend as plain JS and HTML</p>
+
+            </blockquote>
+        
+    </header>
+
+    
+
+
+    <div id="breadcrumbs">
+
+    
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/">
+    Recipes
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/javascript/">
+    JavaScript
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/javascript/packages/">
+    Packages
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/javascript/packages/vue/">
+    Vue
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/javascript/packages/vue/no-build-step.html" class="underline">
+                No build step
+            </a>
+        
+     
+    </div>
+
+
+
+    <br>
+
+    <div class="post-content">
+        
+            
+<p>Here is how to add Vue to your site - without a build step. You don’t need Vue CLI, Webpack or even Node.</p>
+
+<h2 id="loading-production-vue">Loading Production Vue</h2>
+
+<p>From <a href="https://v3.vuejs.org/guide/tooling/deployment.html#without-build-tools">Without Build Tools</a> on the Production deployment gude on the Vue docs.</p>
+
+<blockquote>
+  <p>If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version for production. This can be found in the Installation guide.</p>
+</blockquote>
+
+<ul>
+  <li>Development mode: <code class="language-plaintext highlighter-rouge">https://jspm.dev/vue/dist/vue.js</code> - with dev tools.</li>
+  <li>Production mode: <code class="language-plaintext highlighter-rouge">https://jspm.dev/vue/dist/vue.min.js</code> - minified build.</li>
+</ul>
+
+<h2 id="approaches">Approaches</h2>
+
+<p>If you want the full dev experience with Node and Vue CLI, then you would use <a href="https://vue-loader.vuejs.org/">vue-loader</a> to process your <code class="language-plaintext highlighter-rouge">.vue</code> files.</p>
+
+<blockquote>
+  <p>vue-loader is a loader for webpack that allows you to author Vue components in a format called Single-File Components (SFCs):</p>
+</blockquote>
+
+<p>See also <a href="https://github.com/MichaelCurrin/vue-quickstart">MichaelCurrin/vue-quickstart</a>.</p>
+
+<p>But if you want to leave out a build tool and just want to add Vue to your frontend HTML, then follow some samples below. These don’t need a server-side build step to compile SFC files.</p>
+
+<p>Note that the setup for the examples below are not modern. This is the way in Vue 3 from <a href="https://v3.vuejs.org/api/application-api.html#component">docs</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">createApp</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">({})</span>
+</code></pre></div></div>
+
+<h2 id="templates-and-performance">Templates and performance</h2>
+
+<p>A warning on performance from the <a href="https://v3.vuejs.org/guide/tooling/deployment.html#pre-compiling-templates">Production deployment</a> doc.</p>
+
+<blockquote>
+  <p>When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly.</p>
+
+  <p>This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.</p>
+</blockquote>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="set-template-in-script-tag">Set template in script tag</h3>
+
+<p>Normally you set <code class="language-plaintext highlighter-rouge">template</code> tag in a <code class="language-plaintext highlighter-rouge">.vue</code> file.</p>
+
+<p>You can set <code class="language-plaintext highlighter-rouge">template</code> on a Vue object and it will be compiled for you.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+   <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Foo</span><span class="dl">"</span><span class="p">,</span>
+   <span class="na">template</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;span&gt;{{ message }}&lt;/span&gt;</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="jspm-sample">JSPM sample</h3>
+
+<p>One approach is to avoid SFCs altogether. The component is set as HTML + Vue syntax on an element and then Vue is initialized against that element.</p>
+
+<p>From the Vue.js example in <a href="https://jspm.org/sandbox">JSPM Sandbox</a>, which is no longer there.</p>
+
+<p>This uses the ES Module syntax so you get to reference Vue by URL on JSPM CDN, rather than as a script tag.</p>
+
+<p>An <a href="https://wicg.github.io/import-maps/">import map</a> is used to set CDNs and possibly lock versions. But I found the import did not actually work as <code class="language-plaintext highlighter-rouge">vue</code> when I ran this myself.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"importmap"</span><span class="nt">&gt;</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">imports</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://jspm.dev/vue/dist/vue.js</span><span class="dl">"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">margin:0</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"container"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
+      <span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span><span class="p">;</span>
+
+      <span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;p&gt;{{ message }}&lt;/p&gt;</span><span class="dl">'</span><span class="p">;</span>
+
+      <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#container</span><span class="dl">'</span><span class="p">,</span>
+        <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="p">{</span>
+            <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello Vue.js!</span><span class="dl">'</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="nt">&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The reference to <code class="language-plaintext highlighter-rouge">container.innerHTML</code> operates on the element with <code class="language-plaintext highlighter-rouge">id="container"</code>.</p>
+
+<p>I recommend against this and rather doing this, which is the Vue way.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s2">`&lt;p&gt;{{ message }}&lt;/p&gt;`</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Also, using <code class="language-plaintext highlighter-rouge">app.mount</code> as below it more typical for mounting on an element than setting <code class="language-plaintext highlighter-rouge">el</code>. And means the app can be created without that element existing. See <a href="https://v3.vuejs.org/guide/introduction.html#getting-started">Getting Started</a> and <a href="https://v3.vuejs.org/guide/instance.html#the-root-component">Root component</a>.</p>
+
+<h3 id="vue3-sfc-loader-sample">Vue3 SFC loader sample</h3>
+
+<p>This approach loads SFCs dynamically on the frontend. Note use of <code class="language-plaintext highlighter-rouge">.vue</code> file in a callback function.</p>
+
+<p>Using the low-level <a href="https://github.com/FranckFreiburger/vue3-sfc-loader">FranckFreiburger/vue3-sfc-loader</a> library. Note SFC is Single-File Component.</p>
+
+<blockquote>
+  <p>Vue3 Single File Component loader. Load <code class="language-plaintext highlighter-rouge">.vue</code> files directly from your html/js. No node.js environment, no (webpack) build step.</p>
+</blockquote>
+
+<p>Based on the README.md and the linked <a href="https://codepen.io/franckfreiburger/project/editor/AqPyBr">pen</a>. Warning <code class="language-plaintext highlighter-rouge">@next</code> is even more bleeding-edge than <code class="language-plaintext highlighter-rouge">@latest</code> and to so avoid risk of buggy releases, I’ve changed to <code class="language-plaintext highlighter-rouge">@latest</code>.</p>
+
+<h4 id="html">HTML</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/vue@latest"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue3-sfc-loader"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">moduleCache</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">vue</span><span class="p">:</span> <span class="nx">Vue</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nx">getFile</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">resp</span> <span class="o">=&gt;</span>
+            <span class="nx">resp</span><span class="p">.</span><span class="nx">ok</span> <span class="p">?</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">text</span><span class="p">()</span> <span class="p">:</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">resp</span><span class="p">)</span>
+          <span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">addStyle</span><span class="p">(</span><span class="nx">styleStr</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">const</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">style</span><span class="dl">"</span><span class="p">);</span>
+          <span class="nx">style</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">styleStr</span><span class="p">;</span>
+          <span class="kd">const</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">style</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span>
+          <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">style</span><span class="p">,</span> <span class="nx">ref</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
+        <span class="p">},</span>
+      <span class="p">};</span>
+
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">loadModule</span><span class="p">,</span> <span class="nx">version</span> <span class="p">}</span> <span class="o">=</span> <span class="nb">window</span><span class="p">[</span><span class="dl">"</span><span class="s2">vue3-sfc-loader</span><span class="dl">"</span><span class="p">];</span>
+
+      <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+        <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">my-component</span><span class="dl">"</span><span class="p">:</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">defineAsyncComponent</span><span class="p">(()</span> <span class="o">=&gt;</span>
+            <span class="nx">loadModule</span><span class="p">(</span><span class="dl">"</span><span class="s2">./myComponent.vue</span><span class="dl">"</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+          <span class="p">),</span>
+        <span class="p">},</span>
+        <span class="na">template</span><span class="p">:</span> <span class="s2">`Hello &lt;my-component&gt;&lt;/my-component&gt; &lt;sub&gt;from vue3-sfc-loader v</span><span class="p">${</span><span class="nx">version</span><span class="p">}</span><span class="s2">&lt;/sub&gt;`</span><span class="p">,</span>
+      <span class="p">});</span>
+
+      <span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">);</span>
+
+    <span class="nt">&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>It is weird to set <code class="language-plaintext highlighter-rouge">version</code> using <code class="language-plaintext highlighter-rouge">${version}</code> here - rather make <code class="language-plaintext highlighter-rouge">version</code> set under <code class="language-plaintext highlighter-rouge">data</code> and then use it as <code class="language-plaintext highlighter-rouge">{{ version }}</code>.</p>
+
+<h4 id="component">Component</h4>
+
+<p>Here we bind two data fields - one two HTML and one to CSS.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">myComponent.vue</code>
+    <div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"example"</span><span class="nt">&gt;</span><span class="si">{{</span> <span class="nx">msg</span> <span class="si">}}</span><span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+    <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+      <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="na">msg</span><span class="p">:</span> <span class="dl">'</span><span class="s1">world!</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;</span><span class="k">style</span> <span class="na">scoped</span><span class="nt">&gt;</span>
+    <span class="nc">.example</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="n">v-bind</span><span class="p">(</span><span class="s2">'color'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+        
+    </div>
+</article>
+
+        </div>
+    </main>
+<footer class="site-footer h-card">
+    <data class="u-url" href="/code-cookbook/"></data>
+
+    <div class="wrapper">
+
+        <h2 class="footer-heading">Code Cookbook</h2>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list"><li class="p-name">
+                            Michael Currin
+                        </li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li>
+            <a href="https://github.com/MichaelCurrin"><svg class="svg-icon">
+                    <use xlink:href="/code-cookbook/assets/fractal-social-icons.svg#github"></use>
+                </svg> <span class="username">MichaelCurrin</span></a>
+        </li></ul>
+</div>
+
+            <div class="footer-col footer-col-3">
+                <p>Reusable code patterns which you can use as reference or copy to your project</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<a href="https://github.com/MichaelCurrin/code-cookbook"
+    class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</body>
+
+</html>
