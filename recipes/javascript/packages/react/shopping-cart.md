@@ -1,5 +1,6 @@
 # Shopping cart
 
+Source - [How to refresh a component in React](https://upmostly.com/tutorials/how-to-refresh-a-page-or-component-in-react)
 
 ```jsx
 import { useState } from 'react';
