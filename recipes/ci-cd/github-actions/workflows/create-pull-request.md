@@ -1,10 +1,10 @@
 # Create Pull Request
 
-## Related 
+## Related
 
 - [Commit][] workflows so you create a commit without a Pull Request, such as if you want to commit on the main branch.
 
-[Commit]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/commit.md %}
+[Commit]: {% link recipes/ci-cd/github-actions/workflows/commit.md %}
 
 
 {% raw %}
@@ -29,8 +29,8 @@ steps:
 All inputs are optional but you probably want to set some of these:
 
 - `title` for PR title.
-- `branch` for branch name to create. 
-- `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommended as `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.	
+- `branch` for branch name to create.
+- `delete-branch` - Delete the branch when closing pull requests, and when undeleted after merging. Recommended as `true`. I don't know how this compares to the settings of the repo. This optional might not be useful.
 
 The docs recommend using a fix branch name, rather than one that is unique, to avoid to many branches/PRs.
 
@@ -40,7 +40,7 @@ With options:
 steps:
   - name: Create Pull Request
     uses: peter-evans/create-pull-request@v3
-    with: 
+    with:
       title: My PR title
       commit-message: My commit message
       branch: my-branch-name
@@ -50,11 +50,11 @@ steps:
 
 ## No action
 
-Here we hit the GitHub API to create a PR. 
+Here we hit the GitHub API to create a PR.
 
 We don't actually make the commit or branch here - just the PR itself. See [Commit][] recipe for making the commit.
 
-[Commit]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/commit.md %}
+[Commit]: {% link recipes/ci-cd/github-actions/workflows/commit.md %}
 
 ### Same repo
 
@@ -108,7 +108,7 @@ jobs:
             }
           EOF
           )
-          curl 
+          curl
             https://api.github.com/repos/my-user/my-repo/pulls \
             --header "Authorization: token ${TOKEN}" \
             -H "Content-Type:application/json" \

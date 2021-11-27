@@ -1,4 +1,4 @@
-# Use the Jekyll Actions action
+# Jekyll Actions action
 
 {% raw %}
 

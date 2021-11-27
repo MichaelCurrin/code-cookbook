@@ -7,7 +7,7 @@ The workflow recipes on this page let you use GH Actions to upgrade your NPM dep
 
 Run the workflow a schedule or on a manual trigger and GH Actions will do the upgrade for you on a branch with a PR.
 
-You'll get changes to your lock files (`package-lock.json` and `yarn.lock`) and also sometimes to `package.json` (when using `npm` but not when using `yarn`). 
+You'll get changes to your lock files (`package-lock.json` and `yarn.lock`) and also sometimes to `package.json` (when using `npm` but not when using `yarn`).
 
 
 ## Why?
@@ -33,13 +33,13 @@ This also effectively patches eagerly to newer versions even _before_ any vulner
 That should trigger a GH notification. Then you can review the PR changes yourself.
 
 
-[Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
+[Create Pull Request]: {% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
 ### What you need to do
 
 1. Pick one of the samples below, depending on basic/advanced and Node/Yarn.
-1. Run the workflow manually on GH or on a schedule (such as weekly). 
-1. Review the PR. 
+1. Run the workflow manually on GH or on a schedule (such as weekly).
+1. Review the PR.
 1. If your usual CI test and build checks are passing, merge the PR. Or the close PR, then consider making up manual changes or just accept the old versions.
 
 
@@ -110,7 +110,7 @@ So just change `npm` commands to use `yarn`.
 
 See [Yarn][] recipe for more help.
 
-[Yarn]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/yarn.md %}
+[Yarn]: {% link recipes/ci-cd/github-actions/workflows/node/yarn.md %}
 
 
 ### Advanced

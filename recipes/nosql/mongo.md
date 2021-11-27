@@ -4,4 +4,4 @@
 
 - [Python Mongo recipes][]
 
-[Python Mongo recipes]: {{ site.baseurl }}{% link recipes/python/mongo.md %}
+[Python Mongo recipes]: {% link recipes/python/mongo.md %}

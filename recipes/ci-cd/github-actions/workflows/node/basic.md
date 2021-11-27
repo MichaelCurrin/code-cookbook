@@ -98,10 +98,10 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
-        
+
       - name: Lint 🧐
         run: npx eslint .
-        
+
       - name: Check for updates 🧐
         run: npx npm-check-updates
 ```
@@ -115,4 +115,4 @@ This workflow uses `actions/checkout`, a standard action for cloning the repo in
 Note that **no** Node or Yarn action was used here - the default environment will set up Node.js and Yarn for you. Using an extension is useful if you want to lock down a certain Node.js version or run multiple versions in parallel example. See the [NPM][] recipes for using a matrix.
 
 
-[NPM]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/npm.md %}
+[NPM]: {% link recipes/ci-cd/github-actions/workflows/node/npm.md %}

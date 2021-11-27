@@ -7,12 +7,12 @@ layout: home
 
 Welcome to **Code Cookbook**.
 
-This aims to have an entire recipe to solve a problem. Such as a script or config, or a few files which work together. 
+This aims to have an entire recipe to solve a problem. Such as a script or config, or a few files which work together.
 
 And the recipes are based on real-world code as much as possible, collecting from repos or docs I encounter or from my own projects.
 
 <div align="center" style="padding-bottom: 1em;">
-    <a href="{{ site.baseurl }}{% link recipes/index.md %}">
+    <a href="{% link recipes/index.md %}">
         <img src="https://img.shields.io/badge/all_recipe_topics-blue?style=for-the-badge"
             alt="Go to recipes"/>
     </a>
@@ -47,12 +47,12 @@ Highlights of this site.
     - Commands and configs for using Docker and Kubernetes.
 
 
-[Vue]: {{ site.baseurl }}{% link recipes/javascript/packages/vue/index.md %}
-[EditorConfig]: {{ site.baseurl }}{% link recipes/other/editor-config.md %}
-[Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
-[CI/CD]: {{ site.baseurl }}{% link recipes/ci-cd/index.md %}
-[Workflows]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/index.md %}
-[SEO]: {{ site.baseurl }}{% link recipes/web/seo/index.md %}
-[Shell]: {{ site.baseurl }}{% link recipes/shell/index.md %}
-[Jekyll]: {{ site.baseurl }}{% link recipes/jekyll/index.md %}
-[Containers]: {{ site.baseurl }}{% link recipes/containers/index.md %}
+[Vue]: {% link recipes/javascript/packages/vue/index.md %}
+[EditorConfig]: {% link recipes/other/editor-config.md %}
+[Make]: {% link recipes/make/index.md %}
+[CI/CD]: {% link recipes/ci-cd/index.md %}
+[Workflows]: {% link recipes/ci-cd/github-actions/workflows/index.md %}
+[SEO]: {% link recipes/web/seo/index.md %}
+[Shell]: {% link recipes/shell/index.md %}
+[Jekyll]: {% link recipes/jekyll/index.md %}
+[Containers]: {% link recipes/containers/index.md %}

@@ -10,7 +10,7 @@ An NPM package to check links in Markdown files.
 
 See [GitHub Action Markdown Link Check][] recipe in the GitHub Actions section.
 
-[GitHub Action Markdown Link Check]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/check-links/gh-action-md-link-check.md %}
+[GitHub Action Markdown Link Check]: {% link recipes/ci-cd/github-actions/workflows/check-links/gh-action-md-link-check.md %}
 
 
 ## Run NPM CLI tool

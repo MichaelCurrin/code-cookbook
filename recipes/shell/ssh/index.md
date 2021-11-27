@@ -13,7 +13,7 @@ The least you need to know:
 
 See the [Install][] page.
 
-[Install]: {{ site.baseurl }}{% link recipes/shell/ssh/install.md %}
+[Install]: {% link recipes/shell/ssh/install.md %}
 
 ### Check current setup
 

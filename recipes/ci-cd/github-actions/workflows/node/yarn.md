@@ -286,5 +286,5 @@ Find out more about deployment here:
 [GitHub Actions React Node post]: https://spin.atomicobject.com/2020/01/20/github-actions-react-node/
 [Set up Node]: https://github.com/actions/setup-node
 
-[Cache]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/cache.md %}
-[Basic]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
+[Cache]: {% link recipes/ci-cd/github-actions/workflows/cache.md %}
+[Basic]: {% link recipes/ci-cd/github-actions/workflows/node/basic.md %}

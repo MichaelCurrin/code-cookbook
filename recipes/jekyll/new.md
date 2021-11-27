@@ -21,7 +21,7 @@ Whatever approach you use, pay attention to whether you have Jekyll 3 or 4.
 
 ### Use global
 
-If you have Jekyll installed globally. 
+If you have Jekyll installed globally.
 
 ```sh
 $ jekyll new my-site
@@ -67,14 +67,14 @@ If you're interested in Jekyll 4 specifically.
 1. Go to this repo:
     - [MichaelCurrin/jekyll-gh-actions-quickstart](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart)
 1. Click the _Use this template_ button to get a repo.
-1. Follow the repo's docs to set up Jekyll locally and on GitHub Pages. 
+1. Follow the repo's docs to set up Jekyll locally and on GitHub Pages.
     - You just need to enable your site under GitHub Pages under _Settings_.
-    - GitHub Actions will already be configured for you. You don't even have to set a token. 
+    - GitHub Actions will already be configured for you. You don't even have to set a token.
 
 ### Jekyll 4 and Netlify
 
-The above template also will work on Netlify. 
+The above template also will work on Netlify.
 
 Delete the GitHub Actions workflow and set up a Netlify config - see this [Jekyll Netlify][] recipe.
 
-[Jekyll Netlify]: {{ site.baseurl }}{% link recipes/ci-cd/netlify/configure/jekyll.md %}
+[Jekyll Netlify]: {% link recipes/ci-cd/netlify/configure/jekyll.md %}

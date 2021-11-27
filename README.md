@@ -1,10 +1,11 @@
 # Code Cookbook 👩‍💻👨‍🍳📖🥗
 > Reusable code patterns which you can use as reference or copy to your project
 
+[![GH Pages Deploy](https://github.com/MichaelCurrin/code-cookbook/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/code-cookbook/actions?query=workflow:"GH+Pages+Deploy")
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-[![Jekyll - 3.9](https://img.shields.io/badge/Jekyll-3.9-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
+[![Jekyll](https://img.shields.io/badge/Jekyll-4-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
 [![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
 [![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
@@ -22,7 +23,7 @@
 
 <div align="center">
 
-[![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=2ea44f&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/)
+[![View site - GH Pages](https://img.shields.io/static/v1?label=View+site&message=GH+Pages&color=2ea44f&style=for-the-badge)](https://michaelcurrin.github.io/code-cookbook/ "Go to website")
 
 </div>
 

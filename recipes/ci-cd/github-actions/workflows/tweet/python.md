@@ -22,7 +22,7 @@ Add files to your repo:
 - `requirements.txt`
 - `tweet.py`
 
-[Tweet]: {{ site.baseurl }}{% link recipes/python/tweet.md %}
+[Tweet]: {% link recipes/python/tweet.md %}
 
 
 ## Configure workflow

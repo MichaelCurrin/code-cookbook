@@ -17,6 +17,6 @@ Here are some places to start to get into workflow file samples.
     - See sample workflows across programming languages.
 
 [GitHub Actions]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/
-[Basic generic workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/basic.md %}
-[Basic Node workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
-[Workflows]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/index.md %}
+[Basic generic workflow]: {% link recipes/ci-cd/github-actions/workflows/basic.md %}
+[Basic Node workflow]: {% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
+[Workflows]: {% link recipes/ci-cd/github-actions/workflows/index.md %}

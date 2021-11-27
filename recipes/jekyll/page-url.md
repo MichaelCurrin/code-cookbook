@@ -1,4 +1,5 @@
 # Page URL
+
 {% raw %}
 
 Get the page URL.
@@ -114,7 +115,7 @@ But in Jekyll 3 you must do this:
 This can be used for most flexibility:
 
 ```liquid
-{{ '/' | relative_url }
+{{ '/' | relative_url }}
 ```
 
 Note that for the crumbs section that the `{{ site.baseurl }}` prefix should always be there. Note that `relative_url` is not practical since the URL is built through a `for` loop rather than a string.

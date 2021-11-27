@@ -4,7 +4,7 @@ logo: jekyll
 description: How to run a Jekyll site in a container
 ---
 
-Related recipe - [Jekyll in a container on GitHub Actions]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/container.md %}).
+Related recipe - [Jekyll in a container on GitHub Actions]({% link recipes/ci-cd/github-actions/workflows/jekyll/build/container.md %}).
 
 {% raw %}
 
@@ -56,7 +56,7 @@ The docker command is just long to write, you probably want to use an alias, `Ma
 - The `--rm` flag will delete a container after it is run. Useful if you want to run the Jekyll container as an executable. Using volumes, the output will be persisted outside the container. But you should leave out the flag when you want to perist gems inside the container.
 - We use the `volume` flag so that we can mount the project in the container as `/srv/jekyll`. Any operations in the container like gems in `vendor` and output in `_site` are persisted on the host.
 
-[Jekyll on GH Actions]: ({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %})
+[Jekyll on GH Actions]: ({% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %})
 
 ### Create new site
 

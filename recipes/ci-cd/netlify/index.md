@@ -32,7 +32,7 @@ Push changes to your repo to automatically trigger a build.
 
 See the [Configure][] section for how to configure a Netlify build.
 
-[Configure]: {{ site.baseurl }}{% link recipes/ci-cd/netlify/configure/index.md %}
+[Configure]: {% link recipes/ci-cd/netlify/configure/index.md %}
 
 
 ## Netlify vs GH Actions

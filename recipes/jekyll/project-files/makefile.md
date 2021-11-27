@@ -7,7 +7,7 @@
 - [Make](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/make/) section of Dev Cheatsheets project
 - [Makefile](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Makefile) in my Jekyll template repo
 
-[Make]: {{ site.baseurl }}{% link recipes/make/index.md %}
+[Make]: {% link recipes/make/index.md %}
 
 
 ## Samples

@@ -9,7 +9,7 @@ description: A convenient way to upgrade all your project packages with one comm
 
 - [Upgrade packages][] for a Node app using GitHub Actions for automation.
 
-[Upgrade packages]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/upgrade-packages.md %}
+[Upgrade packages]: {% link recipes/ci-cd/github-actions/workflows/node/upgrade-packages.md %}
 
 
 ## Configure
@@ -84,4 +84,3 @@ $ git-deps
 ```
 
 Assuming you don't have any unrelated change that would get unintentionally committed too.
-

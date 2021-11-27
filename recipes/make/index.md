@@ -9,4 +9,4 @@ Make originally came from C background but I find it is a great fit for Python a
 
 This section is for use in the shell of Linux and macOS distros. If you use Windows, you'll need to install `make` yourself.
 
-[Rake]: {{ site.baseurl }}{% link recipes/ruby/rake/index.md %}
+[Rake]: {% link recipes/ruby/rake/index.md %}

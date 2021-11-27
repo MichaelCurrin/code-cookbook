@@ -52,17 +52,17 @@ This is based on the [Makefile][] in my Jekyll Blog Demo project.
 
 See an equivalent Jekyll [Rakefile][] in the Ruby Rake recipes section.
 
-[Rakefile]: {{ site.baseurl }}{% link recipes/ruby/rake/jekyll.md %}
+[Rakefile]: {% link recipes/ruby/rake/jekyll.md %}
 
 #### Windows
 
-See an equivalent Windows `make.bat` file below. This can presumably be run without `make` installed. 
+See an equivalent Windows `make.bat` file below. This can presumably be run without `make` installed.
 
 This was generated using the [Make-to-Batch](https://github.com/espositoandrea/Make-to-Batch) tool using `Makefile` as an input. This has not been tested but is included for interest and comparison.
 
 <details>
 <summary>make.bat</summary>
-    
+
 ```bat
 @echo off
 
@@ -160,4 +160,4 @@ Here we use a `make` variable set with the Docker `run` command and arguments, s
         $(DOCKER_RUN) jekyll build --trace
     ```
 
-[Jekyll]: {{ site.baseurl }}{% link recipes/containers/docker/jekyll.md %}
+[Jekyll]: {% link recipes/containers/docker/jekyll.md %}
