@@ -5,7 +5,7 @@ Related recipe - [Jekyll][] in the Container section.
 This flow runs a **Docker container**. If you don't want to use Docker, see [Jekyll Ruby Action][], which is a light approach.
 
 [Jekyll]: {% link recipes/containers/docker/jekyll.md %}
-[Jekyll Ruby Action]: {% link recipes/ci-cd/github-actions/workflows/jekyll/build/ruby-action.md %}
+[Jekyll Ruby Action]: {% link recipes/ci-cd/github-actions/workflows/jekyll/build/generic.md %}
 
 {% raw %}
 
