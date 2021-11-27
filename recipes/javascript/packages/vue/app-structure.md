@@ -1,6 +1,6 @@
 # App structure
 
-See also [Semantic HTML]({{ site.baseurl }}{% link recipes/web/html/outlines/semantic-html.md %}) page, which is not specific to Vue but gives recommendations for modern semantic HTML elements to use.
+See also [Semantic HTML]({% link recipes/web/html/outlines/semantic-html.md %}) page, which is not specific to Vue but gives recommendations for modern semantic HTML elements to use.
 
 
 ## Basic without nav

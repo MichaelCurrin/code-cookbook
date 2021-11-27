@@ -19,6 +19,6 @@ See [Tokens](/recipes/ci-cd/github-actions/tokens/) guide on use of tokens.
 - [GH Pages Deploy - Node][] page.
 - [MkDocs][] section.
 
-[Build and deploy - Jekyll]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %}
-[GH Pages Deploy - Node]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/gh-pages.md %}
-[MkDocs]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/mkdocs/index.md %}
+[Build and deploy - Jekyll]: {% link recipes/ci-cd/github-actions/workflows/jekyll/build/index.md %}
+[GH Pages Deploy - Node]: {% link recipes/ci-cd/github-actions/workflows/node/gh-pages.md %}
+[MkDocs]: {% link recipes/ci-cd/github-actions/workflows/mkdocs/index.md %}

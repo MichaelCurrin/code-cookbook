@@ -2,13 +2,13 @@
 
 ## Why
 
-This is secure as a machine is configured to accept SSH access from known public keys (which have the appropriate private key too). So that a password prompt is not given. 
+This is secure as a machine is configured to accept SSH access from known public keys (which have the appropriate private key too). So that a password prompt is not given.
 
 A password is much easier to crack than a long SSH key. And while you have to remember a password and type it, you don't have to enter a password for SSH because it is based on a trust. You can also add a password to an SSH key if you really want.
 
 This approach works best when login by password is also disabled - see another guide in this folder. See [Disable Password Login][] page.
 
-[Disable Password Login]: {{ site.baseurl }}{% link recipes/shell/ssh/access/disable-password-login.md %}
+[Disable Password Login]: {% link recipes/shell/ssh/access/disable-password-login.md %}
 
 
 ## Steps

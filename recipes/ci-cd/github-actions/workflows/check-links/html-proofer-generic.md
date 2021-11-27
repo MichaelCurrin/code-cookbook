@@ -12,8 +12,8 @@ How to use a Ruby gem as a CLI tool to validate links in your static HTML, for b
     - For use of `html-proofer` outside of GH Actions or how to add it to your `Gemfile`, see the
 - [HTML Proofer wrappers][]
 
-[HTML Proofer gem]: {{ site.baseurl }}{% link recipes/web/check-links/html-proofer.md %}
-[HTML Proofer wrappers]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/check-links/html-proofer-wrappers.md %}
+[HTML Proofer gem]: {% link recipes/web/check-links/html-proofer.md %}
+[HTML Proofer wrappers]: {% link recipes/ci-cd/github-actions/workflows/check-links/html-proofer-wrappers.md %}
 
 ## Samples
 

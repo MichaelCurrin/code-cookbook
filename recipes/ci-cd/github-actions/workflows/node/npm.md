@@ -7,7 +7,7 @@ description: Patterns for using Node.js and NPM in a GH Actions workflow
 
 See the GH docs page on [Using Node.js with GitHub Actions](https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions). Some of the samples come from here.
 
-To build a Node app (such as React or Vue) and serve it with GH Pages, see the [Deploy GH Pages]({{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}) section of this cookbook site.
+To build a Node app (such as React or Vue) and serve it with GH Pages, see the [Deploy GH Pages]({% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}) section of this cookbook site.
 
 
 ## Set up Node action
@@ -90,7 +90,7 @@ There are two recommended approaches here. Both require `package-lock.json` to b
 
 Built-in to `setup-node`, based on [doc](https://github.com/actions/setup-node#caching-packages-dependencies):
 
-- `main.yml` 
+- `main.yml`
     ```yaml
     steps:
       - name: Checkout
@@ -101,11 +101,11 @@ Built-in to `setup-node`, based on [doc](https://github.com/actions/setup-node#c
         with:
           node-version: '14.x'
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm install
     ```
-    
+
 Use a separate `cache` action, based on GH docs:
 
 - `main.yml`

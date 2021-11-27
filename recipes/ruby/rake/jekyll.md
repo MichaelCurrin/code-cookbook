@@ -4,7 +4,7 @@ Use `rake` to manage a static site project built with Jekyll.
 
 See also [Make Jekyll][] recipe for an equivalent `Makefile` version of this `Rakefile`. Though `make` is not standard on Windows. While if you have Ruby, you probably have `rake` too, on any OS.
 
-[Make Jekyll]: {{ site.baseurl }}{% link recipes/make/jekyll.md %}
+[Make Jekyll]: {% link recipes/make/jekyll.md %}
 
 
 ## Setup

@@ -4,7 +4,7 @@ description: Samples, resources and instructions around run a GH Actions workflo
 ---
 
 
-The pages in this section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together. 
+The pages in this section covers a variety of tools and flows including Python, NPM, Jekyll, GitHub Pages and mixing them together.
 
 Here are some highlights.
 
@@ -42,8 +42,8 @@ Here are some popular things to do:
 - Continue to [Basic Node][] as that is still simple and will be useful for Node.js developers.
 - To learn more about specific fields like `jobs` and the `on` trigger, see my [GitHub Actions cheatsheets][].
 
-[Basic]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/basic.md %}
-[Basic Node]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
+[Basic]: {% link recipes/ci-cd/github-actions/workflows/basic.md %}
+[Basic Node]: {% link recipes/ci-cd/github-actions/workflows/node/basic.md %}
 [GitHub Actions cheatsheets]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/
 
 ### Building and serving a site

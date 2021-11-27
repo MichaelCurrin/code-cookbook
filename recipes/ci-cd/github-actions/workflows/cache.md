@@ -58,7 +58,7 @@ Use the cache option on `setup-node` action:
       - name: Install dependencies
         run: npm install
     ```
-    
+
 #### Use cache action
 
 The cache location will be `~/.npm` on Unix/Posix. See [NPM cache](https://docs.npmjs.com/cli/cache#cache) in the docs NPM docs.
@@ -142,5 +142,5 @@ See [Ruby workflow][] recipes.
 
 {% endraw %}
 
-[Ruby workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/ruby/index.md %}
-[NPM workflow]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/node/npm.md %}
+[Ruby workflow]: {% link recipes/ci-cd/github-actions/workflows/ruby/index.md %}
+[NPM workflow]: {% link recipes/ci-cd/github-actions/workflows/node/npm.md %}

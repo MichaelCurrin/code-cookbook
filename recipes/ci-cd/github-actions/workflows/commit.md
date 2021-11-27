@@ -1,14 +1,14 @@
 ---
 title: Commit
-description: How to commit and push files during the CI flow 
+description: How to commit and push files during the CI flow
 ---
 
 
-## Related 
+## Related
 
 - [Create Pull Request][] workflows - some recipes there will commit for you, so you do not need a separate commit step.
 
-[Create Pull Request]: {{ site.baseurl }}{% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
+[Create Pull Request]: {% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
 
 {% raw %}
@@ -29,7 +29,7 @@ Some situations when you might want to add/edit and commit files all during a si
     - Update a list of contributors. (A GH bot can handle this for you)
     - Update a table of contents.
 - Code changes.
-    - Perform lint fixes. 
+    - Perform lint fixes.
     - Perform package upgrades.
 
 
@@ -48,7 +48,7 @@ This is slightly verbose but not too long. You know exactly what it is doing and
     steps:
       - name: Checkout
         # uses: ...
-        
+
       - name: Build
         # run: ...
 
@@ -90,7 +90,7 @@ See [push-new-files-back-to-master](https://github.com/marketplace/actions/push-
     steps:
       - name: Checkout
         # uses: ...
-        
+
       - name: Build
         # run: ...
 

@@ -12,4 +12,4 @@ Some action recipes here are intended for markdown files, while others will anal
 
 - [Check links][] recipes in the Web section.
 
-[Check links]: {{ site.baseurl }}{% link recipes/web/check-links/index.md %}
+[Check links]: {% link recipes/web/check-links/index.md %}
