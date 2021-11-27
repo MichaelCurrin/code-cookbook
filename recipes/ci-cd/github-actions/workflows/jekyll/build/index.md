@@ -21,7 +21,7 @@ That approach without GitHub Actions is much simpler. The downside is that you a
 - [Deploy GH Pages][] as a more generic section which could still be used for Jekyll.
 - [Jekyll container][] page.
 
-[GH Pages Actions]: {% link recipes/ci-cd/github-actions/workflows/jekyll/gh-pages-actions.md %}
+[GH Pages Actions]: {% link recipes/ci-cd/github-actions/workflows/jekyll/build/gh-pages-actions.md %}
 [Deploy GH Pages]: {% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}
 [Jekyll container]: {% link recipes/containers/docker/jekyll.md %}
 
