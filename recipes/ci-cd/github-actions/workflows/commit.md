@@ -67,6 +67,13 @@ This is slightly verbose but not too long. You know exactly what it is doing and
           git push
     ```
 
+You can also commit in two steps:
+
+```sh
+git add -A
+git commit -m "Add untracked file during workflow"
+```
+
 The commit step will commit _all_ file changes - both modified files and previously untracked files that got created for the first time.
 
 ```
