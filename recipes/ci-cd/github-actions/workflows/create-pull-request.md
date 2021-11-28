@@ -52,7 +52,7 @@ steps:
 
 Here we hit the GitHub API to create a PR.
 
-We don't actually make the commit or branch here - just the PR itself. See [Commit][] recipe for making the commit.
+We don't actually make the commit or branch here - just the PR itself. See [Commit][] recipes for making a commit.
 
 [Commit]: {% link recipes/ci-cd/github-actions/workflows/commit.md %}
 
