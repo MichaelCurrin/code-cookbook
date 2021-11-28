@@ -254,6 +254,12 @@
   </li>
 </ul>
 
+<p>You can also commit in two steps:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-A</span>
+git commit <span class="nt">-m</span> <span class="s2">"Add untracked file during workflow"</span>
+</code></pre></div></div>
+
 <p>The commit step will commit <em>all</em> file changes - both modified files and previously untracked files that got created for the first time.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    -a, --all             commit all changed files
