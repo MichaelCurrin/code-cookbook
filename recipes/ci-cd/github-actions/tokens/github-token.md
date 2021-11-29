@@ -20,6 +20,18 @@ description: A guide to using the secure auto-generated `GITHUB_TOKEN` token in 
         - See the [Permissions](https://docs.github.com/en/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) section.
 
 
+## Set access
+
+By default, the token as read and write access but you can restrict this to read-only.
+
+Go to the _Settings_ section of your repo and then _Actions_.
+
+Select one of:
+
+- Read and write permissions
+- Read repository contents permission
+
+
 ## Use in workflow 
 
 The token will be available on each workflow run.
