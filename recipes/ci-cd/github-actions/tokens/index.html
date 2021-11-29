@@ -9,19 +9,19 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Tokens cheatsheet | Code Cookbook</title>
+    <title>Tokens | Code Cookbook</title>
 
-    <meta property="og:title" content="Tokens cheatsheet" />
+    <meta property="og:title" content="Tokens" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Tokens cheatsheet" />
+    <meta property="twitter:title" content="Tokens" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="Instructions to set a GitHub token for CI builds" />
-    <meta property="og:description" content="Instructions to set a GitHub token for CI builds" />
+    <meta name="description" content="Instructions to managing GitHub API tokens and deploy keys for CI builds" />
+    <meta property="og:description" content="Instructions to managing GitHub API tokens and deploy keys for CI builds" />
 <meta name="author" content="Michael Currin" />
 
 
@@ -33,9 +33,9 @@
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "Instructions to set a GitHub token for CI builds",
+    "description": "Instructions to managing GitHub API tokens and deploy keys for CI builds",
     "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/tokens/",
-    "headline":    "Tokens cheatsheet",
+    "headline":    "Tokens",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -99,12 +99,12 @@
             
 
 
-            <span>Tokens cheatsheet</span>
+            <span>Tokens</span>
         </h1>
 
         
             <blockquote>
-                <p>Instructions to set a GitHub token for CI builds</p>
+                <p>Instructions to managing GitHub API tokens and deploy keys for CI builds</p>
 
             </blockquote>
         
@@ -156,7 +156,7 @@
 
         
             <a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/" class="underline">
-                Tokens cheatsheet
+                Tokens
             </a>
         
      
@@ -605,72 +605,13 @@
     
         <h2>Content</h2>
 
-        <p>A GitHub Action needs permissions to push to your <code class="language-plaintext highlighter-rouge">gh-pages</code> branch - so you must provide a token.</p>
+        <p>If you want to change content in a repo using GitHub Actions, your workflow needs permissions to push to your <code class="language-plaintext highlighter-rouge">gh-pages</code> branch - so you must provide a token or use a deploy key.</p>
 
-<p>Here are the approaches, from simplest to most complex to manage. A summary is provided.</p>
+<h3 id="related">Related</h3>
 
 <ul>
-  <li><a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/github-token.html">GitHub token</a>
-    <ul>
-      <li>API key scoped to a single repo.</li>
-      <li>Auto-generated for a GH workflow - low effort.</li>
-      <li>Very secure - you never have to copy or even view the value.</li>
-      <li>The main limitation is that this only works for GitHub Actions, unlike the others.</li>
-    </ul>
-  </li>
-  <li><a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/access-token.html">Access token</a>
-    <ul>
-      <li>API key scoped to <strong>all</strong> repos in your GH account.</li>
-      <li>Easy to generate and add to a workflow.</li>
-      <li><strong>Warning</strong> - this is the least secure. A token is for your entire profile, not per repo. With public repo access, a token gives read and write access to all your public repos - a compromised token can be used to do a lot of damage.</li>
-      <li>This key is useful for doing actions with the GH API such as reporting on stats.</li>
-    </ul>
-  </li>
-  <li><a href="/code-cookbook/recipes/ci-cd/github-actions/tokens/deploy-key.html">Deploy key</a>
-    <ul>
-      <li>API key scoped to a repo.</li>
-      <li>Needs to be generated <strong>locally</strong> once using SSH tool and your email address then pasted in so it takes more effort.</li>
-      <li>Slightly less secure then GH Token as you deal with a value, but this is more flexible.</li>
-    </ul>
-  </li>
+  <li><a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/tokens/">Tokens</a> in Dev Cheatsheets.</li>
 </ul>
-
-<p>Three tokens are supported by GitHub Actions.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th style="text-align: center">Private repo</th>
-      <th style="text-align: center">Public repo</th>
-      <th>Protocol</th>
-      <th>Set up</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">github_token</code></td>
-      <td style="text-align: center">✅️</td>
-      <td style="text-align: center">✅️</td>
-      <td>HTTPS</td>
-      <td>Unnecessary</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">deploy_key</code></td>
-      <td style="text-align: center">✅️</td>
-      <td style="text-align: center">✅️</td>
-      <td>SSH</td>
-      <td>Necessary</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">personal_token</code></td>
-      <td style="text-align: center">✅️</td>
-      <td style="text-align: center">✅️</td>
-      <td>HTTPS</td>
-      <td>Necessary</td>
-    </tr>
-  </tbody>
-</table>
     
 
         
