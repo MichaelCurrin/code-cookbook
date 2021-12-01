@@ -262,22 +262,32 @@
 
 <h2 id="samples">Samples</h2>
 
-<p>Notes:</p>
-
-<ul>
-  <li>We don’t care whether <code class="language-plaintext highlighter-rouge">npm outdated</code> exits with success (nothing to update) or error status (something to update), but rather force a success and then check if the output is empty or not.</li>
-  <li>Node is <em>already</em> in the environment, but you get more control using the Set up Node step here.</li>
-</ul>
+<p>Note that Node is <em>already</em> in the environment, but you get more control using the <em>Set up Node</em> step here, like picking a Node version.</p>
 
 <h3 id="basic">Basic</h3>
 
 <p>Here using a minimal approach.</p>
 
-<p>Here’s a PR I created when testing this: <a href="https://github.com/MichaelCurrin/vue-quickstart/pull/9">vue-quickstart #9</a>. It created a lockfile in this case but ideally one would be updated instead.</p>
+<p>Two run options:</p>
+
+<ul>
+  <li>Manual - trigger from within Actions tab.</li>
+  <li>On a schedule (weekly on a Sunday a midnight here).</li>
+</ul>
+
+<p>The PR step will do nothing if there is nothing to commit.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">upgrade-packages.yml</code>
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">jobs</span><span class="pi">:</span>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade NPM packages</span>
+
+  <span class="na">on</span><span class="pi">:</span>
+    <span class="na">workflow_dispatch</span><span class="pi">:</span>
+
+    <span class="na">schedule</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">cron</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">0"</span>
+        
+  <span class="na">jobs</span><span class="pi">:</span>
     <span class="na">upgrade-packages</span><span class="pi">:</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages</span>
 
@@ -301,18 +311,22 @@
   </li>
 </ul>
 
-<p>The PR step will do nothing if there is nothing to commit.</p>
-
 <h3 id="use-yarn">Use Yarn</h3>
 
-<p>Yarn will be set up already in the environment.</p>
+<p>Yarn will be set up already in the environment, so no need to add a step to install Yarn.</p>
 
 <p>So just change <code class="language-plaintext highlighter-rouge">npm</code> commands to use <code class="language-plaintext highlighter-rouge">yarn</code>.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">upgrade-packages.yml</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
-    <span class="c1"># ...</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ⚙️</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16.x'</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages 🔍</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
@@ -334,20 +348,18 @@
 <p>In this one:</p>
 
 <ul>
-  <li>Two run options:
-    <ul>
-      <li>Manual</li>
-      <li>On a schedule (weekly on a Sunday a midnight here).</li>
-    </ul>
-  </li>
-  <li>we make sure the upgrade and PR steps are only attempts <em>if</em> there is something to upgrade</li>
-  <li>We also set custom inputs on the PR step.</li>
-  <li>Use use cache to improve performance
+  <li>Use <em>cache</em> to improve performance.
     <ul>
       <li>Packages not yet installed will appear as <code class="language-plaintext highlighter-rouge">MISSING</code>. This is fine.</li>
       <li>If you have packages installed already and loaded from cache (whether from the old or new <code class="language-plaintext highlighter-rouge">package.json</code> file, then the <code class="language-plaintext highlighter-rouge">npm install</code> and <code class="language-plaintext highlighter-rouge">npm update</code> will have less to do (at least when there is cache against the lockfile).</li>
     </ul>
   </li>
+  <li>We make sure the upgrade and PR steps are only attempts <em>if</em> there is something to upgrade.
+    <ul>
+      <li>We don’t care whether <code class="language-plaintext highlighter-rouge">npm outdated</code> exits with success (nothing to update) or error status (something to update), but rather force a success and then check if the output is empty or not.</li>
+    </ul>
+  </li>
+  <li>We set custom parameters on the PR step.</li>
 </ul>
 
 <p>Here is a sample (using Yarn) - <a href="https://github.com/MichaelCurrin/badge-generator/pull/129">PR #129</a>.</p>
