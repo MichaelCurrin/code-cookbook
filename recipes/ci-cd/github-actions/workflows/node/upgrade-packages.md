@@ -28,7 +28,7 @@ This also effectively patches eagerly to newer versions even _before_ any vulner
 1. Set up Node
 1. Check for outdated packages that are still within the semvar restrictions (so hopefully no breaking changes in your app).
 1. Upgrade packages.
-1. Commit to a branch and create a PR. See [Create Pull Request][]
+1. Commit to a branch and create a PR. See [Create Pull Request][] recipes.
 
 That should trigger a GH notification. Then you can review the PR changes yourself.
 
@@ -39,8 +39,23 @@ That should trigger a GH notification. Then you can review the PR changes yourse
 
 1. Pick one of the samples below, depending on basic/advanced and Node/Yarn.
 1. Run the workflow manually on GH or on a schedule (such as weekly).
-1. Review the PR.
-1. If your usual CI test and build checks are passing, merge the PR. Or the close PR, then consider making up manual changes or just accept the old versions.
+1. Get your CI checks to run on the PR.
+1. Chekck your standard CI checks are passing (such as to build and test the app).
+1. Decide what to do with the PR.
+    - Merge and review the PR.
+    - Update the code your self with the same PR or a new PR. e.g. if two packages were upgraded and one causes an error, then downgrade that one.
+    - Or close the PR and just accept the old versions of packages.
+
+
+Note on the last part around CI checks running:
+
+- Normally these checks would run on creation of the PR.
+- For security reasons on GitHub's side, the PR/branch created GH Actions _cannot_ cause workflows to run. 
+- Even if your Approve the workflow. There _is_ an "Approve and Run" button that appears in PRs to trigger checks, but this only works across _forks_. There are 
+- The workarounds I have:
+    - Just to make a non-functional commit, like adding a space to the package lockfile. When I commit that in GitHub, then the checks run. 
+    - Alternatively you can close the PR and make a new one against the branch that the workflow made - this works but isn't so clean.
+    - Or for a larger change, you can add the build and test steps to the upgrade packages workflow, so that it covers everything. It just becomes longer and more  project-specific.
 
 
 ## Samples
@@ -75,18 +90,16 @@ Here's a PR I created when testing this: [vue-quickstart #9][]. It created a loc
             with:
               node-version: '16.x'
 
-          - name: Check for outdated packages
-            run: |
-              OUTDATED_OUTPUT=$(npm outdated) || true
-
-          - name: Upgrade packages
+          - name: Upgrade packages 🔀
             run: npm update
 
-          - name: Commit and create PR
+          - name: Commit and create PR 🔀
             uses: peter-evans/create-pull-request@v3
     ```
+    
+The PR step will do nothing if there is nothing to commit.
 
-### Yarn
+### Use Yarn
 
 Yarn will be set up already in the environment.
 
@@ -97,14 +110,14 @@ So just change `npm` commands to use `yarn`.
     steps:
       # ...
 
-      - name: Check for outdated packages
+      - name: Check for outdated packages 🔍
         run: |
           OUTDATED_OUTPUT=$(yarn outdated) || true
 
-      - name: Upgrade packages
+      - name: Upgrade packages 🔀
         run: yarn upgrade
 
-      - name: Commit and create PR
+      - name: Commit and create PR 
         uses: peter-evans/create-pull-request@v3
     ```
 
@@ -117,7 +130,7 @@ See [Yarn][] recipe for more help.
 
 In this one:
 
-- Two run options
+- Two run options:
     - Manual
     - On a schedule (weekly on a Sunday a midnight here).
 - we make sure the upgrade and PR steps are only attempts _if_ there is something to upgrade
@@ -197,48 +210,104 @@ Note we use [npm-check-updates][] which does _not_ actually install packages.
 
 [npm-check-updates]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html
 
-_Warning: untested_
+_Warning: untested._
 
 {% raw %}
 
 - `update-packages.yml`
     ```yaml
     steps:
-      - name: Install NCU
+      - name: Install NCU 🔧
         run: npm install -g npm-check-packages
 
-      - name: Check for outdated packages
+      - name: Check for outdated packages 🔍
         id: vars
         run: |
-          OUTDATED=$(ncu)
-
-          if [[ -z $OUTDATED ]]; then
+          if ncu -e 2; then
+            IS_OUTDATED=true
             echo 'Nothing to upgrade'
           else
+            IS_OUTDATED=false
             echo 'Found outdated packages:'
-            echo "$OUTDATED"
           fi
 
-          echo "::set-output name=outdated::$OUTDATED"
+          echo "::set-output name=is_outdated::$IS_OUTDATED"
 
-      - name: Upgrade packages
-        if: ${{ steps.vars.outputs.outdated != '' }}
+      - name: Upgrade packages ⏫
+        if: ${{ steps.vars.outputs.is_outdated == 'true' }}
         run: ncu -u
 
-      - name: Commit and create PR
-        if: ${{ steps.vars.outputs.outdated != '' }}
+      - name: Commit and create PR 🔀
+        if: ${{ steps.vars.outputs.is_outdated == 'true' }}
         uses: peter-evans/create-pull-request@v3
     ```
 
+Or simplify like this. The PR step will do nothing if there are no changes.
+
+- `update-packages.yml`
+    ```yaml
+    steps:
+      - name: Install NCU 🔧
+        run: npm install -g npm-check-packages
+        
+      - name: Upgrade packages ⏫
+        run: ncu -u
+        
+      - name: Commit and create PR 🔀
+        uses: peter-evans/create-pull-request@v3
+    ```
+
+
 {% endraw %}
-
-TODO:
-
-- Avoid capturing output because that probably loses colors. Rather use `-e 2` error mode and check status. `if ncu -e 2; then ...`
 
 See [Package versions][] cheatsheet for more info on tools for upgrading.
 
 [Package versions]: https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/
+
+
+## Run checks within upgrade workflow
+
+Build on the basic workflow, but with checks running in the workflow.
+
+Note that it running any linting and formatting steps is still useful here, because your workflow might actually upgrade ESLint or Prettier, even if your codebase stays unchanged.
+
+- `upgrade-packages.yml`
+    ```yaml
+    jobs:
+      upgrade-packages:
+        name: Upgrade packages
+
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout 🛎️
+            uses: actions/checkout@v2
+
+          - name: Set up Node.js ⚙️
+            uses: actions/setup-node@v2
+            with:
+              node-version: '16.x'
+
+          - name: Check for outdated packages 🔍
+            run: |
+              OUTDATED_OUTPUT=$(npm outdated) || true
+
+          - name: Upgrade packages ⏫
+            run: npm update
+       
+         - name: Lint 🧐
+           run: npm run lint:check
+            
+          - name: Test 🚨
+            run: npm test
+          
+          - name: Build 🏗️
+            run: npm run build
+
+          - name: Commit and create PR
+            uses: peter-evans/create-pull-request@v3
+    ```
+
 
 
 ## Notes
