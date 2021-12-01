@@ -69,21 +69,29 @@ Note on the last part around CI checks running:
 
 ## Samples
 
-Notes:
-
-- We don't care whether `npm outdated` exits with success (nothing to update) or error status (something to update), but rather force a success and then check if the output is empty or not.
-- Node is _already_ in the environment, but you get more control using the Set up Node step here.
+Note that Node is _already_ in the environment, but you get more control using the _Set up Node_ step here, like picking a Node version.
 
 ### Basic
 
 Here using a minimal approach.
 
-Here's a PR I created when testing this: [vue-quickstart #9][]. It created a lockfile in this case but ideally one would be updated instead.
+Two run options:
 
-[vue-quickstart #9]: https://github.com/MichaelCurrin/vue-quickstart/pull/9
+- Manual - trigger from within Actions tab.
+- On a schedule (weekly on a Sunday a midnight here).
+
+The PR step will do nothing if there is nothing to commit.
 
 - `upgrade-packages.yml`
     ```yaml
+    name: Upgrade NPM packages
+
+    on:
+      workflow_dispatch:
+
+      schedule:
+        - cron:  "0 0 * * 0"
+        
     jobs:
       upgrade-packages:
         name: Upgrade packages
@@ -105,19 +113,23 @@ Here's a PR I created when testing this: [vue-quickstart #9][]. It created a loc
           - name: Commit and create PR 🔀
             uses: peter-evans/create-pull-request@v3
     ```
-    
-The PR step will do nothing if there is nothing to commit.
 
 ### Use Yarn
 
-Yarn will be set up already in the environment.
+Yarn will be set up already in the environment, so no need to add a step to install Yarn.
 
 So just change `npm` commands to use `yarn`.
 
 - `upgrade-packages.yml`
     ```yaml
     steps:
-      # ...
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ⚙️
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
 
       - name: Check for outdated packages 🔍
         run: |
@@ -134,19 +146,16 @@ See [Yarn][] recipe for more help.
 
 [Yarn]: {% link recipes/ci-cd/github-actions/workflows/node/yarn.md %}
 
-
 ### Advanced
 
 In this one:
 
-- Two run options:
-    - Manual
-    - On a schedule (weekly on a Sunday a midnight here).
-- we make sure the upgrade and PR steps are only attempts _if_ there is something to upgrade
-- We also set custom inputs on the PR step.
-- Use use cache to improve performance
+- Use _cache_ to improve performance.
     - Packages not yet installed will appear as `MISSING`. This is fine.
     - If you have packages installed already and loaded from cache (whether from the old or new `package.json` file, then the `npm install` and `npm update` will have less to do (at least when there is cache against the lockfile).
+- We make sure the upgrade and PR steps are only attempts _if_ there is something to upgrade.
+    - We don't care whether `npm outdated` exits with success (nothing to update) or error status (something to update), but rather force a success and then check if the output is empty or not.
+- We set custom parameters on the PR step.
 
 Here is a sample (using Yarn) - [PR #129](https://github.com/MichaelCurrin/badge-generator/pull/129).
 
