@@ -3,6 +3,8 @@ title: Upgrade packages
 description: Upgrade outdated NPM packages and make a PR with the lockfile changes
 ---
 
+## About
+
 The workflow recipes on this page let you use GH Actions to upgrade your NPM dependencies automatically and safely, without touching the command-line.
 
 Run the workflow a schedule or on a manual trigger and GH Actions will do the upgrade for you on a branch with a PR.
@@ -19,6 +21,13 @@ While taking the manual effort out of running manual tasks (upgrading locally, c
 Especially useful if you frequently have to use dependabot to patch very nested indirect dependencies and upgrading a higher-level dependency reduces this.
 
 This also effectively patches eagerly to newer versions even _before_ any vulnerabilities in old versions are discovered.
+
+
+## Related
+
+- [Upgrade packages][] cheatsheet for NPM.
+
+[Upgrade packages]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/package-managers/javascript/npm/upgrade-packages.html
 
 
 ## Steps
