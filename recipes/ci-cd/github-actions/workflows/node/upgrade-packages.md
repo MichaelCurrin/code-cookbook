@@ -326,6 +326,7 @@ Note that it running any linting and formatting steps is still useful here, beca
             uses: peter-evans/create-pull-request@v3
     ```
 
+Note that update step will also _install_ packages, so you can omit `npm install` as a step.
 
 
 ## Notes
