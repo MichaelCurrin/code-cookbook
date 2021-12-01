@@ -59,7 +59,7 @@ That should trigger a GH notification. Then you can review the PR changes yourse
 Note on the last part around CI checks running:
 
 - Normally these checks would run on creation of the PR.
-- For security reasons on GitHub's side, the PR/branch created GH Actions _cannot_ cause workflows to run. 
+- For security reasons on GitHub's side, the PR/branch created GH Actions _cannot_ cause workflows to run. See [issue](https://github.com/peter-evans/create-pull-request/issues/48).
 - Even if your Approve the workflow. There _is_ an "Approve and Run" button that appears in PRs to trigger checks, but this only works across _forks_. There are 
 - The workarounds I have:
     - Just to make a non-functional commit, like adding a space to the package lockfile. When I commit that in GitHub, then the checks run. 
