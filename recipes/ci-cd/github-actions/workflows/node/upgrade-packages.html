@@ -216,7 +216,7 @@
   <li>Set up Node</li>
   <li>Check for outdated packages that are still within the semvar restrictions (so hopefully no breaking changes in your app).</li>
   <li>Upgrade packages.</li>
-  <li>Commit to a branch and create a PR. See <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/create-pull-request.html">Create Pull Request</a></li>
+  <li>Commit to a branch and create a PR. See <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/create-pull-request.html">Create Pull Request</a> recipes.</li>
 </ol>
 
 <p>That should trigger a GH notification. Then you can review the PR changes yourself.</p>
@@ -226,9 +226,31 @@
 <ol>
   <li>Pick one of the samples below, depending on basic/advanced and Node/Yarn.</li>
   <li>Run the workflow manually on GH or on a schedule (such as weekly).</li>
-  <li>Review the PR.</li>
-  <li>If your usual CI test and build checks are passing, merge the PR. Or the close PR, then consider making up manual changes or just accept the old versions.</li>
+  <li>Get your CI checks to run on the PR.</li>
+  <li>Chekck your standard CI checks are passing (such as to build and test the app).</li>
+  <li>Decide what to do with the PR.
+    <ul>
+      <li>Merge and review the PR.</li>
+      <li>Update the code your self with the same PR or a new PR. e.g. if two packages were upgraded and one causes an error, then downgrade that one.</li>
+      <li>Or close the PR and just accept the old versions of packages.</li>
+    </ul>
+  </li>
 </ol>
+
+<p>Note on the last part around CI checks running:</p>
+
+<ul>
+  <li>Normally these checks would run on creation of the PR.</li>
+  <li>For security reasons on GitHub’s side, the PR/branch created GH Actions <em>cannot</em> cause workflows to run.</li>
+  <li>Even if your Approve the workflow. There <em>is</em> an “Approve and Run” button that appears in PRs to trigger checks, but this only works across <em>forks</em>. There are</li>
+  <li>The workarounds I have:
+    <ul>
+      <li>Just to make a non-functional commit, like adding a space to the package lockfile. When I commit that in GitHub, then the checks run.</li>
+      <li>Alternatively you can close the PR and make a new one against the branch that the workflow made - this works but isn’t so clean.</li>
+      <li>Or for a larger change, you can add the build and test steps to the upgrade packages workflow, so that it covers everything. It just becomes longer and more  project-specific.</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="samples">Samples</h2>
 
@@ -262,20 +284,18 @@
           <span class="na">with</span><span class="pi">:</span>
             <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16.x'</span>
 
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-            <span class="s">OUTDATED_OUTPUT=$(npm outdated) || true</span>
-
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages 🔀</span>
           <span class="na">run</span><span class="pi">:</span> <span class="s">npm update</span>
 
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR 🔀</span>
           <span class="na">uses</span><span class="pi">:</span> <span class="s">peter-evans/create-pull-request@v3</span>
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<h3 id="yarn">Yarn</h3>
+<p>The PR step will do nothing if there is nothing to commit.</p>
+
+<h3 id="use-yarn">Use Yarn</h3>
 
 <p>Yarn will be set up already in the environment.</p>
 
@@ -286,14 +306,14 @@
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
     <span class="c1"># ...</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages 🔍</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
         <span class="s">OUTDATED_OUTPUT=$(yarn outdated) || true</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages 🔀</span>
       <span class="na">run</span><span class="pi">:</span> <span class="s">yarn upgrade</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR</span> 
       <span class="na">uses</span><span class="pi">:</span> <span class="s">peter-evans/create-pull-request@v3</span>
 </code></pre></div>    </div>
   </li>
@@ -306,7 +326,7 @@
 <p>In this one:</p>
 
 <ul>
-  <li>Two run options
+  <li>Two run options:
     <ul>
       <li>Manual</li>
       <li>On a schedule (weekly on a Sunday a midnight here).</li>
@@ -389,46 +409,101 @@
 
 <p>Note we use <a href="https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/ncu.html">npm-check-updates</a> which does <em>not</em> actually install packages.</p>
 
-<p><em>Warning: untested</em></p>
+<p><em>Warning: untested.</em></p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">update-packages.yml</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install NCU</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install NCU 🔧</span>
       <span class="na">run</span><span class="pi">:</span> <span class="s">npm install -g npm-check-packages</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages 🔍</span>
       <span class="na">id</span><span class="pi">:</span> <span class="s">vars</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-        <span class="s">OUTDATED=$(ncu)</span>
-
-        <span class="s">if [[ -z $OUTDATED ]]; then</span>
+        <span class="s">if ncu -e 2; then</span>
+          <span class="s">IS_OUTDATED=true</span>
           <span class="s">echo 'Nothing to upgrade'</span>
         <span class="s">else</span>
+          <span class="s">IS_OUTDATED=false</span>
           <span class="s">echo 'Found outdated packages:'</span>
-          <span class="s">echo "$OUTDATED"</span>
         <span class="s">fi</span>
 
-        <span class="s">echo "::set-output name=outdated::$OUTDATED"</span>
+        <span class="s">echo "::set-output name=is_outdated::$IS_OUTDATED"</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages</span>
-      <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.vars.outputs.outdated != '' }}</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages ⏫</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.vars.outputs.is_outdated == 'true' }}</span>
       <span class="na">run</span><span class="pi">:</span> <span class="s">ncu -u</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR</span>
-      <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.vars.outputs.outdated != '' }}</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR 🔀</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.vars.outputs.is_outdated == 'true' }}</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">peter-evans/create-pull-request@v3</span>
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<p>TODO:</p>
+<p>Or simplify like this. The PR step will do nothing if there are no changes.</p>
 
 <ul>
-  <li>Avoid capturing output because that probably loses colors. Rather use <code class="language-plaintext highlighter-rouge">-e 2</code> error mode and check status. <code class="language-plaintext highlighter-rouge">if ncu -e 2; then ...</code></li>
+  <li><code class="language-plaintext highlighter-rouge">update-packages.yml</code>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install NCU 🔧</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install -g npm-check-packages</span>
+        
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages ⏫</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">ncu -u</span>
+        
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR 🔀</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">peter-evans/create-pull-request@v3</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
 <p>See <a href="https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/package-versions/">Package versions</a> cheatsheet for more info on tools for upgrading.</p>
+
+<h2 id="run-checks-within-upgrade-workflow">Run checks within upgrade workflow</h2>
+
+<p>Build on the basic workflow, but with checks running in the workflow.</p>
+
+<p>Note that it running any linting and formatting steps is still useful here, because your workflow might actually upgrade ESLint or Prettier, even if your codebase stays unchanged.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">upgrade-packages.yml</code>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">jobs</span><span class="pi">:</span>
+    <span class="na">upgrade-packages</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages</span>
+
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+      <span class="na">steps</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ⚙️</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+          <span class="na">with</span><span class="pi">:</span>
+            <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16.x'</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for outdated packages 🔍</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+            <span class="s">OUTDATED_OUTPUT=$(npm outdated) || true</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upgrade packages ⏫</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm update</span>
+       
+       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Lint 🧐</span>
+         <span class="na">run</span><span class="pi">:</span> <span class="s">npm run lint:check</span>
+            
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test 🚨</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
+          
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build 🏗️</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit and create PR</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">peter-evans/create-pull-request@v3</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <h2 id="notes">Notes</h2>
 
