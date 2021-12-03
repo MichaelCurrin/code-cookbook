@@ -26,13 +26,15 @@ This also effectively patches eagerly to newer versions even _before_ any vulner
 ## Related
 
 - [Upgrade packages][] cheatsheet for NPM.
+- [Upgrade NPM packages with GH Actions][] - my blog post.
 
 [Upgrade packages]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/package-managers/javascript/npm/upgrade-packages.html
+[Upgrade NPM packages with GH Actions]: https://dev.to/michaelcurrin/upgrade-npm-packages-with-gh-actions-55md
 
 
 ## Steps
 
-### What the workflows do
+### What the workflows does
 
 1. Set up Node
 1. Check for outdated packages that are still within the semvar restrictions (so hopefully no breaking changes in your app).
@@ -40,7 +42,6 @@ This also effectively patches eagerly to newer versions even _before_ any vulner
 1. Commit to a branch and create a PR. See [Create Pull Request][] recipes.
 
 That should trigger a GH notification. Then you can review the PR changes yourself.
-
 
 [Create Pull Request]: {% link recipes/ci-cd/github-actions/workflows/create-pull-request.md %}
 
