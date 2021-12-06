@@ -154,4 +154,16 @@ For comparison, there is a similar action dedicated to GitHub Pages, but it uses
 
 - [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
+
+## Use the Add and Commit action 
+
+- [Add and commit](https://github.com/EndBug/add-and-commit)
+
+```yaml
+steps:
+ - uses: EndBug/add-and-commit@v7
+   with:
+     default_author: github_actions
+```
+
 {% endraw %}
