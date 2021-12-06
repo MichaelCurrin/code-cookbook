@@ -1,11 +1,13 @@
 ---
-title: Suggested
+title: GitHub's Template
 description: The workflow that GH Actions suggests to you for a Go project
 ---
 
 ## Sample
 
-- `go.yml` (name suggested for you)
+The filename and contents that GH recommends to you:
+
+- `go.yml`
     ```yaml
     name: Go
 
