@@ -127,6 +127,9 @@
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/tokens/github-token.html</loc>
 </url>
 <url>
+<loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/go/githubs-template.html</loc>
+</url>
+<url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/version-control/git/global-ignore.html</loc>
 </url>
 <url>
@@ -518,9 +521,6 @@
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/shell/sudoers.html</loc>
-</url>
-<url>
-<loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/go/suggested.html</loc>
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/version-control/github/sync-fork.html</loc>
