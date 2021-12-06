@@ -23,7 +23,7 @@ The Go Releaser action handles building assets attaching to a release. I need to
 
 ### Conditions
 
-- `release.yml` - Run the entire workflow on a new tag only.
+- `release.yml` - Run all steps in the workflow every time, but on a new tag only.
     ```yaml
     on:
       push:
@@ -31,10 +31,10 @@ The Go Releaser action handles building assets attaching to a release. I need to
           - 'v*'
 
     jobs:
-      release:
+      build-release:
         # ...
     ```
-- `main.yml` - Run the workflow on every push, but only run the release step on a tag.
+- `main.yml` - Run the workflow on every push, but only run the release step if running against a tag.
     ```yaml
     on:
       push:
@@ -56,8 +56,6 @@ The Go Releaser action handles building assets attaching to a release. I need to
 ### Release
 
 This example is based on the Action's docs. Use one of the conditional setups above.
-
-I would guess that if you were release only and not running tests, you could skip setting up Go in the environment.
 
 - `main.yml` or `release.yml`
     ```yaml
@@ -90,6 +88,8 @@ I would guess that if you were release only and not running tests, you could ski
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     
+I would guess that if you were to release only and not run tests, you could skip setting up Go in the environment. As the releaser action handles that.
+
 
 ## Example output
 
