@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>MkDocs | Code Cookbook</title>
+    <title>Release | Code Cookbook</title>
 
-    <meta property="og:title" content="MkDocs" />
+    <meta property="og:title" content="Release" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="MkDocs" />
+    <meta property="twitter:title" content="Release" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/release.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/release.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/",
-    "headline":    "MkDocs",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/release.html",
+    "headline":    "Release",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/mkdocs/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/release.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/mkdocs/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>MkDocs</span>
+            <span>Release</span>
         </h1>
 
         
@@ -162,8 +162,8 @@
         
 
         
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/" class="underline">
-                MkDocs
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/release.html" class="underline">
+                Release
             </a>
         
      
@@ -175,437 +175,7 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
-
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
-
-<br>
-
-
-    <h2>Pages</h2>
-
-    
-
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/checks.html">
-                    
-
-
-                    <span>Checks</span>
-                </a></li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/deploy-mkdocs.html">
-                    
-
-
-                    <span>Deploy MkDocs action</span>
-                </a></li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/mkdocs/generic.html">
-                    
-
-
-                    <span>Generic</span>
-                </a></li>
-        </ul>
-
-    <br>
-
-    
-    
-        <h2>Content</h2>
-
-        <p>Use Python <code class="language-plaintext highlighter-rouge">mkdocs</code> to build a docs site and automate using GH Actions.</p>
-    
+            <p><a href="https://github.com/InsonusK/get-latest-release">Get Latest Release</a> action.</p>
 
         
     </div>
