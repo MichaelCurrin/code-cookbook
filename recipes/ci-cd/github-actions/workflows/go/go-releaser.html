@@ -212,18 +212,18 @@
 <h3 id="conditions">Conditions</h3>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">release.yml</code> - Run the entire workflow on a new tag only.
+  <li><code class="language-plaintext highlighter-rouge">release.yml</code> - Run all steps in the workflow every time, but on a new tag only.
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">on</span><span class="pi">:</span>
     <span class="na">push</span><span class="pi">:</span>
       <span class="na">tags</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s1">'</span><span class="s">v*'</span>
 
   <span class="na">jobs</span><span class="pi">:</span>
-    <span class="na">release</span><span class="pi">:</span>
+    <span class="na">build-release</span><span class="pi">:</span>
       <span class="c1"># ...</span>
 </code></pre></div>    </div>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">main.yml</code> - Run the workflow on every push, but only run the release step on a tag.
+  <li><code class="language-plaintext highlighter-rouge">main.yml</code> - Run the workflow on every push, but only run the release step if running against a tag.
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">on</span><span class="pi">:</span>
     <span class="na">push</span><span class="pi">:</span>
     <span class="na">pull_request</span><span class="pi">:</span>
@@ -246,8 +246,6 @@
 <h3 id="release">Release</h3>
 
 <p>This example is based on the Action’s docs. Use one of the conditional setups above.</p>
-
-<p>I would guess that if you were release only and not running tests, you could skip setting up Go in the environment.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">main.yml</code> or <code class="language-plaintext highlighter-rouge">release.yml</code>
@@ -281,6 +279,8 @@
 </code></pre></div>    </div>
   </li>
 </ul>
+
+<p>I would guess that if you were to release only and not run tests, you could skip setting up Go in the environment. As the releaser action handles that.</p>
 
 <h2 id="example-output">Example output</h2>
 
