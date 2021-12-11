@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Postgres | Code Cookbook</title>
+    <title>Hugo | Code Cookbook</title>
 
-    <meta property="og:title" content="Postgres" />
+    <meta property="og:title" content="Hugo" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Postgres" />
+    <meta property="twitter:title" content="Hugo" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/sql/postgres/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/sql/postgres/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/hugo.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/hugo.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/sql/postgres/",
-    "headline":    "Postgres",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/hugo.html",
+    "headline":    "Hugo",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/sql/postgres/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/hugo.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/sql/postgres/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>Postgres</span>
+            <span>Hugo</span>
         </h1>
 
         
@@ -127,8 +127,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/sql/">
-    SQL
+            <a href="/code-cookbook/recipes/ci-cd/">
+    CI/CD
 </a>
 
         
@@ -138,8 +138,32 @@
         
 
         
-            <a href="/code-cookbook/recipes/sql/postgres/" class="underline">
-                Postgres
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
+    GitHub Actions
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/">
+    Workflows
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/hugo.html" class="underline">
+                Hugo
             </a>
         
      
@@ -151,419 +175,14 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <h2 id="my-template">My Template</h2>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>See <a href="https://github.com/MichaelCurrin/hugo-quickstart/blob/main/.github/workflows/main.yml">main.yml</a> in <code class="language-plaintext highlighter-rouge">hugo-quickstart</code> template repo.</p>
 
-<br>
+<h2 id="hugo-docs">Hugo docs</h2>
 
+<p>See <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hosting on GitHub</a>.</p>
 
-    <h2>Pages</h2>
-
-    
-
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/sql/postgres/processes.html">
-                    
-
-
-                    <span>Processes</span>
-                </a></li>
-        </ul>
-
-    <br>
-
-    
-    
 
         
     </div>
