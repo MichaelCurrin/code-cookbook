@@ -1,6 +1,6 @@
 ---
-title: Generic
-description: Use a Ruby action to set up Ruby and gems, then build and add a generic deploy step
+title: Generic steps
+description: Use a Ruby action to set up Ruby and gems, then build, and deploy with a generic deploy step
 ---
 
 
