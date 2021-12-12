@@ -49,3 +49,20 @@ steps:
     with:
       persist-credentials: false
 ```
+
+### Submodules
+
+If you use submodules, do this to ensure those are filled.
+
+Equivalent too `git clone --recursive`.
+
+Note also the fetch-depth is limited, so only the one commit is fetched for the submodule, as well as the root repo.
+
+```yaml
+steps:
+  - name: Checkout 🛎️
+    uses: actions/checkout@v2
+    with:
+      submodules: true
+      fetch-depth: 0
+```
