@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Natural Language Processing | Code Cookbook</title>
+    <title>Table | Code Cookbook</title>
 
-    <meta property="og:title" content="Natural Language Processing" />
+    <meta property="og:title" content="Table" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Natural Language Processing" />
+    <meta property="twitter:title" content="Table" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/python/nlp/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/python/nlp/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/web/css/table.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/web/css/table.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/python/nlp/",
-    "headline":    "Natural Language Processing",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/web/css/table.html",
+    "headline":    "Table",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/python/nlp/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/web/css/table.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/python/nlp/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/web/css/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>Natural Language Processing</span>
+            <span>Table</span>
         </h1>
 
         
@@ -127,8 +127,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/python/">
-    Python
+            <a href="/code-cookbook/recipes/web/">
+    Web
 </a>
 
         
@@ -138,8 +138,20 @@
         
 
         
-            <a href="/code-cookbook/recipes/python/nlp/" class="underline">
-                Natural Language Processing
+            
+            <a href="/code-cookbook/recipes/web/css/">
+    CSS
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/web/css/table.html" class="underline">
+                Table
             </a>
         
      
@@ -151,419 +163,17 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <h2 id="scrolling-table">Scrolling table</h2>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>This adds a scrollbar so you can scroll within the table, without squashing the table and without making the the entire page width get too big.</p>
 
-<br>
-
-
-    <h2>Pages</h2>
-
-    
-
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/python/nlp/basic.html">
-                    
-
-
-                    <span>Basic</span>
-                </a></li>
-        </ul>
-
-    <br>
-
-    
-    
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1000px</span><span class="p">)</span>  <span class="p">{</span>
+  <span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">overflow-x</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
     </div>
