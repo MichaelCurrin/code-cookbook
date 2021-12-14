@@ -26,6 +26,8 @@ My expanded details
 My expanded details
 </details>
 
+---
+
 
 ## Nesting
 
@@ -55,6 +57,7 @@ Outer details
     </details>
 </details>
 
+---
 Just be sure to not use indenting for the inner item, or just make sure there are no empty lines as above. Otherwise your indented HTML becomes markdown code blocks.
 
 If you need to style the inner and outer items differently, you can add divs or classes or a CSS selector which only applies to details inside details.
@@ -67,8 +70,10 @@ Create an includes file and use it on a page.
 - `_includes/accordion.html` - or whatever name you like.
     ```html
     <details>
-    <summary><b>{{ include.title }}</b></summary>
-    {{ include.description }}
+       <summary>
+           <b>{{ include.title }}</b>
+       </summary>
+       {{ include.description }}
     </details>
     ```
 - `index.md`
@@ -80,8 +85,8 @@ Create an includes file and use it on a page.
     # Accordion test
 
     {% include accordion.html
-        title = "This is my title"
-        description = "This is my description"
+        title="This is my title"
+        description="This is my description"
     %}
     ```
     
@@ -97,12 +102,15 @@ This is similar to using the [Details tag](#details-tag) but uses HTML tags with
 
 From [Implementing A Pure CSS Collapsible](https://alligator.io/css/collapsible/)
 
-
 - `accordion.html`
     ```html
     <div class="wrap-collapsible">
         <input id="collapsible" class="toggle" type="checkbox">
-        <label for="collapsible" class="lbl-toggle">{{ include.title }}</label>
+       
+        <label for="collapsible" class="lbl-toggle">
+            {{ include.title }}
+        </label>
+
         <div class="collapsible-content">
             <div class="content-inner">
                 <p>
@@ -121,8 +129,8 @@ From [Implementing A Pure CSS Collapsible](https://alligator.io/css/collapsible/
     # Accordion test
 
     {% include accordion.html
-        title = "This is my title"
-        description = "This is my description"
+        title="This is my title"
+        description="This is my description"
     %}
     ```
 - `styles.css`
