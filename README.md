@@ -9,13 +9,14 @@
 [![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
 [![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
+Achieve small or large tasks using recipes of steps and scripts, or configs.
 
 ## Preview
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/code-cookbook/" title="Go to website">
-        <img src="/sample-topics.png" alt="Sample screenshot" width="400"/>
-        <img src="/sample-docker.png" alt="Sample docker screenshot" width="400" />
+        <img src="/sample-topics.png" alt="Sample screenshot" width="500"/>
+        <img src="/sample-docker.png" alt="Sample docker screenshot" width="500" />
     </a>
 </div>
 
