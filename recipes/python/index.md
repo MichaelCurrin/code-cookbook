@@ -5,6 +5,8 @@ logo: python
 
 ### Related
 
-- [Python][] recipes in the CI/CD GitHub Actions section.
+- [Python workflows][] in the GitHub Actions section.
+- [Python cheatsheets][] in my Dev Cheatsheets.
 
-[Python]: {% link recipes/ci-cd/github-actions/workflows/python/index.md %}
+[Python workflows]: {% link recipes/ci-cd/github-actions/workflows/python/index.md %}
+[Python cheatsheets]: https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/python/
