@@ -29,7 +29,7 @@ description: How to publish a VS Code extension to the Marketplace using Azure D
         1. Use Custom defined.
         1. Click _Show more scopes_.
         1. Under _Marketplace_, tick _Manage_ scope.
-1. Copy the token value.
+1. Copy the token value. **Keep this value secret**.
 
 
 ## Create and publish release
@@ -53,22 +53,37 @@ Publish your extension using the CLI.
     ```sh
     $ vsce ls
     ```
-1. Use the login command. Paste your token from Azure DevOps. Keep this value secret.
-    ```sh
-    $ vsce login PUBLISHER_NAME
-    ```
+1. Use the login command. This won't have to be run again, until you generate a new token or the old one expires.
+    1. Login with your publisher name.
+        ```sh
+        $ vsce login PUBLISHER_NAME
+        ```
+        e.g.
+        ```sh
+        $ vsce login MichaelCurrin
+        ```
+    1. Paste your token from Azure DevOps.
 1. Use the publish command.
-    - Increment a minor tag version and publish it. 
+    - Increment a minor tag version. e.g. if you are on `v1.1.0` then `v1.2.0` will be created.
         ```sh
-        vsce publish minor
+        $ vsce publish minor
         ```
-    - Or to create a specific tag.
+    - Or, create a specific tag. Note _without a `v`_ to avoid error. 
         ```sh
-        vsce publish v1.2.3
+        $ vsce publish 1.2.3
         ```
-    - Warning - if you use just `vsce publish` with no args, it will use the latest commit but publish under the latest tag (which could be some commits back).
+    - Publish an extisting tag. Note flags to avoid errors.
+        ```sh
+        $ vsce publish 1.2.3 --no-git-tag-version --no-update-package-json
+        ```
+    - Warning - if you use just `vsce publish` with _no args_, it will use the _latest commit_ but publish under the _latest tag_ (which could be some commits back).
 
-Finall, verify your extension in the Marketplace.
+Verify your extension in the Marketplace.
 
+1. Go to [VS Code Marketplace](https://marketplace.visualstudio.com/).
+1. Sign in.
+1. Click _Publish extensions_. e.g. [marketplace.visualstudio.com/manage/publishers/MichaelCurrin](https://marketplace.visualstudio.com/manage/publishers/MichaelCurrin)
+1. Click _More actions_ next to your extension name.
+1. Click _View extension_. e.g. [marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg](https://marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg).
 
 [AzureDevOps]: https://dev.azure.com
