@@ -466,6 +466,9 @@
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/node/publish.html</loc>
 </url>
 <url>
+<loc>https://michaelcurrin.github.io/code-cookbook/recipes/other/vs-code-extensions/publish.html</loc>
+</url>
+<url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/circle-ci/python.html</loc>
 </url>
 <url>
@@ -938,9 +941,6 @@
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/other/shorten-urls.html</loc>
-</url>
-<url>
-<loc>https://michaelcurrin.github.io/code-cookbook/recipes/other/vs-code-extensions/publish.html</loc>
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/python/argument-parsing/argparse.html</loc>

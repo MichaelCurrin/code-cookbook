@@ -20,8 +20,8 @@
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
-    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta name="description" content="How to publish a VS Code extension to the Marketplace using Azure DevOps" />
+    <meta property="og:description" content="How to publish a VS Code extension to the Marketplace using Azure DevOps" />
 <meta name="author" content="Michael Currin" />
 
 
@@ -33,7 +33,7 @@
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "description": "How to publish a VS Code extension to the Marketplace using Azure DevOps",
     "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/other/vs-code-extensions/publish.html",
     "headline":    "Publish",
     "@type":       "WebSite",
@@ -103,6 +103,11 @@
         </h1>
 
         
+            <blockquote>
+                <p>How to publish a VS Code extension to the Marketplace using Azure DevOps</p>
+
+            </blockquote>
+        
     </header>
 
     
@@ -163,7 +168,7 @@
 
     <div class="post-content">
         
-            <h2 id="steps-to-publish">Steps to publish.</h2>
+            <h2 id="set-up-project">Set up project</h2>
 
 <ol>
   <li>Make a GitHub repo.
@@ -172,41 +177,84 @@
       <li>Make sure to include script commands in <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
     </ul>
   </li>
-  <li>Set up your extension in the Marketplace with Azure DevOps.
+  <li>Set up your extension in the Marketplace.
     <ol>
+      <li>Go to [Azure DevOps][].</li>
       <li>Sign up - use your GitHub account if you want.</li>
-      <li>Create an org or use the default one when registering.</li>
-      <li>Create a token.</li>
+      <li>Create a new org or use the default one when registering.</li>
       <li>Create a publisher.</li>
     </ol>
   </li>
-  <li>Publish your extension from the CLI.
+</ol>
+
+<h2 id="create-a-token">Create a token</h2>
+
+<ol>
+  <li>Login to [Azure DevOps][].</li>
+  <li>Click <em>User Settings</em> in the top right.</li>
+  <li>Click <em>Personal access tokens</em>.</li>
+  <li>Click <em>New Token</em>.
     <ol>
-      <li>Check which files will be packaged.
-        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce <span class="nb">ls</span>
-</code></pre></div>        </div>
-      </li>
-      <li>Use the login command. Paste your token from Azure DevOps. Keep this value secret.
-        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce login PUBLISHER_NAME
-</code></pre></div>        </div>
-      </li>
-      <li>Use the publish command.
-        <ul>
-          <li>Increment a minor tag version and publish it.
-            <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish minor
-</code></pre></div>            </div>
-          </li>
-          <li>Or to create a specific tag.
-            <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish v1.2.3
-</code></pre></div>            </div>
-          </li>
-          <li>Warning - if you use just <code class="language-plaintext highlighter-rouge">vsce publish</code> with no args, it will use the latest commit but publish under the latest tag (which could be some commits back).</li>
-        </ul>
+      <li>Give it a Name.</li>
+      <li>Set Organization to <em>All accessible organizations</em>.</li>
+      <li>Optionally extend its expiration date</li>
+      <li>Set Scopes.
+        <ol>
+          <li>Use Custom defined.</li>
+          <li>Click <em>Show more scopes</em>.</li>
+          <li>Under <em>Marketplace</em>, tick <em>Manage</em> scope.</li>
+        </ol>
       </li>
     </ol>
   </li>
-  <li>Verify your extension in the Marketplace.</li>
+  <li>Copy the token value.</li>
 </ol>
+
+<h2 id="create-and-publish-release">Create and publish release</h2>
+
+<p>Install <code class="language-plaintext highlighter-rouge">vsce</code>:</p>
+
+<ul>
+  <li>Globally:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> vsce
+  <span class="nv">$ </span>vsce <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </li>
+  <li>In the project:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-D</span> vsce
+  <span class="nv">$ </span>npx sce <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Publish your extension using the CLI.</p>
+
+<ol>
+  <li>Check which files will be packaged.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce <span class="nb">ls</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Use the login command. Paste your token from Azure DevOps. Keep this value secret.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce login PUBLISHER_NAME
+</code></pre></div>    </div>
+  </li>
+  <li>Use the publish command.
+    <ul>
+      <li>Increment a minor tag version and publish it.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish minor
+</code></pre></div>        </div>
+      </li>
+      <li>Or to create a specific tag.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish v1.2.3
+</code></pre></div>        </div>
+      </li>
+      <li>Warning - if you use just <code class="language-plaintext highlighter-rouge">vsce publish</code> with no args, it will use the latest commit but publish under the latest tag (which could be some commits back).</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Finall, verify your extension in the Marketplace.</p>
+
 
         
     </div>
