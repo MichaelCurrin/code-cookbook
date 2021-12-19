@@ -87,3 +87,15 @@ Verify your extension in the Marketplace.
 1. Click _View extension_. e.g. [marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg](https://marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg).
 
 [AzureDevOps]: https://dev.azure.com
+
+
+## Add CI/CD flow
+
+The publishing could be done with CI.
+
+Such as with GH Actions whenever a tag is made.
+
+One would need a non-expiring token added to secrets.
+
+And you'd still need to verify the extension in the Marketplace to see it looks good.
+
