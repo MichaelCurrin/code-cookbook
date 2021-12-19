@@ -207,7 +207,7 @@
       </li>
     </ol>
   </li>
-  <li>Copy the token value.</li>
+  <li>Copy the token value. <strong>Keep this value secret</strong>.</li>
 </ol>
 
 <h2 id="create-and-publish-release">Create and publish release</h2>
@@ -234,26 +234,46 @@
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce <span class="nb">ls</span>
 </code></pre></div>    </div>
   </li>
-  <li>Use the login command. Paste your token from Azure DevOps. Keep this value secret.
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce login PUBLISHER_NAME
-</code></pre></div>    </div>
+  <li>Use the login command. This won’t have to be run again, until you generate a new token or the old one expires.
+    <ol>
+      <li>Login with your publisher name.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce login PUBLISHER_NAME
+</code></pre></div>        </div>
+        <p>e.g.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vsce login MichaelCurrin
+</code></pre></div>        </div>
+      </li>
+      <li>Paste your token from Azure DevOps.</li>
+    </ol>
   </li>
   <li>Use the publish command.
     <ul>
-      <li>Increment a minor tag version and publish it.
-        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish minor
+      <li>Increment a minor tag version. e.g. if you are on <code class="language-plaintext highlighter-rouge">v1.1.0</code> then <code class="language-plaintext highlighter-rouge">v1.2.0</code> will be created.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>vsce publish minor
 </code></pre></div>        </div>
       </li>
-      <li>Or to create a specific tag.
-        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vsce publish v1.2.3
+      <li>Or, create a specific tag. Note <em>without a <code class="language-plaintext highlighter-rouge">v</code></em> to avoid error.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>vsce publish 1.2.3
 </code></pre></div>        </div>
       </li>
-      <li>Warning - if you use just <code class="language-plaintext highlighter-rouge">vsce publish</code> with no args, it will use the latest commit but publish under the latest tag (which could be some commits back).</li>
+      <li>Publish an extisting tag. Note flags to avoid errors.
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>vsce publish 1.2.3 <span class="nt">--no-git-tag-version</span> <span class="nt">--no-update-package-json</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Warning - if you use just <code class="language-plaintext highlighter-rouge">vsce publish</code> with <em>no args</em>, it will use the <em>latest commit</em> but publish under the <em>latest tag</em> (which could be some commits back).</li>
     </ul>
   </li>
 </ol>
 
-<p>Finall, verify your extension in the Marketplace.</p>
+<p>Verify your extension in the Marketplace.</p>
+
+<ol>
+  <li>Go to <a href="https://marketplace.visualstudio.com/">VS Code Marketplace</a>.</li>
+  <li>Sign in.</li>
+  <li>Click <em>Publish extensions</em>. e.g. <a href="https://marketplace.visualstudio.com/manage/publishers/MichaelCurrin">marketplace.visualstudio.com/manage/publishers/MichaelCurrin</a></li>
+  <li>Click <em>More actions</em> next to your extension name.</li>
+  <li>Click <em>View extension</em>. e.g. <a href="https://marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg">marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg</a>.</li>
+</ol>
 
 
         
