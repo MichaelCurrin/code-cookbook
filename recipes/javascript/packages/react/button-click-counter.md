@@ -5,7 +5,7 @@
 
 ## Resources
 
-- [Using the State Hook](https://reactjs.org/docs/hooks-state.html) in React docs
+- [Using the State Hook](https://reactjs.org/docs/hooks-state.html) in React docs, which is what this was based on.
 
 
 ## Component code
@@ -28,11 +28,6 @@ function Counter() {
   );
 }
 ```
-
-See the component in use here as code and a live demo:
-
-- [React Quickstart](https://github.com/MichaelCurrin/react-quickstart)
-- [React Frontend Quickstart](https://github.com/MichaelCurrin/react-frontend-quickstart)
 
 
 {% endraw %}
