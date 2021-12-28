@@ -1,4 +1,4 @@
-# Butto click counter 
+# Button click counter 
 
 {% raw %}
 
