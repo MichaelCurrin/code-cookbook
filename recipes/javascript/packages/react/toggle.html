@@ -178,8 +178,6 @@
             
 <h2 id="functional-component">Functional component</h2>
 
-<p>Note from React 17 you don’t need to import <code class="language-plaintext highlighter-rouge">React</code> at the top of the file.</p>
-
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Toggle</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
@@ -190,7 +188,7 @@
   <span class="p">};</span>
 
   <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;&gt;</span>
       <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Toggle component<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 
       <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A simple functional component.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -198,7 +196,7 @@
       <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">showHide</span><span class="p">()</span><span class="si">}</span><span class="p">&gt;</span>Toggle<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
       <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="si">{</span><span class="o">!</span><span class="nx">isHidden</span> <span class="o">&amp;&amp;</span> <span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/&gt;</span>
   <span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -224,7 +222,7 @@
 
   <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
-      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;&gt;</span>
         <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Toggle component<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 
         <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A simple class component.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -232,7 +230,7 @@
         <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">showHide</span><span class="p">()</span><span class="si">}</span><span class="p">&gt;</span>Toggle<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
         <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="si">{</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/&gt;</span>
     <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
