@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Counter | Code Cookbook</title>
+    <title>Butto click counter | Code Cookbook</title>
 
-    <meta property="og:title" content="Counter" />
+    <meta property="og:title" content="Butto click counter" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Counter" />
+    <meta property="twitter:title" content="Butto click counter" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/counter.html" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/counter.html" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/button-click-counter.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/button-click-counter.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/counter.html",
-    "headline":    "Counter",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/react/button-click-counter.html",
+    "headline":    "Butto click counter",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,7 +82,7 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/javascript/packages/react/counter.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/javascript/packages/react/button-click-counter.md">
     📝 <span>Edit page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>Counter</span>
+            <span>Butto click counter</span>
         </h1>
 
         
@@ -162,8 +162,8 @@
         
 
         
-            <a href="/code-cookbook/recipes/javascript/packages/react/counter.html" class="underline">
-                Counter
+            <a href="/code-cookbook/recipes/javascript/packages/react/button-click-counter.html" class="underline">
+                Butto click counter
             </a>
         
      
@@ -176,20 +176,38 @@
     <div class="post-content">
         
             
-<p>See this in use at <a href="https://github.com/MichaelCurrin/react-frontend-quickstart">React Frontend Quickstart</a>.</p>
+<h2 id="resources">Resources</h2>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<ul>
+  <li><a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook</a> in React docs</li>
+</ul>
+
+<h2 id="component-code">Component code</h2>
+
+<p>A simple component which a button that increments the value that is displayed.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Counter.jsx</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;&gt;</span>
       <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
       <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/&gt;</span>
   <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p>See the component in use here as code and a live demo:</p>
+
+<ul>
+  <li><a href="https://github.com/MichaelCurrin/react-quickstart">React Quickstart</a></li>
+  <li><a href="https://github.com/MichaelCurrin/react-frontend-quickstart">React Frontend Quickstart</a></li>
+</ul>
 
 
         
