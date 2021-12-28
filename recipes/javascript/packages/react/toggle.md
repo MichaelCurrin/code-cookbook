@@ -5,8 +5,6 @@
 
 ## Functional component
 
-Note from React 17 you don't need to import `React` at the top of the file.
-
 ```jsx
 import { useState } from "react";
 
@@ -18,7 +16,7 @@ export default function Toggle(props) {
   };
 
   return (
-    <div>
+    <>
       <h2>Toggle component</h2>
 
       <p>A simple functional component.</p>
@@ -26,7 +24,7 @@ export default function Toggle(props) {
       <button onClick={() => showHide()}>Toggle</button>
 
       <p>{!isHidden && props.text}</p>
-    </div>
+    </>
   )
 }
 ```
@@ -54,7 +52,7 @@ export default class Toggle extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <h2>Toggle component</h2>
 
         <p>A simple class component.</p>
@@ -62,7 +60,7 @@ export default class Toggle extends React.Component {
         <button onClick={() => this.showHide()}>Toggle</button>
 
         <p>{!this.state.isHidden && this.props.text}</p>
-      </div>
+      </>
     );
   }
 }
