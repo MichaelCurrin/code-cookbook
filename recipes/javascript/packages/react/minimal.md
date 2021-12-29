@@ -1,7 +1,9 @@
 # Minimal
 
-Based on the React template on [CodeSandbox](https://codesandbox.io).
 
+## Sample
+
+Based on the React template on [CodeSandbox](https://codesandbox.io).
 
 - `App.jsx`
     ```jsx
