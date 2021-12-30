@@ -66,4 +66,38 @@ export default class Toggle extends React.Component {
 }
 ```
 
+From [Handling events](https://reactjs.org/docs/handling-events.html) in the React docs tutorial.
+
+```jsx
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isToggleOn: true };
+
+    // This binding is necessary to make `this` work in the callback    
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+```
+
 {% endraw %}
