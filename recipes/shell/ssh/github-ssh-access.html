@@ -173,47 +173,52 @@
 <h2 id="related">Related</h2>
 
 <ul>
-  <li><a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/github/">GitHub</a> cheatsheet</li>
+  <li><a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/github/">GitHub</a> cheatsheet in my Dev Cheatsheets</li>
 </ul>
 
 <h2 id="why">Why</h2>
 
-<p>If you set up GitHub SSH access, then you can clone, push or pull using an SSH-style URL. Note the URL does not start with <code class="language-plaintext highlighter-rouge">https</code>, unlike the usual <strong>HTTP</strong> access method, which is less secure as it needs a password or token.
-Using SSH means you allow an SSH key-pair for a specific device, unlike a password or token which can be reused anywhere.</p>
+<p>You need access to a repo to do clone, push, or pull it.</p>
 
-<p>e.g.</p>
+<ul>
+  <li>For the HTTP URL of a private repos or altering a public repo, you would have to enter your GitHub password each time and also your OTP if you use that. The downside is that this password can be used on other machines (such as by a stranger). And you have to enter your password each time (unless you opt to have it remembered for say 5 min). e.g.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git clone https://github.com/MichaelCurrin/code-cookbook.git
+</code></pre></div>    </div>
+  </li>
+  <li>If you set up GitHub SSH access and use an SSH URL instead, you’ll have something more secure as they key will only work on your machine (provided you don’t share your private key on other machines). e.g.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git clone git@github.com:MichaelCurrin/code-cookbook.git
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:MichaelCurrin/code-cookbook.git
-</code></pre></div></div>
-
-<p>This avoids having to enter your <strong>password</strong> each time your push, or if you pull a private repo. And this is especially useful if <strong>2FA</strong> is setup as you would have to add your code from Google Authenticator or similar on every push.</p>
-
-<p>You can also use the SSH URL for any <strong>public</strong> repos by other people if you want to clone them (you won’t be able to push unless you are a collaborator though).</p>
+<p>So using an HTTP URL is less secure as it needs a password or token. Using an SSH URL means you allow an SSH key-pair for a specific device.</p>
 
 <h2 id="steps">Steps</h2>
 
 <h3 id="1-generate-keys">1. Generate keys</h3>
 
 <ol>
-  <li>Follow the <a href="/code-cookbook/recipes/shell/ssh/install.html">Install SSH</a> recipe to install SSH itself.</li>
+  <li>Follow the <a href="/code-cookbook/recipes/shell/ssh/install.html">Install SSH</a> recipe to install SSH tool on your machine.</li>
   <li>Follow the <a href="/code-cookbook/recipes/shell/ssh/keys.html">SSH keys</a> recipe to generate a pair of SSH keys.</li>
 </ol>
 
 <h3 id="2-view-keys">2. View keys</h3>
 
-<p>View your <em>public</em> key - the one with <code class="language-plaintext highlighter-rouge">.pub</code> extension. Copy it as you’ll need to paste it in the next section.</p>
+<p>View your <em>public</em> key - the one with <code class="language-plaintext highlighter-rouge">.pub</code> extension. Copy it, as you’ll need to paste it in the next section.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>view ~/.ssh/id_rsa.pub
 </code></pre></div></div>
 
-<h3 id="3-add-key-to-github">3. Add key to GitHub</h3>
+<p>You will also have a <em>private</em> key as <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code>, though you don’t need to access this directly and this should never be shared.</p>
+
+<h3 id="3-add-public-key-to-github">3. Add public key to GitHub</h3>
 
 <ol>
   <li>Login to GitHub account.</li>
   <li>Go to the SSH keys page
     <ul>
       <li><a href="https://github.com/settings/keys">github.com/settings/keys</a></li>
-      <li>Or
+      <li>Or go to:
         <ol>
           <li>Settings.</li>
           <li>SSH and GPG keys.</li>
@@ -221,16 +226,20 @@ Using SSH means you allow an SSH key-pair for a specific device, unlike a passwo
       </li>
     </ul>
   </li>
-  <li>Create new SSH key.</li>
-  <li>Give it title description of your username and host. e.g. <code class="language-plaintext highlighter-rouge">Michael Dell (Linux Lite)</code>. This can be renamed.</li>
-  <li>Paste the public key copied from the previous section.</li>
+  <li>Create a new SSH key.</li>
+  <li>Give a title as description of your name (like <code class="language-plaintext highlighter-rouge">Michael</code> or <code class="language-plaintext highlighter-rouge">mcurrin</code>) and host (like <code class="language-plaintext highlighter-rouge">Mac</code> or <code class="language-plaintext highlighter-rouge">Dell</code>). e.g. <code class="language-plaintext highlighter-rouge">Michael Dell</code>. This can be renamed later esly.</li>
+  <li>Paste the <em>public</em> key copied from the previous section and save.</li>
 </ol>
 
-<p>Based on <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">tutorial</a> in the GitHub docs.</p>
+<p>That is based on this <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">tutorial</a> in the GitHub docs.</p>
 
 <h3 id="4-use-it">4. Use it</h3>
 
-<p>Clone a public repo or one of your private repos using an SSH URL.</p>
+<p>Go to a repo on GitHub.</p>
+
+<p>Find the clone URL. Make sure to pick the <em>SSH</em> option.</p>
+
+<p>Clone the URL locally.</p>
 
 <p>e.g.</p>
 
