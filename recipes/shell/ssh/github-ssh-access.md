@@ -6,6 +6,11 @@ description: Set up SSH keys on your machine and GitHub profile
 How to set up SSH on your machine from scratch and configure SSH access on your GitHub account. So you can do a clone, push and pull action using SSH repo URLs.
 
 
+## Related
+
+- [GitHub](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/github/) cheatsheet
+
+
 ## Why
 
 If you set up GitHub SSH access, then you can clone, push or pull using an SSH-style URL. Note the URL does not start with `https`, unlike the usual **HTTP** access method, which is less secure as it needs a password or token.
