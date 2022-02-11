@@ -26,7 +26,9 @@ If you prefer using `yarn` you can use it here and in the next section.
 
 ## Samples
 
-See [NPM][] recipes for using `setup-node` action for more controlled setup of Node, rather than below where the default Node for the environment is used.
+These samples also use the versions of Node and Yarn which have _already_ been set up for you in the GH Actions environment. These will probably be latest or close to latest versions.
+
+If you want more control like a specific version of Node or a matrix of Node versionns, see the [NPM][] recipes section which uses the `setup-node` action.
 
 ### Standard NPM sample
 
