@@ -247,7 +247,7 @@
 
 <h3 id="basic">Basic</h3>
 
-<p>Use single Node.js version</p>
+<p>Use single Node.js version of say <code class="language-plaintext highlighter-rouge">16</code>, <code class="language-plaintext highlighter-rouge">16.3.0</code>, or <code class="language-plaintext highlighter-rouge">lts/erbium</code> (NVM syntax).</p>
 
 <p>I created this based on the other samples.</p>
 
@@ -260,20 +260,21 @@
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">14.x'</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
 
-    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
 
-    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
 
-    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span> 
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
       <span class="na">env</span><span class="pi">:</span>
         <span class="na">CI</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre></div>    </div>
   </li>
 </ul>
-
-<p>Note this uses <code class="language-plaintext highlighter-rouge">setup-node@2</code> while some of the other samples below are behind.</p>
 
 <h3 id="cache-dependencies">Cache dependencies</h3>
 
@@ -292,7 +293,7 @@
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">14.x'</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
         <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
@@ -301,7 +302,7 @@
   </li>
 </ul>
 
-<p>Use a separate <code class="language-plaintext highlighter-rouge">cache</code> action, based on GH docs:</p>
+<p>Using a separate <code class="language-plaintext highlighter-rouge">cache</code> action, based on GH docs:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">main.yml</code>
@@ -312,7 +313,7 @@
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v1</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">12.x'</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Cache Node.js modules</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v2</span>
@@ -349,14 +350,14 @@
 
       <span class="na">strategy</span><span class="pi">:</span>
         <span class="na">matrix</span><span class="pi">:</span>
-          <span class="na">node-version</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">8.x</span><span class="pi">,</span> <span class="nv">10.x</span><span class="pi">,</span> <span class="nv">12.x</span><span class="pi">]</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">8</span><span class="pi">,</span> <span class="nv">10</span><span class="pi">,</span> <span class="nv">12</span><span class="pi">]</span>
 
       <span class="na">steps</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
           <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ${{ matrix.node-version }}</span>
-          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v1</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
           <span class="na">with</span><span class="pi">:</span>
             <span class="na">node-version</span><span class="pi">:</span> <span class="s">${{ matrix.node-version }}</span>
 
@@ -384,10 +385,7 @@
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">main.yml</code></p>
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node</span>
-  <span class="c1"># For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions</span>
-
-  <span class="na">name</span><span class="pi">:</span> <span class="s">Node CI</span>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Node CI</span>
 
   <span class="na">on</span><span class="pi">:</span>
     <span class="na">push</span><span class="pi">:</span>
@@ -401,21 +399,24 @@
 
       <span class="na">strategy</span><span class="pi">:</span>
         <span class="na">matrix</span><span class="pi">:</span>
-          <span class="na">node-version</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">10.x</span><span class="pi">,</span> <span class="nv">12.x</span><span class="pi">]</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">10</span><span class="pi">,</span> <span class="nv">12</span><span class="pi">]</span>
 
       <span class="na">steps</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Use Node.js ${{ matrix.node-version }}</span>
-          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v1</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
           <span class="na">with</span><span class="pi">:</span>
             <span class="na">node-version</span><span class="pi">:</span> <span class="s">${{ matrix.node-version }}</span>
 
-        <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
 
-        <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build --if-present</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build --if-present</span>
 
-        <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span>
+          <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
 </code></pre></div>    </div>
   </li>
 </ul>
