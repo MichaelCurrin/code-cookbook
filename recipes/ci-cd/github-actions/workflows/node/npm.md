@@ -52,11 +52,12 @@ Sample from GH Actions recommendation. Note that `v2` does not work but `v2.1.1`
           version: # optional
     ```
 
+
 ## Samples
 
 ### Basic
 
-Use single Node.js version
+Use single Node.js version of say `16`, `16.3.0`, or `lts/erbium` (NVM syntax).
 
 I created this based on the other samples.
 
@@ -69,18 +70,19 @@ I created this based on the other samples.
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16'
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - run: npm run build
+      - name: Build
+        run: npm run build
 
-      - run: npm test
+      - name: Test 
+        run: npm test
         env:
           CI: true
     ```
-
-Note this uses `setup-node@2` while some of the other samples below are behind.
 
 ### Cache dependencies
 
@@ -99,14 +101,14 @@ Built-in to `setup-node`, based on [doc](https://github.com/actions/setup-node#c
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
     ```
 
-Use a separate `cache` action, based on GH docs:
+Using a separate `cache` action, based on GH docs:
 
 - `main.yml`
     ```yaml
@@ -117,7 +119,7 @@ Use a separate `cache` action, based on GH docs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '16'
 
       - name: Cache Node.js modules
         uses: actions/cache@v2
@@ -153,14 +155,14 @@ This sample comes from the docs and is similar to the default covered in the exa
 
         strategy:
           matrix:
-            node-version: [8.x, 10.x, 12.x]
+            node-version: [8, 10, 12]
 
         steps:
           - name: Checkout
             uses: actions/checkout@v2
 
           - name: Set up Node.js ${{ matrix.node-version }}
-            uses: actions/setup-node@v1
+            uses: actions/setup-node@v2
             with:
               node-version: ${{ matrix.node-version }}
 
@@ -185,9 +187,6 @@ From the GitHub Action samples:
 
 - `main.yml`
     ```yaml
-    # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-    # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
     name: Node CI
 
     on:
@@ -202,21 +201,24 @@ From the GitHub Action samples:
 
         strategy:
           matrix:
-            node-version: [10.x, 12.x]
+            node-version: [10, 12]
 
         steps:
           - uses: actions/checkout@v2
 
           - name: Use Node.js ${{ matrix.node-version }}
-            uses: actions/setup-node@v1
+            uses: actions/setup-node@v2
             with:
               node-version: ${{ matrix.node-version }}
 
-          - run: npm ci
+          - name: Install dependencies
+            run: npm ci
 
-          - run: npm run build --if-present
+          - name: Build
+            run: npm run build --if-present
 
-          - run: npm test
+          - name: Test
+            run: npm test
     ```
 
 {% endraw %}
