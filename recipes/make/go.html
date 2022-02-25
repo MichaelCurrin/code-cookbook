@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Gems | Code Cookbook</title>
+    <title>Go | Code Cookbook</title>
 
-    <meta property="og:title" content="Gems" />
+    <meta property="og:title" content="Go" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Gems" />
+    <meta property="twitter:title" content="Go" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ruby/gems/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ruby/gems/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/make/go.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/make/go.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ruby/gems/",
-    "headline":    "Gems",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/make/go.html",
+    "headline":    "Go",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ruby/gems/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/make/go.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ruby/gems/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/make/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>Gems</span>
+            <span>Go</span>
         </h1>
 
         
@@ -127,8 +127,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/ruby/">
-    Ruby
+            <a href="/code-cookbook/recipes/make/">
+    Make
 </a>
 
         
@@ -138,8 +138,8 @@
         
 
         
-            <a href="/code-cookbook/recipes/ruby/gems/" class="underline">
-                Gems
+            <a href="/code-cookbook/recipes/make/go.html" class="underline">
+                Go
             </a>
         
      
@@ -151,424 +151,50 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <h2 id="cross-platform-build">Cross-platform build</h2>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>Based on <a href="https://github.com/markel1974/goshell/blob/main/Makefile">goshell</a>.</p>
 
-<br>
+<p>Cleaning would be easier if there is an output directory.</p>
+
+<pre><code class="language-Makefile">SRC = main.go
+OUTNAME = goshell
+CC = go
+CFLAGS = build
+
+LIN32 = GOOS=linux GOARCH=amd64
+LIN64 = GOOS=linux GOARCH=amd64
+WIN32 = GOOS=windows GOARCH=386
+WIN64 = GOOS=windows GOARCH=amd64
+MAC32 = GOOS=darwin GOARCH=386
+MAC64 = GOOS=darwin GOARCH=amd64
+
+default: lin64
+
+all: lin64 win32 win64 mac64
 
 
-    <h2>Pages</h2>
+lin32: $(SRC)
+	$(LIN32) $(CC) $(CFLAGS) -o $(OUTNAME)-linx386 $(SRC)
 
-    
+lin64: $(SRC)
+	$(LIN64) $(CC) $(CFLAGS) -o $(OUTNAME)-linx64 $(SRC)
 
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/ruby/gems/bridgetown.html">
-                    
+win32: $(SRC)
+	$(WIN32) $(CC) $(CFLAGS) -o $(OUTNAME)-x386.exe $(SRC)
 
+win64: $(SRC)
+	$(WIN64) $(CC) $(CFLAGS) -o $(OUTNAME)-x64.exe $(SRC)
 
-                    <span>Bridgetown</span>
-                </a></li>
-        </ul>
+mac32: $(SRC)
+	$(MAC32) $(CC) $(CFLAGS) -o $(OUTNAME)-mac386 $(SRC)
 
-    <br>
+mac64: $(SRC)
+	$(MAC64) $(CC) $(CFLAGS) -o $(OUTNAME)-macx64 $(SRC)
 
-    
-    
+clean:
+	rm $(OUTNAME).exe $(OUTNAME)-x64.exe $(OUTNAME)-x386.exe $(OUTNAME) $(OUTNAME)-x386 $(OUTNAME)-macx64 $(OUTNAME)-mac386
+</code></pre>
 
         
     </div>
