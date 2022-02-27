@@ -9,33 +9,33 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Art | Code Cookbook</title>
+    <title>Rewrite Git author | Code Cookbook</title>
 
-    <meta property="og:title" content="Art" />
+    <meta property="og:title" content="Rewrite Git author" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Art" />
+    <meta property="twitter:title" content="Rewrite Git author" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="How to make pictures, music and other art using code" />
-    <meta property="og:description" content="How to make pictures, music and other art using code" />
+    <meta name="description" content="How to replace the username or email of users in a history of commits" />
+    <meta property="og:description" content="How to replace the username or email of users in a history of commits" />
 <meta name="author" content="Michael Currin" />
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/art/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/art/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/version-control/git/rewrite-git-author.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/version-control/git/rewrite-git-author.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "How to make pictures, music and other art using code",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/art/",
-    "headline":    "Art",
+    "description": "How to replace the username or email of users in a history of commits",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/version-control/git/rewrite-git-author.html",
+    "headline":    "Rewrite Git author",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/art/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/version-control/git/rewrite-git-author.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/art/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/version-control/git/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,12 +99,12 @@
             
 
 
-            <span>Art</span>
+            <span>Rewrite Git author</span>
         </h1>
 
         
             <blockquote>
-                <p>How to make pictures, music and other art using code</p>
+                <p>How to replace the username or email of users in a history of commits</p>
 
             </blockquote>
         
@@ -131,8 +131,32 @@
         
 
         
-            <a href="/code-cookbook/recipes/art/" class="underline">
-                Art
+            
+            <a href="/code-cookbook/recipes/version-control/">
+    Version control
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/version-control/git/">
+    Git
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/version-control/git/rewrite-git-author.html" class="underline">
+                Rewrite Git author
             </a>
         
      
@@ -144,449 +168,7 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
-
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
-
-<br>
-
-
-    <h2>Pages</h2>
-
-    
-
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/art/scratch.html">
-                    
-
-
-                    <span>Scratch</span>
-                </a>
-                    <i><p>Create moving visual stories with code</p>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/art/sonic-pi.html">
-                    
-
-
-                    <span>Sonic Pi</span>
-                </a>
-                    <i><p>"A code-based music creation and performance tool"</p>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/art/p5-js.html">
-                    
-
-
-                    <span>p5.js</span>
-                </a>
-                    <i><p>A JS library for making art</p>
-</i>
-                </li>
-        </ul>
-
-    <br>
-
-    
-    
+            <p>See <a href="https://github.com/MichaelCurrin/rewrite-git-author">MichaelCurrin/rewrite-git-author</a> repo which replaces an old email with a new email.</p>
 
         
     </div>
