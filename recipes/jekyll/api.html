@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Linting | Code Cookbook</title>
+    <title>API | Code Cookbook</title>
 
-    <meta property="og:title" content="Linting" />
+    <meta property="og:title" content="API" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Linting" />
+    <meta property="twitter:title" content="API" />
 <meta name="generator" content="Jekyll v4.2.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/jekyll/api.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/jekyll/api.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/",
-    "headline":    "Linting",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/jekyll/api.html",
+    "headline":    "API",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -82,11 +82,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/linting/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/jekyll/api.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/linting/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/jekyll/">
     ➕ <span>Add page</span>
 </a>
 
@@ -99,7 +99,7 @@
             
 
 
-            <span>Linting</span>
+            <span>API</span>
         </h1>
 
         
@@ -127,8 +127,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/ci-cd/">
-    CI/CD
+            <a href="/code-cookbook/recipes/jekyll/">
+    Jekyll
 </a>
 
         
@@ -138,32 +138,8 @@
         
 
         
-            
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
-    GitHub Actions
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/">
-    Workflows
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/" class="underline">
-                Linting
+            <a href="/code-cookbook/recipes/jekyll/api.html" class="underline">
+                API
             </a>
         
      
@@ -175,437 +151,48 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <p>See gist:</p>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<ul>
+  <li><a href="https://gist.github.com/MichaelCurrin/f8d908596276bdbb2044f04c352cb7c7">Jekyll - how to build a REST API</a></li>
+</ul>
 
-<br>
+<h2 id="pages">Pages</h2>
 
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: none
+---
+[
+  <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">page</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.pages</span><span class="w"> </span><span class="p">%}</span>
+    {
+      "title":      <span class="p">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
+      "url":        <span class="p">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+    }
+    <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+]
+</code></pre></div></div>
 
-    <h2>Pages</h2>
+<h2 id="posts">Posts</h2>
 
-    
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: none
+---
+[
+  <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.posts</span><span class="w"> </span><span class="p">%}</span>
+    {
+      "id":         <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">id</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">-}}</span>,
+      "title":      <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
+      "date":       <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
+      "url":        <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
+      "tags":       <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
+      "categories": <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">categories</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+    }
+    <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+]
+</code></pre></div></div>
 
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/lint-action.html">
-                    
-
-
-                    <span>Lint action</span>
-                </a></li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/linting/super-linter.html">
-                    
-
-
-                    <span>Super linter</span>
-                </a></li>
-        </ul>
-
-    <br>
-
-    
-    
-        <h2>Content</h2>
-
-        <p>See also <a href="/recipes/format-and-lint/">Format and lint</a> section of this guide.</p>
-    
 
         
     </div>
