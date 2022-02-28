@@ -2,12 +2,12 @@
 
 Convert input data as CSV, JSON or YAML and output as CSV, JSON or YAML.
 
-Here is a partially implemented solution.
+_TODO_
 
-
-_TODO: formats could be recognized using the extensions._
-
-_TODO: This tool can be adapted to work with stdin and stdout as a unix tool, rather than handling file IO internally._
+- YAML support
+- One tool/entrypoint to do everything as its own repo
+- Formats could be recognized using the extensions.
+- Work with stdin and stdout as a unix tool, rather than handling file IO internally.
 
 
 ## CSV to JSON
@@ -32,6 +32,44 @@ _TODO: This tool can be adapted to work with stdin and stdout as a unix tool, ra
 
         >>> file_data = csv_in("in.csv")
         >>> json_out("out.json", file_data, True)
+    """
+    import csv
+    import json
+
+    JSON_INDENT_PRETTY = 2
+    # Same as the default values, but without trailing spaces.
+    JSON_SEPARATORS_MIN = (",", ":")
+
+
+    def csv_in(path: str):
+        """
+        Read CSV file and return a list of dictionaries.
+        """
+        with open(path) as f_in:
+            reader = csv.DictReader(f_in)
+
+            data = list(reader)
+
+        return data
+
+
+    def json_out(path: str, data: str, pretty: bool):
+        """
+        Write JSON data to given file path.
+
+        :param pretty: If true, indent code and separate over multiple lines.
+            Defaults to false, for a compressed file.
+        """
+        if pretty:
+            indent = JSON_INDENT_PRETTY
+            separators = None
+        else:
+            indent = None
+            separators = JSON_SEPARATORS_MIN
+
+        with open(path, "w") as f_out:
+            json.dump(data, f_out, indent=indent, separators=separators)
+
     ```
 
 ## JSON to CSV
@@ -80,44 +118,6 @@ _TODO: This tool can be adapted to work with stdin and stdout as a unix tool, ra
 
     if __name__ == "__main__":
         main()
-
-        """
-        import csv
-        import json
-
-        JSON_INDENT_PRETTY = 2
-        # Same as the default values, but without trailing spaces.
-        JSON_SEPARATORS_MIN = (",", ":")
-
-
-        def csv_in(path: str):
-            """
-            Read CSV file and return a list of dictionaries.
-            """
-            with open(path) as f_in:
-                reader = csv.DictReader(f_in)
-
-                data = list(reader)
-
-            return data
-
-
-        def json_out(path: str, data: str, pretty: bool):
-            """
-            Write JSON data to given file path.
-
-            :param pretty: If true, indent code and separate over multiple lines.
-                Defaults to false, for a compressed file. 
-            """
-            if pretty:
-                indent = JSON_INDENT_PRETTY
-                separators = None
-            else:
-                indent = None
-                separators = JSON_SEPARATORS_MIN
-
-            with open(path, "w") as f_out:
-                json.dump(data, f_out, indent=indent, separators=separators)
     ```
 
 If you have any objects like a list or dict, they will be written out as stringified objects by the CSV writer.
