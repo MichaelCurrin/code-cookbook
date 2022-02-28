@@ -9,6 +9,10 @@ _TODO_
 - Formats could be recognized using the extensions.
 - Work with stdin and stdout as a unix tool, rather than handling file IO internally.
 
+## Related
+
+- [Read and write files](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/python/files-and-paths/read-and-write/) in Dev Cheatsheet
+
 
 ## CSV to JSON
 
