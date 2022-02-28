@@ -2,12 +2,12 @@
 
 Convert input data as CSV, JSON or YAML and output as CSV, JSON or YAML.
 
-Here is a partially implemened solution.
+Here is a partially implemented solution.
 
 
-TODO: formats could be recognized using the extensions.
+_TODO: formats could be recognized using the extensions._
 
-TODO: This tool can be adapted to work with stdin and stdout as a unix tool, rather than handling file IO internally.
+_TODO: This tool can be adapted to work with stdin and stdout as a unix tool, rather than handling file IO internally._
 
 
 - `main.py`
