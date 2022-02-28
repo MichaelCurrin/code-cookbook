@@ -10,6 +10,8 @@ _TODO: formats could be recognized using the extensions._
 _TODO: This tool can be adapted to work with stdin and stdout as a unix tool, rather than handling file IO internally._
 
 
+## CSV to JSON
+
 - `main.py`
     ```python
     #!/usr/bin/env python3
