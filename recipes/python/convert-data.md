@@ -32,42 +32,112 @@ _TODO: This tool can be adapted to work with stdin and stdout as a unix tool, ra
 
         >>> file_data = csv_in("in.csv")
         >>> json_out("out.json", file_data, True)
+    ```
 
+## JSON to CSV
+
+- `main.py`
+    ```python
+    #!/usr/bin/env python3
+    """ 
+    Convert JSON to CSV.
     """
     import csv
     import json
 
-    JSON_INDENT_PRETTY = 2
-    # Same as the default values, but without trailing spaces.
-    JSON_SEPARATORS_MIN = (",", ":")
 
-
-    def csv_in(path: str):
+    def json_in(path: str):
         """
-        Read CSV file and return a list of dictionaries.
+        Read JSON file and return data.
         """
         with open(path) as f_in:
-            reader = csv.DictReader(f_in)
+            json_data = json.load(f_in)
 
-            data = list(reader)
-
-        return data
+        return json_data
 
 
-    def json_out(path: str, data: str, pretty: bool):
+    def csv_out(path: str, out_data: str):
         """
-        Write JSON data to given file path.
-
-        :param pretty: If true, indent code and separate over multiple lines.
-            Defaults to false, for a compressed file. 
+        Write CSV data to given file path.
         """
-        if pretty:
-            indent = JSON_INDENT_PRETTY
-            separators = None
-        else:
-            indent = None
-            separators = JSON_SEPARATORS_MIN
+        fieldnames = list(out_data[0].keys())
 
         with open(path, "w") as f_out:
-            json.dump(data, f_out, indent=indent, separators=separators)
+            writer = csv.DictWriter(f_out, fieldnames)
+            writer.writeheader()
+            writer.writerows(out_data)
+
+
+    def main():
+        """
+        Command-line entry-point.
+        """
+        json_data = json_in("response.json")
+
+        out_data = json_data["products"]
+        csv_out("out.csv", out_data)
+
+
+    if __name__ == "__main__":
+        main()
+
+        """
+        import csv
+        import json
+
+        JSON_INDENT_PRETTY = 2
+        # Same as the default values, but without trailing spaces.
+        JSON_SEPARATORS_MIN = (",", ":")
+
+
+        def csv_in(path: str):
+            """
+            Read CSV file and return a list of dictionaries.
+            """
+            with open(path) as f_in:
+                reader = csv.DictReader(f_in)
+
+                data = list(reader)
+
+            return data
+
+
+        def json_out(path: str, data: str, pretty: bool):
+            """
+            Write JSON data to given file path.
+
+            :param pretty: If true, indent code and separate over multiple lines.
+                Defaults to false, for a compressed file. 
+            """
+            if pretty:
+                indent = JSON_INDENT_PRETTY
+                separators = None
+            else:
+                indent = None
+                separators = JSON_SEPARATORS_MIN
+
+            with open(path, "w") as f_out:
+                json.dump(data, f_out, indent=indent, separators=separators)
     ```
+
+If you have any objects like a list or dict, they will be written out as stringified objects by the CSV writer.
+
+If you need to get specific fields out of those objects, you can do this:
+
+```python
+def main():
+    out_data = json_in("response.json")
+
+    for x in out_data:
+        # Get needed out of objects and add to row.
+        abc = x["abc"]
+        x["abcStartDate"] = abc["startDate"]
+
+        # Delete unneeded objects.
+        del x["abc"]
+        del x["def"]
+
+    csv_out("out.csv", out_data)
+```
+
+If performance was an issue, you could move that logic to a function and then make a list comprehension.
