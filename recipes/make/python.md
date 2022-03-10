@@ -76,32 +76,31 @@ For `find`:
 
 > The plus sign at the end of the command is for `-exec command {}` which means that the total number of invocations of the command will be much less than the number of matched files.
 
-- `Makefile`
-    ```make
-    TEST_PATH=./
+```make
+TEST_PATH=./
 
-    clean-pyc:
-        find . -name '*.pyc' -exec rm --force {} +
-        find . -name '*.pyo' -exec rm --force {} +
-        name '*~' -exec rm --force  {}
+clean-pyc:
+    find . -name '*.pyc' -exec rm --force {} +
+    find . -name '*.pyo' -exec rm --force {} +
+    name '*~' -exec rm --force  {}
 
-    clean-build:
-        rm --force --recursive build/
-        rm --force --recursive dist/
-        rm --force --recursive *.egg-info
+clean-build:
+    rm --force --recursive build/
+    rm --force --recursive dist/
+    rm --force --recursive *.egg-info
 
-    isort:
-        sh -c "isort --skip-glob=.tox --recursive . "
+isort:
+    sh -c "isort --skip-glob=.tox --recursive . "
 
-    lint:
-        flake8 --exclude=.tox
+lint:
+    flake8 --exclude=.tox
 
-    test: clean-pyc
-        py.test --verbose --color=yes $(TEST_PATH)
+test: clean-pyc
+    py.test --verbose --color=yes $(TEST_PATH)
 
-    run:
-        python manage.py runserver
-    ```
+run:
+    python manage.py runserver
+```
 
 Removing `.pyc` files might be different for pycache dir in newer PY3 or even the global dir.
 
@@ -212,4 +211,57 @@ bdist:
 
 upload:
 	twine upload dist/*
+```
+
+
+From [dingy](https://github.com/nedbat/dinghy/blob/main/Makefile).
+
+```makefile
+.PHONY: help clean requirements
+
+.DEFAULT_GOAL := help
+
+help: ## display this help message
+	@echo "Please use \`make <target>' where <target> is one of"
+	@awk -F ':.*?## ' '/^[a-zA-Z]/ && NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST) | sort
+
+clean: ## remove stuff we don't need
+	find . -name '__pycache__' -exec rm -rf {} +
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	rm -fr build/ dist/ src/*.egg-info
+	rm -fr .*_cache/
+	rm -f out_*.json
+
+requirements: ## install development environment requirements
+	pip install -r dev-requirements.txt
+
+
+.PHONY: test quality black lint
+
+test: ## run tests in the current virtualenv
+	pytest tests
+
+quality: black lint ## run code-checking tools
+
+black:
+	black -q src tests
+
+lint:
+	pylint src tests
+
+
+.PHONY: dist pypi testpypi
+
+dist: ## build the distributions
+	python -m check_manifest
+	python -m build --sdist --wheel
+	python -m twine check dist/*
+
+pypi: ## upload the built distributions to PyPI.
+	python -m twine upload --verbose dist/*
+
+testpypi: ## upload the distrubutions to PyPI's testing server.
+	python -m twine upload --verbose --repository testpypi dist/*
 ```

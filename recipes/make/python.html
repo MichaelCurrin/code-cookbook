@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Python" />
-<meta name="generator" content="Jekyll v4.2.1" />
+<meta name="generator" content="Jekyll v4.2.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -226,34 +226,30 @@
   <p>The plus sign at the end of the command is for <code class="language-plaintext highlighter-rouge">-exec command {}</code> which means that the total number of invocations of the command will be much less than the number of matched files.</p>
 </blockquote>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Makefile</code>
-    <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">TEST_PATH</span><span class="o">=</span>./
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TEST_PATH</span><span class="o">=</span>./
 
-  <span class="nl">clean-pyc</span><span class="o">:</span>
-      <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyc'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
-      <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyo'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
-      <span class="err">name</span> <span class="s1">'*~'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span>  <span class="err">{}</span>
+<span class="nl">clean-pyc</span><span class="o">:</span>
+    <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyc'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
+    <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyo'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
+    <span class="err">name</span> <span class="s1">'*~'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span>  <span class="err">{}</span>
 
-  <span class="nl">clean-build</span><span class="o">:</span>
-      <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">build/</span>
-      <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">dist/</span>
-      <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">*.egg-info</span>
+<span class="nl">clean-build</span><span class="o">:</span>
+    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">build/</span>
+    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">dist/</span>
+    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">*.egg-info</span>
 
-  <span class="nl">isort</span><span class="o">:</span>
-      <span class="err">sh</span> <span class="err">-c</span> <span class="s2">"isort --skip-glob=.tox --recursive . "</span>
+<span class="nl">isort</span><span class="o">:</span>
+    <span class="err">sh</span> <span class="err">-c</span> <span class="s2">"isort --skip-glob=.tox --recursive . "</span>
 
-  <span class="nl">lint</span><span class="o">:</span>
-      <span class="err">flake8</span> <span class="nv">--exclude</span><span class="o">=</span>.tox
+<span class="nl">lint</span><span class="o">:</span>
+    <span class="err">flake8</span> <span class="nv">--exclude</span><span class="o">=</span>.tox
 
-  <span class="nl">test</span><span class="o">:</span> <span class="nf">clean-pyc</span>
-      <span class="err">py.test</span> <span class="err">--verbose</span> <span class="nv">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="nv">$(TEST_PATH)</span>
+<span class="nl">test</span><span class="o">:</span> <span class="nf">clean-pyc</span>
+    <span class="err">py.test</span> <span class="err">--verbose</span> <span class="nv">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="nv">$(TEST_PATH)</span>
 
-  <span class="nl">run</span><span class="o">:</span>
-      <span class="err">python</span> <span class="err">manage.py</span> <span class="err">runserver</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
+<span class="nl">run</span><span class="o">:</span>
+    <span class="err">python</span> <span class="err">manage.py</span> <span class="err">runserver</span>
+</code></pre></div></div>
 
 <p>Removing <code class="language-plaintext highlighter-rouge">.pyc</code> files might be different for pycache dir in newer PY3 or even the global dir.</p>
 
@@ -356,6 +352,57 @@
 
 <span class="nl">upload</span><span class="o">:</span>
 	twine upload dist/<span class="k">*</span>
+</code></pre></div></div>
+
+<p>From <a href="https://github.com/nedbat/dinghy/blob/main/Makefile">dingy</a>.</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">help clean requirements</span>
+
+<span class="nv">.DEFAULT_GOAL</span> <span class="o">:=</span> <span class="nb">help</span>
+
+<span class="nl">help</span><span class="o">:</span> <span class="c">##</span><span class="nf"> display this help message</span>
+	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Please use </span><span class="se">\`</span><span class="s2">make &lt;target&gt;' where &lt;target&gt; is one of"</span>
+	<span class="p">@</span><span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">':.*?## '</span> <span class="s1">'/^[a-zA-Z]/ &amp;&amp; NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'</span> <span class="nv">$(MAKEFILE_LIST)</span> | <span class="nb">sort</span>
+
+<span class="nl">clean</span><span class="o">:</span> <span class="c">##</span><span class="nf"> remove stuff we don't need</span>
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'__pycache__'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-rf</span> <span class="o">{}</span> +
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.pyc'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-f</span> <span class="o">{}</span> +
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.pyo'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-f</span> <span class="o">{}</span> +
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*~'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-f</span> <span class="o">{}</span> +
+	<span class="nb">rm</span> <span class="nt">-fr</span> build/ dist/ src/<span class="k">*</span>.egg-info
+	<span class="nb">rm</span> <span class="nt">-fr</span> .<span class="k">*</span>_cache/
+	<span class="nb">rm</span> <span class="nt">-f</span> out_<span class="k">*</span>.json
+
+<span class="nl">requirements</span><span class="o">:</span> <span class="c">##</span><span class="nf"> install development environment requirements</span>
+	pip <span class="nb">install</span> <span class="nt">-r</span> dev-requirements.txt
+
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">test quality black lint</span>
+
+<span class="nl">test</span><span class="o">:</span> <span class="c">##</span><span class="nf"> run tests in the current virtualenv</span>
+	pytest tests
+
+<span class="nl">quality</span><span class="o">:</span> <span class="nf">black lint </span><span class="c">##</span><span class="nf"> run code-checking tools</span>
+
+<span class="nl">black</span><span class="o">:</span>
+	black <span class="nt">-q</span> src tests
+
+<span class="nl">lint</span><span class="o">:</span>
+	pylint src tests
+
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dist pypi testpypi</span>
+
+<span class="nl">dist</span><span class="o">:</span> <span class="c">##</span><span class="nf"> build the distributions</span>
+	python <span class="nt">-m</span> check_manifest
+	python <span class="nt">-m</span> build <span class="nt">--sdist</span> <span class="nt">--wheel</span>
+	python <span class="nt">-m</span> twine check dist/<span class="k">*</span>
+
+<span class="nl">pypi</span><span class="o">:</span> <span class="c">##</span><span class="nf"> upload the built distributions to PyPI.</span>
+	python <span class="nt">-m</span> twine upload <span class="nt">--verbose</span> dist/<span class="k">*</span>
+
+<span class="nl">testpypi</span><span class="o">:</span> <span class="c">##</span><span class="nf"> upload the distrubutions to PyPI's testing server.</span>
+	python <span class="nt">-m</span> twine upload <span class="nt">--verbose</span> <span class="nt">--repository</span> testpypi dist/<span class="k">*</span>
 </code></pre></div></div>
 
         
