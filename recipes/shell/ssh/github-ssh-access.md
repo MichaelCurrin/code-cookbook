@@ -13,7 +13,7 @@ How to set up SSH on your machine from scratch and configure SSH access on your 
 
 ## Why
 
-You need access to a repo to do clone, push, or pull it. 
+You need access to a repo to do clone, push, or pull it.
 
 - For the HTTP URL of a private repos or altering a public repo, you would have to enter your GitHub password each time and also your OTP if you use that. The downside is that this password can be used on other machines (such as by a stranger). And you have to enter your password each time (unless you opt to have it remembered for say 5 min). e.g.
     ```sh
@@ -23,7 +23,7 @@ You need access to a repo to do clone, push, or pull it.
     ```sh
     $ git clone git@github.com:MichaelCurrin/code-cookbook.git
     ```
-    
+
 So using an HTTP URL is less secure as it needs a password or token. Using an SSH URL means you allow an SSH key-pair for a specific device.
 
 
@@ -57,7 +57,7 @@ You will also have a _private_ key as `~/.ssh/id_rsa`, though you don't need to 
         1. Settings.
         1. SSH and GPG keys.
 1. Create a new SSH key.
-1. Give a title as description of your name (like `Michael` or `mcurrin`) and host (like `Mac` or `Dell`). e.g. `Michael Dell`. This can be renamed later esly.
+1. Give a title as description of your name (like `Michael` or `mcurrin`) and host (like `Mac` or `Dell`). e.g. `Michael Dell`. This can be renamed later easily.
 1. Paste the _public_ key copied from the previous section and save.
 
 That is based on this [tutorial](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) in the GitHub docs.
@@ -66,12 +66,32 @@ That is based on this [tutorial](https://help.github.com/en/github/authenticatin
 
 Go to a repo on GitHub.
 
-Find the clone URL. Make sure to pick the _SSH_ option.
+Find the clone URL on the repo. Make sure to pick the _SSH_ option.
 
-Clone the URL locally. 
+Clone the URL locally.
 
 e.g.
 
 ```sh
 $ git clone git@github.com:MichaelCurrin/code-cookbook.git
 ```
+
+
+## Use multiple SSH keys
+
+Note each GitHub account must have its _own_ SSH key. I tried using the same SSH key on two GitHub accounts and got an error that it was still in use.
+
+If you want to start using a second GitHub account, do the following:
+
+1. Generate a new SSH key pair. Use the same command as before in [SSH keys][] but follow the prompts to choose a new name e.g. `id_rsa_abc`.
+1. Copy the value of the public key.
+1. Add the public key to your GitHub account.
+1. Configure Git to use the new key.
+    ```
+    Host github.com
+        HostName github.com
+        IdentityFile ~/.ssh/id_rsa_abc
+    ```
+1. Do you clone or other Git commands.
+
+This will stop using the old one until you switch it back. Alternatively you can try _Add key to SSH agent_ in [SSH keys][] guide and see if you can get the agent to recognize both keys but that might not be possible. Unless maybe the HostName or Host are setup for the org e.g. `github.com/my-org`.
