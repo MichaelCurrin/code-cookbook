@@ -41,4 +41,4 @@ To create an SSH deploy key and use it for GitHub actions, see the [Deploy key](
 
 ### Related
 
-- [SSH](https://michaelcurrin.github.io/code-cookbook/recipes/shell/ssh/) section of my Dev Cheatsheets project.
+- [SSH](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/shell/ssh/) section of my Dev Cheatsheets project.
