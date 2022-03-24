@@ -4,6 +4,7 @@ SSH is about identity verification - proving who you are when starting a shell t
 
 Note that this page assumes you followed the [install](install.md) page to get SSH service running and the CLI commands available.
 
+
 ## About keys
 
 SSH works using a combination of public and private keys.
@@ -46,20 +47,20 @@ Or print the value.
 $ cat ~/.ssh/id_rsa.pub
 ```
 
-Copy to clipboard.
+Copy to clipboard - on macOS.
 
 ```sh
 $ cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
-If the machine doesn't have an SSH key set, you'll have to generate one - see below.
+If the machine doesn't have an SSH key set, you'll have to _generate_ one - see below.
 
 
 ## Generate keys
 
-Generate a new SSH key. 
+How to generate a new SSH key pair.
 
-First navigate to the appropriate directory, to ensure the files get generated there.
+First _navigate_ to the appropriate directory, to ensure the files get generated there.
 
 ```sh
 $ mkdir ~/.ssh
@@ -67,6 +68,8 @@ $ cd ~/.ssh
 ```
 
 Use the command below or see a bit further down for use with more flags.
+
+Create the key pair:
 
 ```sh
 $ ssh-keygen -t rsa
@@ -88,7 +91,7 @@ That will use filenames as:
 
 Or, enter a custom name like `id_rsa_abc` and press enter.
 
-You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key. 
+You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key.
 
 Alternate command, based on what is recommended by this [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
@@ -118,9 +121,9 @@ Optional set a passphrase when prompted the creation step.
 
 ### Update
 
-You can change the passphrase for an _existing_ private key without regenerating the keypair by typing the following command:
+You can change the passphrase for an _existing_ private key without regenerating the key-pair by typing the following command:
 
-```sh
+```console
 $ ssh-keygen -p
 # Start the SSH key creation process
 > Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]
@@ -137,7 +140,7 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 
 ## Add key to SSH agent
 
-Note that may not be necessary if the agent is already running and if you are using the default SSH key name.
+Note that may _not_ be necessary - if the agent is already running and if you are using the default SSH key name.
 
 ### 1. Start agent
 
@@ -147,7 +150,7 @@ Start the `ssh-agent` in the background.
 $ eval "$(ssh-agent -s)"
 ```
 
-Samle output - ignore this.
+Sample output - ignore this.
 
 ```
 > Agent pid 59566
@@ -155,8 +158,7 @@ Samle output - ignore this.
 
 ### 2. Add key
 
-Add your SSH **private** key (without the suffix). to the `ssh-agent`. 
-
+Add your SSH **private** key (without the suffix). to the `ssh-agent`.
 
 ```sh
 $ ssh-add PRIVATE_KEY
@@ -165,4 +167,17 @@ e.g.
 
 ```sh
 $ ssh-add ~/.ssh/id_rsa
+```
+
+
+## Configure SSH key for host
+
+An alternative approach is to configure SSH to use a different SSH for a certain host like certain web server or GitHub server.
+
+e.g.
+
+```
+Host example.com
+    HostName example.com
+    IdentityFile ~/.ssh/id_rsa_abc
 ```
