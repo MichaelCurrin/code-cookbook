@@ -89,7 +89,6 @@ If you want to start using a second GitHub account, do the following:
 1. Configure Git to use the new key.
     ```
     Host github.com
-        HostName github.com
         IdentityFile ~/.ssh/id_rsa_abc
     ```
 1. Do you clone or other Git commands.
