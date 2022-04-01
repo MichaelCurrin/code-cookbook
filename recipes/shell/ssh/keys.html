@@ -223,7 +223,7 @@
 <span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
 </code></pre></div></div>
 
-<p>Use the command below.</p>
+<p>Use the command below or see a bit further down for use with more flags.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa
 </code></pre></div></div>
@@ -244,18 +244,18 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 
 <p>You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key.</p>
 
-<p>Alternate command, as recommended by <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub doc</a>, so you can push to GitHub repos via SSH.</p>
+<p>Alternate command, based on what is recommended by this <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub doc</a>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096 <span class="nt">-C</span> COMMENT
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096 <span class="nt">-C</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2">@</span><span class="nv">$HOSTNAME</span><span class="s2">"</span>
 </code></pre></div></div>
 
 <p>Flags:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">-t rsa</code>: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.</li>
-  <li><code class="language-plaintext highlighter-rouge">-b 4096</code>: Specifies the number of bits in the key to create</li>
-  <li><code class="language-plaintext highlighter-rouge">-f ~/.ssh/foo.key</code>: Specifies the filename of the key file.</li>
-  <li><code class="language-plaintext highlighter-rouge">-C COMMENT</code>: A comment added to the end to help identify. This could be <code class="language-plaintext highlighter-rouge">"your_email@example.com"</code> as recommended by GitHub docs or rather use <code class="language-plaintext highlighter-rouge">"$USER@$HOSTNAME"</code> as it is specific to your machine.</li>
+  <li><code class="language-plaintext highlighter-rouge">-b 4096</code>: Specifies the number of bits in the key to create.</li>
+  <li><code class="language-plaintext highlighter-rouge">-f ~/.ssh/foo.key</code>: Specifies the filename of the key file, if you don’t want to set this in the REPL.</li>
+  <li><code class="language-plaintext highlighter-rouge">-C COMMENT</code>: A comment added to the end to help identify. This could be <code class="language-plaintext highlighter-rouge">"your_email@example.com"</code> as recommended by GitHub docs or I prefer <code class="language-plaintext highlighter-rouge">"$USER@$HOSTNAME"</code> as it is specific to your machine.</li>
 </ul>
 
 <p>See also this SSH Public Key <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key">tutorial</a> on Git’s docs, but that doesn’t add much to what is covered above.</p>

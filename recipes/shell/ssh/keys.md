@@ -66,7 +66,7 @@ $ mkdir ~/.ssh
 $ cd ~/.ssh
 ```
 
-Use the command below.
+Use the command below or see a bit further down for use with more flags.
 
 ```sh
 $ ssh-keygen -t rsa
@@ -90,18 +90,18 @@ Or, enter a custom name like `id_rsa_abc` and press enter.
 
 You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key. 
 
-Alternate command, as recommended by [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), so you can push to GitHub repos via SSH.
+Alternate command, based on what is recommended by this [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ```sh
-$ ssh-keygen -t rsa -b 4096 -C COMMENT
+$ ssh-keygen -t rsa -b 4096 -C "$USER@$HOSTNAME"
 ```
 
 Flags:
 
 - `-t rsa`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
-- `-b 4096`: Specifies the number of bits in the key to create
-- `-f ~/.ssh/foo.key`: Specifies the filename of the key file.
-- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by GitHub docs or rather use `"$USER@$HOSTNAME"` as it is specific to your machine.
+- `-b 4096`: Specifies the number of bits in the key to create.
+- `-f ~/.ssh/foo.key`: Specifies the filename of the key file, if you don't want to set this in the REPL.
+- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by GitHub docs or I prefer `"$USER@$HOSTNAME"` as it is specific to your machine.
 
 See also this SSH Public Key [tutorial](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) on Git's docs, but that doesn't add much to what is covered above.
 
