@@ -163,22 +163,134 @@
 
     <div class="post-content">
         
-            <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano ~/.ssh/config
+            <p>Edit the SSH config.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano ~/.ssh/config
 </code></pre></div></div>
 
-<p>Example:</p>
+<p>Add a host with your details. Spaces or tabs are fine.</p>
+
+<p>e.g.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host web01
-        HostName aws-ec2-www-server1.cyberciti.biz
-        Port 22
-        IdentityFile  ~/.ssh/AWS_EC2_Virginia_US_East_Ubuntu_Boxes.pem
-        User ubuntu
+    HostName aws-ec2-www-server1.cyberciti.biz
+    Port 22
+    IdentityFile ~/.ssh/AWS_EC2_Virginia_US_East_Ubuntu_Boxes.pem
+    User ubuntu
 </code></pre></div></div>
+
+<p>Then use it with <code class="language-plaintext highlighter-rouge">ssh</code> command.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh web01
 </code></pre></div></div>
 
 <p><a href="https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/">source</a></p>
+
+<h2 id="host-vs-hostname">Host vs Hostname</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Host</code> value is an alias which you use in the CLI.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host my-alias
+    HostName my-server.example.com
+    User ubuntu
+</code></pre></div></div>
+
+<p>You can also omit <code class="language-plaintext highlighter-rouge">Hostname</code> and use that for your <code class="language-plaintext highlighter-rouge">Host</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host my-server.example.com
+    User ubuntu
+</code></pre></div></div>
+
+<p>But, for <em>VSCode Remote SSH</em> extension I found the Host must be the real value and not an alias and also the Hostname must be set so the value can appear in <em>Connections</em>. See <a href="https://code.visualstudio.com/docs/remote/ssh#_getting-started">Getting started</a></p>
+
+<h2 id="user">User</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host my-server.example.com
+    HostName my-server.example.com
+    User mcurrin
+    ServerAliveInterval 10
+Host qa.my-server.example.com
+    User mcurrin
+    ServerAliveInterval 10
+</code></pre></div></div>
+
+<h2 id="identify-file">Identify file</h2>
+
+<p>Use specific <a href="/code-cookbook/recipes/shell/ssh/keys.html">SSH keys</a> for a host such as GitHub.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host github.com
+    IdentityFile ~/.ssh/id_rsa_abc
+</code></pre></div></div>
+
+<p>Then use <code class="language-plaintext highlighter-rouge">git clone</code> or similar as usual - that uses the <code class="language-plaintext highlighter-rouge">ssh</code> protocol internally.</p>
+
+<h2 id="proxy">Proxy</h2>
+
+<p>If you use a bastion as an intermediate step, you can add a proxy so you don’t have to go through it explicitly.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host bastprod
+    HostName prod.bastion.example.com
+Host my-server
+    HostName prod.web.example.com
+    ProxyCommand ssh bastprod -W %h:%p
+</code></pre></div></div>
+
+<p>Using a wildcard say for <code class="language-plaintext highlighter-rouge">www0</code> and <code class="language-plaintext highlighter-rouge">www1</code> servers.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host www*.2u.com
+    ProxyCommand ssh prod.bastion.example.com -W %h:%p
+    ServerAliveInterval 10
+</code></pre></div></div>
+
+<h2 id="other-fields">Other fields</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host *
+   ForwardAgent no
+</code></pre></div></div>
+
+<p>Send packets every few seconds to stop disconnecting from inactivity.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ServerAliveInterval 10
+</code></pre></div></div>
+
+<h3 id="keychain">Keychain</h3>
+
+<p>The default behavior for SSH keys was modified in MacOS Sierra such that SSH keys will NOT
+automatically be added to the keychain.</p>
+
+<p>The side effect of this is that you’ll be asked for your key password every time you try to
+connect to a remote host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host *
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
+</code></pre></div></div>
+
+<p>I came across this but didn’t have had to use it.</p>
+
+<h2 id="more-examples">More examples</h2>
+
+<p>From <a href="https://scotch.io/tutorials/how-to-create-an-ssh-shortcut">article</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host scotch
+    HostName scotch.io
+    User nick
+
+Host example2
+    HostName example.com
+    User root
+
+Host example3
+    HostName 64.233.160.0
+    User userxyz123
+    Port 56000
+
+Host droplet1
+    HostName droplet1.digitalocean.com
+    User ec2-user
+    IdentityFile /path/to/special/privatekey/droplet1.pem
+</code></pre></div></div>
 
         
     </div>

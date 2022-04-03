@@ -206,24 +206,26 @@
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> ~/.ssh/id_rsa.pub
 </code></pre></div></div>
 
-<p>Copy to clipboard.</p>
+<p>Copy to clipboard - on macOS.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> ~/.ssh/id_rsa.pub | pbcopy
 </code></pre></div></div>
 
-<p>If the machine doesn’t have an SSH key set, you’ll have to generate one - see below.</p>
+<p>If the machine doesn’t have an SSH key set, you’ll have to <em>generate</em> one - see below.</p>
 
 <h2 id="generate-keys">Generate keys</h2>
 
-<p>Generate a new SSH key.</p>
+<p>How to generate a new SSH key pair.</p>
 
-<p>First navigate to the appropriate directory, to ensure the files get generated there.</p>
+<p>First <em>navigate</em> to the appropriate directory, to ensure the files get generated there.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> ~/.ssh
 <span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
 </code></pre></div></div>
 
 <p>Use the command below or see a bit further down for use with more flags.</p>
+
+<p>Create the key pair:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa
 </code></pre></div></div>
@@ -272,15 +274,15 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 
 <h3 id="update">Update</h3>
 
-<p>You can change the passphrase for an <em>existing</em> private key without regenerating the keypair by typing the following command:</p>
+<p>You can change the passphrase for an <em>existing</em> private key without regenerating the key-pair by typing the following command:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-p</span>
-<span class="c"># Start the SSH key creation process</span>
-<span class="o">&gt;</span> Enter file <span class="k">in </span>which the key is <span class="o">(</span>/Users/you/.ssh/id_rsa<span class="o">)</span>: <span class="o">[</span>Hit enter]
-<span class="o">&gt;</span> Key has comment <span class="s1">'/Users/you/.ssh/id_rsa'</span>
-<span class="o">&gt;</span> Enter new passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: <span class="o">[</span>Type new passphrase]
-<span class="o">&gt;</span> Enter same passphrase again: <span class="o">[</span>One more <span class="nb">time </span><span class="k">for </span>luck]
-<span class="o">&gt;</span> Your identification has been saved with the new passphrase.
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ssh-keygen <span class="nt">-p</span>
+<span class="gp">#</span><span class="w"> </span>Start the SSH key creation process
+<span class="gp">&gt;</span><span class="w"> </span>Enter file <span class="k">in </span>which the key is <span class="o">(</span>/Users/you/.ssh/id_rsa<span class="o">)</span>: <span class="o">[</span>Hit enter]
+<span class="gp">&gt;</span><span class="w"> </span>Key has comment <span class="s1">'/Users/you/.ssh/id_rsa'</span>
+<span class="gp">&gt;</span><span class="w"> </span>Enter new passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: <span class="o">[</span>Type new passphrase]
+<span class="gp">&gt;</span><span class="w"> </span>Enter same passphrase again: <span class="o">[</span>One more <span class="nb">time </span><span class="k">for </span>luck]
+<span class="gp">&gt;</span><span class="w"> </span>Your identification has been saved with the new passphrase.
 </code></pre></div></div>
 
 <p>If your key already has a passphrase, you will be prompted to enter it before you can change to a new passphrase.</p>
@@ -289,7 +291,7 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 
 <h2 id="add-key-to-ssh-agent">Add key to SSH agent</h2>
 
-<p>Note that may not be necessary if the agent is already running and if you are using the default SSH key name.</p>
+<p>Note that may <em>not</em> be necessary - if the agent is already running and if you are using the default SSH key name.</p>
 
 <h3 id="1-start-agent">1. Start agent</h3>
 
@@ -298,7 +300,7 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>ssh-agent <span class="nt">-s</span><span class="si">)</span><span class="s2">"</span>
 </code></pre></div></div>
 
-<p>Samle output - ignore this.</p>
+<p>Sample output - ignore this.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Agent pid 59566
 </code></pre></div></div>
@@ -312,6 +314,17 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 <p>e.g.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-add ~/.ssh/id_rsa
+</code></pre></div></div>
+
+<h2 id="configure-ssh-key-for-host">Configure SSH key for host</h2>
+
+<p>An alternative approach is to configure SSH to use a different SSH for a certain host like certain web server or GitHub server.</p>
+
+<p>e.g.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host example.com
+    HostName example.com
+    IdentityFile ~/.ssh/id_rsa_abc
 </code></pre></div></div>
 
         

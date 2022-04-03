@@ -227,7 +227,7 @@
     </ul>
   </li>
   <li>Create a new SSH key.</li>
-  <li>Give a title as description of your name (like <code class="language-plaintext highlighter-rouge">Michael</code> or <code class="language-plaintext highlighter-rouge">mcurrin</code>) and host (like <code class="language-plaintext highlighter-rouge">Mac</code> or <code class="language-plaintext highlighter-rouge">Dell</code>). e.g. <code class="language-plaintext highlighter-rouge">Michael Dell</code>. This can be renamed later esly.</li>
+  <li>Give a title as description of your name (like <code class="language-plaintext highlighter-rouge">Michael</code> or <code class="language-plaintext highlighter-rouge">mcurrin</code>) and host (like <code class="language-plaintext highlighter-rouge">Mac</code> or <code class="language-plaintext highlighter-rouge">Dell</code>). e.g. <code class="language-plaintext highlighter-rouge">Michael Dell</code>. This can be renamed later easily.</li>
   <li>Paste the <em>public</em> key copied from the previous section and save.</li>
 </ol>
 
@@ -237,7 +237,7 @@
 
 <p>Go to a repo on GitHub.</p>
 
-<p>Find the clone URL. Make sure to pick the <em>SSH</em> option.</p>
+<p>Find the clone URL on the repo. Make sure to pick the <em>SSH</em> option.</p>
 
 <p>Clone the URL locally.</p>
 
@@ -245,6 +245,26 @@
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:MichaelCurrin/code-cookbook.git
 </code></pre></div></div>
+
+<h2 id="use-multiple-ssh-keys">Use multiple SSH keys</h2>
+
+<p>Note each GitHub account must have its <em>own</em> SSH key. I tried using the same SSH key on two GitHub accounts and got an error that it was still in use.</p>
+
+<p>If you want to start using a second GitHub account, do the following:</p>
+
+<ol>
+  <li>Generate a new SSH key pair. Use the same command as before in <a href="/code-cookbook/recipes/shell/ssh/keys.html">SSH keys</a> but follow the prompts to choose a new name e.g. <code class="language-plaintext highlighter-rouge">id_rsa_abc</code>.</li>
+  <li>Copy the value of the public key.</li>
+  <li>Add the public key to your GitHub account.</li>
+  <li>Configure Git to use the new key.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Host github.com
+     IdentityFile ~/.ssh/id_rsa_abc
+</code></pre></div>    </div>
+  </li>
+  <li>Do you clone or other Git commands.</li>
+</ol>
+
+<p>This will stop using the old one until you switch it back. Alternatively you can try <em>Add key to SSH agent</em> in <a href="/code-cookbook/recipes/shell/ssh/keys.html">SSH keys</a> guide and see if you can get the agent to recognize both keys but that might not be possible. Unless maybe the HostName or Host are setup for the org e.g. <code class="language-plaintext highlighter-rouge">github.com/my-org</code>.</p>
 
         
     </div>
