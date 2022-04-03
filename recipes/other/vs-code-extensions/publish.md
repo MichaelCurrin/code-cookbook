@@ -15,21 +15,29 @@ description: How to publish a VS Code extension to the Marketplace using Azure D
     1. Create a new org or use the default one when registering.
     1. Create a publisher.
 
+[Azure DevOps]: https://dev.azure.com
 
-## Create a token
+
+## Manage tokens
 
 1. Login to [Azure DevOps][].
-1. Click _User Settings_ in the top right.
+1. Click your icon.
+1. Click the 3 dots menu to expand.
+1. Click _User Settings_.
 1. Click _Personal access tokens_.
+
+Then edit an existing token or make a new one using steps below:
+
 1. Click _New Token_. 
-    1. Give it a Name.
-    1. Set Organization to _All accessible organizations_.
-    1. Optionally extend its expiration date
-    1. Set Scopes.
-        1. Use Custom defined.
+    1. Give it a _Name_.
+    1. Set _Organization_ to **All accessible organizations**.
+    1. Optionally extend the expiration date.
+    1. Set _Scopes_.
+        1. Use _Custom defined_.
         1. Click _Show more scopes_.
-        1. Under _Marketplace_, tick _Manage_ scope.
-1. Copy the token value. **Keep this value secret**.
+        1. Under _Marketplace_, tick the **Manage** scope.
+    1. Click _Create_.
+1. Copy the token value. **Keep this value secret**. If you need the token again, you have to make a whole _new_ token - you can't regenerate the value for an existing token.
 
 
 ## Create and publish release
@@ -85,8 +93,6 @@ Verify your extension in the Marketplace.
 1. Click _Publish extensions_. e.g. [marketplace.visualstudio.com/manage/publishers/MichaelCurrin](https://marketplace.visualstudio.com/manage/publishers/MichaelCurrin)
 1. Click _More actions_ next to your extension name.
 1. Click _View extension_. e.g. [marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg](https://marketplace.visualstudio.com/items?itemName=MichaelCurrin.auto-commit-msg).
-
-[AzureDevOps]: https://dev.azure.com
 
 
 ## Add CI/CD flow
