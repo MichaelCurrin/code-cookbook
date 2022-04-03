@@ -179,7 +179,7 @@
   </li>
   <li>Set up your extension in the Marketplace.
     <ol>
-      <li>Go to [Azure DevOps][].</li>
+      <li>Go to <a href="https://dev.azure.com">Azure DevOps</a>.</li>
       <li>Sign up - use your GitHub account if you want.</li>
       <li>Create a new org or use the default one when registering.</li>
       <li>Create a publisher.</li>
@@ -187,27 +187,35 @@
   </li>
 </ol>
 
-<h2 id="create-a-token">Create a token</h2>
+<h2 id="manage-tokens">Manage tokens</h2>
 
 <ol>
-  <li>Login to [Azure DevOps][].</li>
-  <li>Click <em>User Settings</em> in the top right.</li>
+  <li>Login to <a href="https://dev.azure.com">Azure DevOps</a>.</li>
+  <li>Click your icon.</li>
+  <li>Click the 3 dots menu to expand.</li>
+  <li>Click <em>User Settings</em>.</li>
   <li>Click <em>Personal access tokens</em>.</li>
+</ol>
+
+<p>Then edit an existing token or make a new one using steps below:</p>
+
+<ol>
   <li>Click <em>New Token</em>.
     <ol>
-      <li>Give it a Name.</li>
-      <li>Set Organization to <em>All accessible organizations</em>.</li>
-      <li>Optionally extend its expiration date</li>
-      <li>Set Scopes.
+      <li>Give it a <em>Name</em>.</li>
+      <li>Set <em>Organization</em> to <strong>All accessible organizations</strong>.</li>
+      <li>Optionally extend the expiration date.</li>
+      <li>Set <em>Scopes</em>.
         <ol>
-          <li>Use Custom defined.</li>
+          <li>Use <em>Custom defined</em>.</li>
           <li>Click <em>Show more scopes</em>.</li>
-          <li>Under <em>Marketplace</em>, tick <em>Manage</em> scope.</li>
+          <li>Under <em>Marketplace</em>, tick the <strong>Manage</strong> scope.</li>
         </ol>
       </li>
+      <li>Click <em>Create</em>.</li>
     </ol>
   </li>
-  <li>Copy the token value. <strong>Keep this value secret</strong>.</li>
+  <li>Copy the token value. <strong>Keep this value secret</strong>. If you need the token again, you have to make a whole <em>new</em> token - you can’t regenerate the value for an existing token.</li>
 </ol>
 
 <h2 id="create-and-publish-release">Create and publish release</h2>
