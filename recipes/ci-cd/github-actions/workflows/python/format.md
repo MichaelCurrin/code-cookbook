@@ -21,7 +21,7 @@ But I include this flow anyway for interest of the pieces.
 name: Format Python code
 
 on:
-- pull_request
+  pull_request:
     paths:
       - "**.py"
 
