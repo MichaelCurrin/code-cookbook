@@ -19,10 +19,11 @@ But I include this flow anyway for interest of the pieces.
 
 ```yaml
 name: Format Python code
+
 on:
-  push:
+- pull_request
     paths:
-      - '**.py'
+      - "**.py"
 
 jobs:
   format:
