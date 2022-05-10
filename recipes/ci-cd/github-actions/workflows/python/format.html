@@ -205,18 +205,19 @@
 <span class="na">on</span><span class="pi">:</span>
   <span class="na">push</span><span class="pi">:</span>
     <span class="na">paths</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">**.py'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">**.py'</span>
 
 <span class="na">jobs</span><span class="pi">:</span>
   <span class="na">format</span><span class="pi">:</span>
     <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
 
     <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
         <span class="na">with</span><span class="pi">:</span>
-          <span class="na">ref</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">ref</span><span class="pi">:</span> <span class="s">${{ github.head_ref }}</span>
 
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">autoyapf</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Format</span>
         <span class="na">uses</span><span class="pi">:</span> <span class="s">mritunjaysharma394/autoyapf@v2</span>
         <span class="na">with</span><span class="pi">:</span>
           <span class="na">args</span><span class="pi">:</span> <span class="s">--style pep8 --recursive --in-place .</span>
@@ -228,11 +229,29 @@
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Push changes</span>
         <span class="na">if</span><span class="pi">:</span> <span class="s">steps.git-check.outputs.modified == 'true'</span>
         <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-          <span class="s">git config --global user.name '...'</span>
-          <span class="s">git config --global user.email '...@users.noreply.github.com'</span>
-          <span class="s">git remote set-url origin https://x-access-token:$@github.com/$</span>
+          <span class="s">git config --global user.name 'abc'</span>
+          <span class="s">git config --global user.email 'abc123@users.noreply.github.com'</span>
+          <span class="s">git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}</span>
           <span class="s">git commit -am "Apply autoyapf fixes"</span>
           <span class="s">git push</span>
+</code></pre></div></div>
+
+<p>The Format step can use Black or similar tools if you prefer.</p>
+
+<p>Using <a href="https://github.com/rickstaa/action-black/">rickstaa/action-black</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Format</span>
+    <span class="na">uses</span><span class="pi">:</span> <span class="s">rickstaa/action-black@v1</span>
+    <span class="na">id</span><span class="pi">:</span> <span class="s">action_black</span>
+    <span class="na">with</span><span class="pi">:</span>
+      <span class="na">black_args</span><span class="pi">:</span> <span class="s2">"</span><span class="s">."</span>
+</code></pre></div></div>
+
+<p>Then use conditional step for whether to commit or not.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Commit</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">steps.action_black.outputs.is_formatted == 'true'</span>
 </code></pre></div></div>
 
 <p>You can change email and name to actions or your name or make it dynamic.</p>
