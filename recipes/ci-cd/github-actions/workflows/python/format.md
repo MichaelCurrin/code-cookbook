@@ -49,7 +49,7 @@ jobs:
           git config --global user.name 'abc'
           git config --global user.email 'abc123@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Apply autoyapf fixes"
+          git commit -am "Apply format fixes"
           git push
 ```
 
