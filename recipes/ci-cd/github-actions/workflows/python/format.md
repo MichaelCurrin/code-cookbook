@@ -15,23 +15,26 @@ But I include this flow anyway for interest of the pieces.
 
 ## Sample
 
+{% raw %}
+
 ```yaml
 name: Format Python code
 on:
   push:
     paths:
-    - '**.py'
+      - '**.py'
 
 jobs:
   format:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
         with:
           ref: ${{ github.head_ref }}
 
-      - name: autoyapf
+      - name: Format
         uses: mritunjaysharma394/autoyapf@v2
         with:
           args: --style pep8 --recursive --in-place .
@@ -43,11 +46,33 @@ jobs:
       - name: Push changes
         if: steps.git-check.outputs.modified == 'true'
         run: |
-          git config --global user.name '...'
-          git config --global user.email '...@users.noreply.github.com'
+          git config --global user.name 'abc'
+          git config --global user.email 'abc123@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Apply autoyapf fixes"
           git push
 ```
+
+The Format step can use Black or similar tools if you prefer.
+
+Using [rickstaa/action-black](https://github.com/rickstaa/action-black/):
+
+```yaml
+steps:
+  - name: Format
+    uses: rickstaa/action-black@v1
+    id: action_black
+    with:
+      black_args: "."
+```
+
+Then use conditional step for whether to commit or not.
+
+```yaml
+  - name: Commit
+    if: steps.action_black.outputs.is_formatted == 'true'
+```
+
+{% endraw %}
 
 You can change email and name to actions or your name or make it dynamic.
