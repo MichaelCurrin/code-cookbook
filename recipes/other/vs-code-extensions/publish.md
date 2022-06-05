@@ -39,22 +39,25 @@ Then edit an existing token or make a new one using steps below:
     1. Click _Create_.
 1. Copy the token value. **Keep this value secret**. If you need the token again, you have to make a whole _new_ token - you can't regenerate the value for an existing token.
 
+I sometimes get a _Segmentation fault_ error from `vsce publish`. This was fixed like this:
+
+1. Delete old token on Azure DevOps.
+1. Make a new token.
+1. Run `vsce login USERNAME` then paste your token.
+1. Run `vsce publish` again.
+
 
 ## Create and publish release
 
-Install `vsce`:
+Install `vsce` at the project level. This will be in `package.json` of the project so is easy to control.
 
-- Globally:
-    ```sh
-    $ npm install -g vsce
-    $ vsce --version
-    ```
-- In the project:
-    ```sh
-    $ npm install -D vsce
-    $ npx sce --version
-    ```
-    
+```sh
+$ npm install -D vsce
+$ npx vsce --version
+```
+
+You can install globally instead with `-g`, but this makes it harder to manage across projects and machines of devs.
+
 Publish your extension using the CLI.
 
 1. Check which files will be packaged.
