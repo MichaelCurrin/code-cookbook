@@ -218,22 +218,24 @@
   <li>Copy the token value. <strong>Keep this value secret</strong>. If you need the token again, you have to make a whole <em>new</em> token - you can’t regenerate the value for an existing token.</li>
 </ol>
 
+<p>I sometimes get a <em>Segmentation fault</em> error from <code class="language-plaintext highlighter-rouge">vsce publish</code>. This was fixed like this:</p>
+
+<ol>
+  <li>Delete old token on Azure DevOps.</li>
+  <li>Make a new token.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">vsce login USERNAME</code> then paste your token.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">vsce publish</code> again.</li>
+</ol>
+
 <h2 id="create-and-publish-release">Create and publish release</h2>
 
-<p>Install <code class="language-plaintext highlighter-rouge">vsce</code>:</p>
+<p>Install <code class="language-plaintext highlighter-rouge">vsce</code> at the project level. This will be in <code class="language-plaintext highlighter-rouge">package.json</code> of the project so is easy to control.</p>
 
-<ul>
-  <li>Globally:
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> vsce
-  <span class="nv">$ </span>vsce <span class="nt">--version</span>
-</code></pre></div>    </div>
-  </li>
-  <li>In the project:
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-D</span> vsce
-  <span class="nv">$ </span>npx sce <span class="nt">--version</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-D</span> vsce
+<span class="nv">$ </span>npx vsce <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>You can install globally instead with <code class="language-plaintext highlighter-rouge">-g</code>, but this makes it harder to manage across projects and machines of devs.</p>
 
 <p>Publish your extension using the CLI.</p>
 
