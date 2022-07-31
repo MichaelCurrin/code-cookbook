@@ -20,8 +20,8 @@
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="How to act as the root user" />
-    <meta property="og:description" content="How to act as the root user" />
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
 <meta name="author" content="Michael Currin" />
 
 
@@ -33,7 +33,7 @@
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "How to act as the root user",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
     "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/shell/sudoers.html",
     "headline":    "Sudoers",
     "@type":       "WebSite",
@@ -103,11 +103,6 @@
         </h1>
 
         
-            <blockquote>
-                <p>How to act as the root user</p>
-
-            </blockquote>
-        
     </header>
 
     
@@ -156,79 +151,7 @@
 
     <div class="post-content">
         
-            <p>Guide for Linux</p>
-
-<h2 id="view-manpage">View manpage</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>man sudoers
-</code></pre></div></div>
-
-<h2 id="running-as-superuser">Running as superuser</h2>
-
-<h3 id="perform-action-as-root">Perform action as root</h3>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>COMMAND
-</code></pre></div></div>
-
-<h3 id="change-to-root">Change to root</h3>
-
-<p>This is not recommended, as you might forget you are superuser. Also you won’t have any alias like the interactive remove or copy which prevents overrides.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su
-</code></pre></div></div>
-
-<h3 id="configs">Configs</h3>
-
-<p>Read the config file. Do not edit this directly.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>view /etc/sudoers
-</code></pre></div></div>
-
-<p>Edit using:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>visudo
-</code></pre></div></div>
-
-<p>See also a directory for adding local content.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /etc/sudoers.d/
-</code></pre></div></div>
-
-<h3 id="do-admin-actions-without-entering-password">Do admin actions without entering password</h3>
-
-<p>Configure your system to avoid entering your password every time your run sudo.</p>
-
-<p>Add this as a row to sudoers config under this section. Replace <code class="language-plaintext highlighter-rouge">foo</code> with username.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo ALL=(ALL) NOPASSWD:ALL
-</code></pre></div></div>
-
-<p>It might even work do to <code class="language-plaintext highlighter-rouge">%foo</code> if that references a group.</p>
-
-<ul>
-  <li><a href="https://askubuntu.com/questions/21343/how-to-make-sudo-remember-my-password-and-how-to-add-an-application-to-startup">source</a></li>
-  <li><a href="https://askubuntu.com/questions/147241/execute-sudo-without-password">source</a></li>
-</ul>
-
-<p>Another source says to edit the <code class="language-plaintext highlighter-rouge">admin</code> line:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%admin ALL=(ALL) NOPASSWD: ALL
-</code></pre></div></div>
-
-<p><a href="https://www.ubuntugeek.com/how-to-disable-password-prompts-in-ubuntu.html">source</a></p>
-
-<h2 id="remember-sudo-password-for-a-set-time">Remember sudo password for a set time</h2>
-
-<p>The machine will not prompt you again for your password for a time. More secure than the above.</p>
-
-<p>Edit sudoers file.</p>
-
-<p>Set a default.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Defaults        timestamp_timeout=300
-</code></pre></div></div>
-
-<p><a href="https://unix.stackexchange.com/questions/216891/how-do-i-make-sudo-remember-my-password-for-longer">source</a></p>
+            <p>This page has moved <a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/shell/sudoers.html">here</a> in Dev Cheatsheets.</p>
 
         
     </div>
