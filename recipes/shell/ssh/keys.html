@@ -248,8 +248,11 @@ Enter file in which to save the key (~/.ssh/id_rsa):
 
 <p>Alternate command, based on what is recommended by this <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub doc</a>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096<span class="s2">"
-</span></code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="c"># New method</span>
+<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your_email@example.com"</span>
+<span class="nv">$ </span><span class="c"># Old method</span>
+<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</code></pre></div></div>
 
 <p>Flags:</p>
 
