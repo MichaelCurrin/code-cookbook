@@ -96,7 +96,10 @@ You can press enter to skip through the rest of the options - unless you want to
 Alternate command, based on what is recommended by this [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ```sh
-$ ssh-keygen -t rsa -b 4096"
+$ # New method
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+$ # Old method
+$ ssh-keygen -t rsa -b 4096
 ```
 
 Flags:
