@@ -74,21 +74,24 @@ This is complex - I don't know why. I haven't tested yet but maybe something her
 
 ### Two column help
 
-This will sort, split into two columsn and add colors. It expects a description to come after the command with double hash.
+This will sort targets, split into two columns and add colors. It expects a description to come after the command with a double hash.
 
 - `Makefile`
-	```mk
+	```mk  
 	help: ## Show the commands and help
 		@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
             | sort \
             | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+            
+    install: ## Install all dependencies
+        # ...
 	```
 
 Sample output (the left column is colored blue).
 
 ```
 help                           Show the commands and help
-install                        ...
+install                        Install all dependencies
 ```
 
 ### Some improvements on above
