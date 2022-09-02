@@ -236,7 +236,7 @@
 
 <h3 id="two-column-help">Two column help</h3>
 
-<p>This will sort, split into two columsn and add colors. It expects a description to come after the command with double hash.</p>
+<p>This will sort targets, split into two columns and add colors. It expects a description to come after the command with a double hash.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">Makefile</code>
@@ -244,6 +244,9 @@
       @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
           | sort \
           | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+            
+  install: ## Install all dependencies
+      # ...
 </code></pre>
   </li>
 </ul>
@@ -251,7 +254,7 @@
 <p>Sample output (the left column is colored blue).</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>help                           Show the commands and help
-install                        ...
+install                        Install all dependencies
 </code></pre></div></div>
 
 <h3 id="some-improvements-on-above">Some improvements on above</h3>
