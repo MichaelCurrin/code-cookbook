@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Python" />
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.1" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -245,7 +245,7 @@
     <span class="err">flake8</span> <span class="nv">--exclude</span><span class="o">=</span>.tox
 
 <span class="nl">test</span><span class="o">:</span> <span class="nf">clean-pyc</span>
-    <span class="err">py.test</span> <span class="err">--verbose</span> <span class="nv">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="nv">$(TEST_PATH)</span>
+    <span class="err">py.test</span> <span class="err">--verbose</span> <span class="nv">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="p">$(</span>TEST_PATH<span class="p">)</span>
 
 <span class="nl">run</span><span class="o">:</span>
     <span class="err">python</span> <span class="err">manage.py</span> <span class="err">runserver</span>
@@ -279,25 +279,25 @@
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">VIRTUALENV</span> <span class="o">=</span> python3 <span class="nt">-m</span> venv
 <span class="nv">SPHINX_BUILDDIR</span> <span class="o">=</span> docs/_build
-<span class="nv">VENV</span> <span class="o">:=</span> <span class="nf">$(</span><span class="nb">shell</span> <span class="nb">realpath</span> <span class="err">$</span><span class="k">${</span><span class="nv">VIRTUAL_ENV</span><span class="p">-.venv</span><span class="nf">}</span><span class="p">)</span>
-<span class="nv">PYTHON</span> <span class="o">=</span><span class="p"> </span><span class="nv">$(VENV)</span><span class="p">/bin/python3</span>
+<span class="nv">VENV</span> <span class="o">:=</span> <span class="p">$(</span>shell <span class="nb">realpath</span> <span class="p">$${</span>VIRTUAL_ENV-.venv<span class="p">})</span>
+<span class="nv">PYTHON</span> <span class="o">=</span> <span class="p">$(</span>VENV<span class="p">)</span>/bin/python3
 
-<span class="nv">DEV_STAMP</span> <span class="o">=</span><span class="p"> </span><span class="nv">$(VENV)</span><span class="p">/.dev_env_installed.stamp</span>
-<span class="nv">DOC_STAMP</span> <span class="o">=</span><span class="p"> </span><span class="nv">$(VENV)</span><span class="p">/.doc_env_installed.stamp</span>
-<span class="nv">INSTALL_STAMP</span> <span class="o">=</span><span class="p"> </span><span class="nv">$(VENV)</span><span class="p">/.install.stamp</span>
+<span class="nv">DEV_STAMP</span> <span class="o">=</span> <span class="p">$(</span>VENV<span class="p">)</span>/.dev_env_installed.stamp
+<span class="nv">DOC_STAMP</span> <span class="o">=</span> <span class="p">$(</span>VENV<span class="p">)</span>/.doc_env_installed.stamp
+<span class="nv">INSTALL_STAMP</span> <span class="o">=</span> <span class="p">$(</span>VENV<span class="p">)</span>/.install.stamp
 
-<span class="nv">TEMPDIR</span> <span class="o">:=</span><span class="p"> </span><span class="nf">$(</span><span class="nb">shell</span> <span class="nv">mktemp</span><span class="p"> -d</span><span class="nf">)</span>
-<span class="nv">ZOPFLIPNG</span> <span class="o">:=</span><span class="p"> zopflipng</span>
+<span class="nv">TEMPDIR</span> <span class="o">:=</span> <span class="p">$(</span>shell <span class="nb">mktemp</span> <span class="nt">-d</span><span class="p">)</span>
+<span class="nv">ZOPFLIPNG</span> <span class="o">:=</span> zopflipng
 </code></pre></div></div>
 
 <p>This allows things like this:</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">virtualenv</span><span class="o">:</span> <span class="nf">$(PYTHON)</span>
 <span class="nl">$(PYTHON)</span><span class="o">:</span>
-	<span class="nv">$(VIRTUALENV)</span> <span class="nv">$(VENV)</span>
+	<span class="p">$(</span>VIRTUALENV<span class="p">)</span> <span class="p">$(</span>VENV<span class="p">)</span>
 	
 <span class="nl">black</span><span class="o">:</span> <span class="nf">install-dev </span><span class="c">##</span><span class="nf"> Run the tests</span>
-	<span class="nv">$(VENV)</span>/bin/black <span class="nt">--target-version</span><span class="o">=</span>py34 .
+	<span class="p">$(</span>VENV<span class="p">)</span>/bin/black <span class="nt">--target-version</span><span class="o">=</span>py34 .
 
 </code></pre></div></div>
 
@@ -306,7 +306,7 @@
 <p>Temp directory is used for:</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">foo</span><span class="o">:</span>
-	<span class="nb">mkdir</span> <span class="nv">$(TEMPDIR)</span>/zopfli
+	<span class="nb">mkdir</span> <span class="p">$(</span>TEMPDIR<span class="p">)</span>/zopfli
 </code></pre></div></div>
 
 <h3 id="linting">Linting</h3>
@@ -362,7 +362,7 @@
 
 <span class="nl">help</span><span class="o">:</span> <span class="c">##</span><span class="nf"> display this help message</span>
 	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Please use </span><span class="se">\`</span><span class="s2">make &lt;target&gt;' where &lt;target&gt; is one of"</span>
-	<span class="p">@</span><span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">':.*?## '</span> <span class="s1">'/^[a-zA-Z]/ &amp;&amp; NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'</span> <span class="nv">$(MAKEFILE_LIST)</span> | <span class="nb">sort</span>
+	<span class="p">@</span><span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">':.*?## '</span> <span class="s1">'/^[a-zA-Z]/ &amp;&amp; NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'</span> <span class="p">$(</span>MAKEFILE_LIST<span class="p">)</span> | <span class="nb">sort</span>
 
 <span class="nl">clean</span><span class="o">:</span> <span class="c">##</span><span class="nf"> remove stuff we don't need</span>
 	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'__pycache__'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-rf</span> <span class="o">{}</span> +

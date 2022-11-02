@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Jekyll" />
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.1" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -302,8 +302,8 @@ GOTO error
 
   <span class="nv">DOCKER_RUN</span> <span class="o">=</span> docker run <span class="nt">--rm</span> <span class="se">\</span>
       <span class="nt">-p</span> 4000:4000 <span class="se">\</span>
-      <span class="nt">--volume</span> <span class="s2">"</span><span class="nv">$(PWD)</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
-      <span class="nv">$(APP_NAME)</span>
+      <span class="nt">--volume</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">PWD</span><span class="p">)</span><span class="s2">:/srv/jekyll"</span> <span class="se">\</span>
+      <span class="p">$(</span>APP_NAME<span class="p">)</span>
 
   <span class="nl">image</span><span class="o">:</span>
       <span class="nl">docker build --rm -t $(APP_NAME)</span><span class="o">:</span><span class="nf">latest .</span>

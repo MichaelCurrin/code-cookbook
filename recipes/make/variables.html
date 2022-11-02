@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Variables" />
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.3.1" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -161,26 +161,26 @@
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">SHELL</span> <span class="o">=</span> bash
 
-<span class="nv">PUBLISHTAG</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> node scripts/publish-tag.js<span class="nf">)</span>
-<span class="nv">BRANCH</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> git rev-parse <span class="nt">--abbrev-ref</span> HEAD<span class="nf">)</span>
+<span class="nv">PUBLISHTAG</span> <span class="o">=</span> <span class="p">$(</span>shell node scripts/publish-tag.js<span class="p">)</span>
+<span class="nv">BRANCH</span> <span class="o">=</span> <span class="p">$(</span>shell git rev-parse <span class="nt">--abbrev-ref</span> HEAD<span class="p">)</span>
 
-<span class="nv">markdowns</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> find docs <span class="nt">-name</span> <span class="s1">'*.md'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="s1">'index'</span><span class="nf">)</span> README.md
+<span class="nv">markdowns</span> <span class="o">=</span> <span class="p">$(</span>shell find docs <span class="nt">-name</span> <span class="s1">'*.md'</span> | <span class="nb">grep</span> <span class="nt">-v</span> <span class="s1">'index'</span><span class="p">)</span> README.md
 
-<span class="nv">cli_mandocs</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> find docs/content/cli-commands <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
+<span class="nv">cli_mandocs</span> <span class="o">=</span> <span class="p">$(</span>shell find docs/content/cli-commands <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
                |sed <span class="s1">'s|.md|.1|g'</span> <span class="se">\</span>
-               |sed <span class="s1">'s|docs/content/cli-commands/|man/man1/|g'</span> <span class="nf">)</span> <span class="se">\</span>
+               |sed <span class="s1">'s|docs/content/cli-commands/|man/man1/|g'</span> <span class="p">)</span> <span class="se">\</span>
                man/man1/npm-README.1 <span class="se">\</span>
                man/man1/npx.1
 
-<span class="nv">files_mandocs</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> find docs/content/configuring-npm <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
+<span class="nv">files_mandocs</span> <span class="o">=</span> <span class="p">$(</span>shell find docs/content/configuring-npm <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
                |sed <span class="s1">'s|.md|.5|g'</span> <span class="se">\</span>
-               |sed <span class="s1">'s|docs/content/configuring-npm/|man/man5/|g'</span> <span class="nf">)</span> <span class="se">\</span>
+               |sed <span class="s1">'s|docs/content/configuring-npm/|man/man5/|g'</span> <span class="p">)</span> <span class="se">\</span>
 
-<span class="nv">misc_mandocs</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> find docs/content/using-npm <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
+<span class="nv">misc_mandocs</span> <span class="o">=</span> <span class="p">$(</span>shell find docs/content/using-npm <span class="nt">-name</span> <span class="s1">'*.md'</span> <span class="se">\</span>
                |sed <span class="s1">'s|.md|.7|g'</span> <span class="se">\</span>
-               |sed <span class="s1">'s|docs/content/using-npm/|man/man7/|g'</span> <span class="nf">)</span> <span class="se">\</span>
+               |sed <span class="s1">'s|docs/content/using-npm/|man/man7/|g'</span> <span class="p">)</span> <span class="se">\</span>
 
-<span class="nv">mandocs</span> <span class="o">=</span> <span class="nv">$(cli_mandocs)</span> <span class="nv">$(files_mandocs)</span> <span class="nv">$(misc_mandocs)</span>
+<span class="nv">mandocs</span> <span class="o">=</span> <span class="p">$(</span>cli_mandocs<span class="p">)</span> <span class="p">$(</span>files_mandocs<span class="p">)</span> <span class="p">$(</span>misc_mandocs<span class="p">)</span>
 
 <span class="c"># ...
 </span>
