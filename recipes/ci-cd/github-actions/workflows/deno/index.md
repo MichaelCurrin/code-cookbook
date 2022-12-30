@@ -20,7 +20,7 @@ One day Deno could be the new Node.
 
 ## Samples
 
-Here we use the [denolib/setup-deno](https://github.com/denolib/setup-deno) action.
+Here we use the [denoland/setup-deno](https://github.com/denoland/setup-deno) action.
 
 ### Basic
 
@@ -87,7 +87,7 @@ Based on the file created for you when adding a new Deno workflow through the Gi
 
 This will test across two Deno versions and will run on 3 operating systems.
 
-See [denolib/setup-deno](https://github.com/denolib/setup-deno).
+See [denoland/setup-deno](https://github.com/denoland/setup-deno).
 
 - `deno.yml`
     ```yaml
