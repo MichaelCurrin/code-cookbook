@@ -9,7 +9,7 @@
 [![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
 [![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
-Achieve small or large tasks using recipes of steps and scripts, or configs.
+Achieve small or large tasks using recipes that contain steps, scripts, and config files.
 
 ## Preview
 
