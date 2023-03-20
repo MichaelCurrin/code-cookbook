@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="HTML Proofer generic" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -231,7 +231,7 @@
           <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
           <span class="na">with</span><span class="pi">:</span>
             <span class="na">ruby-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2.7'</span>
-            <span class="na">bundler-cache</span><span class="pi">:</span> <span class="no">true</span>
+            <span class="na">bundler-cache</span><span class="pi">:</span> <span class="kc">true</span>
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install HTML Proofer 🔧</span>
           <span class="na">run</span><span class="pi">:</span> <span class="s">gem install html-proofer</span>
@@ -297,7 +297,7 @@
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check for broken links 🧐🔗</span>
   <span class="na">run</span><span class="pi">:</span> <span class="s">htmlproofer</span> <span class="c1"># ...</span>
-  <span class="na">continue-on-error</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">continue-on-error</span><span class="pi">:</span> <span class="kc">true</span>
 </code></pre></div></div>
 
 <p>This is so that the check step doesn’t stop the workflow and mark it as failed.</p>

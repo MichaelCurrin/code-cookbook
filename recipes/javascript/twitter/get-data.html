@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Get data" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -166,22 +166,22 @@
             <p>Using <a href="https://www.npmjs.com/package/twitter-api-client">twitter-api-client</a>.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Search for a user.</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">accountsAndUsers</span><span class="p">.</span><span class="nx">usersSearch</span><span class="p">(</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">accountsAndUsers</span><span class="p">.</span><span class="nf">usersSearch</span><span class="p">(</span>
   <span class="p">{</span> <span class="na">q</span><span class="p">:</span> <span class="dl">'</span><span class="s1">twitterDev</span><span class="dl">'</span> <span class="p">}</span>
 <span class="p">);</span>
 
 <span class="c1">// Get message event by ID</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">directMessages</span><span class="p">.</span><span class="nx">directMessagesEventsShow</span><span class="p">(</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">directMessages</span><span class="p">.</span><span class="nf">directMessagesEventsShow</span><span class="p">(</span>
   <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1234</span><span class="dl">'</span> <span class="p">}</span>
 <span class="p">);</span>
 
 <span class="c1">// Get most recent 25 retweets of a tweet</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nx">statusesRetweetsById</span><span class="p">(</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nf">statusesRetweetsById</span><span class="p">(</span>
   <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">12345</span><span class="dl">'</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="mi">25</span> <span class="p">}</span>
 <span class="p">);</span>
 
 <span class="c1">// Get local trends</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">trends</span><span class="p">.</span><span class="nx">trendsAvailable</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">twitterClient</span><span class="p">.</span><span class="nx">trends</span><span class="p">.</span><span class="nf">trendsAvailable</span><span class="p">();</span>
 </code></pre></div></div>
 
         

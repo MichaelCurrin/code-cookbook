@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Button" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -180,17 +180,17 @@
 
 <p>See this in use at <a href="https://github.com/MichaelCurrin/react-frontend-quickstart">React Frontend Quickstart</a>.</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">ButtonSample</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">pressed</span><span class="p">,</span> <span class="nx">setPressed</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">ButtonSample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">pressed</span><span class="p">,</span> <span class="nx">setPressed</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 
   <span class="kd">const</span> <span class="nx">onClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setPressed</span><span class="p">(</span><span class="o">!</span><span class="nx">pressed</span><span class="p">);</span>
+    <span class="nf">setPressed</span><span class="p">(</span><span class="o">!</span><span class="nx">pressed</span><span class="p">);</span>
   <span class="p">};</span>
 
   <span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="nx">pressed</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">on</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">off</span><span class="dl">"</span><span class="p">;</span>
   <span class="kd">const</span> <span class="nx">className</span> <span class="o">=</span> <span class="nx">pressed</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">green</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">""</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="nf">return </span><span class="p">(</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Status: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>

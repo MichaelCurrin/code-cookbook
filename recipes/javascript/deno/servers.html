@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Servers" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -187,11 +187,11 @@
 
   <span class="kd">const</span> <span class="nx">APP_PORT</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">;</span>
 
-  <span class="kd">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">serve</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">/`</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nf">serve</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">/`</span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="k">await</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">req</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">req</span><span class="p">.</span><span class="nx">respond</span><span class="p">({</span> <span class="na">body</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello, world</span><span class="se">\n</span><span class="dl">"</span> <span class="p">});</span>
+  <span class="k">for</span> <span class="nf">await </span><span class="p">(</span><span class="kd">const</span> <span class="nx">req</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nf">respond</span><span class="p">({</span> <span class="na">body</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello, world</span><span class="se">\n</span><span class="dl">"</span> <span class="p">});</span>
   <span class="p">}</span>
 </code></pre></div>    </div>
   </li>
@@ -215,14 +215,14 @@
   <span class="k">import</span> <span class="p">{</span> <span class="nx">APP_HOST</span><span class="p">,</span> <span class="nx">APP_PORT</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./config.ts</span><span class="dl">"</span><span class="p">;</span>
   <span class="k">import</span> <span class="nx">router</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./routing.ts</span><span class="dl">"</span><span class="p">;</span>
 
-  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Application</span><span class="p">();</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nx">routes</span><span class="p">());</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nx">allowedMethods</span><span class="p">());</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">use</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nf">routes</span><span class="p">());</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">use</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nf">allowedMethods</span><span class="p">());</span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Listening on </span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">...`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Listening on </span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">...`</span><span class="p">);</span>
 
-  <span class="k">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">APP_HOST</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="k">await</span> <span class="nx">app</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">APP_HOST</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">routing.ts</code> - note that <code class="language-plaintext highlighter-rouge">db.ts</code> and <code class="language-plaintext highlighter-rouge">user.ts</code> need to be defined too.
@@ -232,17 +232,17 @@
   <span class="k">import</span> <span class="p">{</span> <span class="nx">fetchData</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./db.ts</span><span class="dl">"</span><span class="p">;</span>
   <span class="k">import</span> <span class="p">{</span> <span class="nx">User</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../models/user.ts</span><span class="dl">"</span><span class="p">;</span>
 
-  <span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Router</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Router</span><span class="p">();</span>
 
-  <span class="k">export</span> <span class="kd">const</span> <span class="nx">getUsers</span> <span class="o">=</span> <span class="k">async</span> <span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">User</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData</span><span class="p">();</span>
+  <span class="k">export</span> <span class="kd">const</span> <span class="nx">getUsers</span> <span class="o">=</span> <span class="nf">async </span><span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">User</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetchData</span><span class="p">();</span>
 
     <span class="c1">// Order by name.</span>
-    <span class="k">return</span> <span class="nx">users</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">));</span>
+    <span class="k">return</span> <span class="nx">users</span><span class="p">.</span><span class="nf">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nf">localeCompare</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">));</span>
   <span class="p">};</span>
 
-  <span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/users</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">({</span> <span class="nx">response</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getUsers</span><span class="p">();</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/users</span><span class="dl">"</span><span class="p">,</span> <span class="nf">async </span><span class="p">({</span> <span class="nx">response</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getUsers</span><span class="p">();</span>
   <span class="p">});</span>
 
   <span class="k">export</span> <span class="k">default</span> <span class="nx">router</span><span class="p">;</span>
@@ -261,14 +261,14 @@
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">Application</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">https://deno.land/x/abc@v1.2.4/mod.ts</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="kd">const</span> <span class="nx">APP_PORT</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">;</span>
-  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Application</span><span class="p">();</span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">/`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">/`</span><span class="p">);</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/hello</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/hello</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="k">return</span> <span class="dl">"</span><span class="s2">Hello, Abc!</span><span class="dl">"</span><span class="p">;</span>
     <span class="p">})</span>
-    <span class="p">.</span><span class="nx">start</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
+    <span class="p">.</span><span class="nf">start</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -288,12 +288,12 @@
 
   <span class="kd">const</span> <span class="nx">APP_PORT</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">;</span>
 
-  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Application</span><span class="p">();</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">build</span><span class="dl">"</span><span class="p">,</span> <span class="nx">cors</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">start</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">build</span><span class="dl">"</span><span class="p">,</span> <span class="nf">cors</span><span class="p">())</span>
+    <span class="p">.</span><span class="nf">start</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="nx">APP_PORT</span> <span class="p">});</span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Server listening on http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Server listening on http://localhost:</span><span class="p">${</span><span class="nx">APP_PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -317,7 +317,7 @@
     <ul>
       <li>Serve <code class="language-plaintext highlighter-rouge">public</code> directory as <code class="language-plaintext highlighter-rouge">/index.html</code>, <code class="language-plaintext highlighter-rouge">about.html</code> and nested paths like <code class="language-plaintext highlighter-rouge">/assets/js/main.js</code>.</li>
       <li>Code
-        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/static</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">);</span>
+        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="nf">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/static</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div>        </div>
       </li>
     </ul>
@@ -326,7 +326,7 @@
     <ul>
       <li>Make <code class="language-plaintext highlighter-rouge">index.html</code> available as <code class="language-plaintext highlighter-rouge">/</code>.</li>
       <li>Code
-        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="nx">file</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/index.html</span><span class="dl">"</span><span class="p">);</span>
+        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="nf">file</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/index.html</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div>        </div>
       </li>
     </ul>
@@ -335,8 +335,8 @@
     <ul>
       <li>Serve both a directory of static assets and a short path for the <code class="language-plaintext highlighter-rouge">index.html</code> page as <code class="language-plaintext highlighter-rouge">/</code>.</li>
       <li>Code
-        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="nx">file</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/index.html</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">)</span>
+        <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">app</span><span class="p">.</span><span class="nf">file</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/index.html</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div>        </div>
       </li>
     </ul>

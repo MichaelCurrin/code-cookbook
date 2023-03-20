@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Node" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -183,10 +183,10 @@
     <span class="na">logging</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="p">};</span>
 
-  <span class="kd">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sequelize</span><span class="p">(</span><span class="nx">DBConnectionURI</span><span class="p">,</span> <span class="nx">DBOpts</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sequelize</span><span class="p">(</span><span class="nx">DBConnectionURI</span><span class="p">,</span> <span class="nx">DBOpts</span><span class="p">);</span>
 
-  <span class="nx">instance</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="dl">'</span><span class="s1">SELECT 1 AS foo</span><span class="dl">'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="dl">'</span><span class="s1">SELECT 1 AS foo</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
   <span class="c1">// =&gt; [ [ anonymous { foo: 1 } ]</span>
 </code></pre></div>    </div>
   </li>

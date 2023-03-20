@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="localStorage" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -185,19 +185,19 @@
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="kd">function</span> <span class="nx">TextSample</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">persistedValue</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">)</span> <span class="o">??</span> <span class="dl">""</span><span class="p">;</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="nx">persistedValue</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">TextSample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">persistedValue</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nf">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">)</span> <span class="o">??</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">useState</span><span class="p">(</span><span class="nx">persistedValue</span><span class="p">);</span>
 
   <span class="kd">const</span> <span class="nx">onInput</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setValue</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="nf">setValue</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
   <span class="p">};</span>
   
-  <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+  <span class="nx">React</span><span class="p">.</span><span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
   <span class="p">};</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="nf">return </span><span class="p">(</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span> <span class="na">hmltfor</span><span class="p">=</span><span class="s">"name-input"</span><span class="p">&gt;</span>Name: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 

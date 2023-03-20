@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Button click counter" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -189,14 +189,14 @@
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Counter.jsx</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
 
-<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="nf">return </span><span class="p">(</span>
     <span class="p">&lt;&gt;</span>
       <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nf">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
     <span class="p">&lt;/&gt;</span>
   <span class="p">);</span>
 <span class="p">}</span>

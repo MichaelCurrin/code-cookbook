@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Todo app" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -223,12 +223,12 @@
       <span class="nx">TodoItem</span>
     <span class="p">},</span>
 
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">todos</span><span class="p">:</span> <span class="p">[</span>
-          <span class="nx">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Learn Vue</span><span class="dl">"</span><span class="p">),</span>
-          <span class="nx">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Learn about single-file components</span><span class="dl">"</span><span class="p">),</span>
-          <span class="nx">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fall in love ❤️</span><span class="dl">"</span><span class="p">)</span>
+          <span class="nf">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Learn Vue</span><span class="dl">"</span><span class="p">),</span>
+          <span class="nf">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Learn about single-file components</span><span class="dl">"</span><span class="p">),</span>
+          <span class="nf">createTodo</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fall in love ❤️</span><span class="dl">"</span><span class="p">)</span>
         <span class="p">],</span>
 
         <span class="na">newTodoText</span><span class="p">:</span> <span class="dl">""</span>
@@ -236,18 +236,18 @@
     <span class="p">},</span>
 
     <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nx">addTodo</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">const</span> <span class="nx">trimmedText</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoText</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span>
+      <span class="nf">addTodo</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">trimmedText</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoText</span><span class="p">.</span><span class="nf">trim</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">trimmedText</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">createTodo</span><span class="p">(</span><span class="nx">trimmedText</span><span class="p">))</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">trimmedText</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nf">createTodo</span><span class="p">(</span><span class="nx">trimmedText</span><span class="p">))</span>
         <span class="p">}</span>
 
         <span class="k">this</span><span class="p">.</span><span class="nx">newTodoText</span> <span class="o">=</span> <span class="dl">""</span>
       <span class="p">},</span>
 
-      <span class="nx">removeTodo</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">todo</span> <span class="o">=&gt;</span> <span class="nx">todo</span> <span class="o">!==</span> <span class="nx">item</span><span class="p">)</span>
+      <span class="nf">removeTodo</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">todo</span> <span class="o">=&gt;</span> <span class="nx">todo</span> <span class="o">!==</span> <span class="nx">item</span><span class="p">)</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>

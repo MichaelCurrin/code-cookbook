@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="List methods" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -173,40 +173,40 @@
 
 <p>This lists only the methods defined on that specific object, not any method defined in its prototype chain.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">methods</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span> 
-  <span class="kd">const</span> <span class="nx">properties</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> 
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">methods</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="kd">const</span> <span class="nx">properties</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> 
   
-  <span class="k">return</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">properties</span><span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="chain">Chain</h2>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">methods</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">()</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">methods</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Set</span><span class="p">()</span>
   <span class="kd">let</span> <span class="nx">currentObj</span> <span class="o">=</span> <span class="nx">obj</span>
   
   <span class="k">do</span> <span class="p">{</span>
-    <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">((</span><span class="nx">currentObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)))</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nf">getOwnPropertyNames</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">properties</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
+  <span class="p">}</span> <span class="nf">while </span><span class="p">((</span><span class="nx">currentObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">getPrototypeOf</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)))</span>
   
-  <span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">properties</span><span class="p">.</span><span class="nx">keys</span><span class="p">()]</span>
+  <span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">properties</span><span class="p">.</span><span class="nf">keys</span><span class="p">()]</span>
   
-  <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <p>Usage:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">(</span><span class="dl">""</span><span class="p">)</span>
-<span class="nx">methods</span><span class="p">({})</span>
-<span class="nx">methods</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">methods</span><span class="p">(</span><span class="dl">""</span><span class="p">)</span>
+<span class="nf">methods</span><span class="p">({})</span>
+<span class="nf">methods</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Sample output:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">methods</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span>
 <span class="p">[</span>
   <span class="dl">'</span><span class="s1">constructor</span><span class="dl">'</span><span class="p">,</span>          <span class="dl">'</span><span class="s1">anchor</span><span class="dl">'</span><span class="p">,</span>            <span class="dl">'</span><span class="s1">big</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">blink</span><span class="dl">'</span><span class="p">,</span>                <span class="dl">'</span><span class="s1">bold</span><span class="dl">'</span><span class="p">,</span>              <span class="dl">'</span><span class="s1">charAt</span><span class="dl">'</span><span class="p">,</span>

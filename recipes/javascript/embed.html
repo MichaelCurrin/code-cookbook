@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Embed" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -186,10 +186,10 @@
 
 <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">about.md</span><span class="dl">'</span>
 <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://github.com/</span><span class="p">${</span><span class="nx">USERNAME</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">REPO_NAME</span><span class="p">}</span><span class="s2">/blob/master/</span><span class="p">${</span><span class="nx">path</span><span class="p">}</span><span class="s2">`</span>
-<span class="kd">const</span> <span class="nx">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">text</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">resp</span><span class="p">.</span><span class="nf">text</span><span class="p">()</span>
 
-<span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">target</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">target</span><span class="dl">'</span><span class="p">)</span>
 <span class="nx">target</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">content</span>
 </code></pre></div></div>
 

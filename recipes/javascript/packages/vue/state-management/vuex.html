@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Vuex" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -212,31 +212,31 @@
 <span class="k">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
 
 <span class="c1">// Create a new store instance.</span>
-<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">({</span>
-  <span class="nx">state</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nf">createStore</span><span class="p">({</span>
+  <span class="nf">state </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="na">count</span><span class="p">:</span> <span class="mi">0</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="na">mutations</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nx">increment</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">increment </span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">})</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">({</span> <span class="cm">/* your root component */</span> <span class="p">})</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nf">createApp</span><span class="p">({</span> <span class="cm">/* your root component */</span> <span class="p">})</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">store</span><span class="p">)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nf">use</span><span class="p">(</span><span class="nx">store</span><span class="p">)</span>
 </code></pre></div></div>
 
 <blockquote>
   <p>Now, you can access the state object as <code class="language-plaintext highlighter-rouge">store.state</code>, and trigger a state change with the <code class="language-plaintext highlighter-rouge">store.commit</code> method:</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">increment</span><span class="dl">'</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">store</span><span class="p">.</span><span class="nf">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">increment</span><span class="dl">'</span><span class="p">)</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span> <span class="c1">// -&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span> <span class="c1">// -&gt; 1</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -244,9 +244,9 @@
 </blockquote>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nx">increment</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">increment</span><span class="dl">'</span><span class="p">)</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span>
+  <span class="nf">increment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nf">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">increment</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>

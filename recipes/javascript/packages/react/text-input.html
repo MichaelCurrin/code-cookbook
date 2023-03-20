@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Text input" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -180,16 +180,16 @@
 
 <p>See this in use at <a href="https://github.com/MichaelCurrin/react-frontend-quickstart">React Frontend Quickstart</a>.</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">TextSample</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">TextSample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
 
   <span class="kd">const</span> <span class="nx">onChange</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setValue</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="nf">setValue</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
   <span class="p">};</span>
 
   <span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="nx">value</span> <span class="p">?</span> <span class="s2">`Welcome, </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">Tell me your name</span><span class="dl">"</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="nf">return </span><span class="p">(</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span> <span class="na">hmltfor</span><span class="p">=</span><span class="s">"name-input"</span><span class="p">&gt;</span> Name: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 

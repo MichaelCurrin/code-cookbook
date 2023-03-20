@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Open files" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -184,21 +184,21 @@
 <h3 id="using-builtin-open">Using builtin <code class="language-plaintext highlighter-rouge">open</code></h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Write str in text mode.
-</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'builtin_test_s.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="s">'builtin_test_s.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="c1"># Get text.
 </span>    <span class="c1"># abc
 </span>    <span class="c1"># def
 </span>
 
 <span class="c1"># Write str in binary mode.
-</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'builtin_test_s_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="s">'builtin_test_s_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="c1"># Get text.
 </span>
 <span class="c1"># Write unicode in binary mode.
-</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'builtin_test_u_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="s">'builtin_test_u_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="c1"># Get binary file.
 </span>    <span class="c1"># 6100 0000 6200 0000 6300 0000 0a00 0000
 </span>    <span class="c1"># 6400 0000 6500 0000 6600 0000
@@ -207,32 +207,32 @@
 <span class="c1">### Using `io.open`
 </span>
 <span class="sb">``</span><span class="err">`</span><span class="n">python</span>
-<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="n">io</span>
 
 <span class="c1"># Write unicode string in text mode.
-</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'io_test_u.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s">'io_test_u.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="c1"># Get text.
 </span>
 <span class="c1"># Write unicode string in binary mode.
 # This can then be viewed easily in a text editor.
-</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'io_test_u_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s">'io_test_u_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="c1"># Get text.
 </span>
 
 <span class="c1"># Not allowed to write str in text mode.
 </span><span class="k">try</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'io_test_s.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s">'io_test_s.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
         <span class="c1"># Get error.
 </span><span class="k">except</span> <span class="nb">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="n">__name__</span><span class="p">,</span> <span class="n">e</span>
+    <span class="k">print</span> <span class="nf">type</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="n">__name__</span><span class="p">,</span> <span class="n">e</span>
     <span class="c1"># write() argument 1 must be unicode, not str
 </span>
 <span class="c1"># Allowed to write str in binary mode.
-</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'io_test_s_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="p">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s">'io_test_s_b.txt'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="implications">Implications</h3>

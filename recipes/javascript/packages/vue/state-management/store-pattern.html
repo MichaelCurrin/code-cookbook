@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Store pattern" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -209,13 +209,13 @@
   <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 
-    <span class="na">state</span><span class="p">:</span> <span class="nx">reactive</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="nf">reactive</span><span class="p">({</span>
       <span class="na">repoUsername</span><span class="p">:</span> <span class="nx">DEFAULT_USERNAME</span><span class="p">,</span>
     <span class="p">}),</span>
 
-    <span class="nx">setRepoUsername</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">`Storing repo username: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nf">setRepoUsername</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="s2">`Storing repo username: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
       <span class="p">}</span>
 
       <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">repoUsername</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
@@ -230,14 +230,14 @@
   <span class="k">import</span> <span class="nx">store</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@/store</span><span class="dl">"</span><span class="p">;</span>
     
   <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">username</span><span class="p">:</span> <span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">repoUsername</span><span class="p">,</span>
       <span class="p">},</span>
     <span class="p">},</span>
     <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nx">submit</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">store</span><span class="p">.</span><span class="nx">setRepoUsername</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>
+      <span class="nf">submit</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">store</span><span class="p">.</span><span class="nf">setRepoUsername</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -264,21 +264,21 @@
   <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 
-    <span class="na">state</span><span class="p">:</span> <span class="nx">reactive</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="nf">reactive</span><span class="p">({</span>
       <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello!</span><span class="dl">'</span>
     <span class="p">}),</span>
 
-    <span class="nx">setMessageAction</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">setMessageAction triggered with</span><span class="dl">'</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">)</span>
+    <span class="nf">setMessageAction</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">setMessageAction triggered with</span><span class="dl">'</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">)</span>
       <span class="p">}</span>
 
       <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">newValue</span>
     <span class="p">},</span>
 
-    <span class="nx">clearMessageAction</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">clearMessageAction triggered</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nf">clearMessageAction</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">clearMessageAction triggered</span><span class="dl">'</span><span class="p">)</span>
       <span class="p">}</span>
 
       <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="dl">''</span>
@@ -292,28 +292,28 @@
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">createApp</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span>
   <span class="k">import</span> <span class="nx">store</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./store.js</span><span class="dl">"</span>
 
-  <span class="kd">const</span> <span class="nx">appA</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">({</span>
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">appA</span> <span class="o">=</span> <span class="nf">createApp</span><span class="p">({</span>
+    <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">privateState</span><span class="p">:</span> <span class="p">{},</span>
         <span class="na">sharedState</span><span class="p">:</span> <span class="nx">store</span><span class="p">.</span><span class="nx">state</span>
       <span class="p">}</span>
     <span class="p">},</span>
-    <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">store</span><span class="p">.</span><span class="nx">setMessageAction</span><span class="p">(</span><span class="dl">'</span><span class="s1">Goodbye!</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nf">mounted</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">store</span><span class="p">.</span><span class="nf">setMessageAction</span><span class="p">(</span><span class="dl">'</span><span class="s1">Goodbye!</span><span class="dl">'</span><span class="p">)</span>
     <span class="p">}</span>
   <span class="p">})</span>
-  <span class="nx">appA</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app-a</span><span class="dl">'</span><span class="p">)</span>
+  <span class="nx">appA</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app-a</span><span class="dl">'</span><span class="p">)</span>
 
-  <span class="kd">const</span> <span class="nx">appB</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">({</span>
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">appB</span> <span class="o">=</span> <span class="nf">createApp</span><span class="p">({</span>
+    <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="na">privateState</span><span class="p">:</span> <span class="p">{},</span>
         <span class="na">sharedState</span><span class="p">:</span> <span class="nx">store</span><span class="p">.</span><span class="nx">state</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">})</span>
-  <span class="nx">appB</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app-b</span><span class="dl">'</span><span class="p">)</span>
+  <span class="nx">appB</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app-b</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>HTML page:
@@ -347,8 +347,8 @@
 <p>Even when using <code class="language-plaintext highlighter-rouge">reactive</code>:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">state</span><span class="p">:</span> <span class="nx">reactive</span><span class="p">({</span>
-    <span class="na">repoUsername</span><span class="p">:</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">repoUsername</span><span class="dl">"</span><span class="p">)</span>
+  <span class="na">state</span><span class="p">:</span> <span class="nf">reactive</span><span class="p">({</span>
+    <span class="na">repoUsername</span><span class="p">:</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nf">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">repoUsername</span><span class="dl">"</span><span class="p">)</span>
   <span class="p">}),</span>
   
   <span class="c1">// setRepoUsername...</span>
@@ -357,19 +357,19 @@
 <p>So I left out <code class="language-plaintext highlighter-rouge">state</code> completely and that works. It was also suggested on this <a href="https://stackoverflow.com/questions/51015101/how-to-make-data-from-localstorage-reactive-in-vue-js">thread</a> to no try and make it reactive. I guess because Vue can’t check when the value is updated - the value is only known when doing a <code class="language-plaintext highlighter-rouge">getItem</code> call.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">getRepoUsername</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">repoUsername</span><span class="dl">'</span><span class="p">)</span>
+  <span class="nf">getRepoUsername</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nf">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">repoUsername</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">},</span>
 
   <span class="cm">/**
    * Store a repository username. e.g. 'MyUsername'.
    */</span>
-  <span class="nx">setRepoUsername</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">`Storing repo username: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="nf">setRepoUsername</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="s2">`Storing repo username: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">repoUsername</span><span class="dl">'</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">repoUsername</span><span class="dl">'</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
   <span class="p">},</span>
 </code></pre></div></div>
 

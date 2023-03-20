@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Jest" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -199,7 +199,7 @@
 </span></code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">src/foo.js</code>
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nf">square</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">value</span><span class="o">**</span><span class="mi">2</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -211,23 +211,23 @@
   <li><code class="language-plaintext highlighter-rouge">src/__tests__/foo.test.js</code>
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">foo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../foo.js</span><span class="dl">"</span><span class="p">;</span>
   <span class="c1">// OR</span>
-  <span class="kd">const</span> <span class="p">{</span> <span class="nx">foo</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">../foo.js</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">foo</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">../foo.js</span><span class="dl">'</span><span class="p">);</span>
     
-  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Square a number successfully</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+  <span class="nf">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Square a number successfully</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="nf">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)).</span><span class="nf">toBe</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
   <span class="p">})</span>
 </code></pre></div>    </div>
     <p>To group cases, use <code class="language-plaintext highlighter-rouge">describe</code> and <code class="language-plaintext highlighter-rouge">it</code> (which is an alias for <code class="language-plaintext highlighter-rouge">test</code>).</p>
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">foo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../foo.js</span><span class="dl">"</span><span class="p">;</span>
     
-  <span class="nx">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">Square numbers</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">#foo</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">can square a number successfully</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+  <span class="nf">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">Square numbers</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">#foo</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">can square a number successfully</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">expect</span><span class="p">(</span><span class="nf">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)).</span><span class="nf">toEqual</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
       <span class="p">});</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">can throws an error on no input</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">expect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">foo</span><span class="p">()).</span><span class="nx">toThrow</span><span class="p">();</span>
+      <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">can throws an error on no input</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">expect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nf">foo</span><span class="p">()).</span><span class="nf">toThrow</span><span class="p">();</span>
       <span class="p">});</span>
     <span class="p">});</span>
   <span class="p">})</span>
@@ -294,8 +294,8 @@
 
 <p>Expect a function call to throw an error. Make sure to pass an anonymous function.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">throws on octopus</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">expect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">drinkFlavor</span><span class="p">(</span><span class="dl">'</span><span class="s1">octopus</span><span class="dl">'</span><span class="p">)).</span><span class="nx">toThrow</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">throws on octopus</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">expect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nf">drinkFlavor</span><span class="p">(</span><span class="dl">'</span><span class="s1">octopus</span><span class="dl">'</span><span class="p">)).</span><span class="nf">toThrow</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div></div>
 

@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Frontend basic" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -220,8 +220,8 @@
           <span class="p">}</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">;</span>
 
           <span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">{</span>
-              <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
-                  <span class="kd">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+              <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+                  <span class="kd">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nf">ref</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 
                   <span class="k">return</span> <span class="p">{</span>
                       <span class="nx">val</span>
@@ -232,7 +232,7 @@
               <span class="p">}</span>
           <span class="p">};</span>
 
-          <span class="nx">createApp</span><span class="p">(</span><span class="nx">App</span><span class="p">).</span><span class="nx">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">);</span>
+          <span class="nf">createApp</span><span class="p">(</span><span class="nx">App</span><span class="p">).</span><span class="nf">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">);</span>
 
       <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -276,11 +276,11 @@
         <span class="k">import</span> <span class="dl">"</span><span class="s2">https://unpkg.com/primevue@2.2.3/components/button/button.umd.js</span><span class="dl">"</span><span class="p">;</span>
         <span class="k">import</span> <span class="dl">"</span><span class="s2">https://unpkg.com/vue@2</span><span class="dl">"</span><span class="p">;</span>
 
-        <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="k">new</span> <span class="nc">Vue</span><span class="p">({</span>
           <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
             <span class="dl">'</span><span class="s1">button-styled</span><span class="dl">'</span><span class="p">:</span> <span class="nx">button</span>
           <span class="p">}</span>
-        <span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">);</span>
+        <span class="p">}).</span><span class="nf">$mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">);</span>
     <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 </code></pre></div></div>

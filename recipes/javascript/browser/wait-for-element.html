@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Wait for element" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -179,28 +179,28 @@
 
 <p>Using a recursive function. It runs initially and then afterwards it calls <code class="language-plaintext highlighter-rouge">requestAnimationFrame</code> repeatedly, checking if element is ready otherwise waiting again.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">onElementReady</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">onElementReady</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">waitForElement</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">resolve</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">resolve</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">waitForElement</span><span class="p">);</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nf">requestAnimationFrame</span><span class="p">(</span><span class="nx">waitForElement</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">};</span>
     
-    <span class="nx">waitForElement</span><span class="p">();</span>
+    <span class="nf">waitForElement</span><span class="p">();</span>
   <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
 <p>As recommended in <a href="http://swizec.com/blog/how-to-properly-wait-for-dom-elements-to-show-up-in-modern-browsers/swizec/6663">post</a>.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">wait</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#element</span><span class="dl">"</span><span class="p">).</span><span class="nx">size</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">wait</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">wait</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#element</span><span class="dl">"</span><span class="p">).</span><span class="nf">size</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nf">requestAnimationFrame</span><span class="p">(</span><span class="nx">wait</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#element</span><span class="dl">"</span><span class="p">).</span><span class="nx">doStuff</span><span class="p">();</span>
+        <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#element</span><span class="dl">"</span><span class="p">).</span><span class="nf">doStuff</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
@@ -227,45 +227,45 @@
 <span class="p">};</span>
 
 <span class="kd">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">mutationsList</span><span class="p">,</span> <span class="nx">observer</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">mutation</span> <span class="k">of</span> <span class="nx">mutationsList</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">mutation</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">childList</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">A child node has been added or removed.</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">mutation</span> <span class="k">of</span> <span class="nx">mutationsList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">mutation</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">childList</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">A child node has been added or removed.</span><span class="dl">'</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mutation</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">mutation</span><span class="p">.</span><span class="nx">attributeName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> attribute was modified.</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">else</span> <span class="nf">if </span><span class="p">(</span><span class="nx">mutation</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">mutation</span><span class="p">.</span><span class="nx">attributeName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> attribute was modified.</span><span class="dl">'</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MutationObserver</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MutationObserver</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">targetNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">some-id</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">targetNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">some-id</span><span class="dl">'</span><span class="p">);</span>
 <span class="c1">// Start observing the target node for configured mutations.</span>
-<span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">targetNode</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+<span class="nx">observer</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="nx">targetNode</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
 
 <span class="c1">// Later, you can stop observing</span>
-<span class="nx">observer</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+<span class="nx">observer</span><span class="p">.</span><span class="nf">disconnect</span><span class="p">();</span>
 </code></pre></div></div>
 
 <p>Or this. Wait for body to be ready and then add an elemen to it.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span><span class="na">attributes</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">childList</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">characterData</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">subtree</span><span class="p">:</span><span class="kc">true</span><span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">mutations</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">myElement</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">It's in the DOM!</span><span class="dl">"</span><span class="p">);</span>
-        <span class="nx">observer</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+<span class="kd">function</span> <span class="nf">callback</span><span class="p">(</span><span class="nx">mutations</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nf">if </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="nx">myElement</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">It's in the DOM!</span><span class="dl">"</span><span class="p">);</span>
+        <span class="nx">observer</span><span class="p">.</span><span class="nf">disconnect</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Or define and us inline.</span>
-<span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MutationObserver</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MutationObserver</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;div&gt;hello world&lt;/div&gt;</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;div&gt;hello world&lt;/div&gt;</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 
-<span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nb">document</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+<span class="nx">observer</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="nb">document</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
 
-<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
+<span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h2 id="resizeobserver">ResizeObserver</h2>
@@ -284,24 +284,24 @@
 
 <p>As a bonus the observer already returns the dimensions of the element. Therefore we don’t even need to call something like <code class="language-plaintext highlighter-rouge">offsetWidth</code> (even though it should work too).</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">resizeObserver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ResizeObserver</span><span class="p">(</span><span class="nx">entries</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">lastEntry</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">resizeObserver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ResizeObserver</span><span class="p">(</span><span class="nx">entries</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">lastEntry</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
 
   <span class="c1">// alternatively use contentBoxSize here</span>
   <span class="kd">const</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">lastEntry</span><span class="p">.</span><span class="nx">borderBoxSize</span><span class="p">.</span><span class="nx">inlineSize</span><span class="p">;</span>
   <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">lastEntry</span><span class="p">.</span><span class="nx">borderBoxSize</span><span class="p">.</span><span class="nx">blockSize</span><span class="p">;</span>
 
-  <span class="nx">resizeObserver</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+  <span class="nx">resizeObserver</span><span class="p">.</span><span class="nf">disconnect</span><span class="p">();</span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">width:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="dl">"</span><span class="s2">height:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">width:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="dl">"</span><span class="s2">height:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="kd">const</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">myElement</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">test string</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="nx">resizeObserver</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
+<span class="nx">resizeObserver</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
 
-<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nx">myElement</span><span class="p">);</span>
 </code></pre></div></div>
 
         

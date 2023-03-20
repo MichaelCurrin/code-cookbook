@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Counter" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -189,13 +189,13 @@
         
             
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="na">counter</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="p">};</span>
   <span class="p">},</span>
-  <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">mounted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
     <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
   <span class="p">},</span>

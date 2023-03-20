@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Sentiment analysis" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -169,7 +169,7 @@
 
   Sentiment Analysis demo.
   """</span>
-  <span class="kn">from</span> <span class="nn">nltk.classify</span> <span class="kn">import</span> <span class="n">NaiveBayesClassifier</span>
+  <span class="kn">from</span> <span class="n">nltk.classify</span> <span class="kn">import</span> <span class="n">NaiveBayesClassifier</span>
 
 
   <span class="n">VOCAB</span> <span class="o">=</span> <span class="p">{</span>
@@ -204,13 +204,13 @@
 
 
   <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">vocab</span><span class="p">):</span>
-      <span class="n">positive_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"positive"</span><span class="p">]),</span> <span class="s">"pos"</span><span class="p">]</span>
-      <span class="n">negative_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"negative"</span><span class="p">]),</span> <span class="s">"neg"</span><span class="p">]</span>
-      <span class="n">neutral_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"neutral"</span><span class="p">]),</span> <span class="s">"neu"</span><span class="p">]</span>
+      <span class="n">positive_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"positive"</span><span class="p">]),</span> <span class="s">"pos"</span><span class="p">]</span>
+      <span class="n">negative_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"negative"</span><span class="p">]),</span> <span class="s">"neg"</span><span class="p">]</span>
+      <span class="n">neutral_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"neutral"</span><span class="p">]),</span> <span class="s">"neu"</span><span class="p">]</span>
 
       <span class="n">train_set</span> <span class="o">=</span> <span class="p">[</span><span class="n">positive_features</span><span class="p">,</span> <span class="n">negative_features</span><span class="p">,</span> <span class="n">neutral_features</span><span class="p">]</span>
 
-      <span class="k">return</span> <span class="n">NaiveBayesClassifier</span><span class="p">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">NaiveBayesClassifier</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span>
 
 
   <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
@@ -218,34 +218,34 @@
       <span class="n">count_neg</span> <span class="o">=</span> <span class="mi">0</span>
 
       <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-          <span class="n">result</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">.</span><span class="n">classify</span><span class="p">(</span><span class="n">feats</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+          <span class="n">result</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">.</span><span class="nf">classify</span><span class="p">(</span><span class="nf">feats</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
 
           <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s">"pos"</span><span class="p">:</span>
               <span class="n">count_pos</span> <span class="o">+=</span> <span class="mi">1</span>
           <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="s">"neg"</span><span class="p">:</span>
               <span class="n">count_neg</span> <span class="o">+=</span> <span class="mi">1</span>
 
-      <span class="n">score_pos</span> <span class="o">=</span> <span class="n">count_pos</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-      <span class="n">score_neg</span> <span class="o">=</span> <span class="n">count_neg</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="n">score_pos</span> <span class="o">=</span> <span class="n">count_pos</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="n">score_neg</span> <span class="o">=</span> <span class="n">count_neg</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 
       <span class="k">return</span> <span class="n">score_pos</span><span class="p">,</span> <span class="n">score_neg</span>
 
 
   <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
-      <span class="n">classifier</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">VOCAB</span><span class="p">)</span>
+      <span class="n">classifier</span> <span class="o">=</span> <span class="nf">train</span><span class="p">(</span><span class="n">VOCAB</span><span class="p">)</span>
 
-      <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span>
+      <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span>
       <span class="c1"># Or use a tokenizer.
-</span>      <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+</span>      <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
 
-      <span class="n">score_pos</span><span class="p">,</span> <span class="n">score_neg</span> <span class="o">=</span> <span class="n">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
+      <span class="n">score_pos</span><span class="p">,</span> <span class="n">score_neg</span> <span class="o">=</span> <span class="nf">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
 
-      <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Positive: </span><span class="si">{</span><span class="n">score_pos</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-      <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Negative: </span><span class="si">{</span><span class="n">score_neg</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Positive: </span><span class="si">{</span><span class="n">score_pos</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Negative: </span><span class="si">{</span><span class="n">score_neg</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
 
 
   <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-      <span class="n">main</span><span class="p">(</span><span class="s">"Awesome movie, I liked it"</span><span class="p">)</span>
+      <span class="nf">main</span><span class="p">(</span><span class="s">"Awesome movie, I liked it"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>

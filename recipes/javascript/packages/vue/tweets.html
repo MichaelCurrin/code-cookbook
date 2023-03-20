@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Tweets" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -250,14 +250,14 @@
     <span class="p">},</span>
   <span class="p">];</span>
 
-  <span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">"</span><span class="s2">tweet-component</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">Vue</span><span class="p">.</span><span class="nf">component</span><span class="p">(</span><span class="dl">"</span><span class="s2">tweet-component</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">tweet</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nx">test</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">do-test</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">);</span>
+      <span class="nf">test</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nf">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">do-test</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">);</span>
       <span class="p">},</span>
     <span class="p">},</span>
     <span class="na">template</span><span class="p">:</span> <span class="s2">`
@@ -291,17 +291,17 @@
   `</span><span class="p">,</span>
   <span class="p">});</span>
 
-  <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="k">new</span> <span class="nc">Vue</span><span class="p">({</span>
     <span class="na">el</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#app</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
         <span class="nx">tweets</span><span class="p">,</span>
       <span class="p">};</span>
     <span class="p">},</span>
     <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nx">updateTest</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">tweet</span><span class="dl">"</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">);</span>
+      <span class="nf">updateTest</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">tweet</span><span class="dl">"</span><span class="p">,</span> <span class="nx">tweet</span><span class="p">);</span>
       <span class="p">},</span>
     <span class="p">},</span>
   <span class="p">});</span>

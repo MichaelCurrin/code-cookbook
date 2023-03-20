@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Cookies" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -169,13 +169,13 @@
 
 <p>Note we split on semicolon and space together.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getCookies</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">decodedCookie</span> <span class="o">=</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="nx">cookiesArray</span> <span class="o">=</span> <span class="nx">decodedCookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">; </span><span class="dl">'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">=</span><span class="dl">'</span><span class="p">));</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">getCookies</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">decodedCookie</span> <span class="o">=</span> <span class="nf">decodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">cookiesArray</span> <span class="o">=</span> <span class="nx">decodedCookie</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">; </span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">=</span><span class="dl">'</span><span class="p">));</span>
 
   <span class="kd">const</span> <span class="nx">cookiesHash</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">]</span> <span class="k">of</span> <span class="nx">cookiesArray</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">]</span> <span class="k">of</span> <span class="nx">cookiesArray</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">cookiesHash</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="o">=</span> <span class="nx">v</span>
   <span class="p">}</span>
   
@@ -194,7 +194,7 @@
 <span class="c1">// "__Foo-3PAPISID=mrva0w; Bazz=jwgwqfkwf; my_cookie=abcdef123"</span>
 
 <span class="c1">// Retrieval.</span>
-<span class="kd">const</span> <span class="nx">cookies</span> <span class="o">=</span> <span class="nx">getCookies</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">cookies</span> <span class="o">=</span> <span class="nf">getCookies</span><span class="p">()</span>
 <span class="kd">const</span> <span class="nx">myCookie</span> <span class="o">=</span> <span class="nx">cookies</span><span class="p">[</span><span class="dl">"</span><span class="s2">my_cookie</span><span class="dl">"</span><span class="p">]</span>
 <span class="c1">// abcdef123</span>
 </code></pre></div></div>
@@ -203,7 +203,7 @@
 
 <p>If you want to be more efficient, you could pass your cookie name to your function and return as soon as the cookie is found, or use some find or regex approach to get just your cookie.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myCookie</span> <span class="o">=</span> <span class="nx">decodedCookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">; </span><span class="dl">'</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myCookie</span> <span class="o">=</span> <span class="nx">decodedCookie</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">; </span><span class="dl">'</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">my_cookie=</span><span class="dl">"</span>
 </code></pre></div></div>
 

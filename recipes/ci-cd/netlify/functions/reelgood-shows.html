@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="ReelGood shows" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -187,7 +187,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">netlify/functions/shows/shows.js</code></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">API_BASE_URL</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://api.reelgood.com/v2</span><span class="dl">"</span><span class="p">;</span>
 
@@ -196,7 +196,7 @@
 
   <span class="k">return</span> <span class="p">{</span>
     <span class="na">statusCode</span><span class="p">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span>
-    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre></div></div>

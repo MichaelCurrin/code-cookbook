@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Basic" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -175,17 +175,17 @@ See
 Required:
   - nltk
 """</span>
-<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="n">string</span>
 
-<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="n">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="n">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 
-<span class="n">STOP_WORDS</span> <span class="o">=</span> <span class="n">stopwords</span><span class="p">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span><span class="p">)</span>
+<span class="n">STOP_WORDS</span> <span class="o">=</span> <span class="n">stopwords</span><span class="p">.</span><span class="nf">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)</span> <span class="o">+</span> <span class="nf">list</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span><span class="p">)</span>
 
 <span class="n">message</span> <span class="o">=</span> <span class="s">"this is a foo bar, bar black sheep."</span>
-<span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="nf">lower</span><span class="p">())</span>
 
-<span class="k">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOP_WORDS</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOP_WORDS</span><span class="p">])</span>
 <span class="c1"># =&gt; ['foo', 'bar', 'bar', 'black', 'sheep']
 </span></code></pre></div></div>
 

@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Convert between file types" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -191,8 +191,8 @@
       &gt;&gt;&gt; file_data = csv_in("in.csv")
       &gt;&gt;&gt; json_out("out.json", file_data, True)
   """</span>
-  <span class="kn">import</span> <span class="nn">csv</span>
-  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="kn">import</span> <span class="n">csv</span>
+  <span class="kn">import</span> <span class="n">json</span>
 
   <span class="n">JSON_INDENT_PRETTY</span> <span class="o">=</span> <span class="mi">2</span>
   <span class="c1"># Same as the default values, but without trailing spaces.
@@ -203,10 +203,10 @@
       <span class="s">"""
       Read CSV file and return a list of dictionaries.
       """</span>
-      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
-          <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
+      <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
+          <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nc">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
 
-          <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+          <span class="n">data</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
 
       <span class="k">return</span> <span class="n">data</span>
 
@@ -225,8 +225,8 @@
           <span class="n">indent</span> <span class="o">=</span> <span class="bp">None</span>
           <span class="n">separators</span> <span class="o">=</span> <span class="n">JSON_SEPARATORS_MIN</span>
 
-      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
-          <span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_out</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="n">separators</span><span class="p">)</span>
+      <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+          <span class="n">json</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_out</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="n">separators</span><span class="p">)</span>
 
 </code></pre></div>    </div>
   </li>
@@ -240,16 +240,16 @@
 </span>  <span class="s">""" 
   Convert JSON to CSV.
   """</span>
-  <span class="kn">import</span> <span class="nn">csv</span>
-  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="kn">import</span> <span class="n">csv</span>
+  <span class="kn">import</span> <span class="n">json</span>
 
 
   <span class="k">def</span> <span class="nf">json_in</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
       <span class="s">"""
       Read JSON file and return data.
       """</span>
-      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
-          <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
+      <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
+          <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
 
       <span class="k">return</span> <span class="n">json_data</span>
 
@@ -258,26 +258,26 @@
       <span class="s">"""
       Write CSV data to given file path.
       """</span>
-      <span class="n">fieldnames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">out_data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">keys</span><span class="p">())</span>
+      <span class="n">fieldnames</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">out_data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">keys</span><span class="p">())</span>
 
-      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
-          <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f_out</span><span class="p">,</span> <span class="n">fieldnames</span><span class="p">)</span>
-          <span class="n">writer</span><span class="p">.</span><span class="n">writeheader</span><span class="p">()</span>
-          <span class="n">writer</span><span class="p">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">out_data</span><span class="p">)</span>
+      <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+          <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nc">DictWriter</span><span class="p">(</span><span class="n">f_out</span><span class="p">,</span> <span class="n">fieldnames</span><span class="p">)</span>
+          <span class="n">writer</span><span class="p">.</span><span class="nf">writeheader</span><span class="p">()</span>
+          <span class="n">writer</span><span class="p">.</span><span class="nf">writerows</span><span class="p">(</span><span class="n">out_data</span><span class="p">)</span>
 
 
   <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
       <span class="s">"""
       Command-line entry-point.
       """</span>
-      <span class="n">json_data</span> <span class="o">=</span> <span class="n">json_in</span><span class="p">(</span><span class="s">"response.json"</span><span class="p">)</span>
+      <span class="n">json_data</span> <span class="o">=</span> <span class="nf">json_in</span><span class="p">(</span><span class="s">"response.json"</span><span class="p">)</span>
 
       <span class="n">out_data</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s">"products"</span><span class="p">]</span>
-      <span class="n">csv_out</span><span class="p">(</span><span class="s">"out.csv"</span><span class="p">,</span> <span class="n">out_data</span><span class="p">)</span>
+      <span class="nf">csv_out</span><span class="p">(</span><span class="s">"out.csv"</span><span class="p">,</span> <span class="n">out_data</span><span class="p">)</span>
 
 
   <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-      <span class="n">main</span><span class="p">()</span>
+      <span class="nf">main</span><span class="p">()</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -287,7 +287,7 @@
 <p>If you need to get specific fields out of those objects, you can do this:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">out_data</span> <span class="o">=</span> <span class="n">json_in</span><span class="p">(</span><span class="s">"response.json"</span><span class="p">)</span>
+    <span class="n">out_data</span> <span class="o">=</span> <span class="nf">json_in</span><span class="p">(</span><span class="s">"response.json"</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out_data</span><span class="p">:</span>
         <span class="c1"># Get needed out of objects and add to row.
@@ -298,7 +298,7 @@
 </span>        <span class="k">del</span> <span class="n">x</span><span class="p">[</span><span class="s">"abc"</span><span class="p">]</span>
         <span class="k">del</span> <span class="n">x</span><span class="p">[</span><span class="s">"def"</span><span class="p">]</span>
 
-    <span class="n">csv_out</span><span class="p">(</span><span class="s">"out.csv"</span><span class="p">,</span> <span class="n">out_data</span><span class="p">)</span>
+    <span class="nf">csv_out</span><span class="p">(</span><span class="s">"out.csv"</span><span class="p">,</span> <span class="n">out_data</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>If performance was an issue, you could move that logic to a function and then make a list comprehension.</p>

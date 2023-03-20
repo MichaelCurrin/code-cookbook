@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Mustache" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -624,7 +624,7 @@
 </span>      <span class="nt">&lt;/script&gt;</span>
 
       <span class="nt">&lt;script&gt;</span>
-          <span class="nx">renderGists</span><span class="p">(</span><span class="dl">'</span><span class="s1">MichaelCurrin</span><span class="dl">'</span><span class="p">);</span>
+          <span class="nf">renderGists</span><span class="p">(</span><span class="dl">'</span><span class="s1">MichaelCurrin</span><span class="dl">'</span><span class="p">);</span>
       <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 </code></pre></div>    </div>
@@ -635,24 +635,24 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">main.js</code>
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">gistsUrl</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">limit</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nf">gistsUrl</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">limit</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s2">`https://api.github.com/users/</span><span class="p">${</span><span class="nx">username</span><span class="p">}</span><span class="s2">/gists?per_page=</span><span class="p">${</span><span class="nx">limit</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="kd">function</span> <span class="nx">renderTemplate</span><span class="p">(</span><span class="nx">templateId</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">targetId</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">templateId</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">rendered</span> <span class="o">=</span> <span class="nx">Mustache</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="kd">function</span> <span class="nf">renderTemplate</span><span class="p">(</span><span class="nx">templateId</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">targetId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="nx">templateId</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">rendered</span> <span class="o">=</span> <span class="nx">Mustache</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">targetId</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">rendered</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="nx">targetId</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">rendered</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">async</span> <span class="kd">function</span> <span class="nx">renderGists</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">gistsUrl</span><span class="p">(</span><span class="nx">username</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+  <span class="k">async</span> <span class="kd">function</span> <span class="nf">renderGists</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nf">gistsUrl</span><span class="p">(</span><span class="nx">username</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
 
-    <span class="kd">const</span> <span class="nx">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-    <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-    <span class="nx">renderTemplate</span><span class="p">(</span><span class="dl">'</span><span class="s1">template</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">gists</span><span class="p">:</span> <span class="nx">json</span> <span class="p">},</span> <span class="dl">'</span><span class="s1">target</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">resp</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+    <span class="nf">renderTemplate</span><span class="p">(</span><span class="dl">'</span><span class="s1">template</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">gists</span><span class="p">:</span> <span class="nx">json</span> <span class="p">},</span> <span class="dl">'</span><span class="s1">target</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre></div>    </div>
   </li>

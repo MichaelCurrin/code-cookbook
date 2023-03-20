@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Tweet" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -185,7 +185,7 @@
 <span class="cm">/**
  * Return Twitter API client connection object.
  */</span>
-<span class="kd">function</span> <span class="nx">setupConn</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">setupConn</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">credentials</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">apiKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TWITTER_API_KEY</span><span class="p">,</span>
     <span class="na">apiSecret</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TWITTER_API_SECRET</span><span class="p">,</span>
@@ -193,28 +193,28 @@
     <span class="na">accessTokenSecret</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TWITTER_ACCESS_TOKEN_SECRET</span><span class="p">,</span>
   <span class="p">};</span>
 
-  <span class="k">return</span> <span class="k">new</span> <span class="nx">TwitterClient</span><span class="p">(</span><span class="nx">credentials</span><span class="p">);</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">TwitterClient</span><span class="p">(</span><span class="nx">credentials</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**
  * Post a given message to Twitter as the authenticated user
  */</span>
-<span class="k">async</span> <span class="kd">function</span> <span class="nx">postTweet</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nx">statusesUpdate</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="nx">message</span> <span class="p">});</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">postTweet</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nf">statusesUpdate</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="nx">message</span> <span class="p">});</span>
 <span class="p">};</span>
 
 <span class="cm">/**
  * Authenticate and post a tweet
  */</span>
-<span class="k">async</span> <span class="kd">function</span> <span class="nx">tweet</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">setupConn</span><span class="p">();</span>
-  <span class="k">await</span> <span class="nx">postTweet</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">tweet</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nf">setupConn</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nf">postTweet</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="p">(</span><span class="k">async</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello, World!</span><span class="dl">"</span>
 
-  <span class="k">await</span> <span class="nx">tweet</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+  <span class="k">await</span> <span class="nf">tweet</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
 <span class="p">})();</span>
 </code></pre></div></div>
 

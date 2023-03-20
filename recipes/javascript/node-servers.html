@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Node.js servers" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -202,18 +202,18 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">server.js</code>
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">);</span>
 
-  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nf">express</span><span class="p">();</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="dl">"</span><span class="s2">/static</span><span class="dl">"</span><span class="p">,</span> <span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">frontend</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">)));</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">use</span><span class="p">(</span><span class="dl">"</span><span class="s2">/static</span><span class="dl">"</span><span class="p">,</span> <span class="nx">express</span><span class="p">.</span><span class="nf">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">frontend</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">)));</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/*</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">frontend</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">index.html</span><span class="dl">"</span><span class="p">));</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/*</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nf">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">frontend</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">index.html</span><span class="dl">"</span><span class="p">));</span>
   <span class="p">});</span>
 
-  <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Server running...</span><span class="dl">"</span><span class="p">));</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Server running...</span><span class="dl">"</span><span class="p">));</span>
 </code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">package.json</code>

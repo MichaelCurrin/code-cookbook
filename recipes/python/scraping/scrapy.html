@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Scrapy" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -177,7 +177,7 @@
 
 <p>From the <a href="https://docs.scrapy.org/en/latest/topics/spiders.html">Spiders</a> docs page.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">scrapy</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">scrapy</span>
 
 
 <span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">scrapy</span><span class="p">.</span><span class="n">Spider</span><span class="p">):</span>
@@ -189,20 +189,20 @@
         <span class="s">'http://www.example.com/3.html'</span><span class="p">,</span>
     <span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'A response from %s just arrived!'</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">'A response from %s just arrived!'</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="scrape-nested-sitemaps">Scrape nested sitemaps</h3>
 
 <p>Example from the <a href="https://docs.scrapy.org/en/latest/topics/spiders.html#sitemapspider">SitemapSpider</a> part of the docs.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scrapy.spiders</span> <span class="kn">import</span> <span class="n">SitemapSpider</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scrapy.spiders</span> <span class="kn">import</span> <span class="n">SitemapSpider</span>
 
 <span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">SitemapSpider</span><span class="p">):</span>
     <span class="n">sitemap_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s">'http://www.example.com/sitemap.xml'</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
         <span class="k">pass</span> <span class="c1"># ... scrape item here ...
 </span></code></pre></div></div>
 

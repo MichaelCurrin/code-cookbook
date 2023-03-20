@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Shopping cart" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -179,16 +179,16 @@
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
 
-<span class="kd">function</span> <span class="nx">ShoppingCart</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">cart</span><span class="p">,</span> <span class="nx">setCart</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+<span class="kd">function</span> <span class="nf">ShoppingCart</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">cart</span><span class="p">,</span> <span class="nx">setCart</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([]);</span>
 
-  <span class="kd">function</span> <span class="nx">addItemToCart</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">addItemToCart</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-    <span class="nx">setCart</span><span class="p">([...</span><span class="nx">cart</span><span class="p">,</span> <span class="nx">item</span><span class="p">]);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nf">setCart</span><span class="p">([...</span><span class="nx">cart</span><span class="p">,</span> <span class="nx">item</span><span class="p">]);</span>
   <span class="p">}</span>
 
-  <span class="k">return</span> <span class="p">(</span>
+  <span class="nf">return </span><span class="p">(</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"app"</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"items"</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">button</span> <span class="na">value</span><span class="p">=</span><span class="s">"MacBook Pro"</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">addItemToCart</span><span class="si">}</span><span class="p">&gt;</span> MacBook Pro<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -201,7 +201,7 @@
         Cart
         <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
           <span class="si">{</span>
-           <span class="nx">cart</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> 
+           <span class="nx">cart</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> 
              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">item</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
            <span class="p">)</span>
           <span class="si">}</span>

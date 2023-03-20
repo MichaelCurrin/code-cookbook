@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Titlecase" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -178,31 +178,31 @@
  *
  * i.e. Make first letter of a string uppercase and return the new string.
  */</span>
-<span class="k">export</span> <span class="kd">function</span> <span class="nx">title</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Cannot have empty string for applying title</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nf">title</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Cannot have empty string for applying title</span><span class="dl">"</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()}${</span><span class="nx">value</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">toUpperCase</span><span class="p">()}${</span><span class="nx">value</span><span class="p">.</span><span class="nf">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="test">Test</h2>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">#title</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-<span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">converts to titlecase correctly</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">H</span><span class="dl">"</span><span class="p">);</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">#title</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">converts to titlecase correctly</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nf">strictEqual</span><span class="p">(</span><span class="nf">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">H</span><span class="dl">"</span><span class="p">);</span>
 
-  <span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nf">strictEqual</span><span class="p">(</span><span class="nf">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">doesn't downcase uppercase letters</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">doesn't downcase uppercase letters</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nf">strictEqual</span><span class="p">(</span><span class="nf">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
 
-  <span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">hELLo</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">HELLo</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nf">strictEqual</span><span class="p">(</span><span class="nf">title</span><span class="p">(</span><span class="dl">"</span><span class="s2">hELLo</span><span class="dl">"</span><span class="p">),</span> <span class="dl">"</span><span class="s2">HELLo</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">disallows empty string input</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">assert</span><span class="p">.</span><span class="nx">throws</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">title</span><span class="p">(</span><span class="dl">""</span><span class="p">));</span>
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">disallows empty string input</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nf">throws</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nf">title</span><span class="p">(</span><span class="dl">""</span><span class="p">));</span>
 <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div></div>

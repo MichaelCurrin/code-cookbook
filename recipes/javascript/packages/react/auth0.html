@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Auth0" />
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -220,7 +220,7 @@
   <span class="k">import</span> <span class="p">{</span> <span class="nx">Auth0Provider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@auth0/auth0-react</span><span class="dl">'</span><span class="p">;</span>
   <span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./App</span><span class="dl">'</span><span class="p">;</span>
 
-  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span>
     <span class="p">&lt;</span><span class="nc">Auth0Provider</span>
       <span class="na">domain</span><span class="p">=</span><span class="s">"YOUR_AUTH0_DOMAIN"</span>
       <span class="na">clientId</span><span class="p">=</span><span class="s">"YOUR_AUTH0_CLIENT_ID"</span>
@@ -228,7 +228,7 @@
     <span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nc">App</span> <span class="p">/&gt;</span>
     <span class="p">&lt;/</span><span class="nc">Auth0Provider</span><span class="p">&gt;,</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">);</span>
 </code></pre></div>    </div>
   </li>
@@ -259,29 +259,29 @@
 
   <span class="kd">const</span> <span class="p">{</span> <span class="nx">Auth0Provider</span><span class="p">,</span> <span class="nx">useAuth0</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">Auth0</span><span class="p">;</span>
 
-  <span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">htm</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">htm</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">);</span>
 
   <span class="kd">const</span> <span class="nx">DOMAIN</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">dev-x1rgzxvi.us.auth0.com</span><span class="dl">"</span><span class="p">;</span>
   <span class="kd">const</span> <span class="nx">CLIENT_ID</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bzH1tzixL8W34435UoA67hjVhk3AieEd</span><span class="dl">"</span><span class="p">;</span>
   <span class="kd">const</span> <span class="nx">SCOPE</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">read:shows</span><span class="dl">"</span><span class="p">;</span>
 
-  <span class="kd">function</span> <span class="nx">LoginButton</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="p">{</span> <span class="nx">loginWithRedirect</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useAuth0</span><span class="p">();</span>
+  <span class="kd">function</span> <span class="nf">LoginButton</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">loginWithRedirect</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">useAuth0</span><span class="p">();</span>
 
-    <span class="k">return</span> <span class="nx">html</span><span class="s2">`&lt;button onClick=</span><span class="p">${()</span> <span class="o">=&gt;</span> <span class="nx">loginWithRedirect</span><span class="p">()}</span><span class="s2">&gt;Log In&lt;/button&gt;`</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">html</span><span class="s2">`&lt;button onClick=</span><span class="p">${()</span> <span class="o">=&gt;</span> <span class="nf">loginWithRedirect</span><span class="p">()}</span><span class="s2">&gt;Log In&lt;/button&gt;`</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="kd">function</span> <span class="nx">LogoutButton</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="p">{</span> <span class="nx">logout</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useAuth0</span><span class="p">();</span>
+  <span class="kd">function</span> <span class="nf">LogoutButton</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">logout</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">useAuth0</span><span class="p">();</span>
 
     <span class="k">return</span> <span class="nx">html</span><span class="s2">`
-      &lt;button onClick=</span><span class="p">${()</span> <span class="o">=&gt;</span> <span class="nx">logout</span><span class="p">({</span> <span class="na">returnTo</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="p">})}</span><span class="s2">&gt;
+      &lt;button onClick=</span><span class="p">${()</span> <span class="o">=&gt;</span> <span class="nf">logout</span><span class="p">({</span> <span class="na">returnTo</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="p">})}</span><span class="s2">&gt;
         Log Out
       &lt;/button&gt;
     `</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="p">{</span> <span class="nx">isAuthenticated</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useAuth0</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="nx">html</span><span class="s2">`
@@ -293,7 +293,7 @@
     `</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span>
     <span class="nx">html</span><span class="s2">`
       &lt;</span><span class="p">${</span><span class="nx">Auth0Provider</span><span class="p">}</span><span class="s2">
         domain="</span><span class="p">${</span><span class="nx">DOMAIN</span><span class="p">}</span><span class="s2">"
@@ -304,7 +304,7 @@
         &lt;</span><span class="p">${</span><span class="nx">App</span><span class="p">}</span><span class="s2">/&gt;
       &lt;/</span><span class="p">${</span><span class="nx">Auth0Provider</span><span class="p">}</span><span class="s2">&gt;
     `</span><span class="p">,</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">)</span>
   <span class="p">);</span>
 </code></pre></div>    </div>
   </li>
@@ -326,33 +326,33 @@
 
 <p>Add <code class="language-plaintext highlighter-rouge">useEffect</code> hook to your component.</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">getUserMetadata</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">getUserMetadata</span> <span class="o">=</span> <span class="nf">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">domain</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YOUR_DOMAIN</span><span class="dl">"</span><span class="p">;</span>
 
     <span class="k">try</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getAccessTokenSilently</span><span class="p">({</span>
+      <span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getAccessTokenSilently</span><span class="p">({</span>
         <span class="na">audience</span><span class="p">:</span> <span class="s2">`https://</span><span class="p">${</span><span class="nx">domain</span><span class="p">}</span><span class="s2">/api/v2/`</span><span class="p">,</span>
         <span class="na">scope</span><span class="p">:</span> <span class="dl">"</span><span class="s2">read:current_user</span><span class="dl">"</span><span class="p">,</span>
       <span class="p">});</span>
 
       <span class="kd">const</span> <span class="nx">userDetailsByIdUrl</span> <span class="o">=</span> <span class="s2">`https://</span><span class="p">${</span><span class="nx">domain</span><span class="p">}</span><span class="s2">/api/v2/users/</span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
 
-      <span class="kd">const</span> <span class="nx">metadataResponse</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">userDetailsByIdUrl</span><span class="p">,</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">metadataResponse</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">userDetailsByIdUrl</span><span class="p">,</span> <span class="p">{</span>
         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
           <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
         <span class="p">},</span>
       <span class="p">});</span>
 
-      <span class="kd">const</span> <span class="p">{</span> <span class="nx">user_metadata</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">metadataResponse</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">user_metadata</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">metadataResponse</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
 
-      <span class="nx">setUserMetadata</span><span class="p">(</span><span class="nx">user_metadata</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+      <span class="nf">setUserMetadata</span><span class="p">(</span><span class="nx">user_metadata</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nf">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">};</span>
 
-  <span class="nx">getUserMetadata</span><span class="p">();</span>
+  <span class="nf">getUserMetadata</span><span class="p">();</span>
 <span class="p">},</span> <span class="p">[]);</span>
 </code></pre></div></div>
 
