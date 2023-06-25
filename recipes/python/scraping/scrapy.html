@@ -181,16 +181,16 @@
 
 
 <span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">scrapy</span><span class="p">.</span><span class="n">Spider</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">'example.com'</span>
-    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s">'example.com'</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">example.com</span><span class="sh">'</span>
+    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">example.com</span><span class="sh">'</span><span class="p">]</span>
     <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">'http://www.example.com/1.html'</span><span class="p">,</span>
-        <span class="s">'http://www.example.com/2.html'</span><span class="p">,</span>
-        <span class="s">'http://www.example.com/3.html'</span><span class="p">,</span>
+        <span class="sh">'</span><span class="s">http://www.example.com/1.html</span><span class="sh">'</span><span class="p">,</span>
+        <span class="sh">'</span><span class="s">http://www.example.com/2.html</span><span class="sh">'</span><span class="p">,</span>
+        <span class="sh">'</span><span class="s">http://www.example.com/3.html</span><span class="sh">'</span><span class="p">,</span>
     <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">'A response from %s just arrived!'</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sh">'</span><span class="s">A response from %s just arrived!</span><span class="sh">'</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="scrape-nested-sitemaps">Scrape nested sitemaps</h3>
@@ -200,7 +200,7 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scrapy.spiders</span> <span class="kn">import</span> <span class="n">SitemapSpider</span>
 
 <span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">SitemapSpider</span><span class="p">):</span>
-    <span class="n">sitemap_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s">'http://www.example.com/sitemap.xml'</span><span class="p">]</span>
+    <span class="n">sitemap_urls</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">http://www.example.com/sitemap.xml</span><span class="sh">'</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
         <span class="k">pass</span> <span class="c1"># ... scrape item here ...

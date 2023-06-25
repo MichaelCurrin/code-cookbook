@@ -169,7 +169,7 @@
     <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ---
   layout: null
   ---
-  <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>to_json.json<span class="w"> </span><span class="na">data</span><span class="o">=</span>site.data.foo<span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>to_json.json<span class="w"> </span><span class="na">data</span><span class="o">=</span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">foo</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -180,11 +180,11 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">_include to_json.json</code> plain
-    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">{{</span><span class="w"> </span><span class="nv">include</span><span class="p">.</span><span class="nv">data</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">{{</span><span class="w"> </span><span class="nv">include</span><span class="p">.</span><span class="nv">data</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>
 </code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">_include to_json.json</code> with a key.
-    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  { "data": <span class="p">{{</span><span class="w"> </span><span class="nv">include</span><span class="p">.</span><span class="nv">data</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span> }
+    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  { "data": <span class="cp">{{</span><span class="w"> </span><span class="nv">include</span><span class="p">.</span><span class="nv">data</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span> }
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -197,13 +197,13 @@
   <li><code class="language-plaintext highlighter-rouge">_include to_json.json</code>
     <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
       "data": [
-          <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">include.data</span><span class="w"> </span><span class="p">%}</span>
+          <span class="cp">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">include</span><span class="p">.</span><span class="nv">data</span><span class="w"> </span><span class="cp">%}</span>
               [
-                  <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">field</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-                      <span class="p">{{-</span><span class="w"> </span><span class="nv">field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">-}}</span> <span class="p">{%-</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">-%}</span>
-                  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
-              ] <span class="p">{%-</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">-%}</span>
-          <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+                  <span class="cp">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">field</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+                      <span class="cp">{{-</span><span class="w"> </span><span class="nv">field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">-}}</span> <span class="cp">{%-</span><span class="w"> </span><span class="nt">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="cp">%}</span>,<span class="cp">{%</span><span class="w"> </span><span class="nt">endunless</span><span class="w"> </span><span class="cp">-%}</span>
+                  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">-%}</span>
+              ] <span class="cp">{%-</span><span class="w"> </span><span class="nt">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="cp">%}</span>,<span class="cp">{%</span><span class="w"> </span><span class="nt">endunless</span><span class="w"> </span><span class="cp">-%}</span>
+          <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">-%}</span>
       ]
   }
 </code></pre></div>    </div>

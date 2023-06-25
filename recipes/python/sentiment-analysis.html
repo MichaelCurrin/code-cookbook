@@ -164,37 +164,37 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">classify.py</code>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">"""
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="sh">"""</span><span class="s">
   Classifier application.
 
   Sentiment Analysis demo.
-  """</span>
+  </span><span class="sh">"""</span>
   <span class="kn">from</span> <span class="n">nltk.classify</span> <span class="kn">import</span> <span class="n">NaiveBayesClassifier</span>
 
 
   <span class="n">VOCAB</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s">"positive"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">"awesome"</span><span class="p">,</span>
-          <span class="s">"outstanding"</span><span class="p">,</span>
-          <span class="s">"fantastic"</span><span class="p">,</span>
-          <span class="s">"terrific"</span><span class="p">,</span>
-          <span class="s">"good"</span><span class="p">,</span>
-          <span class="s">"nice"</span><span class="p">,</span>
-          <span class="s">"great"</span><span class="p">,</span>
-          <span class="s">":)"</span><span class="p">,</span>
+      <span class="sh">"</span><span class="s">positive</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="sh">"</span><span class="s">awesome</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">outstanding</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">fantastic</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">terrific</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">good</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">nice</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">great</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">:)</span><span class="sh">"</span><span class="p">,</span>
       <span class="p">],</span>
-      <span class="s">"negative"</span><span class="p">:</span> <span class="p">[</span><span class="s">"bad"</span><span class="p">,</span> <span class="s">"terrible"</span><span class="p">,</span> <span class="s">"useless"</span><span class="p">,</span> <span class="s">"hate"</span><span class="p">,</span> <span class="s">":("</span><span class="p">],</span>
-      <span class="s">"neutral"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">"movie"</span><span class="p">,</span>
-          <span class="s">"the"</span><span class="p">,</span>
-          <span class="s">"sound"</span><span class="p">,</span>
-          <span class="s">"was"</span><span class="p">,</span>
-          <span class="s">"is"</span><span class="p">,</span>
-          <span class="s">"actors"</span><span class="p">,</span>
-          <span class="s">"did"</span><span class="p">,</span>
-          <span class="s">"know"</span><span class="p">,</span>
-          <span class="s">"words"</span><span class="p">,</span>
-          <span class="s">"not"</span><span class="p">,</span>
+      <span class="sh">"</span><span class="s">negative</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">bad</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">terrible</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">useless</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">hate</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">:(</span><span class="sh">"</span><span class="p">],</span>
+      <span class="sh">"</span><span class="s">neutral</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="sh">"</span><span class="s">movie</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">the</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">sound</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">was</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">is</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">actors</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">did</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">know</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">words</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">not</span><span class="sh">"</span><span class="p">,</span>
       <span class="p">],</span>
   <span class="p">}</span>
 
@@ -204,9 +204,9 @@
 
 
   <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">vocab</span><span class="p">):</span>
-      <span class="n">positive_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"positive"</span><span class="p">]),</span> <span class="s">"pos"</span><span class="p">]</span>
-      <span class="n">negative_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"negative"</span><span class="p">]),</span> <span class="s">"neg"</span><span class="p">]</span>
-      <span class="n">neutral_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="s">"neutral"</span><span class="p">]),</span> <span class="s">"neu"</span><span class="p">]</span>
+      <span class="n">positive_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="sh">"</span><span class="s">positive</span><span class="sh">"</span><span class="p">]),</span> <span class="sh">"</span><span class="s">pos</span><span class="sh">"</span><span class="p">]</span>
+      <span class="n">negative_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="sh">"</span><span class="s">negative</span><span class="sh">"</span><span class="p">]),</span> <span class="sh">"</span><span class="s">neg</span><span class="sh">"</span><span class="p">]</span>
+      <span class="n">neutral_features</span> <span class="o">=</span> <span class="p">[</span><span class="nf">feats</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="sh">"</span><span class="s">neutral</span><span class="sh">"</span><span class="p">]),</span> <span class="sh">"</span><span class="s">neu</span><span class="sh">"</span><span class="p">]</span>
 
       <span class="n">train_set</span> <span class="o">=</span> <span class="p">[</span><span class="n">positive_features</span><span class="p">,</span> <span class="n">negative_features</span><span class="p">,</span> <span class="n">neutral_features</span><span class="p">]</span>
 
@@ -220,9 +220,9 @@
       <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
           <span class="n">result</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">.</span><span class="nf">classify</span><span class="p">(</span><span class="nf">feats</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
 
-          <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s">"pos"</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="sh">"</span><span class="s">pos</span><span class="sh">"</span><span class="p">:</span>
               <span class="n">count_pos</span> <span class="o">+=</span> <span class="mi">1</span>
-          <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="s">"neg"</span><span class="p">:</span>
+          <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="sh">"</span><span class="s">neg</span><span class="sh">"</span><span class="p">:</span>
               <span class="n">count_neg</span> <span class="o">+=</span> <span class="mi">1</span>
 
       <span class="n">score_pos</span> <span class="o">=</span> <span class="n">count_pos</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
@@ -236,16 +236,16 @@
 
       <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span>
       <span class="c1"># Or use a tokenizer.
-</span>      <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+</span>      <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">)</span>
 
       <span class="n">score_pos</span><span class="p">,</span> <span class="n">score_neg</span> <span class="o">=</span> <span class="nf">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
 
-      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Positive: </span><span class="si">{</span><span class="n">score_pos</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Negative: </span><span class="si">{</span><span class="n">score_neg</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Positive: </span><span class="si">{</span><span class="n">score_pos</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Negative: </span><span class="si">{</span><span class="n">score_neg</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
 
-  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-      <span class="nf">main</span><span class="p">(</span><span class="s">"Awesome movie, I liked it"</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+      <span class="nf">main</span><span class="p">(</span><span class="sh">"</span><span class="s">Awesome movie, I liked it</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>

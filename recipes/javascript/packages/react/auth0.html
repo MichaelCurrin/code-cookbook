@@ -327,7 +327,7 @@
 <p>Add <code class="language-plaintext highlighter-rouge">useEffect</code> hook to your component.</p>
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">getUserMetadata</span> <span class="o">=</span> <span class="nf">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">getUserMetadata</span> <span class="o">=</span> <span class="k">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">domain</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YOUR_DOMAIN</span><span class="dl">"</span><span class="p">;</span>
 
     <span class="k">try</span> <span class="p">{</span>
@@ -347,7 +347,7 @@
       <span class="kd">const</span> <span class="p">{</span> <span class="nx">user_metadata</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">metadataResponse</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
 
       <span class="nf">setUserMetadata</span><span class="p">(</span><span class="nx">user_metadata</span><span class="p">);</span>
-    <span class="p">}</span> <span class="nf">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">};</span>

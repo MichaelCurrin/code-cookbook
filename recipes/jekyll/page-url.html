@@ -169,7 +169,7 @@
 
 <p>Build up URL from that array.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">baseurl</span><span class="w"> </span><span class="p">}}{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">crumb</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">crumbs</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span>crumb_limit<span class="w"> </span><span class="p">%}{{</span><span class="w"> </span><span class="nv">crumb</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="p">}}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">baseurl</span><span class="w"> </span><span class="cp">}}{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">crumb</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">crumbs</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="nv">crumb_limit</span><span class="w"> </span><span class="cp">%}{{</span><span class="w"> </span><span class="nv">crumb</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="cp">}}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p>These are used in the next section.</p>
@@ -259,12 +259,12 @@
 
 <p>But in Jekyll 3 you must do this:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">baseurl</span><span class="w"> </span><span class="p">}}{%</span><span class="w"> </span><span class="nt">link</span><span class="w"> </span>index.md<span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">baseurl</span><span class="w"> </span><span class="cp">}}{%</span><span class="w"> </span><span class="nt">link</span><span class="w"> </span><span class="nv">index</span><span class="p">.</span><span class="nv">md</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p>This can be used for most flexibility:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">relative_url</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{{</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">relative_url</span><span class="w"> </span><span class="cp">}}</span>
 </code></pre></div></div>
 
 <p>Note that for the crumbs section that the <code class="language-plaintext highlighter-rouge">{{ site.baseurl }}</code> prefix should always be there. Note that <code class="language-plaintext highlighter-rouge">relative_url</code> is not practical since the URL is built through a <code class="language-plaintext highlighter-rouge">for</code> loop rather than a string.</p>

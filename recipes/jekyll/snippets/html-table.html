@@ -184,7 +184,7 @@
     # ...
   ---
 
- <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>table.html<span class="w"> </span><span class="na">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>page.authors<span class="w"> </span><span class="p">%}</span>
+ <span class="cp">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>table.html<span class="w"> </span><span class="na">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -210,24 +210,24 @@
   title: Table test
   ---
     
- <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="p">%}</span>
+ <span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">%}</span>
 
   &lt;table&gt;
-      <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">table_rows</span><span class="w"> </span><span class="p">%}</span>
-          <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="p">%}</span>
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">table_rows</span><span class="w"> </span><span class="cp">%}</span>
+          <span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="cp">%}</span>
               &lt;tr&gt;
-                  <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
+                  <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
                       &lt;th&gt;
-                          <span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+                          <span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
                       &lt;/th&gt;
-                  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+                  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
               &lt;/tr&gt;
-          <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+          <span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
-          <span class="p">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-              <span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
-          <span class="p">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="p">%}</span>
-      <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+          <span class="cp">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+              <span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
+          <span class="cp">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="cp">%}</span>
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
   &lt;/table&gt;
 </code></pre></div>    </div>
   </li>
@@ -248,7 +248,7 @@
     # ...
   ---
 
- <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>table.html<span class="w"> </span><span class="na">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>page.authors<span class="w"> </span><span class="p">%}</span>
+ <span class="cp">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>table.html<span class="w"> </span><span class="na">table_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -261,18 +261,18 @@
 
 <p>If you want to add codeblocks in your table, use <code class="language-plaintext highlighter-rouge">&lt;code&gt;</code> tag. Don’t use <code class="language-plaintext highlighter-rouge">&lt;pre&gt;</code>, as then you text will stay on one line and will <strong>not</strong> wrap, leading to the table going off screen to the right.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-   &lt;code&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>&lt;/code&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+   &lt;code&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>&lt;/code&gt;
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h2 id="markdown">Markdown</h2>
 
 <p>If you have Markdown in your table content, like bold or backticks, add the <code class="language-plaintext highlighter-rouge">markdownify</code> filter to render that. Warning - it will add a <code class="language-plaintext highlighter-rouge">p</code> tag around your text which might conflict with surrounding content.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">markdownify</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">markdownify</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 

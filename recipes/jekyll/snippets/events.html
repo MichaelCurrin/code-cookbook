@@ -171,9 +171,9 @@
 
 &lt;script&gt;
 let eventData = {
-  <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">e</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.events</span><span class="w"> </span><span class="p">%}</span>
-    { title: <span class="p">{{</span><span class="w"> </span><span class="nv">e</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>, datetime: <span class="p">{{</span><span class="w"> </span><span class="nv">e</span><span class="p">.</span><span class="nv">datetime</span><span class="w"> </span><span class="p">}}</span> },
-  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">e</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">events</span><span class="w"> </span><span class="cp">%}</span>
+    { title: <span class="cp">{{</span><span class="w"> </span><span class="nv">e</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">}}</span>, datetime: <span class="cp">{{</span><span class="w"> </span><span class="nv">e</span><span class="p">.</span><span class="nv">datetime</span><span class="w"> </span><span class="cp">}}</span> },
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 }
 
 // e.g. 2021-11-02 13:45

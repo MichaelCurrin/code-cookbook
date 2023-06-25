@@ -189,7 +189,7 @@
   <span class="k">do</span> <span class="p">{</span>
     <span class="nb">Object</span><span class="p">.</span><span class="nf">getOwnPropertyNames</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)</span>
       <span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">properties</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
-  <span class="p">}</span> <span class="nf">while </span><span class="p">((</span><span class="nx">currentObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">getPrototypeOf</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)))</span>
+  <span class="p">}</span> <span class="k">while </span><span class="p">((</span><span class="nx">currentObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">getPrototypeOf</span><span class="p">(</span><span class="nx">currentObj</span><span class="p">)))</span>
   
   <span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">properties</span><span class="p">.</span><span class="nf">keys</span><span class="p">()]</span>
   

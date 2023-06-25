@@ -173,29 +173,29 @@
 
 
 <span class="k">def</span> <span class="nf">to_csv</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     Convert data to downloadable CSV file.
-    """</span>
+    </span><span class="sh">"""</span>
     <span class="n">str_buffer</span> <span class="o">=</span> <span class="nc">StringIO</span><span class="p">()</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nf">writer</span><span class="p">(</span><span class="n">str_buffer</span><span class="p">)</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">writerows</span><span class="p">([</span><span class="n">fields</span><span class="p">])</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">writerows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 
     <span class="n">output</span> <span class="o">=</span> <span class="nf">make_response</span><span class="p">(</span><span class="n">str_buffer</span><span class="p">.</span><span class="nf">getvalue</span><span class="p">())</span>
-    <span class="n">output</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="s">"Content-Disposition"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"attachment; filename=</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s">"</span>
-    <span class="n">output</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="s">"Content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"text/csv"</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="sh">"</span><span class="s">Content-Disposition</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="s">attachment; filename=</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="sh">"</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="sh">"</span><span class="s">Content-type</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="sh">"</span><span class="s">text/csv</span><span class="sh">"</span>
 
     <span class="k">return</span> <span class="n">output</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/export.csv"</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/export.csv</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">request_csv</span><span class="p">():</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     Endpoint to allow a user to download a CSV.
-    """</span>
+    </span><span class="sh">"""</span>
     <span class="n">rows</span><span class="p">,</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">lib</span><span class="p">.</span><span class="nf">fetch_data</span><span class="p">(</span><span class="n">SQL_SOURCE</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nf">to_csv</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="s">'export.csv'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">to_csv</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="sh">'</span><span class="s">export.csv</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Start the server.</p>
@@ -238,7 +238,7 @@
 
 
 <span class="n">CACHE_OPTIONS</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">(</span>
-    <span class="n">CACHE_TYPE</span><span class="o">=</span><span class="s">"simple"</span><span class="p">,</span>
+    <span class="n">CACHE_TYPE</span><span class="o">=</span><span class="sh">"</span><span class="s">simple</span><span class="sh">"</span><span class="p">,</span>
     <span class="n">CACHE_DEFAULT_TIMEOUT</span><span class="o">=</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -248,13 +248,13 @@
 <span class="n">cache</span><span class="p">.</span><span class="nf">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/cache-test"</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/cache-test</span><span class="sh">"</span><span class="p">)</span>
 <span class="nd">@cache.cached</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
     <span class="k">return</span> <span class="nf">str</span><span class="p">(</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">())</span>
 
 
-<span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
 </code></pre></div></div>
 

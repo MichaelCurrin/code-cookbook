@@ -158,15 +158,15 @@ do a valid and invalid operation on it.</p>
 
 <p>Code used from an introductory <a href="https://realpython.com/introduction-to-mongodb-and-python/">tutorial</a> on Python and Mongo:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">
 Mongo demo.
-"""</span>
+</span><span class="sh">"""</span>
 <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="kn">from</span> <span class="n">mongoengine</span> <span class="kn">import</span> <span class="o">*</span>
 
 
-<span class="nf">connect</span><span class="p">(</span><span class="s">'mongoengine_test'</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
+<span class="nf">connect</span><span class="p">(</span><span class="sh">'</span><span class="s">mongoengine_test</span><span class="sh">'</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
@@ -181,22 +181,22 @@ Mongo demo.
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">"Insert"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Insert</span><span class="sh">"</span><span class="p">)</span>
     <span class="n">post_1</span> <span class="o">=</span> <span class="nc">Post</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s">'Sample Post'</span><span class="p">,</span>
-        <span class="n">content</span><span class="o">=</span><span class="s">'Some engaging content'</span><span class="p">,</span>
-        <span class="n">author</span><span class="o">=</span><span class="s">'Scott'</span>
+        <span class="n">title</span><span class="o">=</span><span class="sh">'</span><span class="s">Sample Post</span><span class="sh">'</span><span class="p">,</span>
+        <span class="n">content</span><span class="o">=</span><span class="sh">'</span><span class="s">Some engaging content</span><span class="sh">'</span><span class="p">,</span>
+        <span class="n">author</span><span class="o">=</span><span class="sh">'</span><span class="s">Scott</span><span class="sh">'</span>
     <span class="p">)</span>
     <span class="n">post_1</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>       
     <span class="nf">print</span><span class="p">(</span><span class="n">post_1</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
     
-    <span class="nf">print</span><span class="p">(</span><span class="s">"Edit"</span><span class="p">)</span>
-    <span class="n">post_1</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">'A Better Post Title'</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Edit</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">post_1</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="sh">'</span><span class="s">A Better Post Title</span><span class="sh">'</span>
     <span class="n">post_1</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>      
     <span class="nf">print</span><span class="p">(</span><span class="n">post_1</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
 
-    <span class="nf">print</span><span class="p">(</span><span class="s">"Validation error"</span><span class="p">)</span>
-    <span class="n">post_2</span> <span class="o">=</span> <span class="nc">Post</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s">'Content goes here'</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="s">'Michael'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Validation error</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">post_2</span> <span class="o">=</span> <span class="nc">Post</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">'</span><span class="s">Content goes here</span><span class="sh">'</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="sh">'</span><span class="s">Michael</span><span class="sh">'</span><span class="p">)</span>
     
     <span class="k">try</span><span class="p">:</span>
         <span class="n">post_2</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
@@ -204,7 +204,7 @@ Mongo demo.
         <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="nf">main</span><span class="p">()</span>
 </code></pre></div></div>
 

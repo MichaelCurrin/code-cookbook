@@ -163,13 +163,13 @@
 layout: none
 ---
 [
-  <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">page</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.pages</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">page</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="w"> </span><span class="cp">%}</span>
     {
-      "title":      <span class="p">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
-      "url":        <span class="p">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+      "title":      <span class="cp">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>,
+      "url":        <span class="cp">{{-</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>
     }
-    <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="cp">%}</span>,<span class="cp">{%</span><span class="w"> </span><span class="nt">endunless</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">-%}</span>
 ]
 </code></pre></div></div>
 
@@ -179,17 +179,17 @@ layout: none
 layout: none
 ---
 [
-  <span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.posts</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="cp">%}</span>
     {
-      "id":         <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">id</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">-}}</span>,
-      "title":      <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
-      "date":       <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
-      "url":        <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
-      "tags":       <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>,
-      "categories": <span class="p">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">categories</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+      "id":         <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">id</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">-}}</span>,
+      "title":      <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>,
+      "date":       <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>,
+      "url":        <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>,
+      "tags":       <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>,
+      "categories": <span class="cp">{{-</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">categories</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>
     }
-    <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="cp">%}</span>,<span class="cp">{%</span><span class="w"> </span><span class="nt">endunless</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">-%}</span>
 ]
 </code></pre></div></div>
 

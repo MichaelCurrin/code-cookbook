@@ -163,7 +163,7 @@
 
     <div class="post-content">
         
-            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">
 Tokenize a sentence and remove stopwords.
 
 Based on
@@ -174,15 +174,15 @@ See
 
 Required:
   - nltk
-"""</span>
+</span><span class="sh">"""</span>
 <span class="kn">import</span> <span class="n">string</span>
 
 <span class="kn">from</span> <span class="n">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 <span class="kn">from</span> <span class="n">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 
-<span class="n">STOP_WORDS</span> <span class="o">=</span> <span class="n">stopwords</span><span class="p">.</span><span class="nf">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)</span> <span class="o">+</span> <span class="nf">list</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span><span class="p">)</span>
+<span class="n">STOP_WORDS</span> <span class="o">=</span> <span class="n">stopwords</span><span class="p">.</span><span class="nf">words</span><span class="p">(</span><span class="sh">'</span><span class="s">english</span><span class="sh">'</span><span class="p">)</span> <span class="o">+</span> <span class="nf">list</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span><span class="p">)</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="s">"this is a foo bar, bar black sheep."</span>
+<span class="n">message</span> <span class="o">=</span> <span class="sh">"</span><span class="s">this is a foo bar, bar black sheep.</span><span class="sh">"</span>
 <span class="n">tokens</span> <span class="o">=</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="nf">lower</span><span class="p">())</span>
 
 <span class="nf">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOP_WORDS</span><span class="p">])</span>
