@@ -14,7 +14,7 @@ $ brew install openssh
 ### Install OpenSSH
 
 ```sh
-$ sudo apt-get install openssh-server openssh-client
+$ sudo apt-get install openssh-server openssh-client -y
 ```
 
 ### Verify SSH service is running
