@@ -4,7 +4,7 @@
 
 See [http](https://golang.org/pkg/net/http/) package. Examples from the docs.
 
-> When err is nil, resp always contains a non-nil resp.Body. Caller should close resp.Body when done reading from it. 
+> When err is nil, resp always contains a non-nil resp.Body. Caller should close resp.Body when done reading from it.
 
 - `main.go`
 	```go
@@ -70,7 +70,7 @@ Based on [post](https://itnext.io/create-your-first-web-scraper-in-go-with-goque
 
 ## Using Colly
 
-[![gocolly - colly](https://img.shields.io/static/v1?label=gocolly&message=colly&color=blue&logo=github)](https://github.com/gocolly/colly)
+[![gocolly - colly](https://img.shields.io/static/v1?label=gocolly&message=colly&color=142f89&logo=github)](https://github.com/gocolly/colly)
 
 > Lightning Fast and Elegant Scraping Framework for Gophers
 

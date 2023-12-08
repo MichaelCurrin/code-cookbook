@@ -27,7 +27,7 @@ The syntax is based on Ruby, as you'll see from [Samples](#samples) below.
 
 Repo:
 
-[![sonic-pi-net - sonic-pi](https://img.shields.io/static/v1?label=sonic-pi-net&message=sonic-pi&color=blue&logo=github)](https://github.com/sonic-pi-net/sonic-pi)
+[![sonic-pi-net - sonic-pi](https://img.shields.io/static/v1?label=sonic-pi-net&message=sonic-pi&color=142f89&logo=github)](https://github.com/sonic-pi-net/sonic-pi)
 [![stars - sonic-pi](https://img.shields.io/github/stars/sonic-pi-net/sonic-pi?style=social)](https://github.com/sonic-pi-net/sonic-pi)
 [![forks - sonic-pi](https://img.shields.io/github/forks/sonic-pi-net/sonic-pi?style=social)](https://github.com/sonic-pi-net/sonic-pi)
 

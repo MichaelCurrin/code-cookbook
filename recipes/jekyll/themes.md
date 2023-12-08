@@ -39,7 +39,7 @@ See [Specification](https://ruby-doc.org/stdlib-2.7.0/libdoc/rubygems/rdoc/Gem/S
 
 My own quickstart theme project.
 
-[![MichaelCurrin - jekyll-theme-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-theme-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/jekyll-theme-quickstart)
+[![MichaelCurrin - jekyll-theme-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-theme-quickstart&color=142f89&logo=github)](https://github.com/MichaelCurrin/jekyll-theme-quickstart)
 
 ### Installed
 

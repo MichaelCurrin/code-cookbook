@@ -6,7 +6,7 @@
 
 See my PrimeVue project which uses ES Modules to allow `import` syntax. It doesn't use Node or build step.
 
-[![MichaelCurrin - primevue-frontend-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=primevue-frontend-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/primevue-frontend-quickstart)
+[![MichaelCurrin - primevue-frontend-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=primevue-frontend-quickstart&color=142f89&logo=github)](https://github.com/MichaelCurrin/primevue-frontend-quickstart)
 
 
 ## Docs sample
@@ -72,7 +72,7 @@ Notes:
 - I got content type warnings in the browser on loading the CSS, unless I locked down to specific versions like `@3.3.5`.
 - The component gets loaded from [inputtext.min.js](https://unpkg.com/primevue@3.4.0/inputtext/inputtext.min.js).
 - The original code uses `primevue.inputtext` but that gives an error. Looking at the script, it sets up on `this` so therefore I used `this.primevue.inputtext` and that worked.
-- Note that elements named like `Button` won't work because they get downcased in the DOM as `button`. Use `p-button` or `p-inputtext` works though and comes from the docs. 
+- Note that elements named like `Button` won't work because they get downcased in the DOM as `button`. Use `p-button` or `p-inputtext` works though and comes from the docs.
 
 
 ## PrimeVue 2
@@ -85,7 +85,7 @@ Note that the variables get set up implicitly and not by name. The CSS
 <head>
     <meta charset="utf-8">
     <title>Button Demo</title>
-    
+
     <link href="https://unpkg.com/primevue@2.4.1/resources/themes/saga-blue/theme.css"
         rel="stylesheet" />
     <link href="https://unpkg.com/primevue@2.4.1/resources/primevue.min.css" rel="stylesheet" />
@@ -96,7 +96,7 @@ Note that the variables get set up implicitly and not by name. The CSS
     <div id="app">
         <button-styled label="Submit" />
     </div>
-    
+
     <script type="module">
         import "https://unpkg.com/primevue@2.2.3/components/button/button.umd.js";
         import "https://unpkg.com/vue@2";
