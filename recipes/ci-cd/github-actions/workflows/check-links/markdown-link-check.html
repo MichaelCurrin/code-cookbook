@@ -187,7 +187,7 @@
 
     <div class="post-content">
         
-            <p><a href="https://github.com/marketplace/actions/markdown-link-check"><img src="https://img.shields.io/badge/Marketplace-Markdown_Link_Check-blue.svg?colorA=24292e&amp;colorB=0366d6&amp;style=flat&amp;longCache=true&amp;logo=github" alt="GitHub Marketplace" /></a></p>
+            <p><a href="https://github.com/marketplace/actions/markdown-link-check"><img src="https://img.shields.io/badge/Marketplace-Markdown_Link_Check-142f89.svg?colorA=24292e&amp;colorB=0366d6&amp;style=flat&amp;longCache=true&amp;logo=github" alt="GitHub Marketplace" /></a></p>
 
 <h2 id="usage">Usage</h2>
 
@@ -200,10 +200,10 @@
 <span class="na">jobs</span><span class="pi">:</span>
   <span class="na">markdown-link-check</span><span class="pi">:</span>
     <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    
+
     <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
-    
+
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">gaurav-nelson/github-action-markdown-link-check@v1</span>
 </code></pre></div></div>
 
@@ -211,21 +211,21 @@
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Check Markdown links</span>
 
-<span class="na">on</span><span class="pi">:</span> 
+<span class="na">on</span><span class="pi">:</span>
   <span class="na">push</span><span class="pi">:</span>
     <span class="na">branches</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">master</span>
-    
+
   <span class="na">schedule</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">cron</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0</span><span class="nv"> </span><span class="s">9</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*"</span>
 
 <span class="na">jobs</span><span class="pi">:</span>
   <span class="na">markdown-link-check</span><span class="pi">:</span>
     <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    
+
     <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
-    
+
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">gaurav-nelson/github-action-markdown-link-check@v1</span>
       <span class="na">with</span><span class="pi">:</span>
         <span class="na">use-quiet-mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>
@@ -243,10 +243,10 @@
 <span class="na">jobs</span><span class="pi">:</span>
   <span class="na">markdown-link-check</span><span class="pi">:</span>
     <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    
+
     <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
-    
+
     <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">gaurav-nelson/github-action-markdown-link-check@v1</span>
       <span class="na">with</span><span class="pi">:</span>
         <span class="na">use-quiet-mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>

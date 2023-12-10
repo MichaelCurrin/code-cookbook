@@ -2,7 +2,7 @@
 
 {% raw %}
 
-- [![limjh16 - jekyll-action-ts](https://img.shields.io/static/v1?label=limjh16&message=jekyll-action-ts&color=blue&logo=github)](https://github.com/limjh16/jekyll-action-ts)
+- [![limjh16 - jekyll-action-ts](https://img.shields.io/static/v1?label=limjh16&message=jekyll-action-ts&color=142f89&logo=github)](https://github.com/limjh16/jekyll-action-ts)
 
 That is fork of [Jekyll Actions](https://github.com/marketplace/actions/jekyll-actions) action, with the differences that the fork is built in TS not Docker and it doesn't to publish for you (the docs add a step for publishing)
 

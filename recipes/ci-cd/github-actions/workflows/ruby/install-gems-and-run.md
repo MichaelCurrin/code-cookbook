@@ -4,7 +4,7 @@ Use an action to set up Ruby, Ruby gems and then run a Ruby script.
 
 This is using an action owned by the `ruby` GH account. Don't confuse with action of same name  owned by `actions` account.
 
-[![ruby - setup-ruby](https://img.shields.io/static/v1?label=ruby&message=setup-ruby&color=blue&logo=github)](https://github.com/ruby/setup-ruby)
+[![ruby - setup-ruby](https://img.shields.io/static/v1?label=ruby&message=setup-ruby&color=142f89&logo=github)](https://github.com/ruby/setup-ruby)
 
 From the action's docs, if you use `bundle-cache` option, that means gems will be set up for you. It effectively does `bundle install` and then caches gems between builds. You can remove that option below, if you have no gems to install.
 

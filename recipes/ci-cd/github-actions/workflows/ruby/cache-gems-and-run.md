@@ -2,11 +2,11 @@
 
 {% raw %}
 
-Install using `cache` action and `actions/setup-ruby` action. 
+Install using `cache` action and `actions/setup-ruby` action.
 
 Note, if you use `ruby/setup-ruby` instead, you get caching _already_. With the approach here, you get more control over cache and how Bundler runs, if that matters to you.
 
-[![actions - cache](https://img.shields.io/static/v1?label=actions&message=cache&color=blue&logo=github)](https://github.com/actions/cache)
+[![actions - cache](https://img.shields.io/static/v1?label=actions&message=cache&color=142f89&logo=github)](https://github.com/actions/cache)
 
 Based on [example](https://github.com/actions/cache/blob/master/examples.md#ruby---bundler).
 

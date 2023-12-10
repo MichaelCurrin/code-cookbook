@@ -1,6 +1,6 @@
 # Markdown Link Check action
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Markdown_Link_Check-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/markdown-link-check)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Markdown_Link_Check-142f89.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/markdown-link-check)
 
 
 ## Usage
@@ -15,10 +15,10 @@ on: push
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@master
-    
+
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
 ```
 
@@ -27,21 +27,21 @@ jobs:
 ```yaml
 name: Check Markdown links
 
-on: 
+on:
   push:
     branches:
     - master
-    
+
   schedule:
   - cron: "0 9 * * *"
 
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@master
-    
+
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         use-quiet-mode: 'yes'
@@ -60,10 +60,10 @@ name: Check links for modified files
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@master
-    
+
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         use-quiet-mode: 'yes'
