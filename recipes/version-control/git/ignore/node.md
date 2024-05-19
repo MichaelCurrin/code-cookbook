@@ -3,9 +3,9 @@
 
 ## Build
 
-A Node app which builds to `dist` or `build` or similar. 
+A Node app which builds to `dist`. If you use `build`, then replace `dist` below.
 
-For a Yarn app, it's good ot ignore NPM logs too in case NPM is used. You can leave off the Yarn ones if not needed.
+For a Yarn app, it's good to ignore NPM logs too, in case NPM is used. You can leave off the Yarn ones if not needed.
 
 ```
 node_modules/
@@ -16,6 +16,18 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
+Use that as a base and then add on using the sections below.
+
+## Env file
+
+Based on a React quickstart.
+
+```
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+```
 
 ## Coverage
 
@@ -33,9 +45,9 @@ basement_dist
 ```
 
 
-## VuePress
+## VuePress app
 
-Auto-generated for VuePress.
+Auto-generated from VuePress.
 
 ```
 pids
