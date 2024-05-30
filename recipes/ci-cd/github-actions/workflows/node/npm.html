@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="NPM" />
-<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -195,7 +195,9 @@
             
 <p>See the GH docs page on <a href="https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions">Using Node.js with GitHub Actions</a>. Some of the samples come from here.</p>
 
-<p>To build a Node app (such as React or Vue) and serve it with GH Pages, see the <a href="{% link recipes/ci-cd/github-actions/workflows/deploy-gh-pages/index.md %}">Deploy GH Pages</a> section of this cookbook site.</p>
+<p>To build a Node app (such as React or Vue) and serve it with GH Pages, see the <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/">Deploy GH Pages</a> section of this cookbook site.</p>
+
+<p>See <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/node/ci-installs.html">npm ci installs</a> for use of <code class="language-plaintext highlighter-rouge">npm ci</code> instead of <code class="language-plaintext highlighter-rouge">npm install</code>.</p>
 
 <h2 id="set-up-node-action">Set up Node action</h2>
 
@@ -207,71 +209,36 @@
   <p>Set up a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH</p>
 </blockquote>
 
-<h3 id="options">Options</h3>
-
-<!-- TODO move to cheatsheets and link from here - similar to CLI usage guides this is actions usage -->
-
-<p>Sample from GH Actions recommendation. Note that <code class="language-plaintext highlighter-rouge">v2</code> does not work but <code class="language-plaintext highlighter-rouge">v2.1.1</code> and <code class="language-plaintext highlighter-rouge">v2-beta</code> are available (August 2020).</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">main.yml</code>
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js environment</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2-beta</span>
-      <span class="na">with</span><span class="pi">:</span>
-        <span class="c1"># Set always-auth in npmrc</span>
-        <span class="na">always-auth</span><span class="pi">:</span> <span class="c1"># optional, default is false</span>
-
-        <span class="c1"># Version Spec of the version to use.  Examples: 12.x, 10.15.1, &gt;=10.15.0</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="c1"># optional</span>
-
-        <span class="c1"># Set this option if you want the action to check for the latest available version that satisfies the version spec</span>
-        <span class="na">check-latest</span><span class="pi">:</span> <span class="c1"># optional</span>
-
-        <span class="c1"># Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN</span>
-        <span class="na">registry-url</span><span class="pi">:</span> <span class="c1"># optional</span>
-
-        <span class="c1"># Optional scope for authenticating against scoped registries</span>
-        <span class="na">scope</span><span class="pi">:</span> <span class="c1"># optional</span>
-
-        <span class="c1"># Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.</span>
-        <span class="na">token</span><span class="pi">:</span> <span class="c1"># optional, default is ${{ github.token }}</span>
-
-        <span class="c1"># Deprecated. Use node-version instead. Will not be supported after October 1, 2019</span>
-        <span class="na">version</span><span class="pi">:</span> <span class="c1"># optional</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
 <h2 id="samples">Samples</h2>
 
 <h3 id="basic">Basic</h3>
 
-<p>Use single Node.js version of say <code class="language-plaintext highlighter-rouge">16</code>, <code class="language-plaintext highlighter-rouge">16.3.0</code>, or <code class="language-plaintext highlighter-rouge">lts/erbium</code> (NVM syntax).</p>
+<p>Use a single Node.js version of say <code class="language-plaintext highlighter-rouge">16</code>, <code class="language-plaintext highlighter-rouge">16.3.0</code>, or <code class="language-plaintext highlighter-rouge">lts/erbium</code> (NVM syntax).</p>
 
-<p>I created this based on the other samples.</p>
+<p>I created this based on the other samples and the <a href="https://github.com/actions/setup-node">setup-node</a> action README.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">main.yml</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="m">20</span>
+        <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
-
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span> 
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test</span>
       <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
       <span class="na">env</span><span class="pi">:</span>
         <span class="na">CI</span><span class="pi">:</span> <span class="kc">true</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -280,7 +247,9 @@
 
 <p>You can reduce build time if dependencies are cached between builds.</p>
 
-<p>There are two recommended approaches here. Both require <code class="language-plaintext highlighter-rouge">package-lock.json</code> to be in version control.</p>
+<p>There are two recommended approaches here. Both require <code class="language-plaintext highlighter-rouge">package-lock.json</code> to be in version control. And both will cache tarballs in <code class="language-plaintext highlighter-rouge">~/.npm</code> - this is useful since <code class="language-plaintext highlighter-rouge">node_modules</code> get deleted by <code class="language-plaintext highlighter-rouge">npm ci</code> and so caching that would be useless.</p>
+
+<h4 id="setup-node-action-cache">Setup-node action cache</h4>
 
 <p>Built-in to <code class="language-plaintext highlighter-rouge">setup-node</code>, based on <a href="https://github.com/actions/setup-node#caching-packages-dependencies">doc</a>:</p>
 
@@ -288,19 +257,21 @@
   <li><code class="language-plaintext highlighter-rouge">main.yml</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
+        <span class="na">node-version</span><span class="pi">:</span> <span class="m">20</span>
         <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
 </code></pre></div>    </div>
   </li>
 </ul>
+
+<h4 id="cache-action">Cache action</h4>
 
 <p>Using a separate <code class="language-plaintext highlighter-rouge">cache</code> action, based on GH docs:</p>
 
@@ -308,7 +279,7 @@
   <li><code class="language-plaintext highlighter-rouge">main.yml</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
       <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v1</span>
@@ -325,14 +296,10 @@
           <span class="s">${{ runner.OS }}-</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
 </code></pre></div>    </div>
   </li>
 </ul>
-
-<p>For the cache action, it looks like this depends on a lockfile existing. I don’t like to commit that - perhaps <code class="language-plaintext highlighter-rouge">package.json</code> can be used instead.</p>
-
-<p>The docs actually use <code class="language-plaintext highlighter-rouge">npm ci</code> which will <em>delete</em> <code class="language-plaintext highlighter-rouge">node_modules</code>, so I’ve set up <code class="language-plaintext highlighter-rouge">npm install</code> here instead.</p>
 
 <h3 id="matrix">Matrix</h3>
 
@@ -354,7 +321,7 @@
 
       <span class="na">steps</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
-          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+          <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js ${{ matrix.node-version }}</span>
           <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>

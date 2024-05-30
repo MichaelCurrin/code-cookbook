@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Node" />
-<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -177,9 +177,9 @@
         
             <h2 id="build">Build</h2>
 
-<p>A Node app which builds to <code class="language-plaintext highlighter-rouge">dist</code> or <code class="language-plaintext highlighter-rouge">build</code> or similar.</p>
+<p>A Node app which builds to <code class="language-plaintext highlighter-rouge">dist</code>. If you use <code class="language-plaintext highlighter-rouge">build</code>, then replace <code class="language-plaintext highlighter-rouge">dist</code> below.</p>
 
-<p>For a Yarn app, it’s good ot ignore NPM logs too in case NPM is used. You can leave off the Yarn ones if not needed.</p>
+<p>For a Yarn app, it’s good to ignore NPM logs too, in case NPM is used. You can leave off the Yarn ones if not needed.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node_modules/
 dist/
@@ -187,6 +187,18 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+</code></pre></div></div>
+
+<p>Use that as a base and then add on using the sections below.</p>
+
+<h2 id="env-file">Env file</h2>
+
+<p>Based on a React quickstart.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 </code></pre></div></div>
 
 <h2 id="coverage">Coverage</h2>
@@ -201,9 +213,9 @@ yarn-error.log*
 basement_dist
 </code></pre></div></div>
 
-<h2 id="vuepress">VuePress</h2>
+<h2 id="vuepress-app">VuePress app</h2>
 
-<p>Auto-generated for VuePress.</p>
+<p>Auto-generated from VuePress.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pids
 logs

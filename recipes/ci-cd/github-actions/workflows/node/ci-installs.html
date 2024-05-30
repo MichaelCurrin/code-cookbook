@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="CI installs" />
-<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="generator" content="Jekyll v4.3.3" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -191,16 +191,18 @@
   <p>A note on use of <code class="language-plaintext highlighter-rouge">npm ci</code></p>
 </blockquote>
 
-<p>Some flows here use the <code class="language-plaintext highlighter-rouge">npm ci</code> command - see <a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/npm/commands/ci.html">NPM CI cheatsheet</a> to learn about the command.</p>
+<p>Some flows in pages here use the <code class="language-plaintext highlighter-rouge">npm ci</code> command. This can be safer deploy pipelines. See <a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/package-managers/javascript/npm/commands/ci.html">NPM CI cheatsheet</a> to learn about the command.</p>
 
-<p>A reason to <strong>not</strong> use is that it will delete <code class="language-plaintext highlighter-rouge">node_modules</code> if it exists. So if you use the <code class="language-plaintext highlighter-rouge">actions/cache</code> action to retrieved <strong>cached</strong> dependencies each time (for faster builds), make sure to use <code class="language-plaintext highlighter-rouge">npm install</code> rather than <code class="language-plaintext highlighter-rouge">npm ci</code>. Otherwise the cache is unused..</p>
+<h2 id="cache-concerns">Cache concerns</h2>
 
-<p>For more info on cache, see <a href="/recipes/ci-cd/github-actions/workflows/cache.md">Cache</a> page of this Cookbook.</p>
+<p>A reason to <strong>not</strong> use is that it will <strong>delete</strong> <code class="language-plaintext highlighter-rouge">node_modules</code> if it exists.</p>
 
-<p>The equivalent for Yarn:</p>
+<p>So if you use the <code class="language-plaintext highlighter-rouge">actions/cache</code> action to retrieved <strong>cached</strong> dependencies each time (for faster builds), make sure to use <code class="language-plaintext highlighter-rouge">npm install</code> rather than <code class="language-plaintext highlighter-rouge">npm ci</code>. Otherwise the cache is unused. There is then a risk that packages could get upgraded</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yarn <span class="nb">install</span> <span class="nt">--frozen-lockfile</span>
-</code></pre></div></div>
+<p>For more info on cache, see <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/cache.html">Cache</a> page of this Cookbook.</p>
+
+<p>You can also solve this issue by caching the tarballs in <code class="language-plaintext highlighter-rouge">~/.npm</code> rather than <code class="language-plaintext highlighter-rouge">node_modules</code>. This will safe downloading packages and still let <code class="language-plaintext highlighter-rouge">node_modules</code> get built each time.</p>
+
 
         
     </div>
