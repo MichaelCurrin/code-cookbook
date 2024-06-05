@@ -3,11 +3,11 @@
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/code-cookbook/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/code-cookbook/actions?query=workflow:"GH+Pages+Deploy")
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/code-cookbook?include_prereleases&sort=semver)](https://github.com/MichaelCurrin/code-cookbook/releases/)
-[![License](https://img.shields.io/badge/License-MIT-142f89)](#license)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-[![Jekyll](https://img.shields.io/badge/Jekyll-4-142f89?logo=jekyll&logoColor=white)](https://jekyllrb.com)
-[![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=142f89&logo=github)](https://github.com/MichaelCurrin/fractal)
-[![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-142f89?logo=github&logoColor=white)](https://pages.github.com/)
+[![Jekyll](https://img.shields.io/badge/Jekyll-4-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
+[![theme - fractal](https://img.shields.io/static/v1?label=theme&message=fractal&color=blue&logo=github)](https://github.com/MichaelCurrin/fractal)
+[![Hosted with - GitHub Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
 Achieve small or large tasks using recipes that contain steps, scripts, and config files.
 
@@ -35,7 +35,7 @@ To set up and run this project (or your fork), see the project docs:
 
 <div align="center">
 
-[![Docs](https://img.shields.io/badge/View-Documentation-142f89?style=for-the-badge)](/docs/ "Go to docs")
+[![Docs](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/ "Go to docs")
 
 </div>
 
@@ -46,7 +46,7 @@ Contributions are welcome. Please see the instructions:
 
 <div align="center">
 
-[![Contributing doc](https://img.shields.io/badge/View-Contributing_doc-142f89?style=for-the-badge)](/CONTRIBUTING.md "View contributing doc")
+[![Contributing doc](https://img.shields.io/badge/View-Contributing_doc-blue?style=for-the-badge)](/CONTRIBUTING.md "View contributing doc")
 
 </div>
 

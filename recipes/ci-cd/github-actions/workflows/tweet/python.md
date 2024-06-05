@@ -10,7 +10,7 @@ Here we set up a short Python script which can be run locally or using GH Action
 
 See **Tweet GitHub Actions** as a simple template repo that you can use.
 
-[![MichaelCurrin - tweet-gh-actions-py](https://img.shields.io/static/v1?label=MichaelCurrin&message=tweet-gh-actions-py&color=142f89&logo=github)](https://github.com/MichaelCurrin/tweet-gh-actions-py)
+[![MichaelCurrin - tweet-gh-actions-py](https://img.shields.io/static/v1?label=MichaelCurrin&message=tweet-gh-actions-py&color=blue&logo=github)](https://github.com/MichaelCurrin/tweet-gh-actions-py)
 
 
 ## Set up scripts

@@ -13,7 +13,7 @@ And the recipes are based on real-world code as much as possible, collecting fro
 
 <div align="center" style="padding-bottom: 1em;">
     <a href="{% link recipes/index.md %}">
-        <img src="https://img.shields.io/badge/all_recipe_topics-142f89?style=for-the-badge"
+        <img src="https://img.shields.io/badge/all_recipe_topics-blue?style=for-the-badge"
             alt="Go to recipes"/>
     </a>
 </div>

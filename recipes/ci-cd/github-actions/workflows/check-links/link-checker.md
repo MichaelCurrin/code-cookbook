@@ -1,6 +1,6 @@
 # Link Checker action
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Link%20Checker-142f89.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/link-checker)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Link%20Checker-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/link-checker)
 
 A GitHub action for link checking repository Markdown and HTML files.
 

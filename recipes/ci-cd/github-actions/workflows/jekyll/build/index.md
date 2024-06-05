@@ -29,5 +29,5 @@ That approach without GitHub Actions is much simpler. The downside is that you a
 
 See my Jekyll GH Actions Quickstart template project which demonstrates how to build a minimal site. It has a GH Actions flow which sets up Jekyll and runs GH Pages deploy in the last step.
 
-- [![MichaelCurrin - jekyll-gh-actions-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-gh-actions-quickstart&color=142f89&logo=github)](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart)
+- [![MichaelCurrin - jekyll-gh-actions-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-gh-actions-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/jekyll-gh-actions-quickstart)
 - [Live demo](https://michaelcurrin.github.io/jekyll-gh-actions-quickstart/) website.
