@@ -1,6 +1,6 @@
 # Markdown Link Check action
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Markdown_Link_Check-142f89.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/markdown-link-check)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Markdown_Link_Check-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/markdown-link-check)
 
 
 ## Usage

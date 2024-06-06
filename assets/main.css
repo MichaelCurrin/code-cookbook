@@ -113,21 +113,21 @@ h6 {
 /**
  * Links
  */
-a {
-  color: #142f89;
+a, .page-link.ext-link {
+  color: #153292;
   text-decoration: none;
 }
-a:visited {
-  color: #0a1846;
+a:visited, .page-link.ext-link:visited {
+  color: #0b1b4f;
 }
-a:hover {
+a:hover, .page-link.ext-link:hover {
   color: #111;
   text-decoration: underline;
 }
-.social-media-list a:hover {
+.social-media-list a:hover, .social-media-list .page-link.ext-link:hover {
   text-decoration: none;
 }
-.social-media-list a:hover .username {
+.social-media-list a:hover .username, .social-media-list .page-link.ext-link:hover .username {
   text-decoration: underline;
 }
 

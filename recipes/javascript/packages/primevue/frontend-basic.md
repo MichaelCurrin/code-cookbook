@@ -6,7 +6,7 @@
 
 See my PrimeVue project which uses ES Modules to allow `import` syntax. It doesn't use Node or build step.
 
-[![MichaelCurrin - primevue-frontend-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=primevue-frontend-quickstart&color=142f89&logo=github)](https://github.com/MichaelCurrin/primevue-frontend-quickstart)
+[![MichaelCurrin - primevue-frontend-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=primevue-frontend-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/primevue-frontend-quickstart)
 
 
 ## Docs sample

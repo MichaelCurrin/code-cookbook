@@ -70,7 +70,7 @@ Based on [post](https://itnext.io/create-your-first-web-scraper-in-go-with-goque
 
 ## Using Colly
 
-[![gocolly - colly](https://img.shields.io/static/v1?label=gocolly&message=colly&color=142f89&logo=github)](https://github.com/gocolly/colly)
+[![gocolly - colly](https://img.shields.io/static/v1?label=gocolly&message=colly&color=blue&logo=github)](https://github.com/gocolly/colly)
 
 > Lightning Fast and Elegant Scraping Framework for Gophers
 
