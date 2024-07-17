@@ -168,12 +168,12 @@
   </li>
   <li><code class="language-plaintext highlighter-rouge">versions.tf</code>
     <div class="language-terraform highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">terraform</span> <span class="p">{</span>
-    <span class="nx">required_version</span> <span class="p">=</span> <span class="s2">"&gt;= 0.13"</span>
+    <span class="nx">required_version</span> <span class="o">=</span> <span class="s2">"&gt;= 0.13"</span>
 
     <span class="nx">required_providers</span> <span class="p">{</span>
-      <span class="nx">datadog</span> <span class="p">=</span> <span class="p">{</span>
-        <span class="nx">source</span>  <span class="p">=</span> <span class="s2">"DataDog/datadog"</span>
-        <span class="nx">version</span> <span class="p">=</span> <span class="s2">"2.13.0"</span>
+      <span class="nx">datadog</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">source</span>  <span class="o">=</span> <span class="s2">"DataDog/datadog"</span>
+        <span class="nx">version</span> <span class="o">=</span> <span class="s2">"2.13.0"</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -193,9 +193,9 @@
 <ul>
   <li><code class="language-plaintext highlighter-rouge">main.tf</code>
     <div class="language-terraform highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">resource</span> <span class="s2">"datadog_synthetics_test"</span> <span class="s2">"this"</span> <span class="p">{</span>
-    <span class="nx">type</span>      <span class="p">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">check_type</span>
-    <span class="nx">subtype</span>   <span class="p">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">sub_type</span>
-    <span class="nx">name</span>      <span class="p">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">name</span>
+    <span class="nx">type</span>      <span class="o">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">check_type</span>
+    <span class="nx">subtype</span>   <span class="o">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">sub_type</span>
+    <span class="nx">name</span>      <span class="o">=</span> <span class="kd">var</span><span class="p">.</span><span class="nx">name</span>
     <span class="c1"># ...</span>
   <span class="p">}</span>
 </code></pre></div>    </div>

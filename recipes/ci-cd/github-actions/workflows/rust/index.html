@@ -618,7 +618,7 @@
   <span class="na">on</span><span class="pi">:</span>
     <span class="na">push</span><span class="pi">:</span>
       <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
-        
+
     <span class="na">pull_request</span><span class="pi">:</span>
       <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
 
@@ -630,54 +630,14 @@
       <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
 
       <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span> 
-        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
-        
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build 🏗️</span> 
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build 🏗️</span>
         <span class="na">run</span><span class="pi">:</span> <span class="s">cargo build --verbose</span>
-          
+
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Test 🚨</span>
         <span class="na">run</span><span class="pi">:</span> <span class="s">cargo test --verbose</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<h3 id="simple-infra">Simple Infra</h3>
-
-<p>This uses an Action is maintained by the Rust team.</p>
-
-<p>The <a href="https://github.com/rust-lang/simpleinfra/tree/master/github-actions/simple-ci">simple-ci</a> action, from the <code class="language-plaintext highlighter-rouge">rust-lang/simpleinfr</code> repo.</p>
-
-<blockquote>
-  <p>This builds, tests, and checks the formatting of your project.</p>
-</blockquote>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">main.yml</code>
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">name</span><span class="pi">:</span> <span class="s">Rust CI</span>
-
-  <span class="na">on</span><span class="pi">:</span>
-    <span class="na">push</span><span class="pi">:</span>
-      <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
-      <span class="na">paths-ignore</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s2">"</span><span class="s">docs/**"</span>
-
-    <span class="na">pull_request</span><span class="pi">:</span>
-      <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
-      <span class="na">paths-ignore</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s2">"</span><span class="s">docs/**"</span>
-
-  <span class="na">jobs</span><span class="pi">:</span>
-    <span class="na">build</span><span class="pi">:</span>
-      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-
-      <span class="na">steps</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
-
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Rust 🦀</span>
-          <span class="na">uses</span><span class="pi">:</span> <span class="s">rust-lang/simpleinfra/github-actions/simple-ci@master</span>
-          <span class="na">with</span><span class="pi">:</span>
-            <span class="na">check_fmt</span><span class="pi">:</span> <span class="kc">true</span>
 </code></pre></div>    </div>
   </li>
 </ul>
