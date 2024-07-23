@@ -54,11 +54,11 @@ You will also have a _private_ key as `~/.ssh/id_rsa`, though you don't need to 
 ### 3. Add public key to GitHub
 
 1. Login to GitHub account.
-1. Go to the SSH keys page
-    - [github.com/settings/keys](https://github.com/settings/keys)
-    - Or go to:
-        1. Settings.
-        1. SSH and GPG keys.
+1. Go to SSH keys page
+    - Click to go to [github.com/settings/keys](https://github.com/settings/keys)
+    - Or with UI:
+        1. Go Settings.
+        1. Go to SSH and GPG keys.
 1. Create a new SSH key.
 1. Give a title as description of your name (like `Michael` or `mcurrin`) and host (like `Mac` or `Dell`). e.g. `Michael Dell`. This can be renamed later easily.
 1. Paste the _public_ key copied from the previous section and save.
