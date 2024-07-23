@@ -8,7 +8,7 @@ How to set up SSH on your machine from scratch and configure SSH access on your 
 
 ## Related
 
-- [GitHub](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/github/) cheatsheet in my Dev Cheatsheets
+- [GitHub cheatsheet](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/version-control/github/) in my Dev Cheatsheets.
 
 
 ## Why
