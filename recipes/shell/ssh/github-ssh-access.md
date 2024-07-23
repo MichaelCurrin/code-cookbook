@@ -29,6 +29,8 @@ So using an HTTP URL is less secure as it needs a password or token. Using an SS
 
 ## Steps
 
+For Linux or macOS.
+
 ### 1. Generate keys
 
 1. Follow the [Install SSH][] recipe to install SSH tool on your machine.
@@ -64,18 +66,12 @@ That is based on this [tutorial](https://help.github.com/en/github/authenticatin
 
 ### 4. Use it
 
-Go to a repo on GitHub.
-
-Find the clone URL on the repo. Make sure to pick the _SSH_ option.
-
-Clone the URL locally.
-
-e.g.
-
-```sh
-$ git clone git@github.com:MichaelCurrin/code-cookbook.git
-```
-
+1. Go to a repo on GitHub.
+1. Find the clone URL on the repo. Make sure to pick the _SSH_ option.
+1. Clone the URL locally. e.g.
+    ```sh
+    $ git clone git@github.com:MichaelCurrin/code-cookbook.git
+    ```
 
 ## Use multiple SSH keys
 
@@ -91,6 +87,6 @@ If you want to start using a second GitHub account, do the following:
     Host github.com
         IdentityFile ~/.ssh/id_rsa_abc
     ```
-1. Do you clone or other Git commands.
+1. Run clone or other Git commands.
 
 This will stop using the old one until you switch it back. Alternatively you can try _Add key to SSH agent_ in [SSH keys][] guide and see if you can get the agent to recognize both keys but that might not be possible. Unless maybe the HostName or Host are setup for the org e.g. `github.com/my-org`.
