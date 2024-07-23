@@ -50,7 +50,7 @@ $ cat ~/.ssh/id_rsa.pub
 Copy to clipboard - on macOS.
 
 ```sh
-$ cat ~/.ssh/id_rsa.pub | pbcopy
+$ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 If the machine doesn't have an SSH key set, you'll have to _generate_ one - see below.
