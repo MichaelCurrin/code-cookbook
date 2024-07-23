@@ -5,6 +5,7 @@ description: Set up SSH keys on your machine and GitHub profile
 
 How to set up SSH on your machine from scratch and configure SSH access on your GitHub account. So you can do a clone, push and pull action using SSH repo URLs.
 
+This guide can be used for BitBucket or GitLab too, if you follow the interface on those platforms.
 
 ## Related
 
