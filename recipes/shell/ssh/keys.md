@@ -60,6 +60,8 @@ If the machine doesn't have an SSH key set, you'll have to _generate_ one - see 
 
 How to generate a new SSH key pair.
 
+_Note that GitHub dropped support for RSA so here we use Ed25519 algorithm instead. See [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)._
+
 First _navigate_ to the appropriate directory, to ensure the files get generated there.
 
 ```sh
@@ -72,42 +74,35 @@ Use the command below or see a bit further down for use with more flags.
 Create the key pair:
 
 ```sh
-$ ssh-keygen -t rsa
+$ ssh-keygen -t ed25519
 ```
 
 If this is your first SSH key on the current machine, you can leave the location as the default and press enter.
 
 ```
 Generating public/private rsa key pair.
-Enter file in which to save the key (~/.ssh/id_rsa):
+Enter file in which to save the key (~/.ssh/id_ed25519):
 ```
 
 That will use filenames as:
 
 ```
-~/.ssh/id_rsa
-~/.ssh/id_rsa.pub
+~/.ssh/id_ed25519
+~/.ssh/id_ed25519.pub
 ```
 
 Or, enter a custom name like `id_rsa_abc` and press enter.
 
 You can press enter to skip through the rest of the options - unless you want to set a passphrase on the SSH key.
 
-Alternate command, based on what is recommended by this [GitHub doc](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-
-```sh
-$ # New method
-$ ssh-keygen -t ed25519 -C "your_email@example.com"
-$ # Old method
-$ ssh-keygen -t rsa -b 4096
-```
-
 Flags:
 
-- `-t rsa`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
+- `-t ed25519`: Specifies the type of key to create. The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
 - `-b 4096`: Specifies the number of bits in the key to create.
 - `-f ~/.ssh/foo.key`: Specifies the filename of the key file, if you don't want to set this in the REPL.
-- `-C COMMENT`: A comment added to the end to help identify. This could be `"your_email@example.com"` as recommended by GitHub docs. But I prefer `"$USER@$HOSTNAME"` e.g. `michael@dell`, as it is specific to your machine. If you omit this flag you'll get that anyway.
+- `-C COMMENT`: A comment added to the end to help identify it.
+  - Set as `your_email@example.com` as recommended by GitHub docs.
+  - If you omit the flag, you'll get the default value, which looks like `"$USER@$HOSTNAME"` e.g. `michael@dell`. This makes sense if you want to use that machine name in your key contents as well as the name on GitHUb. And if you have multiple machines and want to identify them (rather than a single email address across machines). For security, should avoid using the same SSH key on multiple machines (which might be the temptation if you use the email as the identifier).
 
 See also this SSH Public Key [tutorial](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key) on Git's docs, but that doesn't add much to what is covered above.
 
