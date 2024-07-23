@@ -201,6 +201,8 @@
 
 <h2 id="steps">Steps</h2>
 
+<p>For Linux or macOS.</p>
+
 <h3 id="1-generate-keys">1. Generate keys</h3>
 
 <ol>
@@ -241,16 +243,14 @@
 
 <h3 id="4-use-it">4. Use it</h3>
 
-<p>Go to a repo on GitHub.</p>
-
-<p>Find the clone URL on the repo. Make sure to pick the <em>SSH</em> option.</p>
-
-<p>Clone the URL locally.</p>
-
-<p>e.g.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:MichaelCurrin/code-cookbook.git
-</code></pre></div></div>
+<ol>
+  <li>Go to a repo on GitHub.</li>
+  <li>Find the clone URL on the repo. Make sure to pick the <em>SSH</em> option.</li>
+  <li>Clone the URL locally. e.g.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>git clone git@github.com:MichaelCurrin/code-cookbook.git
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <h2 id="use-multiple-ssh-keys">Use multiple SSH keys</h2>
 
@@ -267,7 +267,7 @@
      IdentityFile ~/.ssh/id_rsa_abc
 </code></pre></div>    </div>
   </li>
-  <li>Do you clone or other Git commands.</li>
+  <li>Run clone or other Git commands.</li>
 </ol>
 
 <p>This will stop using the old one until you switch it back. Alternatively you can try <em>Add key to SSH agent</em> in <a href="/code-cookbook/recipes/shell/ssh/keys.html">SSH keys</a> guide and see if you can get the agent to recognize both keys but that might not be possible. Unless maybe the HostName or Host are setup for the org e.g. <code class="language-plaintext highlighter-rouge">github.com/my-org</code>.</p>
