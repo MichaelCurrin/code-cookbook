@@ -9,33 +9,33 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Check links | Code Cookbook</title>
+    <title>Artificial Intelligence | Code Cookbook</title>
 
-    <meta property="og:title" content="Check links" />
+    <meta property="og:title" content="Artificial Intelligence" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Check links" />
+    <meta property="twitter:title" content="Artificial Intelligence" />
 <meta name="generator" content="Jekyll v4.3.3" />
 
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="Tools to validate the local and external links on a site." />
-    <meta property="og:description" content="Tools to validate the local and external links on a site." />
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
 <meta name="author" content="Michael Currin" />
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "Tools to validate the local and external links on a site.",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/",
-    "headline":    "Check links",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/",
+    "headline":    "Artificial Intelligence",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/ci-cd/github-actions/workflows/check-links/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/artificial-intelligence/index.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/ci-cd/github-actions/workflows/check-links/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/artificial-intelligence/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,14 +105,9 @@
             
 
 
-            <span>Check links</span>
+            <span>Artificial Intelligence</span>
         </h1>
 
-        
-            <blockquote>
-                <p>Tools to validate the local and external links on a site.</p>
-
-            </blockquote>
         
     </header>
 
@@ -137,44 +132,8 @@
         
 
         
-            
-            <a href="/code-cookbook/recipes/ci-cd/">
-    CI/CD
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/">
-    GitHub Actions
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/">
-    Workflows
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/" class="underline">
-                Check links
+            <a href="/code-cookbook/recipes/artificial-intelligence/" class="underline">
+                Artificial Intelligence
             </a>
         
      
@@ -584,6 +543,7 @@
         
         
         
+        
         </div>
 
 <br>
@@ -594,78 +554,11 @@
     
 
 <ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/gh-action-md-link-check.html">
-                    
-
-
-                    <span>GitHub Action - Markdown link check</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/html-proofer-generic.html">
-                    
-
-
-                    <span>HTML Proofer generic</span>
-                </a>
-                    <i><p>Install and run the <code class="language-plaintext highlighter-rouge">html-proofer</code> gem with a generic Ruby action setup</p>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/html-proofer-wrappers.html">
-                    
-
-
-                    <span>HTML Proofer wrappers</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/link-checker.html">
-                    
-
-
-                    <span>Link Checker action</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/ci-cd/github-actions/workflows/check-links/markdown-link-check.html">
-                    
-
-
-                    <span>Markdown Link Check action</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        </ul>
+    </ul>
 
     <br>
 
     
-    
-        <h2>Content</h2>
-
-        <p>You can get a GH notification that your workflow failed and you can fix the links. You might want to have it stop your deploy, or not. You can also run the checks on a schedule such as weekly, so you check external links without having to do a depoy to trigger the workflow.</p>
-
-<p>Some action recipes here are intended for markdown files, while others will analyize the built site. Either way, this works great for a static site like Jekyll.</p>
-
-<h3 id="related-sections">Related sections</h3>
-
-<ul>
-  <li><a href="/code-cookbook/recipes/web/check-links/">Check links</a> recipes in the Web section.</li>
-</ul>
     
 
         
