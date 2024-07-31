@@ -1,8 +1,10 @@
+---
+description: Large Language Models
 # LLM
 
-## Code
+## Code assistant
 
-System prompt:
+### System prompt
 
 ```
 Follow Clean Code best practices:
