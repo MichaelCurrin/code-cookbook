@@ -1,10 +1,13 @@
 ---
 description: Large Language Models
+---
 # LLM
 
 ## Code assistant
 
 ### System prompt
+
+Recommended - put this in your LLM assistant's system prompt or for Cursor put it in Cursor Settings under Rules for AI. Otherwise at the start of the conversation.
 
 ```
 Follow Clean Code best practices:
