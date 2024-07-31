@@ -20,26 +20,26 @@ Always add docstrings.
 
 For Bash, keep docstrings to one line.
 
-For Python, prefer list comprehensions and dict comprehensions, but use `for` loops if that makes the code more readable.
-
-For Python, write Python docstrings using Google style format e.g.
+For Python, prefer list comprehensionsi and dict comprehensions, but use `for` loops if that makes the code more readable.
+For Python, remember to add imports when using new objects or types and put imports at the top of the file.
+For Python, write Python docstrings using Google style format including `:param name:` style and ending with a fullstop and empty between `:param:` and `:returns:` as below e.g.
    """
    Return the sum of abc and def.
    
    :param abc: Description.
    :param def: Description.
 
-   :return xyz: Description.
+   :returns xyz: Description.
    """
 
 For Python, write one-line docstrings on 3 lines. e.g.
     """
-    Description
+    Return the sum of abc and def.
     """
 
 For Python, prefer f-string formatting over other string formatting methods.
 
-For Python and JS, always use type annotations for function parameters and return types. Create custom types for complex structures, especially for lists and dicts.
+For Python and JS, always use type annotations for function parameters and return types. Create custom types for complex structures, especially for lists and dicts. Use the most modern types available for Python e.g. favor `list` over `List`.
 
 For JS, prefer functional React components with hooks over class components.
 For JS, use async-await syntax.
@@ -60,4 +60,9 @@ For Markdown:
   Create lists using a dash instead of an asterisk.
   Style bold text as `**bold**`.
   Style italic text as `_italics_`.
+
+Indentation
+  4 spaces for Python, Markdown, HTML, CSS.
+  2 spaces for JS, JSX, and Bash.
+  Use tabs for Makefile.
 ```
