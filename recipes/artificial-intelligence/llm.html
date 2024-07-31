@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Browser | Code Cookbook</title>
+    <title>LLM | Code Cookbook</title>
 
-    <meta property="og:title" content="Browser" />
+    <meta property="og:title" content="LLM" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Browser" />
+    <meta property="twitter:title" content="LLM" />
 <meta name="generator" content="Jekyll v4.3.3" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/browser/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/browser/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/llm.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/llm.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/javascript/browser/",
-    "headline":    "Browser",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/llm.html",
+    "headline":    "LLM",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/javascript/browser/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/artificial-intelligence/llm.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/javascript/browser/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/artificial-intelligence/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,7 +105,7 @@
             
 
 
-            <span>Browser</span>
+            <span>LLM</span>
         </h1>
 
         
@@ -133,8 +133,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/javascript/">
-    JavaScript
+            <a href="/code-cookbook/recipes/artificial-intelligence/">
+    Artificial Intelligence
 </a>
 
         
@@ -144,8 +144,8 @@
         
 
         
-            <a href="/code-cookbook/recipes/javascript/browser/" class="underline">
-                Browser
+            <a href="/code-cookbook/recipes/artificial-intelligence/llm.html" class="underline">
+                LLM
             </a>
         
      
@@ -157,446 +157,66 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <h2 id="code">Code</h2>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>System prompt:</p>
 
-<br>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Follow Clean Code best practices:
+  Meaningful names: Use clear, descriptive names for variables, functions, and classes.
+  Small functions: Keep functions short and focused on a single task.
+  DRY (Don't Repeat Yourself): Avoid code duplication.
+  SOLID principles: Follow Object-Oriented Design principles.
+  Comments: Write self-explanatory code, use comments sparingly. Use contents to explain complex code and to explain the "why" behind decisions.
+  Error handling: Handle exceptions gracefully, avoid returning null.
+  Simple design: Keep classes and methods simple and cohesive.
 
+Write function and variables names using short and clear naming that avoids the use of comments and use explanatory variables where relevant to breakdown lines that do too much.
 
-    <h2>Pages</h2>
+Always add docstrings.
 
-    
+For Bash, keep docstrings to one line.
 
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/javascript/browser/cookies.html">
-                    
+For Python, prefer list comprehensions and dict comprehensions, but use `for` loops if that makes the code more readable.
 
+For Python, write Python docstrings using Google style format e.g.
+   """
+   Return the sum of abc and def.
+   
+   :param abc: Description.
+   :param def: Description.
 
-                    <span>Cookies</span>
-                </a></li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/javascript/browser/redirect.html">
-                    
+   :return xyz: Description.
+   """
 
+For Python, write one-line docstrings on 3 lines. e.g.
+    """
+    Description
+    """
 
-                    <span>Redirect</span>
-                </a></li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/javascript/browser/wait-for-element.html">
-                    
+For Python, prefer f-string formatting over other string formatting methods.
 
+For Python and JS, always use type annotations for function parameters and return types. Create custom types for complex structures, especially for lists and dicts.
 
-                    <span>Wait for element</span>
-                </a></li>
-        </ul>
+For JS, prefer functional React components with hooks over class components.
+For JS, use async-await syntax.
+For JS, use function declarations for named functions. Use arrow functions for callbacks and short, anonymous functions.
+For JS, write JSDoc docstrings. e.g.
+  /**
+   * Return the sum of abc and def.
+   *
+   * @param abc Description.
+   * @param def Description.
+   *
+   * @returns xyz Description.
+   */
 
-    <br>
+In Bash, use UPPER_SNAKE_CASE for all variables and lower_snake_case for functions.
 
-    
-    
+For Markdown:
+  Create lists using a dash instead of an asterisk.
+  Style bold text as `**bold**`.
+  Style italic text as `_italics_`.
+</code></pre></div></div>
 
         
     </div>
