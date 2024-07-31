@@ -433,6 +433,9 @@
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/jekyll/json.html</loc>
 </url>
 <url>
+<loc>https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/llm.html</loc>
+</url>
+<url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/deploy-gh-pages/low-level.html</loc>
 </url>
 <url>
@@ -569,9 +572,6 @@
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/</loc>
-</url>
-<url>
-<loc>https://michaelcurrin.github.io/code-cookbook/recipes/artificial-intelligence/llm.html</loc>
 </url>
 <url>
 <loc>https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/circle-ci/basics.html</loc>
