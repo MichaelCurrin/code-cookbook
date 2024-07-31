@@ -7,6 +7,8 @@ description: Large Language Models
 
 ### System prompt
 
+Get consistent formatting, code style, type annotations, and documentation for your generated code.
+
 Recommended - put this in your LLM assistant's system prompt or for Cursor put it in Cursor Settings under Rules for AI. Otherwise at the start of the conversation.
 
 ```
