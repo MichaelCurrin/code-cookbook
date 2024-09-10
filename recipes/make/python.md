@@ -80,26 +80,26 @@ For `find`:
 TEST_PATH=./
 
 clean-pyc:
-    find . -name '*.pyc' -exec rm --force {} +
-    find . -name '*.pyo' -exec rm --force {} +
-    name '*~' -exec rm --force  {}
+	find . -name '*.pyc' -exec rm --force {} +
+	find . -name '*.pyo' -exec rm --force {} +
+	name '*~' -exec rm --force  {}
 
 clean-build:
-    rm --force --recursive build/
-    rm --force --recursive dist/
-    rm --force --recursive *.egg-info
+	rm --force --recursive build/
+	rm --force --recursive dist/
+	rm --force --recursive *.egg-info
 
 isort:
-    sh -c "isort --skip-glob=.tox --recursive . "
+	sh -c "isort --skip-glob=.tox --recursive . "
 
 lint:
-    flake8 --exclude=.tox
+	flake8 --exclude=.tox
 
 test: clean-pyc
-    py.test --verbose --color=yes $(TEST_PATH)
+	py.test --verbose --color=yes $(TEST_PATH)
 
 run:
-    python manage.py runserver
+	python manage.py runserver
 ```
 
 Removing `.pyc` files might be different for pycache dir in newer PY3 or even the global dir.
@@ -116,7 +116,7 @@ Optionally add this at the top to prevent a file with that name from being execu
 - `Makefile`
     ```make
     run:
-        python manage.py runserver --host $(HOST) --port $(PORT)
+	    python manage.py runserver --host $(HOST) --port $(PORT)
     ```
 
 Run:
@@ -169,8 +169,9 @@ foo:
 
 #### Spellcheck
 
+On comments and docstrings.
+
 ```make
-# Run spellcheck on comments and docstring.
 spell:  
 	@pylint --disable all --enable spelling --spelling-dict en_US --spelling-private-dict-file spell.txt my_app
 ```

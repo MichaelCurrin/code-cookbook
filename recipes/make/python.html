@@ -235,26 +235,26 @@
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TEST_PATH</span><span class="o">=</span>./
 
 <span class="nl">clean-pyc</span><span class="o">:</span>
-    <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyc'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
-    <span class="err">find</span> <span class="err">.</span> <span class="err">-name</span> <span class="s1">'*.pyo'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span> <span class="err">{}</span> <span class="err">+</span>
-    <span class="err">name</span> <span class="s1">'*~'</span> <span class="err">-exec</span> <span class="err">rm</span> <span class="err">--force</span>  <span class="err">{}</span>
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.pyc'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">--force</span> <span class="o">{}</span> +
+	find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.pyo'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">--force</span> <span class="o">{}</span> +
+	name <span class="s1">'*~'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">--force</span>  <span class="o">{}</span>
 
 <span class="nl">clean-build</span><span class="o">:</span>
-    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">build/</span>
-    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">dist/</span>
-    <span class="err">rm</span> <span class="err">--force</span> <span class="err">--recursive</span> <span class="err">*.egg-info</span>
+	<span class="nb">rm</span> <span class="nt">--force</span> <span class="nt">--recursive</span> build/
+	<span class="nb">rm</span> <span class="nt">--force</span> <span class="nt">--recursive</span> dist/
+	<span class="nb">rm</span> <span class="nt">--force</span> <span class="nt">--recursive</span> <span class="k">*</span>.egg-info
 
 <span class="nl">isort</span><span class="o">:</span>
-    <span class="err">sh</span> <span class="err">-c</span> <span class="s2">"isort --skip-glob=.tox --recursive . "</span>
+	sh <span class="nt">-c</span> <span class="s2">"isort --skip-glob=.tox --recursive . "</span>
 
 <span class="nl">lint</span><span class="o">:</span>
-    <span class="err">flake8</span> <span class="nv">--exclude</span><span class="o">=</span>.tox
+	flake8 <span class="nt">--exclude</span><span class="o">=</span>.tox
 
 <span class="nl">test</span><span class="o">:</span> <span class="nf">clean-pyc</span>
-    <span class="err">py.test</span> <span class="err">--verbose</span> <span class="nv">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="p">$(</span>TEST_PATH<span class="p">)</span>
+	py.test <span class="nt">--verbose</span> <span class="nt">--color</span><span class="o">=</span><span class="nb">yes</span> <span class="p">$(</span>TEST_PATH<span class="p">)</span>
 
 <span class="nl">run</span><span class="o">:</span>
-    <span class="err">python</span> <span class="err">manage.py</span> <span class="err">runserver</span>
+	python manage.py runserver
 </code></pre></div></div>
 
 <p>Removing <code class="language-plaintext highlighter-rouge">.pyc</code> files might be different for pycache dir in newer PY3 or even the global dir.</p>
@@ -319,8 +319,9 @@
 
 <h4 id="spellcheck">Spellcheck</h4>
 
-<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run spellcheck on comments and docstring.
-</span><span class="nl">spell</span><span class="o">:</span>  
+<p>On comments and docstrings.</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">spell</span><span class="o">:</span>  
 	<span class="p">@</span>pylint <span class="nt">--disable</span> all <span class="nt">--enable</span> spelling <span class="nt">--spelling-dict</span> en_US <span class="nt">--spelling-private-dict-file</span> spell.txt my_app
 </code></pre></div></div>
 
