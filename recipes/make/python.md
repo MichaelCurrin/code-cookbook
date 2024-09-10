@@ -19,7 +19,7 @@ For MyPy, see [Mypy - Add to project](../python/mypy/add-to-project.md) guide in
 From: [github.com/willmcgugan](https://github.com/willmcgugan/rich/)
 
 - `Makefile` - I am interested in the Mypy lines here.
-	```makefile
+	```make
 	test:
 		pytest --cov-report term-missing --cov=rich tests/ -vv
 		
@@ -191,7 +191,6 @@ install-dev:
 	pip install -r requirements-dev.txt
 
 
-
 lint:
 	flake8 --max-line-length 88 abc/ tests/
 	isort -rc -c abc/ tests/
@@ -264,4 +263,25 @@ pypi: ## upload the built distributions to PyPI.
 
 testpypi: ## upload the distrubutions to PyPI's testing server.
 	python -m twine upload --verbose --repository testpypi dist/*
+```
+
+
+## Quality checks and formatitng
+
+Based on [promptsource](https://github.com/bigscience-workshop/promptsource/blob/main/Makefile).
+
+Without config files.
+
+```Makefile
+CHECK_DIRS = my_app
+LINE_LENGTH = 119
+
+fmt-check:
+	black $(CHECK_DIRS) --line-length $(LINE_LENGTH) --target-version py38 --check 
+	isort $(CHECK_DIRS) --check-only
+	flake8 $(CHECK_DIRS) --max-line-length $(LINE_LENGTH)
+
+fmt:
+	black $(CHECK_DIRS) --line-length $(LINE_LENGTH) --target-version py38
+	isort $(CHECK_DIRS)
 ```

@@ -173,7 +173,7 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">Makefile</code> - I am interested in the Mypy lines here.
-    <div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nl">test</span><span class="o">:</span>
+    <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nl">test</span><span class="o">:</span>
       <span class="err">pytest</span> <span class="err">--cov-report</span> <span class="err">term-missing</span> <span class="nv">--cov</span><span class="o">=</span>rich tests/ <span class="nt">-vv</span>
 		
   <span class="nl">format</span><span class="o">:</span>
@@ -338,7 +338,6 @@
 	pip <span class="nb">install</span> <span class="nt">-r</span> requirements-dev.txt
 
 
-
 <span class="nl">lint</span><span class="o">:</span>
 	flake8 <span class="nt">--max-line-length</span> 88 abc/ tests/
 	isort <span class="nt">-rc</span> <span class="nt">-c</span> abc/ tests/
@@ -410,6 +409,25 @@
 <span class="nl">testpypi</span><span class="o">:</span> <span class="c">##</span><span class="nf"> upload the distrubutions to PyPI's testing server.</span>
 	python <span class="nt">-m</span> twine upload <span class="nt">--verbose</span> <span class="nt">--repository</span> testpypi dist/<span class="k">*</span>
 </code></pre></div></div>
+
+<h2 id="quality-checks-and-formatitng">Quality checks and formatitng</h2>
+
+<p>Based on <a href="https://github.com/bigscience-workshop/promptsource/blob/main/Makefile">promptsource</a>.</p>
+
+<p>Without config files.</p>
+
+<pre><code class="language-Makefile">CHECK_DIRS = my_app
+LINE_LENGTH = 119
+
+fmt-check:
+	black $(CHECK_DIRS) --line-length $(LINE_LENGTH) --target-version py38 --check 
+	isort $(CHECK_DIRS) --check-only
+	flake8 $(CHECK_DIRS) --max-line-length $(LINE_LENGTH)
+
+fmt:
+	black $(CHECK_DIRS) --line-length $(LINE_LENGTH) --target-version py38
+	isort $(CHECK_DIRS)
+</code></pre>
 
         
     </div>
