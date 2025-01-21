@@ -24,35 +24,31 @@ Or add the following to your `~/.gitconfig` config file directly, then save it.
 
 ## 2. Create the ignore file
 
-```sh
-$ touch ~/.gitignore
-```
-
-Edit it.
-
-Add any rules to it. For example:
-
-```
-# Linux folder attributes and PyCharm metadata.
-.idea
-
-# Mac folder attributes
-.DS_Store
-```
-
-Save and exit.
+1. Create and edit a file here e.g.
+    ```sh
+    $ vim ~/.gitignore
+    ```
+1. Add any rules to it. For example:
+    ```
+    # Linux folder attributes and PyCharm metadata.
+    .idea
+    
+    # Mac folder attributes
+    .DS_Store
+    ```
+1. Save and exit.
 
 
 ## 3. Test the ignoring
 
-Navigate to a repo.
+The change will appear in your IDE.
 
-Create a file or folder which is in your ignore list.
+Check with CLI steps:
 
-Then run:
-
-```sh
-$ git status
-```
-
-You will see the file or folder will be ignored.
+1. Navigate to a repo.
+1. Create a file or folder which is in your ignore list.
+1. Then run:
+    ```sh
+    $ git status
+    ```
+1. You will see the file or folder will be ignored.
