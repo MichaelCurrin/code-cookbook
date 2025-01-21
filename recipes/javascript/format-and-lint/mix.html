@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Mix" />
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.3.4" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -181,36 +181,36 @@
 </code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">.eslintrc.json</code>
-    <pre><code class="language-json5">  {
-    "plugins": ["jest", "@typescript-eslint"],
-    "extends": ["plugin:github/es6"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 9,
-      "sourceType": "module",
-      "project": "./tsconfig.json"
-    },
-    "rules": {
-      "eslint-comments/no-use": "off",
-      "import/no-namespace": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error",
+    <div class="language-json5 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"plugins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"jest"</span><span class="p">,</span><span class="w"> </span><span class="s2">"@typescript-eslint"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"plugin:github/es6"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"parser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@typescript-eslint/parser"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parserOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ecmaVersion"</span><span class="p">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./tsconfig.json"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"eslint-comments/no-use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"import/no-namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"no-unused-vars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@typescript-eslint/no-unused-vars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
 
-      // ...
+      </span><span class="c">// ...</span><span class="w">
 
-      "@typescript-eslint/restrict-plus-operands": "error",
-      "semi": "off",
-      "@typescript-eslint/semi": ["error", "never"],
-      "@typescript-eslint/type-annotation-spacing": "error",
-      "@typescript-eslint/unbound-method": "error"
-    },
-    "env": {
-      "node": true,
-      "es6": true,
-      "jest/globals": true
-    }
-  }
-</code></pre>
+      </span><span class="nl">"@typescript-eslint/restrict-plus-operands"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"semi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@typescript-eslint/semi"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"never"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"@typescript-eslint/type-annotation-spacing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@typescript-eslint/unbound-method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"node"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"es6"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"jest/globals"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">.prettierrc.json</code>
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">

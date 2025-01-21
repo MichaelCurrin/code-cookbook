@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Global ignore" />
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.3.4" />
 
 <meta property="og:locale" content="en_US" />
 
@@ -191,34 +191,37 @@
 
 <h2 id="2-create-the-ignore-file">2. Create the ignore file</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch</span> ~/.gitignore
-</code></pre></div></div>
-
-<p>Edit it.</p>
-
-<p>Add any rules to it. For example:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Linux folder attributes and PyCharm metadata.
-.idea
-
-# Mac folder attributes
-.DS_Store
-</code></pre></div></div>
-
-<p>Save and exit.</p>
+<ol>
+  <li>Create and edit a file here e.g.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>vim ~/.gitignore
+</code></pre></div>    </div>
+  </li>
+  <li>Add any rules to it. For example:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # Linux folder attributes and PyCharm metadata.
+ .idea
+    
+ # Mac folder attributes
+ .DS_Store
+</code></pre></div>    </div>
+  </li>
+  <li>Save and exit.</li>
+</ol>
 
 <h2 id="3-test-the-ignoring">3. Test the ignoring</h2>
 
-<p>Navigate to a repo.</p>
+<p>The change will appear in your IDE.</p>
 
-<p>Create a file or folder which is in your ignore list.</p>
+<p>Check with CLI steps:</p>
 
-<p>Then run:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
-</code></pre></div></div>
-
-<p>You will see the file or folder will be ignored.</p>
+<ol>
+  <li>Navigate to a repo.</li>
+  <li>Create a file or folder which is in your ignore list.</li>
+  <li>Then run:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>git status
+</code></pre></div>    </div>
+  </li>
+  <li>You will see the file or folder will be ignored.</li>
+</ol>
 
         
     </div>
