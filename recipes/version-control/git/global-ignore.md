@@ -35,6 +35,10 @@ Or add the following to your `~/.gitconfig` config file directly, then save it.
     
     # Mac folder attributes
     .DS_Store
+
+    # Directories for todo items, local notes and testing code.
+    _TODO
+    _NOTES
     ```
 1. Save and exit.
 
