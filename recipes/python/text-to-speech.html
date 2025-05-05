@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>jQuery | Code Cookbook</title>
+    <title>Speech to test | Code Cookbook</title>
 
-    <meta property="og:title" content="jQuery" />
+    <meta property="og:title" content="Speech to test" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="jQuery" />
+    <meta property="twitter:title" content="Speech to test" />
 <meta name="generator" content="Jekyll v4.4.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/jquery/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/jquery/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/python/text-to-speech.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/python/text-to-speech.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/javascript/packages/jquery/",
-    "headline":    "jQuery",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/python/text-to-speech.html",
+    "headline":    "Speech to test",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/javascript/packages/jquery/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/python/text-to-speech.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/javascript/packages/jquery/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/python/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,7 +105,7 @@
             
 
 
-            <span>jQuery</span>
+            <span>Speech to test</span>
         </h1>
 
         
@@ -133,8 +133,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/javascript/">
-    JavaScript
+            <a href="/code-cookbook/recipes/python/">
+    Python
 </a>
 
         
@@ -144,20 +144,8 @@
         
 
         
-            
-            <a href="/code-cookbook/recipes/javascript/packages/">
-    Packages
-</a>
-
-        
-     
-        
-            /
-        
-
-        
-            <a href="/code-cookbook/recipes/javascript/packages/jquery/" class="underline">
-                jQuery
+            <a href="/code-cookbook/recipes/python/text-to-speech.html" class="underline">
+                Speech to test
             </a>
         
      
@@ -169,431 +157,45 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <h2 id="subprocess-and-say">Subprocess and say</h2>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>Using <code class="language-plaintext highlighter-rouge">say</code> which is builtin on macOS. But robotic and limited.</p>
 
-<br>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">subprocess</span>
 
 
-    <h2>Pages</h2>
+<span class="n">text_to_speak</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Hello, world!</span><span class="sh">"</span>
+<span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">say</span><span class="sh">"</span><span class="p">,</span> <span class="n">text_to_speak</span><span class="p">])</span>
+</code></pre></div></div>
 
-    
+<h2 id="using-pyttsx3">Using pyttsx3</h2>
 
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/javascript/packages/jquery/accordion.html">
-                    
+<p>A free library for generating text to speech locally.</p>
+
+<p>Allows custom rate as below but still robotic.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>pyttsx3
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">pyttsx3</span>
 
 
-                    <span>Accordion</span>
-                </a></li>
-        </ul>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">init</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">pyttsx3</span><span class="p">.</span><span class="nf">init</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">say</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">engine</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="sh">"</span><span class="s">I will speak this text</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">run</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">engine</span><span class="p">.</span><span class="nf">runAndWait</span><span class="p">()</span>
 
-    <br>
 
-    
-    
+<span class="n">rate</span> <span class="o">=</span> <span class="n">engine</span><span class="p">.</span><span class="nf">getProperty</span><span class="p">(</span><span class="sh">"</span><span class="s">rate</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+<span class="c1"># 200.0
+</span><span class="n">engine</span><span class="p">.</span><span class="nf">setProperty</span><span class="p">(</span><span class="sh">"</span><span class="s">rate</span><span class="sh">"</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+
+<span class="n">engine</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="sh">"</span><span class="s">I will speak this text slower</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">engine</span><span class="p">.</span><span class="nf">runAndWait</span><span class="p">()</span>
+</code></pre></div></div>
 
         
     </div>
