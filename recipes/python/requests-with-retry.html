@@ -9,33 +9,33 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>jQuery datatables | Code Cookbook</title>
+    <title>Requests with retry | Code Cookbook</title>
 
-    <meta property="og:title" content="jQuery datatables" />
+    <meta property="og:title" content="Requests with retry" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="jQuery datatables" />
+    <meta property="twitter:title" content="Requests with retry" />
 <meta name="generator" content="Jekyll v4.4.1" />
 
 <meta property="og:locale" content="en_US" />
 
 
-    <meta name="description" content="Make your tables interactive" />
-    <meta property="og:description" content="Make your tables interactive" />
+    <meta name="description" content="Reusable code patterns which you can use as reference or copy to your project" />
+    <meta property="og:description" content="Reusable code patterns which you can use as reference or copy to your project" />
 <meta name="author" content="Michael Currin" />
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/web/jquery-datatables/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/web/jquery-datatables/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/python/requests-with-retry.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/python/requests-with-retry.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
-    "description": "Make your tables interactive",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/web/jquery-datatables/",
-    "headline":    "jQuery datatables",
+    "description": "Reusable code patterns which you can use as reference or copy to your project",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/python/requests-with-retry.html",
+    "headline":    "Requests with retry",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/web/jquery-datatables/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/python/requests-with-retry.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/web/jquery-datatables/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/python/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,14 +105,9 @@
             
 
 
-            <span>jQuery datatables</span>
+            <span>Requests with retry</span>
         </h1>
 
-        
-            <blockquote>
-                <p>Make your tables interactive</p>
-
-            </blockquote>
         
     </header>
 
@@ -138,8 +133,8 @@
 
         
             
-            <a href="/code-cookbook/recipes/web/">
-    Web
+            <a href="/code-cookbook/recipes/python/">
+    Python
 </a>
 
         
@@ -149,8 +144,8 @@
         
 
         
-            <a href="/code-cookbook/recipes/web/jquery-datatables/" class="underline">
-                jQuery datatables
+            <a href="/code-cookbook/recipes/python/requests-with-retry.html" class="underline">
+                Requests with retry
             </a>
         
      
@@ -162,480 +157,55 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">urllib3.util.retry</span> <span class="kn">import</span> <span class="n">Retry</span>
 
-<div class="flex-container">
+<span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">from</span> <span class="n">requests.adapters</span> <span class="kn">import</span> <span class="n">HTTPAdapter</span>
+
+
+<span class="k">def</span> <span class="nf">requests_retry_session</span><span class="p">(</span>
+    <span class="n">retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">status_forcelist</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">502</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">504</span><span class="p">),</span>
+    <span class="n">session</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Return a requests.Session object with a retry strategy.
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+    Args:
+        retries (int): Number of retries to attempt.
+        backoff_factor (float): A backoff factor to apply between attempts.
+        status_forcelist (tuple): A set of HTTP status codes that we should retry on.
+        session (requests.Session): An existing session object to mount the adapter on.
 
-<br>
+    Returns:
+        requests.Session: A session object configured for retries.
+    </span><span class="sh">"""</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">session</span> <span class="ow">or</span> <span class="n">requests</span><span class="p">.</span><span class="nc">Session</span><span class="p">()</span>
+
+    <span class="n">retry</span> <span class="o">=</span> <span class="nc">Retry</span><span class="p">(</span>
+        <span class="n">total</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+        <span class="n">read</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+        <span class="n">connect</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+        <span class="n">backoff_factor</span><span class="o">=</span><span class="n">backoff_factor</span><span class="p">,</span>
+        <span class="n">status_forcelist</span><span class="o">=</span><span class="n">status_forcelist</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="nc">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="n">retry</span><span class="p">)</span>
+    <span class="n">session</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="sh">'</span><span class="s">http://</span><span class="sh">'</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+    <span class="n">session</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="sh">'</span><span class="s">https://</span><span class="sh">'</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">session</span>
 
 
-    <h2>Pages</h2>
-
-    
-
-<ul class="page-list">
-    
-            <li>
-                <a href="/code-cookbook/recipes/web/jquery-datatables/basic-html-table.html">
-                    
-
-
-                    <span>Basic HTML table</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        
-            <li>
-                <a href="/code-cookbook/recipes/web/jquery-datatables/basic-markdown-table.html">
-                    
-
-
-                    <span>Basic Markdown Table</span>
-                </a>
-                    <i>
-</i>
-                </li>
-        </ul>
-
-    <br>
-
-    
-    
-        <h2>Content</h2>
-
-        <h2 id="resources">Resources</h2>
-
-<p>See <a href="https://datatables.net">datatables.net</a> homepage.</p>
-
-<p>See <a href="https://www.datatables.net/examples/basic_init/zero_configuration.html">Zero Configuration</a> tutorial there.</p>
-
-<h2 id="what-you-get">What you get</h2>
-
-<p>Turning your table into a Datatable gives you the following, without configuration:</p>
-
-<ul>
-  <li>The option to show X entries</li>
-  <li>A filter/search bar</li>
-  <li>Sortable columns</li>
-  <li>Prettified columns</li>
-  <li>Pagination at the bottom</li>
-</ul>
-
-<h2 id="required-setup">Required setup</h2>
-
-<ul>
-  <li>CSS</li>
-  <li>JavaScript</li>
-  <li>Table</li>
-</ul>
-
-<h2 id="customization">Customization</h2>
-
-<ul>
-  <li>Add a <a href="https://datatables.net/reference/button/csv">Download CSV</a> button.</li>
-</ul>
-    
+<span class="c1"># Example usage
+</span><span class="k">try</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nf">requests_retry_session</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">http://httpbin.org/status/500</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">raise_for_status</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Success!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">requests</span><span class="p">.</span><span class="n">exceptions</span><span class="p">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Failed after retries: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
 
         
     </div>
