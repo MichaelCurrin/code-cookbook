@@ -157,13 +157,12 @@
 
     <div class="post-content">
         
-            <p>Useful commands to put in the <code class="language-plaintext highlighter-rouge">scripts</code> section of <code class="language-plaintext highlighter-rouge">package.json</code> file.</p>
+            <p>Useful commands to put in the <code class="language-plaintext highlighter-rouge">scripts</code> section of <code class="language-plaintext highlighter-rouge">package.json</code> file for quality checks.</p>
 
 <p>From <a href="https://github.com/actions/checkout">source</a>.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc &amp;&amp; ncc build &amp;&amp; node lib/misc/generate-docs.js"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write **/*.ts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"format-check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check **/*.ts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint src/**/*.ts"</span><span class="p">,</span><span class="w">
