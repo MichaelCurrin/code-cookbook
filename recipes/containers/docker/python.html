@@ -210,6 +210,29 @@
 	docker run --rm myapp
 </code></pre>
 
+<p>Multi-stage build, to avoid dev tools in the final image.</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-slim-buster</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">builder</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="k">COPY</span><span class="s"> requirements.txt .</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> <span class="nt">-r</span> requirements.txt
+
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="k">FROM</span><span class="s"> python:3.9-slim-buster</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="k">COPY</span><span class="s"> --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages</span>
+<span class="k">COPY</span><span class="s"> --from=builder /app .</span>
+
+<span class="k">EXPOSE</span><span class="s"> 8000</span>
+
+<span class="k">CMD</span><span class="s"> ["python", "app.py"]</span>
+</code></pre></div></div>
+
 <h2 id="cli-only">CLI only</h2>
 
 <p>Here we use a Python image as a drop-in replacement for running the <code class="language-plaintext highlighter-rouge">python</code> command.</p>
