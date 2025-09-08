@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Nginx | Code Cookbook</title>
+    <title>Go | Code Cookbook</title>
 
-    <meta property="og:title" content="Nginx" />
+    <meta property="og:title" content="Go" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Nginx" />
+    <meta property="twitter:title" content="Go" />
 <meta name="generator" content="Jekyll v4.4.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/nginx/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/nginx/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/go.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/go.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/nginx/",
-    "headline":    "Nginx",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/containers/docker/go.html",
+    "headline":    "Go",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/nginx/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/containers/docker/go.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/nginx/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/containers/docker/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,11 +105,7 @@
             
 
 
-<span class="logo-medium"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NGINX</title><path fill="currentColor" d="M12 0L1.605 6v12L12 24l10.395-6V6L12 0zm6 16.59c0 .705-.646 1.29-1.529 1.29-.631 0-1.351-.255-1.801-.81l-6-7.141v6.66c0 .721-.57 1.29-1.274 1.29H7.32c-.721 0-1.29-.6-1.29-1.29V7.41c0-.705.63-1.29 1.5-1.29.646 0 1.38.255 1.83.81l5.97 7.141V7.41c0-.721.6-1.29 1.29-1.29h.075c.72 0 1.29.6 1.29 1.29v9.18H18z"/></svg></span>
-
-
-
-            <span>Nginx</span>
+            <span>Go</span>
         </h1>
 
         
@@ -136,8 +132,32 @@
         
 
         
-            <a href="/code-cookbook/recipes/nginx/" class="underline">
-                Nginx
+            
+            <a href="/code-cookbook/recipes/containers/">
+    Containers
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            
+            <a href="/code-cookbook/recipes/containers/docker/">
+    Docker
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/containers/docker/go.html" class="underline">
+                Go
             </a>
         
      
@@ -149,432 +169,25 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.20</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">builder</span>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
 
-<br>
+<span class="k">COPY</span><span class="s"> go.mod go.sum ./</span>
+<span class="k">RUN </span>go mod download
 
+<span class="k">COPY</span><span class="s"> . .</span>
 
-    <h2>Pages</h2>
+<span class="k">RUN </span><span class="nv">CGO_ENABLED</span><span class="o">=</span>0 <span class="nv">GOOS</span><span class="o">=</span>linux go build <span class="nt">-o</span> myapp .
 
-    
+<span class="k">FROM</span><span class="s"> alpine:latest</span>
 
-<ul class="page-list">
-    </ul>
+<span class="k">WORKDIR</span><span class="s"> /root/</span>
 
-    <br>
+<span class="k">COPY</span><span class="s"> --from=builder /app/myapp .</span>
 
-    
-    
-        <h2>Content</h2>
-
-        <ul>
-  <li><a href="https://www.nginx.com/">Homepage</a></li>
-  <li><a href="https://en.wikipedia.org/wiki/Nginx">Wikipedia</a></li>
-</ul>
-    
+<span class="k">CMD</span><span class="s"> ["./myapp"]</span>
+</code></pre></div></div>
 
         
     </div>
