@@ -181,21 +181,21 @@
 
     <div class="post-content">
         
-            <div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[build]</span>
-  <span class="py">command</span> <span class="p">=</span> <span class="s">"bundle exec jekyll build --trace"</span>
-  <span class="py">publish</span> <span class="p">=</span> <span class="s">"_site"</span>
+            <div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">[</span><span class="n">build</span><span class="k">]</span>
+  <span class="n">command</span> <span class="o">=</span><span class="w"> </span><span class="s">"bundle exec jekyll build --trace"</span>
+  <span class="n">publish</span> <span class="o">=</span><span class="w"> </span><span class="s">"_site"</span>
 
-<span class="nn">[build.environment]</span>
-  <span class="py">JEKYLL_ENV</span> <span class="p">=</span> <span class="s">"production"</span>
+<span class="k">[</span><span class="n">build</span><span class="k">.</span><span class="n">environment</span><span class="k">]</span>
+  <span class="n">JEKYLL_ENV</span> <span class="o">=</span><span class="w"> </span><span class="s">"production"</span>
 </code></pre></div></div>
 
 <p>You can just run <code class="language-plaintext highlighter-rouge">jekyll build</code> if you want - Netlify will still use <code class="language-plaintext highlighter-rouge">bundle</code> either way.</p>
 
 <p>I like to use a <code class="language-plaintext highlighter-rouge">Makefile</code> with a <code class="language-plaintext highlighter-rouge">build</code> command set up, including the prod environment setting there. Then if I change the <code class="language-plaintext highlighter-rouge">Makefile</code>, I get the same change in both my local usage and remote builds.</p>
 
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[build]</span>
-  <span class="py">command</span> <span class="p">=</span> <span class="s">"make build"</span>
-  <span class="py">publish</span> <span class="p">=</span> <span class="s">"_site"</span>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">[</span><span class="n">build</span><span class="k">]</span>
+  <span class="n">command</span> <span class="o">=</span><span class="w"> </span><span class="s">"make build"</span>
+  <span class="n">publish</span> <span class="o">=</span><span class="w"> </span><span class="s">"_site"</span>
 </code></pre></div></div>
 
         

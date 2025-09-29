@@ -202,22 +202,22 @@
 
 <p>Here is what the general syntax is like for a <code class="language-plaintext highlighter-rouge">.editorconfig</code> file.</p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-<span class="nn">[*]</span>
-<span class="py">foo</span> <span class="p">=</span> <span class="s">bar</span>
-
-<span class="nn">[*.foo]</span>
-<span class="c"># ...
-</span>
-<span class="nn">[*.{buzz,bazz}]</span>
-<span class="c"># ...
-</span>
-<span class="nn">[lib/**.js]</span>
-<span class="c"># ...
-</span>
-<span class="nn">[{*.gql,Makefile}]</span>
-<span class="c"># ...
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+</span><span class="nn">[*]</span><span class="w">
+</span><span class="py">foo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">bar</span>
+<span class="w">
+</span><span class="nn">[*.foo]</span><span class="w">
+</span><span class="c"># ...
+</span><span class="w">
+</span><span class="nn">[*.{buzz,bazz}]</span><span class="w">
+</span><span class="c"># ...
+</span><span class="w">
+</span><span class="nn">[lib/**.js]</span><span class="w">
+</span><span class="c"># ...
+</span><span class="w">
+</span><span class="nn">[{*.gql,Makefile}]</span><span class="w">
+</span><span class="c"># ...
 </span></code></pre></div></div>
 
 <p>Some like to put this at the top of the file before <code class="language-plaintext highlighter-rouge">root</code>.</p>
@@ -239,18 +239,18 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="nn">[*]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
-
-  <span class="nn">[*.{html,md}]</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-
-  <span class="nn">[Makefile]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
+<span class="w">
+  </span><span class="nn">[*.{html,md}]</span><span class="w">
+  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="w">
+  </span><span class="nn">[Makefile]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -263,7 +263,7 @@
   <li>The <code class="language-plaintext highlighter-rouge">Makefile</code> part is clearer on its own. Take it out if you don’t use a <code class="language-plaintext highlighter-rouge">Makefile</code>.</li>
   <li>For Python projects, use <code class="language-plaintext highlighter-rouge">py</code> in the <code class="language-plaintext highlighter-rouge">html</code> section.</li>
   <li>Set the max line length to <code class="language-plaintext highlighter-rouge">80</code> or <code class="language-plaintext highlighter-rouge">100</code>, as you like. I can’t see a difference in JS files. But I can see an HTML file wrapping differently as I change this to short values like <code class="language-plaintext highlighter-rouge">10</code>.
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">max_line_length</span> <span class="p">=</span> <span class="s">80</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="py">max_line_length</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">80</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -274,17 +274,17 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="nn">[*]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-
-  <span class="nn">[*.{js,json}]</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
-
-  <span class="nn">[Makefile]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="w">
+  </span><span class="nn">[*.{js,json}]</span><span class="w">
+  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
+<span class="w">
+  </span><span class="nn">[Makefile]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -297,12 +297,12 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*]</span>
-  <span class="c"># ...
-</span>  <span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
-  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
-  <span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
-  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="c"># ...
+</span><span class="w">  </span><span class="py">end_of_line</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">lf</span>
+<span class="w">  </span><span class="py">charset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">utf-8</span>
+<span class="w">  </span><span class="py">trim_trailing_whitespace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">  </span><span class="py">insert_final_newline</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -319,55 +319,55 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*.py]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="nn">[*.py]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div>    </div>
   </li>
 </ul>
 
 <p>Optionally set the size. Though, PyLint CLI, the VS Code extensions and VS Code settings handle this fine without setting this.</p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">max_line_length</span> <span class="p">=</span> <span class="s">80</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">max_line_length</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">80</span>
 </code></pre></div></div>
 
 <h3 id="two-spaces">Two spaces</h3>
 
 <p>If needed, also add this to the samples below.</p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
 </code></pre></div></div>
 
 <h3 id="configs">Configs</h3>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{json,yml}]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{json,yml}]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
 <h4 id="shell">Shell</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.sh]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.sh]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
 <h4 id="javascript">JavaScript</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.js]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.js]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,ts}]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,ts}]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,json}]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.{js,json}]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
 <h4 id="ruby">Ruby</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.rb]</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.rb]</span><span class="w">
+</span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div></div>
 
 <h3 id="tabs">Tabs</h3>
@@ -378,41 +378,41 @@
 
 <p>But, if you use a <code class="language-plaintext highlighter-rouge">*</code> glob change it in your EditorConfig, then also need a section <code class="language-plaintext highlighter-rouge">Makefile</code>. The size is just for visibility in the IDE, not how it is stored.</p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[Makefile]</span>
-<span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[Makefile]</span><span class="w">
+</span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
+<span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div></div>
 
 <p>See section at the start of this page on mixing <code class="language-plaintext highlighter-rouge">Makefile</code> with other extensions.</p>
 
 <h4 id="graphql">GraphQL</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.gql]</span>
-<span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.gql]</span><span class="w">
+</span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
+<span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div></div>
 
 <h3 id="markdown">Markdown</h3>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span>
-<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span><span class="w">
+</span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div></div>
 
 <h3 id="html">HTML</h3>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*]</span>
-<span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
-<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-<span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
-<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*]</span><span class="w">
+</span><span class="py">charset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">utf-8</span>
+<span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="py">insert_final_newline</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="py">trim_trailing_whitespace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
 </code></pre></div></div>
 
 <p>For Jekyll markdown support, you could add this. But only if you use the double space at the end of a line to signify a line break.</p>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span>
-<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">false</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[*.md]</span><span class="w">
+</span><span class="py">trim_trailing_whitespace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">false</span>
 </code></pre></div></div>
 
 <h3 id="jekyll">Jekyll</h3>
@@ -423,18 +423,18 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="nn">[*]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
-
-  <span class="nn">[*.{md,html}]</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-
-  <span class="nn">[Makefile]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
+<span class="w">
+  </span><span class="nn">[*.{md,html}]</span><span class="w">
+  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="w">
+  </span><span class="nn">[Makefile]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -447,14 +447,14 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="nn">[*]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
-  <span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
-  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="w">  </span><span class="py">charset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">utf-8</span>
+<span class="w">  </span><span class="py">trim_trailing_whitespace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">  </span><span class="py">insert_final_newline</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -465,9 +465,9 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nn">[*]</span>
-  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
-  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">charset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">utf-8</span>
+<span class="w">  </span><span class="py">insert_final_newline</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -478,39 +478,39 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.editorconfig</code>
-    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># EditorConfig is awesome: https://EditorConfig.org
-</span>
-  <span class="c"># top-most EditorConfig file
-</span>  <span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="c"># Unix-style newlines with a newline ending every file
-</span>  <span class="nn">[*]</span>
-  <span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
-  <span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
-
-  <span class="c"># Matches multiple files with brace expansion notation
-</span>  <span class="c"># Set default charset
-</span>  <span class="nn">[*.{js,py}]</span>
-  <span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
-
-  <span class="c"># 4 space indentation
-</span>  <span class="nn">[*.py]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
-
-  <span class="c"># Tab indentation (no size specified)
-</span>  <span class="nn">[Makefile]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">tab</span>
-
-  <span class="c"># Indentation override for all JS under lib directory
-</span>  <span class="nn">[lib/**.js]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
-
-  <span class="c"># Matches the exact files either package.json or .travis.yml
-</span>  <span class="nn">[{package.json,.travis.yml}]</span>
-  <span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
-  <span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+    <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c"># EditorConfig is awesome: https://EditorConfig.org
+</span><span class="w">
+  </span><span class="c"># top-most EditorConfig file
+</span><span class="w">  </span><span class="py">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="c"># Unix-style newlines with a newline ending every file
+</span><span class="w">  </span><span class="nn">[*]</span><span class="w">
+  </span><span class="py">end_of_line</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">lf</span>
+<span class="w">  </span><span class="py">insert_final_newline</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">
+  </span><span class="c"># Matches multiple files with brace expansion notation
+</span><span class="w">  </span><span class="c"># Set default charset
+</span><span class="w">  </span><span class="nn">[*.{js,py}]</span><span class="w">
+  </span><span class="py">charset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">utf-8</span>
+<span class="w">
+  </span><span class="c"># 4 space indentation
+</span><span class="w">  </span><span class="nn">[*.py]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">4</span>
+<span class="w">
+  </span><span class="c"># Tab indentation (no size specified)
+</span><span class="w">  </span><span class="nn">[Makefile]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">tab</span>
+<span class="w">
+  </span><span class="c"># Indentation override for all JS under lib directory
+</span><span class="w">  </span><span class="nn">[lib/**.js]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
+<span class="w">
+  </span><span class="c"># Matches the exact files either package.json or .travis.yml
+</span><span class="w">  </span><span class="nn">[{package.json,.travis.yml}]</span><span class="w">
+  </span><span class="py">indent_style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">space</span>
+<span class="w">  </span><span class="py">indent_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">2</span>
 </code></pre></div>    </div>
   </li>
 </ul>
