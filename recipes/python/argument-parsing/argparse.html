@@ -235,7 +235,7 @@
 
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">Tool Manager</span><span class="sh">"</span><span class="p">)</span>
-<span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="sh">"</span><span class="s">command</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Available commands</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="sh">"</span><span class="s">subcommand</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Available commands</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="n">greet_parser</span> <span class="o">=</span> <span class="n">subparsers</span><span class="p">.</span><span class="nf">add_parser</span><span class="p">(</span><span class="sh">"</span><span class="s">greet</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Say hello</span><span class="sh">"</span><span class="p">)</span>
 <span class="n">greet_parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">--name</span><span class="sh">"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">User</span><span class="sh">"</span><span class="p">)</span>
@@ -246,6 +246,39 @@
 <span class="n">calc_parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">y</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Then use basic if-else approach:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">args</span><span class="p">.</span><span class="n">subcommand</span> <span class="o">==</span> <span class="sh">"</span><span class="s">greet</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Hello, </span><span class="si">{</span><span class="n">args</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">args</span><span class="p">.</span><span class="n">subcommand</span> <span class="o">==</span> <span class="sh">"</span><span class="s">calc</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">args</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">args</span><span class="p">.</span><span class="n">y</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">parser</span><span class="p">.</span><span class="nf">print_help</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Or function mapping for cleaner, automated, and scalable approach:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. Define the logic in functions
+</span><span class="k">def</span> <span class="nf">handle_greet</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Hello, </span><span class="si">{</span><span class="n">args</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">handle_calc</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Result: </span><span class="si">{</span><span class="n">args</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">args</span><span class="p">.</span><span class="n">y</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 2. Map the functions to the parsers
+</span><span class="n">greet_parser</span><span class="p">.</span><span class="nf">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">handle_greet</span><span class="p">)</span>
+<span class="n">calc_parser</span><span class="p">.</span><span class="nf">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">handle_calc</span><span class="p">)</span>
+
+<span class="c1"># 3. Parse and execute
+</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="sh">"</span><span class="s">func</span><span class="sh">"</span><span class="p">):</span>
+    <span class="n">args</span><span class="p">.</span><span class="nf">func</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">parser</span><span class="p">.</span><span class="nf">print_help</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>Sample usage:</p>

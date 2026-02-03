@@ -70,7 +70,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser(description="Tool Manager")
-subparsers = parser.add_subparsers(dest="command", help="Available commands")
+subparsers = parser.add_subparsers(dest="subcommand", help="Available commands")
 
 greet_parser = subparsers.add_parser("greet", help="Say hello")
 greet_parser.add_argument("--name", default="User")
@@ -81,6 +81,41 @@ calc_parser.add_argument("x", type=int)
 calc_parser.add_argument("y", type=int)
 
 args = parser.parse_args()
+```
+
+Then use basic if-else approach:
+
+```python
+if args.subcommand == "greet":
+    print(f"Hello, {args.name}!")
+elif args.subcommand == "calc":
+    result = args.x + args.y
+    print(f"Result: {result}")
+else:
+    parser.print_help()
+```
+
+Or function mapping for cleaner, automated, and scalable approach:
+
+```python
+# 1. Define the logic in functions
+def handle_greet(args):
+    print(f"Hello, {args.name}!")
+
+def handle_calc(args):
+    print(f"Result: {args.x + args.y}")
+
+# 2. Map the functions to the parsers
+greet_parser.set_defaults(func=handle_greet)
+calc_parser.set_defaults(func=handle_calc)
+
+# 3. Parse and execute
+args = parser.parse_args()
+
+if hasattr(args, "func"):
+    args.func(args)
+else:
+    parser.print_help()
 ```
 
 Sample usage:
