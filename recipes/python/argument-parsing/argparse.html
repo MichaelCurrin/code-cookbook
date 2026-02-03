@@ -189,6 +189,44 @@
   </li>
 </ul>
 
+<h2 id="handle-passwords-and-api-keys">Handle passwords and API keys</h2>
+
+<p>Setting <code class="language-plaintext highlighter-rouge">nargs='?'</code> means the value is optional. Setting <code class="language-plaintext highlighter-rouge">const=True</code> triggers if <code class="language-plaintext highlighter-rouge">-p</code> is present but no value is provided.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">argparse</span>
+<span class="kn">import</span> <span class="n">getpass</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">CLI with Secure Password Input</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span>
+        <span class="sh">'</span><span class="s">-p</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">--password</span><span class="sh">'</span><span class="p">,</span> 
+        <span class="n">nargs</span><span class="o">=</span><span class="sh">'</span><span class="s">?</span><span class="sh">'</span><span class="p">,</span> 
+        <span class="n">const</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> 
+        <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Password for authentication (leave blank to be prompted)</span><span class="sh">"</span>
+    <span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
+
+    <span class="n">password</span> <span class="o">=</span> <span class="n">args</span><span class="p">.</span><span class="n">password</span>
+
+    <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c1"># Flag was used but no password provided: -p
+</span>        <span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">.</span><span class="nf">getpass</span><span class="p">(</span><span class="sh">"</span><span class="s">Enter Password: </span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">password</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># Flag was not used at all
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">No password provided. Proceeding as guest...</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Password was provided directly: -pMY_PASSWORD
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Warning: Providing password in CLI is insecure!</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Password set to: </span><span class="si">{</span><span class="sh">'</span><span class="s">*</span><span class="sh">'</span> <span class="o">*</span> <span class="nf">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">main</span><span class="p">()</span>
+</code></pre></div></div>
+
         
     </div>
 </article>
