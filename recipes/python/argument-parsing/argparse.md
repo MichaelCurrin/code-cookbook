@@ -58,3 +58,46 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+
+## Subparsers
+
+For multiple sub-commands to keep the arguments separate.
+
+
+```python
+import argparse
+
+
+parser = argparse.ArgumentParser(description="Tool Manager")
+subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+greet_parser = subparsers.add_parser("greet", help="Say hello")
+greet_parser.add_argument("--name", default="User")
+
+# 3. Add a 'calc' sub-command (with totally different arguments)
+calc_parser = subparsers.add_parser("calc", help="Add numbers")
+calc_parser.add_argument("x", type=int)
+calc_parser.add_argument("y", type=int)
+
+args = parser.parse_args()
+```
+
+Sample usage:
+
+```sh
+# Main help menu.
+python script.py --help
+
+# Help specific to the 'greet' sub-command.
+python script.py greet --help
+
+# Run the 'greet' sub-command.
+python script.py greet --name Alice
+
+# Help specific to the 'calc' sub-command.
+python script.py calc --help
+
+# Run the 'calc' sub-command.
+python script.py calc 10 5
+```
