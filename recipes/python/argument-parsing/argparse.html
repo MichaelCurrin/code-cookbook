@@ -227,6 +227,45 @@
     <span class="nf">main</span><span class="p">()</span>
 </code></pre></div></div>
 
+<h2 id="subparsers">Subparsers</h2>
+
+<p>For multiple sub-commands to keep the arguments separate.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">argparse</span>
+
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">Tool Manager</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="sh">"</span><span class="s">command</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Available commands</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">greet_parser</span> <span class="o">=</span> <span class="n">subparsers</span><span class="p">.</span><span class="nf">add_parser</span><span class="p">(</span><span class="sh">"</span><span class="s">greet</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Say hello</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">greet_parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">--name</span><span class="sh">"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">User</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 3. Add a 'calc' sub-command (with totally different arguments)
+</span><span class="n">calc_parser</span> <span class="o">=</span> <span class="n">subparsers</span><span class="p">.</span><span class="nf">add_parser</span><span class="p">(</span><span class="sh">"</span><span class="s">calc</span><span class="sh">"</span><span class="p">,</span> <span class="nb">help</span><span class="o">=</span><span class="sh">"</span><span class="s">Add numbers</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">calc_parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">x</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">calc_parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">y</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Sample usage:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Main help menu.</span>
+python script.py <span class="nt">--help</span>
+
+<span class="c"># Help specific to the 'greet' sub-command.</span>
+python script.py greet <span class="nt">--help</span>
+
+<span class="c"># Run the 'greet' sub-command.</span>
+python script.py greet <span class="nt">--name</span> Alice
+
+<span class="c"># Help specific to the 'calc' sub-command.</span>
+python script.py calc <span class="nt">--help</span>
+
+<span class="c"># Run the 'calc' sub-command.</span>
+python script.py calc 10 5
+</code></pre></div></div>
+
         
     </div>
 </article>
