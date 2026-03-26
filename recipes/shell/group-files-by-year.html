@@ -175,6 +175,18 @@
 
 <p>Note the check at the start because in Bash (not ZSH), if <code class="language-plaintext highlighter-rouge">*.md</code> does not match any files then it uses <code class="language-plaintext highlighter-rouge">'*.md'</code> as a string literal.</p>
 
+<p>Reverse the above operation:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">set</span> <span class="nt">-e</span>
+
+<span class="k">for </span>FILE <span class="k">in</span> <span class="k">*</span>/<span class="k">*</span>.md<span class="p">;</span> <span class="k">do</span>
+    <span class="o">[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> <span class="o">]</span> <span class="o">||</span> <span class="k">continue
+    </span><span class="nb">mv</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> <span class="nb">.</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
         
     </div>
 </article>

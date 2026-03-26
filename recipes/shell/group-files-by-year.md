@@ -18,3 +18,16 @@ done
 ```
 
 Note the check at the start because in Bash (not ZSH), if `*.md` does not match any files then it uses `'*.md'` as a string literal.
+
+Reverse the above operation:
+
+```sh
+#!/bin/bash
+
+set -e
+
+for FILE in */*.md; do
+    [ -f "$FILE" ] || continue
+    mv "$FILE" .
+done
+```
