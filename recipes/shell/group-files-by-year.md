@@ -31,3 +31,9 @@ for FILE in */*.md; do
     mv "$FILE" .
 done
 ```
+
+Delete the subfolders:
+
+```sh
+find . -type d -empty -delete
+```
