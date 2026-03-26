@@ -9,12 +9,12 @@
 
     <meta property="og:site_name" content="Code Cookbook" />
 
-    <title>Nginx | Code Cookbook</title>
+    <title>Group files by year | Code Cookbook</title>
 
-    <meta property="og:title" content="Nginx" />
+    <meta property="og:title" content="Group files by year" />
 
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Nginx" />
+    <meta property="twitter:title" content="Group files by year" />
 <meta name="generator" content="Jekyll v4.4.1" />
 
 <meta property="og:locale" content="en_US" />
@@ -26,16 +26,16 @@
 
 
 
-<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/nginx/" />
-<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/nginx/" />
+<link rel="canonical" href="https://michaelcurrin.github.io/code-cookbook/recipes/shell/group-files-by-year.html" />
+<meta property="og:url" content="https://michaelcurrin.github.io/code-cookbook/recipes/shell/group-files-by-year.html" />
 
 
 <script type="application/ld+json">
 {
     "name":        "Code Cookbook",
     "description": "Reusable code patterns which you can use as reference or copy to your project",
-    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/nginx/",
-    "headline":    "Nginx",
+    "url":         "https://michaelcurrin.github.io/code-cookbook/recipes/shell/group-files-by-year.html",
+    "headline":    "Group files by year",
     "@type":       "WebSite",
     "@context":    "https://schema.org",
     "author": {
@@ -88,11 +88,11 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/nginx/index.md">
+            <a id="github-edit" href="https://github.com/MichaelCurrin/code-cookbook/edit/master/recipes/shell/group-files-by-year.md">
     📝 <span>Edit page</span>
 </a>
 
-            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/nginx/">
+            <a id="github-add" href="https://github.com/MichaelCurrin/code-cookbook/new/master/recipes/shell/">
     ➕ <span>Add page</span>
 </a>
 
@@ -105,11 +105,7 @@
             
 
 
-<span class="logo-medium"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NGINX</title><path fill="currentColor" d="M12 0L1.605 6v12L12 24l10.395-6V6L12 0zm6 16.59c0 .705-.646 1.29-1.529 1.29-.631 0-1.351-.255-1.801-.81l-6-7.141v6.66c0 .721-.57 1.29-1.274 1.29H7.32c-.721 0-1.29-.6-1.29-1.29V7.41c0-.705.63-1.29 1.5-1.29.646 0 1.38.255 1.83.81l5.97 7.141V7.41c0-.721.6-1.29 1.29-1.29h.075c.72 0 1.29.6 1.29 1.29v9.18H18z"/></svg></span>
-
-
-
-            <span>Nginx</span>
+            <span>Group files by year</span>
         </h1>
 
         
@@ -136,8 +132,20 @@
         
 
         
-            <a href="/code-cookbook/recipes/nginx/" class="underline">
-                Nginx
+            
+            <a href="/code-cookbook/recipes/shell/">
+    Shell
+</a>
+
+        
+     
+        
+            /
+        
+
+        
+            <a href="/code-cookbook/recipes/shell/group-files-by-year.html" class="underline">
+                Group files by year
             </a>
         
      
@@ -149,433 +157,23 @@
 
     <div class="post-content">
         
-            <h2>Topics</h2>
+            <p>Given Markdown files with date in title, move them into subfolders using the year.</p>
 
-<div class="flex-container">
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div>
+<p>e.g. <code class="language-plaintext highlighter-rouge">2019-02-03.md</code> -&gt; <code class="language-plaintext highlighter-rouge">2019/2019-02-03.md</code></p>
 
-<br>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
+<span class="nb">set</span> <span class="nt">-e</span>
 
-    <h2>Pages</h2>
+<span class="k">for </span>FILE <span class="k">in</span> <span class="k">*</span>.md<span class="p">;</span> <span class="k">do</span>
+    <span class="o">[</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> <span class="o">]</span> <span class="o">||</span> <span class="k">continue
+    </span><span class="nv">FOLDER_NAME</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> | <span class="nb">cut</span> <span class="nt">-c</span> 1-4<span class="si">)</span>
+    <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$FOLDER_NAME</span><span class="s2">"</span>
+    <span class="nb">mv</span> <span class="s2">"</span><span class="nv">$FILE</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$FOLDER_NAME</span><span class="s2">/"</span>
+<span class="k">done</span>
+</code></pre></div></div>
 
-    
-
-<ul class="page-list">
-    </ul>
-
-    <br>
-
-    
-    
-        <h2>Content</h2>
-
-        <ul>
-  <li><a href="https://www.nginx.com/">Homepage</a></li>
-  <li><a href="https://en.wikipedia.org/wiki/Nginx">Wikipedia</a></li>
-</ul>
-    
+<p>Note the check at the start because in Bash (not ZSH), if <code class="language-plaintext highlighter-rouge">*.md</code> does not match any files then it uses <code class="language-plaintext highlighter-rouge">'*.md'</code> as a string literal.</p>
 
         
     </div>
