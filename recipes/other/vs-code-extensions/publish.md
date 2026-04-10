@@ -20,24 +20,31 @@ description: How to publish a VS Code extension to the Marketplace using Azure D
 
 ## Manage tokens
 
+See also this [guide](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in the Azure help.
+
 1. Login to [Azure DevOps][].
-1. Click your icon.
-1. Click the 3 dots menu to expand.
-1. Click _User Settings_.
+1. See list of organizations [aex.dev.azure.com/me](https://aex.dev.azure.com/me).
+1. Use the default organization or choose one for your project (make it if needed).
+1. You'll land at a page like `https://dev.azure.com/myuser/My%20Project`.
+1. Click the cog in the top right.
 1. Click _Personal access tokens_.
 
 Then edit an existing token or make a new one using steps below:
 
 1. Click _New Token_. 
-    1. Give it a _Name_.
+    1. Give it a _Name_ based on your extension.
     1. Set _Organization_ to **All accessible organizations**.
     1. Optionally extend the expiration date.
     1. Set _Scopes_.
         1. Use _Custom defined_.
-        1. Click _Show more scopes_.
+        1. Click _Show all scopes_ athe bototm.
         1. Under _Marketplace_, tick the **Manage** scope.
     1. Click _Create_.
-1. Copy the token value. **Keep this value secret**. If you need the token again, you have to make a whole _new_ token - you can't regenerate the value for an existing token.
+1. Copy the token value. Keep this value **secret**. If you need the token again, you have to make a whole _new_ token - you can't regenerate the value for an existing token.
+
+Now you can use the token in the CLI to publish your extension in the section below.
+
+### Fix error
 
 I sometimes get a _Segmentation fault_ error from `vsce publish`. This was fixed like this:
 
@@ -49,16 +56,16 @@ I sometimes get a _Segmentation fault_ error from `vsce publish`. This was fixed
 
 ## Create and publish release
 
-Install `vsce` at the project level. This will be in `package.json` of the project so is easy to control.
+Install `vsce` in your project as a dev dependency.
 
 ```sh
 $ npm install -D vsce
 $ npx vsce --version
 ```
 
-You can install globally instead with `-g`, but this makes it harder to manage across projects and machines of devs.
+You can install globally instead with `-g`, but this makes it harder to manage across projects and across machines of devs.
 
-Publish your extension using the CLI.
+Publish your extension using the CLI:
 
 1. Check which files will be packaged.
     ```sh
