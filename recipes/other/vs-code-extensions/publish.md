@@ -40,7 +40,7 @@ Then edit an existing token or make a new one using steps below:
         1. Click _Show all scopes_ athe bototm.
         1. Under _Marketplace_, tick the **Manage** scope.
     1. Click _Create_.
-1. Copy the token value. Keep this value **secret**. If you need the token again, you have to make a whole _new_ token - you can't regenerate the value for an existing token.
+1. Copy the token value. Keep this value **secret**. This is only visible once but you can click Regenerate to get a new value for the same token.
 
 Now you can use the token in the CLI to publish your extension in the section below.
 
